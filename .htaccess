@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /citest01
+
+
+RewriteCond %{REQUESS_FILENAME} !-f
+RewriteCond %{REQUESS_FILENAME} !-d
+RewriteCond $1 !^(index\.php|assets|css|js|images|fonts|plugins)
+RewriteRule ^(.*)$ /citest01/index.php?/$1 [L] 
+
