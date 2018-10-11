@@ -142,12 +142,21 @@
 
     <?php //angular ?>
     <script src="<?php echo base_url('assets/js/angular/angular.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/angular-animate.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/angular-touch.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/angular-sanitize.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/ui-bootstrap-tpls-3.0.5.min.js') ?>"></script> 
     <script src="<?php echo base_url('assets/js/angular/angular-filter.min.js') ?>"></script> 
     <script src="<?php echo base_url('assets/js/angular/app.js') ?>"></script> 
     <script src="<?php echo base_url('assets/js/angular/loginController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/productController.js') ?>"></script> 
     <script src="<?php echo base_url('assets/js/angular/indexService.js') ?>"></script> 
-    <script src="<?php echo base_url('assets/js/angular/dynamicFilter.js') ?>"></script> 
+    <script src="<?php echo base_url('assets/js/angular/dynamicFilter.js') ?>"></script>
+
+    <?php //plugins seekbar ?> 
+    <script src="<?php echo base_url('assets/plugins/seekbar/rzslider.min.js') ?>"></script> 
+    
+    
 
     
 

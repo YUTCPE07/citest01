@@ -10,17 +10,18 @@
 
 	<title><?php echo $title ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom.css'); ?>">
 
 	<!-- font -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/fontawesome-free-5.3.1-web/css/all.min.css'); ?>" >
 
 	<!-- template from bootstrap4(freelancer) -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/magnific-popup.css'); ?>">
-  <!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/css/freelancer.min.css'); ?>" > -->
+	<link rel="stylesheet" type="text/css" 
+	href="<?php echo base_url('assets/plugins/seekbar/rzslider.min.css'); ?>">
 
   
-
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom.css'); ?>">
+	
 </head>
 <style type="text/css">
     .img_login_facebook:hover {
