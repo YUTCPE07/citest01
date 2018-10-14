@@ -6,10 +6,11 @@ class Main_model extends CI_Model {
     // Select user records
     // $this->db->select('*');
     $sql = 'SELECT hilight_coupon.coup_CouponID, hilight_coupon.coup_Name, hilight_coupon.coup_ImagePath, 
-            hilight_coupon.coup_Image, hilight_coupon.coup_Price, 
+            hilight_coupon.coup_Image, hilight_coupon.coup_Price,hilight_coupon.coup_Description,
+            hilight_coupon.coup_CreatedDate, 
             mi_brand.path_logo, mi_brand.logo_image, mi_brand.category_brand 
             FROM hilight_coupon INNER JOIN mi_brand 
-            ON hilight_coupon.coup_CouponID=mi_brand.brand_Id';
+            ON hilight_coupon.coup_CouponID=mi_brand.brand_Id ORDER BY hilight_coupon.coup_CreatedDate DESC';
     $q = $this->db->query($sql);
     $results = $q->result_array();
 
@@ -23,6 +24,22 @@ class Main_model extends CI_Model {
   	$q = $this->db->query($sql);
   	$results = $q->result_array();
    	return $results;
+  }
+
+  function getLookupCoupon($id){
+    // Select user records
+    // $this->db->select('*');
+    $sql = 'SELECT hilight_coupon.coup_CouponID, hilight_coupon.coup_Name, hilight_coupon.coup_ImagePath, 
+            hilight_coupon.coup_Image, hilight_coupon.coup_Price,hilight_coupon.coup_Description,
+            hilight_coupon.coup_CreatedDate, 
+            mi_brand.path_logo, mi_brand.logo_image, mi_brand.category_brand 
+            FROM hilight_coupon INNER JOIN mi_brand 
+            ON hilight_coupon.coup_CouponID=mi_brand.brand_Id WHERE hilight_coupon.coup_CouponID ='.$id;
+    $q = $this->db->query($sql);
+    $results = $q->result_array();
+
+    // echo $results;
+    return $results;
   }
 
 }

@@ -187,12 +187,20 @@
     <script src="<?php echo base_url('assets/js/angular/indexService.js') ?>"></script> 
     <script src="<?php echo base_url('assets/js/angular/dynamicFilter.js') ?>"></script>
 
-    <?php //plugins seekbar ?> 
+    <?php //plugins ?> 
+    <?php //view product filter slider price ?> 
     <script src="<?php echo base_url('assets/plugins/seekbar/rzslider.min.js') ?>"></script> 
-    <?php //plugins slierBoxLayout ?> 
-    <script src="<?php echo base_url('assets/plugins/slick_slideLayout/slick.min.js') ?>"></script> 
-    <script src="<?php echo base_url('assets/plugins/slick_slideLayout/custom.js') ?>"></script> 
-    
+    <?php //view product filter slider price ?> 
+    <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/slick.min.js') ?>"></script>  -->
+    <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/custom.js') ?>"></script> -->
+    <?php //view product user select calender jsCalendar_custom Load on lookup ?>  
+
+
+
+
+
+
+
     <script src="<?php echo base_url('assets/js/custom.js') ?>"></script> 
   </body>
 

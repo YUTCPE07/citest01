@@ -1,18 +1,21 @@
-<img class="d-block w-100" src="https://picsum.photos/900/500?random&t=1" alt="First slide">
+<?php //print_r($db)  ?>
+<?php //echo $db['coup_ImagePath'] . $db['coup_Image'] ?>
+
+<img class="d-block ml-auto mr-auto shadow" src="upload/<?php echo $db['coup_ImagePath'] . $db['coup_Image'] ?>" alt="First slide">
 <div class="container">
-	<div class="d-flex flex-row-reverse pt-5">
+	<div class="d-flex flex-row-reverse p-5 ">
 		<button class="btn btn-primary ml-5">แชร์</button>
 		<button class="btn btn-primary">ชื่นชอบ</button>
 	</div>
 		<div class="row">
-			<div class="col-md-2 w-100 ">
-				<img class="d-block w-100" src="http://placehold.it/400x400" alt="First slide">
+			<div class="col-md-2 ">
+				<img class="d-block w-100 shadow" src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
 			</div>
 			<div class="col-md-10 w-100">
 				<div class="row">
-					<div class="col-md-12"><h1>KAAN SHOW</h1></div>
+					<div class="col-md-12"><h1><?php echo $db['coup_Name']; ?></h1></div>
 					<div class="col-md-12">
-						<p>ครั้งเเรกของเมืองไทย การเเสดงสดผสมภาพยนต์รูปแบบใหม่............</p>
+						<p class="text-justify"><?php echo $db['coup_Description']; ?></p>
 					</div>
 					<div class="col-md-2 h3">
 						<i class="fas fa-heart text-danger" data-fa-transform="up-1"></i> 2.0k
@@ -28,12 +31,12 @@
 				</div>
 			</div>
 		</div>
-	<hr>
+	<hr class="pb-3">
 </div>
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<?php //row 1 ?>
 			<div class="row">
 				<div class="col-6">
@@ -80,14 +83,14 @@
 			</div>
 			<?php //end row1 ?>
 			<?php //row 2 ?>
-			<div class="row">
+			<div class="row pt-3">
 				<h3>ไฮไลท์</h3>
 				<p class="lead">เว็บไซต์ที่รวบรวมทุกเรื่องราวเกี่ยวกับผม และจะช่วยให้ผมคุณสวยได้ในทุกๆวัน ทุกเรื่องราวเกี่ยวกับผม การดูแลผมอย่างถูกวิธี ไอเดียการทำผมทรงต่างๆ ให้ผมคุณสวยสุขภาพดีทุกวัน ประเภท: เว็บไซต์ที่รวมเรื่องผม, พบข้อมูลจากผู้เชียวชาญ, เลือกทรงผมให้เหมาะกับคุณ</p>
 			</div>
 			<div class="row justify-content-center pt-3 pb-3">
 				<img src="http://placehold.it/600x400">
 			</div>
-			<div class="row">
+			<div class="row pt-3">
 				<h3 class="col-12">โปรโมชั่นบัตรราคาพิเศษ</h3>
 				<p class="lead col-12">Sky Zone จาก 2,500 บาท เหลือ 799 บาท ลด 68%</p>
 				<p class="lead col-12">Ocean/Clound Zone จาก 3,000 บาท เหลือ 1,199 บาท ลด 60%</p>
@@ -96,45 +99,45 @@
 			<div class="row justify-content-center pt-3 pb-3">
 				<img src="http://placehold.it/600x400">
 			</div>
-			<div class="row">
+			<div class="row pt-3">
 				<h3 class="col-12">เวลาทำการ</h3>
 				<p class="lead col-12">อังคาร - อาทิตย์ เวลา 10:00 - 20:00 (*หยุดทุกวันจันทร์)</p>
 			</div>
-			<div class="row">
+			<div class="row pt-3">
 				<h3 class="col-12">วิธีการจอง</h3>
 				<p class="col-12">1. โทรจองรอบที่นั่งที่ Kaan Show โทร 02-222-2928 </p>
 				<p class="col-12">2. เเจ้งว่าเป็นลูกค้า MemberIn</p>
 				<p class="col-12">3. เเจ้ง วันเเละรอบที่ต้องการจอง</p>
 				<p class="col-12">4. เเจ้ง รหัสการใช้สิทธิ์ 10 ตัวอักษร และชื่อของท่าน</p>
 			</div>
-			<div class="row">
+			<div class="row pt-3">
 				<h3 class="col-12">ที่ตั้ง</h3>
 				<p class="lead col-12"> 9822 ถนน สาทรเหนือ ซอย สาทร 12 แขวง สีลม เขต บางรัก กรุงเทพมหานคร 10500</p>
 			</div>
 			<div class="row justify-content-center pt-3 pb-3">
 				<img class="col-12" src="http://placehold.it/600x400">
 			</div>
-			<div class="row">
+			<div class="row pt-3">
 				<h3 class="col-12">การเดินทาง</h3>
 				<div class="row justify-content-center">
 					<img src="http://placehold.it/600x400">
 					<img src="http://placehold.it/600x400">
 				</div>
 			</div>
-			<div class="row">
+			<div class="row pt-3">
 				<h3 class="col-12">ติดต่อ</h3>
 				<p class="col-12 h4 text-primary"><strong class="text-gray-dark">โทร</strong> 02-222-1334</p>
 				
 			</div>
-			<div class="row">
+			<div class="row pt-3">
 				<h3 class="col-12">ที่มา</h3>
-				<a class="col-12 h3" href="/">
+				<a class="col-12 h4" href="/">
 					<i class="fas fa-globe mr-3 text-info"></i><strong>www.website.com</strong>
 				</a>
-				<a class="col-12 h3" href="/">
+				<a class="col-12 h4" href="/">
 					<i class="fab fa-facebook-square mr-3 text-blue"></i><strong>www.facebook.com</strong>
 				</a>
-				<a class="col-12 h3" href="/">
+				<a class="col-12 h4" href="/">
 					<i class="fab fa-youtube mr-3 text-danger"></i><strong>www.youtube.com</strong>
 				</a>
 				
@@ -145,8 +148,22 @@
 			<?php //end row2 ?>
 		</div>
 		<?php //tab controller ,select time, select date, selectzone, show price, addtocart, buynow ?>
-		<div class="col-md-3 ">
-			
+		<div class="col-md-4 ">
+			<div class="row">
+				<div id="my-calendar" class="blue material-theme" ></div>
+				<!-- Outputs -->
+				Day click : <br>
+				<input class="form-control" id="my-input-a"><br>
+				Month change : <br>
+				<input class="form-control" id="my-input-b"><br>
+			</div>
+
+
 		</div>
 	</div>
 </div>
+
+<?php //view product user select calender ?>  
+<script src="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.js') ?>"></script> 
+<script src="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.lang.uk.js') ?>"></script>
+<script src="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar_custom.js') ?>"></script>

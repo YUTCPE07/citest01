@@ -136,7 +136,7 @@
 				</div> -->
 
 				<!-- test01 -->
-				<div class="d-flex justify-content-center">
+				<div class="d-flex justify-content-center mb-3">
 					<button class="btn btn-primary mr-auto" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
 			        Previous
 			    	</button>
@@ -144,7 +144,7 @@
 				    <h5>/</h5>
 				    <h5>{{pageAfterFilter}}</h5> 
 				    <button class="btn btn-primary ml-auto"  ng-click="currentPage=currentPage+1" 
-			    			ng-hide="currentPage+1 >= pageAfterFilter">
+			    			ng-disabled="currentPage+1 >= pageAfterFilter">
 				        Next
 				    </button>
 					<!-- <ul class="pagination">

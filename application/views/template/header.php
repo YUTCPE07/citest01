@@ -22,6 +22,9 @@
 		href="<?php echo base_url('assets/plugins/slick_slideLayout/slick-theme.css'); ?>">
 	<link rel="stylesheet" type="text/css" 
 		href="<?php echo base_url('assets/plugins/slick_slideLayout/slick.css'); ?>">
+	<link rel="stylesheet" type="text/css" 
+		href="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.css'); ?>">
+
 	<!-- font -->
    <!--  <link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/plugins/fontawesome-free-5.3.1-web/css/all.min.css'); ?>" > -->
    <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
@@ -34,7 +37,8 @@
 </head>
 
 <body id="page-top">
-
+	<?php //for navbar fix ?>
+	<div style="padding-bottom: 72px; "></div>
     
 
     
