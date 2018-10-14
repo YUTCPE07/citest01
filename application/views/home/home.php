@@ -1,4 +1,34 @@
 <?php //img silde show in home ?>
+<style type="text/css">
+  .testDiv{
+    background: #fff;
+    color: #3498db;
+    font-size: 36px;
+    line-height: 100px;
+    margin: 10px;
+    padding: 2%;
+    position: relative;
+    text-align: center;
+  }
+
+  .action{
+  display:block;
+  margin:100px auto;
+  width:100%;
+  text-align:center;
+}
+.action a {
+  display:inline-block;
+  padding:5px 10px; 
+  background:#f30;
+  color:#fff;
+  text-decoration:none;
+}
+.action a:hover{
+  background:#000;
+}
+</style>
+
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -39,6 +69,46 @@
   </div>
 </div>
 
+<!-- <div class="main">
+  <div class="slider slider-for">
+    <div><h3>1</h3></div>
+    <div><h3>2</h3></div>
+    <div><h3>3</h3></div>
+    <div><h3>4</h3></div>
+    <div><h3>5</h3></div>
+  </div>
+  <div class="slider slider-nav">
+    <div class="bg-danger"><h3>1</h3></div>
+    <div class="bg-danger"><h3>2</h3></div>
+    <div class="bg-danger"><h3>3</h3></div>
+    <div class="bg-danger"><h3>4</h3></div>
+    <div class="bg-danger"><h3>5</h3></div>
+  </div>
+  <div class="action">
+    <a href="#" data-slide="3">go to slide 3</a>
+    <a href="#" data-slide="4">go to slide 4</a>
+    <a href="#" data-slide="5">go to slide 5</a>
+  </div>
+</div> -->
+
+<!-- <div class="filtering bg-danger p-5">
+  <div><h3>1</h3></div>
+  <div><h3>2</h3></div>
+  <div><h3>3</h3></div>
+  <div><h3>4</h3></div>
+  <div><h3>5</h3></div>
+  <div><h3>6</h3></div>
+</div>
+<div class="slider slider-nav">
+    <div><h3>1</h3></div>
+    <div><h3>2</h3></div>
+    <div><h3>3</h3></div>
+    <div><h3>4</h3></div>
+    <div><h3>5</h3></div>
+</div> -->
+        
+
+
   
 <div class="container">
   <div class="d-flex">
@@ -51,7 +121,6 @@
 
 <div class="container">
   <div class="row">
-
     <?php //product silde ?>
     <div class="col-md-4 productHover">
       <div class="card shadow mb-3 mt-5" style="max-width: 180rem;" >
@@ -145,7 +214,7 @@
 </div>
 <div>
   
-<div class="mt-5 mb-5 bg-greensmoot text-light">
+<div class="pt-2 pb-5 mt-5 bg-greensmoot text-light">
   <div class="container">
       <h3 class="pt-5 pb-3">แบรนด์แนะนำ</h3>
       <!-- start row -->

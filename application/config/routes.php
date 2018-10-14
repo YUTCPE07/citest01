@@ -6,6 +6,7 @@ $route['api-facebook-login']['POST'] = 'Services/loginfb';
 $route['default_controller'] = 'Dashboard';
 
 $route['product'] = 'Product';
+$route['product/:num'] = 'Product_lookup';
 $route['about'] = 'About';
 
 

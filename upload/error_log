@@ -1,0 +1,2 @@
+[14-Jul-2015 16:21:00 Asia/Bangkok] PHP Fatal error:  Call to a member function FetchRow() on a non-object in /home/memberin/public_html/index.php on line 20
+[14-Jul-2015 16:22:50 Asia/Bangkok] PHP Fatal error:  Call to a member function FetchRow() on a non-object in /home/memberin/public_html/index.php on line 20

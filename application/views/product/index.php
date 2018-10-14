@@ -70,12 +70,13 @@
 			<div class="row">
 				<!-- <div class="col-lg-4 productHover" ng-repeat='product in products | filter:filterProduct'> -->
 				<div class="col-lg-4 productHover" ng-repeat='product in products | filter:filterProduct| startFrom:currentPage*pageSize | limitTo:pageSize'>
-						<div class="card shadow mb-3 mt-5" style="max-width: 180rem;" >
+					<div class="card shadow mb-3 mt-5" style="max-width: 180rem;" >
+						<a href="<?php echo base_Url('product/'); ?>{{product.coup_CouponID}}">
 						<img class="rounded-circle shadow-sm img-responsive logo-brand" 
-						ng-if="product.logo_image != null" ng-src="assets/images/server_img/{{product.path_logo+product.logo_image}}">
+						ng-if="product.logo_image != null" ng-src="upload/{{product.path_logo+product.logo_image}}">
 						<img class="rounded-circle shadow-sm img-responsive logo-brand" 
 						ng-if="product.logo_image == null" ng-src="http://placehold.it/50x50">
-			            <img class="card-img-top" ng-src="assets/images/server_img/{{product.coup_ImagePath+product.coup_Image}}" >
+			            <img class="card-img-top" ng-src="upload/{{product.coup_ImagePath+product.coup_Image}}" >
 			            <div class="text-dark">
 
 			          		<h5 class="card-title m-1">{{product.coup_Name}}</h5>
@@ -100,6 +101,7 @@
 				              		<div class="col-4 text-right"><small>ขายเเล้ว 20</small></div>
 			              	</div>
 			            </div>
+			            </a>
 			        </div>
 			  	</div>
 				</div>
@@ -142,7 +144,7 @@
 				    <h5>/</h5>
 				    <h5>{{pageAfterFilter}}</h5> 
 				    <button class="btn btn-primary ml-auto"  ng-click="currentPage=currentPage+1" 
-			    			ng-disabled="currentPage >= pageAfterFilter">
+			    			ng-hide="currentPage+1 >= pageAfterFilter">
 				        Next
 				    </button>
 					<!-- <ul class="pagination">
