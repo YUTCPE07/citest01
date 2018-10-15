@@ -7,6 +7,7 @@
 	<meta name="description" content="<?php echo $description ?>">
   	<meta name="author" content="<?php echo $author ?>" >
 	<meta name="baseUrl" content="<?php echo base_url(); ?>" >
+	<!-- <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> -->
 	<base href="<?php echo base_url(); ?>" />
 	<!-- <title><?php //echo $title ?></title> -->
 	<title>MemberIn</title>
@@ -18,10 +19,13 @@
 		href="<?php echo base_url('assets/plugins/seekbar/rzslider.min.css'); ?>">
 
 	<!-- plugin -->
+	<?php //notuse ?>
+	<!-- <link rel="stylesheet" type="text/css" 
+		href="<?php //echo base_url('assets/plugins/slick_slideLayout/slick-theme.css'); ?>">
 	<link rel="stylesheet" type="text/css" 
-		href="<?php echo base_url('assets/plugins/slick_slideLayout/slick-theme.css'); ?>">
+		href="<?php //echo base_url('assets/plugins/slick_slideLayout/slick.css'); ?>"> -->
 	<link rel="stylesheet" type="text/css" 
-		href="<?php echo base_url('assets/plugins/slick_slideLayout/slick.css'); ?>">
+		href="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.css'); ?>">
 	<link rel="stylesheet" type="text/css" 
 		href="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.css'); ?>">
 
