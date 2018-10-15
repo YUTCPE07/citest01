@@ -1,0 +1,188 @@
+/*color 
+#21af9a, rgb(33, 175, 154)
+
+
+*/
+/*Set Font*/
+body { font-family: 'Prompt', sans-serif; }
+/*--------------------------*/
+/*Set Color pimiry*/
+	.text-cyan{
+		color: #365899;
+	}
+	.bg-blue {
+		background-color: #365899;
+	}
+
+	.text-blue {
+		color: #365899!important;
+	}
+	.bg-blue {
+		background-color: #365899!important;
+	}
+
+	.text-primary {
+		color: rgb(33, 175, 154)!important;
+	}
+	.bg-primary {
+		background-color: rgb(33, 175, 154)!important;
+	}
+	.btn-primary:focus{
+		box-shadow: none;
+	}
+	.btn-primary:not(:disabled):not(.disabled):active{
+		color: unset;
+	    background-color: unset; 
+	    border-color: unset;
+	}
+	.btn-primary:disabled {
+		cursor: not-allowed;
+	    color: #fff;
+	    background-color: rgb(33, 175, 154);
+	    border-color: rgb(33, 175, 154);
+	}
+
+	a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover{
+		background-color: rgb(33, 175, 154)!important;
+	}
+	.show>.btn-primary.dropdown-toggle {
+		color: white;
+	    background-color: rgb(33, 175, 154); 
+	    border-color: rgb(33, 175, 154);
+	}
+	.show>.btn-primary.dropdown-toggle:focus{
+		box-shadow: unset;
+	}
+
+
+
+/*footer icon social */
+.footerIconSocial {
+	width: 60px;
+	height: 60px;
+	position: relative;
+    top: 5px;
+    cursor: pointer;
+}
+/*--------------------------*/
+
+/*footer backToTop */
+.backToTop {
+	height: 40px;
+	background-color: #f44e4e;
+}
+.backToTop>div>h4{
+	cursor: pointer;
+}
+/*--------------------------*/
+
+/*.btn-primary.disabledฐ*/
+/*--------------------------*/
+
+/*facebook Login*/
+	.img_login_facebook:hover {
+	  	opacity: 0.6;
+	  	cursor: pointer;
+	}	
+/*--------------------------*/
+
+/*product->pageination*/
+
+	.episode-list {
+		margin-left: 0px;
+		list-style: none;
+		padding-left: 0;
+	}
+
+	.episode-list-item {
+	  position: relative;
+	  float: left;
+	  clear: left;
+	}
+
+	.episode-image {
+		width: 60px;
+		float: left;
+		padding: 1px 1px 1px 1px;
+	  border: 1px solid #E8E8EE;
+	  position: relative;
+	  z-index: 2;
+	}
+
+	.play-button-svg {
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 3px;
+		left: 10px;
+	}
+
+	.play-button-svg.ng-enter, .play-button-svg.ng-leave {
+	  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+	}
+
+	.play-button-svg.ng-enter, .play-button-svg.ng-leave.ng-leave-active {
+	  opacity:0;
+	}
+
+	.play-button-svg.ng-leave, .play-button-svg.ng-enter.ng-enter-active {
+	  opacity:1;
+	}
+
+	.level1 {
+		z-index: 1;
+	}
+
+	.level3 {
+		z-index: 3;
+	}
+
+	.pause-button-svg {
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 3px;
+		left: 10px;
+	}
+/*--------------------------*/
+
+/*product->seekbar*/
+	.rzslider .rz-pointer {
+	 	background: #21af9a;
+
+	}
+	.rzslider .rz-pointer.rz-active:after{
+	 	background-color: blue;
+	}
+	.rzslider .rz-selection {
+	 	background: #21af9a;
+	}
+	/*--------------------------*/
+	.bg-greensmoot {
+		background-color: #21af9a;
+	}
+
+	.text-greensmoot {
+		color: #21af9a;
+	}
+
+	.home_brand {
+		width: 100%;
+		height: 100%;
+	}
+
+	.productHover:hover {
+		cursor: pointer;
+		opacity: 0.5;
+	    filter: alpha(opacity=50);
+	}
+
+	.logo-brand {
+		width: 2.5rem;
+		height: 2.5rem;
+		position:absolute;
+		top: -1.5rem;
+		right: 1rem;
+		/*border: 0.5px solid black;*/
+	}
+/*--------------------------*/
