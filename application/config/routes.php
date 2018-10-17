@@ -7,6 +7,8 @@ $route['default_controller'] = 'Dashboard';
 
 $route['product'] = 'Product';
 $route['product/:num'] = 'Product_lookup';
+$route['brand'] = 'Brand';
+$route['brand/:num'] = 'Brand_lookup';
 $route['about'] = 'About';
 
 

@@ -1,0 +1,45 @@
+@media (min-width: 768px){
+
+	/*monile*/
+	.container {
+	    max-width: 1080px;
+	}
+
+	
+	/*.footerIconSocial {
+		width: 120px;
+		height: 120px;
+		position: relative;
+	    top: 2px;
+	    cursor: pointer;
+	}*/
+}
+
+
+@media only screen and (min-width: 768px) {
+	/*desktop*/
+	.divHr {
+		padding-bottom: 30px;
+	
+	}
+	footer>div>div>div>h4 {
+		font-size: 3rem;
+		/*color:blue;*/
+	}
+	footer>div>div>div>div>a {
+		font-size: 1.5rem;
+	}
+
+}
+
+@media only screen and (max-width: 1080px) {
+	/*mobile*/
+	footer>div>div>div>h4 {
+		font-size: 5rem;
+		color:red;
+	}
+	footer>div>div>div>div>a {
+		font-size: 4rem;
+	}
+
+}

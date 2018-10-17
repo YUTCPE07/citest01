@@ -1,7 +1,14 @@
 // $( document ).ready(function() {
 
 // });
-
+// if (window.XMLHttpRequest) {
+//   var xmlHttp = new XMLHttpRequest ()
+//   console.log(xmlHttp)
+// } else {
+//   if (window.ActiveXObject) {
+//     var xmlHttp = new ActiveXObject ("Microsoft.XMLHTTP") ;
+//   }
+// }
 
 
 function backToTop(){

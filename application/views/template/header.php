@@ -7,16 +7,22 @@
 	<meta name="description" content="<?php echo $description ?>">
   	<meta name="author" content="<?php echo $author ?>" >
 	<meta name="baseUrl" content="<?php echo base_url(); ?>" >
+	<?php 
+		//header('Access-Control-Allow-Origin: *');
+		//header("Access-Control-Allow-Methods: GET, OPTIONS");
+	?>
 	<!-- <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> -->
 	<base href="<?php echo base_url(); ?>" />
 	<!-- <title><?php //echo $title ?></title> -->
 	<title>MemberIn</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/bootstrap.min.css'); ?>">
 
 	<!-- template from bootstrap4(freelancer) -->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/magnific-popup.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/magnific-popup.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/bootstrap-grid.css'); ?>">
 	<link rel="stylesheet" type="text/css" 
 		href="<?php echo base_url('assets/plugins/seekbar/rzslider.min.css'); ?>">
+
 
 	<!-- plugin -->
 	<?php //notuse ?>
@@ -35,14 +41,15 @@
     <!-- <link rel="stylesheet" href="<?php //echo base_url('assets/fonts/fonts_google_prompt.css'); ?>" > -->
 
   
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom-button.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/custom-button.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/custom.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/custom_media.css'); ?>">
 	
 </head>
 
 <body id="page-top">
 	<?php //for navbar fix ?>
-	<div style="padding-bottom: 72px; "></div>
+	<div class="divHr"></div>
     
 
     

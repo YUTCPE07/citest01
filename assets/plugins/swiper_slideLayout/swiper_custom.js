@@ -2,8 +2,8 @@
 	function gennerateElemenrtProduct(productObj){
 	// console.log(productObj)
 	return ' '+
-		'<div class="productHover"> '+
-			'<div class="card shadow mt-4" style="max-width: 180rem;" >  '+
+		'<div class="productHover w-100"> '+
+			'<div class="card mt-4" style="max-width: 180rem;" >  '+
 				'<a href="'+baseurl+'/product/'+productObj.coup_CouponID+'">  '+
   					'<img class="rounded-circle shadow-sm img-responsive logo-brand"  '+
     					'src="upload/'+productObj.path_logo+productObj.logo_image+'"> '+
@@ -52,17 +52,17 @@
 	  })
 	}
 
-
 	let getProducts = function(){
 	  return new Promise(function(resolve, reject) {
 	  	$.ajax({
+	  			crossDomain: true,
 			    url: baseurl + 'dashboard/getdataLimit',
 			    type: 'GET',
 			    dataType: 'json',
 			    contentType: "application/json;charset=utf-8",
 		}).done(function(respone,status){
 			// console.log(respone,status)
-	  		console.log('hello')
+	  		// console.log($)
 
 			if(status == "success") resolve(respone)
 		  	else reject('error getDB')
@@ -75,7 +75,7 @@
 // Start for BrandRecommand
 	function gennerateElemenrtBrand(brandObj){
 		// console.log(brandObj)
-		return '<a href="'+baseurl+'brands'+brandObj.brand_id+'"> '+
+		return '<a href="'+baseurl+'brand/'+brandObj.brand_id+'"> '+
 				'<img src="upload/'+brandObj.path_logo+brandObj.logo_image+'" '+
 				'class="rounded img-responsive home_brand shadow" alt="'+brandObj.name+'">'+
 			'</a>';
@@ -126,11 +126,11 @@ getProducts().then(function(respone) {
       slidesPerGroup: 1,
 	  breakpoints: {
 	  	1: {
-	      slidesPerView: 1,
+	      slidesPerView: 2,
 	      slidesPerGroup: 1,
-	      spaceBetween: 30
+	      spaceBetween: 10
 	    },
-	    768: {
+	    1080: {
 	      slidesPerView: 3,
 	      slidesPerGroup: 2,
 	      spaceBetween: 30
@@ -165,11 +165,11 @@ getBrands().then(function(respone) {
       slidesPerGroup: 1,
 	  breakpoints: {
 	  	1: {
-	      slidesPerView: 3,
+	      slidesPerView: 4,
 	      slidesPerGroup: 3,
 	      spaceBetween: 10
 	    },
-	    768: {
+	    1080: {
 	      slidesPerView: 6,
 	      slidesPerGroup: 5,
 	      spaceBetween: 30

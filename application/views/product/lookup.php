@@ -1,15 +1,20 @@
 <?php //print_r($db)  ?>
 <?php //echo $db['coup_ImagePath'] . $db['coup_Image'] ?>
 
-<img class="d-block ml-auto mr-auto shadow" src="upload/<?php echo $db['coup_ImagePath'] . $db['coup_Image'] ?>" alt="First slide">
+<img class="img-fluid d-block ml-auto mr-auto shadow" src="upload/<?php echo $db['coup_ImagePath'] . $db['coup_Image'] ?>" alt="First slide">
 <div class="container">
-	<div class="d-flex flex-row-reverse p-5 ">
-		<button class="btn btn-primary ml-5">แชร์</button>
+	<div class="d-flex flex-row-reverse p-md-5 p-4 ">
+		<button class="btn btn-primary ml-md-5 ml-3">แชร์</button>
 		<button class="btn btn-primary">ชื่นชอบ</button>
 	</div>
 		<div class="row">
-			<div class="col-md-2 ">
-				<img class="d-block w-100 shadow" src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
+			<div class="col-md-2">
+				<img class="img-thumbnail shadow 
+					d-none d-md-block d-lg-block d-xl-block" 
+					src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
+				<img class="img-thumbnail w-50 shadow rounded-circle ml-auto mr-auto mb-3
+					d-block d-md-none d-lg-none d-xl-none"
+					src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
 			</div>
 			<div class="col-md-10 w-100">
 				<div class="row">
@@ -39,45 +44,48 @@
 		<div class="col-md-8">
 			<?php //row 1 ?>
 			<div class="row">
-				<div class="col-6">
-					<div class="row h4">
-						<i class="far fa-clock mr-4" data-fa-transform="down-2"></i>
-						<strong>ระยะเวลากิจกรรม:</strong> 75 นาที
-					</div>
-					<div class="row h4">
-						<i class="fas fa-business-time mr-3" data-fa-transform="down-2"></i>
-						<strong>ระยะเวลาโปร:</strong> วันนี้ - 31/12/61
-					</div>
-					<div class="row h4">
+				<div class="col-12 col-md-6 text-justify">
+					<div class="row h5">
 						<i class="fas fa-stopwatch mr-4" data-fa-transform="down-2"></i>
-						<strong>ระยะเวลากิจกรรม:</strong> 75 นาที
+						<strong>ระยะเวลากิจกรรม: </strong>
+						<h5 class="ml-2">75 นาที</h5>
 					</div>
-					<div class="row h4">
+					<div class="row h5">
+						<i class="fas fa-business-time mr-3" data-fa-transform="down-2"></i>
+						<strong>ระยะเวลาโปร: </strong>
+						<h5 class="ml-2">วันนี้ - 31/12/61</h5>
+					</div>
+					<div class="row h5">
 						<i class="fas fa-infinity mr-3" data-fa-transform="down-2"></i>
-						<strong>สิทธิ์คงเหลือ:</strong>ไม่จำกัด
+						<strong>สิทธิ์คงเหลือ: </strong>
+						<h5 class="ml-2">ไม่จำกัด</h5>
 					</div>
-					<div class="row h4">
+					<div class="row h5">
 						<i class="fas fa-store mr-3" data-fa-transform="down-2"></i>
-						<strong>วันทำการ:</strong>อังคาร - อาทิตย์ <br> 10:00 - 20:00
+						<strong>วันทำการ: </strong>
+						<h5 class="ml-2">อังคาร - อาทิตย์ <br> 10:00 - 20:00</h5>
 					</div>
-
 				</div>
-				<div class="col-6">
-					<div class="row h4">
-						<i class="fas fa-users mr-3"></i><strong>ผู้เข้าร่วมขั้นต่ำ</strong>
-						: 1
+				<div class="col-12 col-md-6 text-justify">
+					<div class="row h5">
+						<i class="fas fa-users mr-3"></i>
+						<strong>ผู้เข้าร่วมขั้นต่ำ: </strong>
+						<h5 class="ml-2">1 ท่าน</h5>
 					</div>
-					<div class="row h4">
-						<i class="far fa-calendar-alt mr-3"></i><strong>ใช้สิทธิ์ได้ถึง</strong>
-						: วันนี้ - 31/12/61 
+					<div class="row h5">
+						<i class="far fa-calendar-alt mr-3"></i>
+						<strong>ใช้สิทธิ์ได้ถึง: </strong>
+						<h5 class="ml-2">วันนี้ - 31/12/61</h5>
 					</div>
-					<div class="row h4">
-						<i class="far fas fa-eraser mr-3"></i><strong>วิธีใช้สิทธิ์</strong>
-						: เเจ้งรหัสการใช้สิทธิ์+ซื้อ 
+					<div class="row h5">
+						<i class="far fas fa-eraser mr-3"></i>
+						<strong>วิธีใช้สิทธิ์: </strong>
+						<h5 class="ml-2">เเจ้งรหัสการใช้สิทธิ์+ซื้อ</h5>
 					</div>
-					<div class="row h4">
-						<i class="fas fa-user-tag mr-3"></i><strong>จำกัดสิทธิ์</strong>
-						: ไม่จำกัด 
+					<div class="row h5">
+						<i class="fas fa-user-tag mr-3"></i>
+						<strong>จำกัดสิทธิ์: </strong>
+						<h5 class="ml-2">ไม่จำกัด</h5>
 					</div>
 				</div>
 			</div>
@@ -88,7 +96,7 @@
 				<p class="lead">เว็บไซต์ที่รวบรวมทุกเรื่องราวเกี่ยวกับผม และจะช่วยให้ผมคุณสวยได้ในทุกๆวัน ทุกเรื่องราวเกี่ยวกับผม การดูแลผมอย่างถูกวิธี ไอเดียการทำผมทรงต่างๆ ให้ผมคุณสวยสุขภาพดีทุกวัน ประเภท: เว็บไซต์ที่รวมเรื่องผม, พบข้อมูลจากผู้เชียวชาญ, เลือกทรงผมให้เหมาะกับคุณ</p>
 			</div>
 			<div class="row justify-content-center pt-3 pb-3">
-				<img src="http://placehold.it/600x400">
+				<img class="col-12" src="http://placehold.it/600x400">
 			</div>
 			<div class="row pt-3">
 				<h3 class="col-12">โปรโมชั่นบัตรราคาพิเศษ</h3>
@@ -97,7 +105,7 @@
 				<p class="lead col-12">Star Zone จาก 4,000 บาท เหลือ 1,899 บาท ลด 53%</p>
 			</div>
 			<div class="row justify-content-center pt-3 pb-3">
-				<img src="http://placehold.it/600x400">
+				<img class="col-12" src="http://placehold.it/600x400">
 			</div>
 			<div class="row pt-3">
 				<h3 class="col-12">เวลาทำการ</h3>
@@ -120,8 +128,8 @@
 			<div class="row pt-3">
 				<h3 class="col-12">การเดินทาง</h3>
 				<div class="row justify-content-center">
-					<img src="http://placehold.it/600x400">
-					<img src="http://placehold.it/600x400">
+					<img class="col-12" src="http://placehold.it/600x400">
+					<img class="col-12" src="http://placehold.it/600x400">
 				</div>
 			</div>
 			<div class="row pt-3">

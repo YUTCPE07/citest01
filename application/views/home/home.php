@@ -49,13 +49,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="https://picsum.photos/900/500?random&t=1" alt="First slide">
+      <img class="d-block w-100" src="assets/images/test/food2.jpeg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://picsum.photos/900/500?random&t=2" alt="Second slide">
+      <img class="d-block w-100" src="assets/images/test/food2.jpeg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://picsum.photos/900/500?random&t=3" alt="Third slide">
+      <img class="d-block w-100" src="assets/images/test/food2.jpeg" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -132,10 +132,15 @@
       <!-- start row -->
       <div class="container">
           
-          <!-- <a href="#" class="slide-1">Slide 1</a> -->
-          <!-- <a href="#" class="slide-250">Slide 250</a> -->
-          <!-- <a href="#" class="slide-500">Slide 500</a> -->
-        </p>
+          <div class="swiper-container swiperProducts">
+            <div class="swiper-wrapper"></div>
+            <!-- Add Pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <p class="append-buttons"></p>
       </div><!-- end row -->
   </div> <!-- end container-->
 </div> <!-- end bg-greensmoot -->

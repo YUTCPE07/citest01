@@ -70,4 +70,13 @@ class Main_model extends CI_Model {
     return $results;
   }
 
+  function getLookupBrand($id){
+    $sql = 'SELECT  brand_id,path_logo,logo_image,name,company_type,company_name,slogan,category_brand,
+              phone,mobile,fax,email,website,facebook_url,line_id,instragram,tweeter,date_create,date_update
+            FROM mi_brand WHERE brand_id ='.$id;
+    $q = $this->db->query($sql);
+    $results = $q->result_array();
+    return $results;
+  }
+
 }
