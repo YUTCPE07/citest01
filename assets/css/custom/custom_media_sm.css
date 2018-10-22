@@ -15,19 +15,7 @@
 @include media-breakpoint-up(xs) { ... }
 @include media-breakpoint-up(sm) { ... }
 @include media-breakpoint-up(md) { ... }
-@include media-breakpoint-up(lg) { 992px }
+@include media-breakpoint-up(lg) { ... }
 @include media-breakpoint-up(xl) { ... }
 
 */
-
-
-@media only screen and (min-width: 0px){
-	.divHr { padding-bottom: 56px; }
-	/*.swiper-slide { width: 80%!important; }*/
-}
-
-
-@media only screen and (min-width: 992px) {
-	.divHr { padding-bottom: 72px; }
-	/*.swiper-slide { width: unset!important; }*/
-}

@@ -3,13 +3,13 @@
 	// console.log(productObj)
 	return ' '+
 		'<div class="productHover w-100"> '+
-			'<div class="card mt-4" style="max-width: 180rem;" >  '+
-				'<a href="'+baseurl+'/product/'+productObj.coup_CouponID+'">  '+
-  					'<img class="rounded-circle shadow-sm img-responsive logo-brand"  '+
+			'<div class="card mt-4 border border-secondary" style="max-width: 180rem; " >  '+
+				'<a href="'+baseurl+'product/'+productObj.coup_CouponID+'">  '+
+  					'<img class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary"  '+
     					'src="upload/'+productObj.path_logo+productObj.logo_image+'"> '+
   					'<img class="card-img-top" src="upload/'+productObj.coup_ImagePath+productObj.coup_Image+'" > '+
   					'<div class="text-dark"> '+
-        				'<h5 class="card-title text-left m-1">'+productObj.coup_Name+'</h5> '+
+        				'<h5 class="card-title text-left m-1 setHeightCardHeadText">'+productObj.coup_Name+'</h5> '+
             			'<div class="row m-1"> '+
                 		'<div class="col-4"></div> '+
                 		'<div class="col-4 text-right" style="text-decoration: line-through;"><small>3000฿</small></div> '+
@@ -120,35 +120,39 @@ getProducts().then(function(respone) {
   return foreachDatasAnd(respone)
 }).then(function(arrayHtml){
  	var swiper = new Swiper('.swiper-container.swiperProducts', {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      breakpointsInverse: true,
-      slidesPerGroup: 1,
-	  breakpoints: {
-	  	1: {
-	      slidesPerView: 2,
-	      slidesPerGroup: 1,
-	      spaceBetween: 10
+	    slidesPerView: 3,
+	    spaceBetween: 30,
+	    breakpointsInverse: true,
+	    slidesPerGroup: 1,
+	       // centeredSlides: true,
+		breakpoints: {
+		  	1: {
+		      slidesPerView: 1,
+		      slidesPerGroup: 1,
+		      spaceBetween: 10
+		    },
+		    1080: {
+		      slidesPerView: 3,
+		      slidesPerGroup: 2,
+		      spaceBetween: 30
+		    }
+		},
+		autoplay: {
+		    delay: 3000,
+		},
+	    pagination: {
+	        el: '.swiper-pagination',
+	        type: 'fraction',
 	    },
-	    1080: {
-	      slidesPerView: 3,
-	      slidesPerGroup: 2,
-	      spaceBetween: 30
-	    }
-	  },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'fraction',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      virtual: {
-        slides: (function () {
-			return arrayHtml;
-        }()),
-      },
+	    navigation: {
+	        nextEl: '.swiper-button-next',
+	        prevEl: '.swiper-button-prev',
+	    },
+	    virtual: {
+	        slides: (function () {
+				return arrayHtml;
+	        }()),
+	    },
     });
   // console.log(arrayHtml)
 }).catch(function(error){

@@ -1,44 +1,5 @@
 <?php //img silde show in home ?>
-<style type="text/css">
-  .swiper-container {
-      width: 100%;
-      /*height: 300px;*/
-      /*margin: 20px auto;*/
-    }
-    .swiper-slide,.swiperBrand-slide {
-      /*background-color: red;*/
-      text-align: center;
-      /*font-size: 18px;*/
-      /*background: #fff;*/
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-    .append-buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .append-buttons a {
-      display: inline-block;
-      border: 1px solid #007aff;
-      color: #007aff;
-      text-decoration: none;
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin: 0 10px;
-      font-size: 13px;
-    }
-</style>
+
 
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -91,19 +52,26 @@
 
 <?php //echo '<pre>'; ?>
 <?php //print_r($pd_Recommend); ?>
-<div class="container">
+
+
+
+
+
+
+
+
+
+<div class="container content1 p-2">
     <div class="swiper-container swiperProducts">
       <div class="swiper-wrapper"></div>
       <!-- Add Pagination -->
       <!-- <div class="swiper-pagination"></div> -->
       <!-- Add Arrows -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+      <!-- <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div> -->
     </div>
-    <p class="append-buttons">
-    <!-- <a href="#" class="slide-1">Slide 1</a> -->
-    <!-- <a href="#" class="slide-250">Slide 250</a> -->
-    <!-- <a href="#" class="slide-500">Slide 500</a> -->
+    <!-- <p class="append-buttons"> -->
+
   </p>
 </div>
 <!-- <img src="https://picsum.photos/400/400?random&t=4" class="rounded img-responsive home_brand shadow" alt="image LOGO"> -->
@@ -117,10 +85,10 @@
             <!-- Add Pagination -->
             <!-- <div class="swiper-pagination"></div> -->
             <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <!-- <div class="swiper-button-next"></div> -->
+            <!-- <div class="swiper-button-prev"></div> -->
           </div>
-          <p class="append-buttons">
+          <!-- <p class="append-buttons"> -->
       <!-- end row -->
 
       <div class="d-flex pt-5 pb-3">
@@ -130,18 +98,16 @@
           <h6 class="lead">ขอเเนะนำสินค้า โปรโมชั่น สิทธิ์สมาชิกให้ทุกคนได้เลือกช้อป</h6>
       </div>
       <!-- start row -->
-      <div class="container">
           
-          <div class="swiper-container swiperProducts">
-            <div class="swiper-wrapper"></div>
-            <!-- Add Pagination -->
-            <!-- <div class="swiper-pagination"></div> -->
-            <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-          <p class="append-buttons"></p>
-      </div><!-- end row -->
+        <div class="swiper-container swiperProducts">
+          <div class="swiper-wrapper"></div>
+          <!-- Add Pagination -->
+          <!-- <div class="swiper-pagination"></div> -->
+          <!-- Add Arrows -->
+          <!-- <div class="swiper-button-next"></div> -->
+          <!-- <div class="swiper-button-prev"></div> -->
+        </div>
+          <!-- <p class="append-buttons"></p> -->
   </div> <!-- end container-->
 </div> <!-- end bg-greensmoot -->
 

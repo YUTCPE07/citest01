@@ -78,10 +78,8 @@
   <?php //test ?>
       
   <?php //End test ?>
-</footer>
-<?php //echo base_url('assets/js/jquery-3.3.1.min.js'); ?>
-
-<!-- Bootstrap core JavaScript -->
+</footer>    
+    <!-- Bootstrap core JavaScript -->
     <script src="<?php echo base_url('assets/js/jquery/jquery-3.3.1.min.js'); ?>" ></script>
     <script src="<?php echo base_url('assets/js/bootstrap/bootstrap-popper.min.js'); ?>" ></script>
     <script src="<?php echo base_url('assets/js/bootstrap/bootstrap.min.js'); ?>" ></script>
@@ -109,6 +107,7 @@
     <script src="<?php echo base_url('assets/js/angular/productController.js') ?>"></script> 
     <script src="<?php echo base_url('assets/js/angular/indexService.js') ?>"></script> 
     <script src="<?php echo base_url('assets/js/angular/dynamicFilter.js') ?>"></script>
+
 
     <?php //plugins ?> 
     <?php //view product filter seekbar for price ?> 

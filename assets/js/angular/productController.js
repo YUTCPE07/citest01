@@ -5,10 +5,12 @@ function ($scope, $http,indexService,$location) {
  	 //___________________________________________________
     // getProduct
     //____________________________________________________
-    indexService.get().then(function (data) {
-        $scope.products = data;
-    	},function(error){ console.log(error); 
-    });
+    // $scope.layoutProduct = true;
+    // indexService.get().then(function (data) {
+    //     $scope.products = data;
+    //     // $scope.layoutProduct = false;
+    // 	},function(error){ console.log(error); 
+    // });
     // $scope.getProduct = function()
     // {
    		// $scope.baseUrl = new $window.URL($location.absUrl()).origin;
@@ -32,26 +34,15 @@ function ($scope, $http,indexService,$location) {
     $scope.pageSize = 9;
 
     indexService.get().then(function (data) {
-        $scope.data = data;
+        $scope.products = data;
+        // console.log(data)
         $scope.filterResult = data.length;
-        $scope.pageAfterFilter = Math.ceil($scope.data.length/$scope.pageSize)
-    	},function(error){ console.log(error); 
-    });
-    // $scope.numberOfPages=function(){
-    	// console.log(Math.ceil($scope.data.length/$scope.pageSize))
-        // return Math.ceil($scope.data.length/$scope.pageSize);                
-    // }
+        $scope.pageAfterFilter = Math.ceil(data.length/$scope.pageSize)
+         $scope.isReadyShow = true; 
 
-	// $scope.currentPage = 1;
-	// $scope.itemPerPage = 50;
-	// // var offsetAndLimit = ($scope.currentPage - 1) * $scope.numPerPage, $scope.numPerPage;
-	// indexService.get().then(function (data) {
-	// 	console.log(Math.ceil(data.length/$scope.itemPerPage))
-	// 	console.log('data.lenght:',data.length,'$scope.itemPerPage',$scope.itemPerPage )
- //        // $scope.totalItems = Math.ceil(data.length/$scope.itemPerPage);
- //        $scope.totalItems = data.length;
- //    	},function(error){ console.log(error); 
- //    });
+    	},function(error){ console.log(error);
+    });
+
 
 	$scope.setPage = function (pageNo) {
     	$scope.currentPage = pageNo;
@@ -128,11 +119,8 @@ function ($scope, $http,indexService,$location) {
 		    }
         }
     }
-   	// $scope.getProduct();
-   		// $scope.pageinationCustom();
-		// console.log(baseurl + 'product/getdata');
-		// $scope.getType();
-   	// console.log('sssss')
+
+    console.log($scope.priceSlider)
 }]);
 
 

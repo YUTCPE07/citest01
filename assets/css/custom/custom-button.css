@@ -26,11 +26,13 @@
 }
 
 .btn-primary {
-  font-family: Raleway-SemiBold;
-  /*font-size: 13px;*/
+  /*font-family: Raleway-SemiBold;*/
+  font-size: 15px;
   color: rgb(33, 175, 154);
-  letter-spacing: 1px;
-  line-height: 15px;
+  /*letter-spacing: 1px;*/
+  letter-spacing: 3px;
+  /*line-height: 15px;*/
+  line-height: 20px;
   border: 2px solid rgb(33, 175, 154);
   border-radius: 40px;
   background: transparent;

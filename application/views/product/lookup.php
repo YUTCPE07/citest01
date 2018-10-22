@@ -1,4 +1,4 @@
-<?php //print_r($db)  ?>
+<?php print_r($db)  ?>
 <?php //echo $db['coup_ImagePath'] . $db['coup_Image'] ?>
 
 <img class="img-fluid d-block ml-auto mr-auto shadow" src="upload/<?php echo $db['coup_ImagePath'] . $db['coup_Image'] ?>" alt="First slide">
@@ -18,7 +18,7 @@
 			</div>
 			<div class="col-md-10 w-100">
 				<div class="row">
-					<div class="col-md-12"><h1><?php echo $db['coup_Name']; ?></h1></div>
+					<div class="col-md-12"><h4><?php echo $db['coup_Name']; ?></h4></div>
 					<div class="col-md-12">
 						<p class="text-justify"><?php echo $db['coup_Description']; ?></p>
 					</div>
@@ -43,7 +43,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<?php //row 1 ?>
-			<div class="row">
+			<div class="row p-3">
 				<div class="col-12 col-md-6 text-justify">
 					<div class="row h5">
 						<i class="fas fa-stopwatch mr-4" data-fa-transform="down-2"></i>
@@ -91,9 +91,9 @@
 			</div>
 			<?php //end row1 ?>
 			<?php //row 2 ?>
-			<div class="row pt-3">
+			<div class="row p-3">
 				<h3>ไฮไลท์</h3>
-				<p class="lead">เว็บไซต์ที่รวบรวมทุกเรื่องราวเกี่ยวกับผม และจะช่วยให้ผมคุณสวยได้ในทุกๆวัน ทุกเรื่องราวเกี่ยวกับผม การดูแลผมอย่างถูกวิธี ไอเดียการทำผมทรงต่างๆ ให้ผมคุณสวยสุขภาพดีทุกวัน ประเภท: เว็บไซต์ที่รวมเรื่องผม, พบข้อมูลจากผู้เชียวชาญ, เลือกทรงผมให้เหมาะกับคุณ</p>
+				<p class="lead text-justify">เว็บไซต์ที่รวบรวมทุกเรื่องราวเกี่ยวกับผม และจะช่วยให้ผมคุณสวยได้ในทุกๆวัน ทุกเรื่องราวเกี่ยวกับผม การดูแลผมอย่างถูกวิธี ไอเดียการทำผมทรงต่างๆ ให้ผมคุณสวยสุขภาพดีทุกวัน ประเภท: เว็บไซต์ที่รวมเรื่องผม, พบข้อมูลจากผู้เชียวชาญ, เลือกทรงผมให้เหมาะกับคุณ</p>
 			</div>
 			<div class="row justify-content-center pt-3 pb-3">
 				<img class="col-12" src="http://placehold.it/600x400">
@@ -165,8 +165,6 @@
 				Month change : <br>
 				<input class="form-control" id="my-input-b"><br>
 			</div>
-
-
 		</div>
 	</div>
 </div>

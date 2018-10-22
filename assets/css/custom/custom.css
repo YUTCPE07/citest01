@@ -8,20 +8,41 @@
 		min-width: 300px;
 		font-family: 'Prompt', sans-serif; 
 	}
-	.divHr { padding-bottom: 72px; }
+	/*.divHr { padding-bottom: 72px; }*/
 
 	.form-rounded {
 	border-radius: 1rem;
 	}
-
-/*	footer>div>div>div>h4 {
-		font-size: 5rem;
-		color:green;
-	}
-	footer>div>div>div>div>a {
-		font-size: 1.5rem;
-	}*/
 /*--------------------------*/
+
+/*slider product*/
+	.swiper-container {
+      width: 100%;
+      /*height: 300px;*/
+      /*margin: 20px auto;*/
+    }
+    .swiper-slide {
+      /*width: 80%!important;*/
+      /*background-color: red;*/
+      /*text-align: center;*/
+      /*font-size: 18px;*/
+      /*background: #fff;*/
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+/*--------------------------*/
+
 /*Set Color pimiry*/
 	.text-cyan{
 		color: #365899;
@@ -73,23 +94,23 @@
 
 
 /*footer icon social */
-.footerIconSocial {
-	width: 60px;
-	height: 60px;
-	position: relative;
-    top: 2px;
-    cursor: pointer;
-}
+	.footerIconSocial {
+		width: 60px;
+		height: 60px;
+		position: relative;
+	    top: 2px;
+	    cursor: pointer;
+	}
 /*--------------------------*/
 
 /*footer backToTop */
-.backToTop {
-	height: 40px;
-	background-color: #f44e4e;
-}
-.backToTop>div>h4{
-	cursor: pointer;
-}
+	.backToTop {
+		height: 40px;
+		background-color: #f44e4e;
+	}
+	.backToTop>div>h4{
+		cursor: pointer;
+	}
 /*--------------------------*/
 
 /*.btn-primary.disabledฐ*/
@@ -100,6 +121,27 @@
 	  	opacity: 0.6;
 	  	cursor: pointer;
 	}	
+/*--------------------------*/
+
+/*product*/
+
+
+	.layoutProductOff {
+		/*display: none;*/
+		visibility:hidden;
+	}
+
+	.layoutProductOn{
+		/*display: block;*/
+		visibility: visible;
+	}
+
+	/*ตั้งค่าให้ height เท่ากัน*/
+	.setHeightCardHeadText{
+		height: 48px;
+	}
+
+
 /*--------------------------*/
 
 /*product->pageination*/
@@ -186,8 +228,12 @@
 		width: 100%;
 		height: 100%;
 	}
+	.product{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
 
-	.productHover:hover {
+	.product:hover {
 		cursor: pointer;
 		opacity: 0.5;
 	    filter: alpha(opacity=50);
