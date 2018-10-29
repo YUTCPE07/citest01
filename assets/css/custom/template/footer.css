@@ -1,0 +1,162 @@
+/*-----------------------start-main---------------------------------------*/
+	footer {
+		position: relative;
+	}
+
+	.lineBackToTop {
+		width: 100%;
+		position: absolute;
+		text-align: right;
+		opacity: 0.8;
+		top:-33px;
+	}
+
+	.lineBackToTop-box {
+		padding-right: 10%;
+		position: relative;
+		width: auto;
+		cursor: pointer;
+	}
+
+	.lineBackToTop-box-text {
+		display: inline-block;
+		font-size: 20px;
+	}
+
+	.lineBackToTop-box-img {
+		display: inline-block;
+		width: 25px;
+		padding-left: 8px;
+		position: relative;
+		top: 3px;
+	}
+
+	.footer {
+		background-color: #424242;
+		padding-top: 40px;
+		padding-bottom: 10px;
+	}
+
+	.footer-row {
+		display: grid;
+		grid-template-columns: 33.33333333333333% 33.33333333333333% 33.33333333333333%;
+	}
+
+	.footer-col {
+		margin: 0 10px;
+		/*background: red;*/
+	}
+
+	.footer-row :last-child {
+		display: grid;
+		grid-row-gap: 10px;
+	}
+
+	.footer-col-row {
+		display: inline-block;
+	}
+
+	.footer-col-col {
+		color: white;
+		margin-left: 50px;
+	}
+
+	.footer-col-head {
+		color: white;
+		margin-bottom: var(--margin_lg);
+		font-size: var(--lg-s4);
+	}
+
+	.footer-col-contactHead {
+		color: white;
+		margin-left: unset;
+		margin-right: unset;
+		font-size: var(--lg-s4);
+	}
+
+	.footer-col-contactBox {
+		position: relative;
+		cursor: pointer;
+	}
+
+	.footer-col-contactBox-imgSocial {
+		position: absolute;
+		left: 20px;
+		width: 45px;
+	}
+
+	.footer-col-contactBox-textSocial {
+
+		margin-top: 5px;
+		padding: 1px 20px 1px;
+		display: inline;
+		border-radius: 3rem;
+		background: white;
+		line-height: 2;
+		margin-right: auto;
+		margin-left: 45px;
+		padding-left: 25px;
+		font-size: var(--lg-s6);
+
+	}
+
+	.footer-col-row-contactQrRow-imgQrCode {
+		margin-left: auto;
+		margin-right: auto;
+		width: 25%;
+	}
+
+	.footer-col-row-contactOther {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+
+	.footer-col-col-contactOther-imgSocial {
+		margin-left: auto;
+		margin-right: auto;
+		width: 45px;
+		height: 45px;
+		cursor: pointer;
+	}
+/*-----------------------end-main---------------------------------------*/
+
+/*-----------------------start-sm---------------------------------------*/
+	@media only screen and (min-width: 0px) and (max-width: 970px){
+		.footer {
+			background-color: #424242;
+			padding-top: 40px;
+			 
+		}
+
+		.footer-row {
+			display: grid;
+			grid-template-columns: 100%;
+			grid-row-gap: 20px;
+		}
+
+		.footer-col:last-child {
+			grid-row-gap: 20px;
+		}
+
+	} /*end media*/
+/*-----------------------end-sm---------------------------------------*/
+
+/* fb youtube Redey
+	.footer-col-row-contactOther {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		margin-left: 25%;
+		margin-right: 25%;
+		background-color: blue;
+	}
+
+	.footer-col-col-contactOther-imgSocial {
+		background-color: yellow;
+		margin-left: auto;
+		margin-right: auto;
+		width: 45px;
+		height: 45px;
+	}
+*/

@@ -1,47 +1,41 @@
-/*color 
-#21af9a, rgb(33, 175, 154)
-*/
+/*-------- view-home --------------------------------------------------------------------*/
 
-/*Set standard*/
 
-	body { 
-		min-width: 300px;
-		font-family: 'Prompt', sans-serif; 
-	}
-	/*.divHr { padding-bottom: 72px; }*/
+	/*slider product -----------------------------------*/
+		.swiper-container {
+	      width: 100%;
+	      /*height: 300px;*/
+	      /*margin: 20px auto;*/
+	    }
+	    .swiper-slide {
+	      /*width: 80%!important;*/
+	      /*background-color: red;*/
+	      /*text-align: center;*/
+	      /*font-size: 18px;*/
+	      /*background: #fff;*/
+	      /* Center slide text vertically */
+	      display: -webkit-box;
+	      display: -ms-flexbox;
+	      display: -webkit-flex;
+	      display: flex;
+	      -webkit-box-pack: center;
+	      -ms-flex-pack: center;
+	      -webkit-justify-content: center;
+	      justify-content: center;
+	      -webkit-box-align: center;
+	      -ms-flex-align: center;
+	      -webkit-align-items: center;
+	      align-items: center;
+	    }
+	/*--------------------------*/
 
-	.form-rounded {
-	border-radius: 1rem;
-	}
-/*--------------------------*/
+/*----------------------------------------------------------------------------------------*/
 
-/*slider product*/
-	.swiper-container {
-      width: 100%;
-      /*height: 300px;*/
-      /*margin: 20px auto;*/
-    }
-    .swiper-slide {
-      /*width: 80%!important;*/
-      /*background-color: red;*/
-      /*text-align: center;*/
-      /*font-size: 18px;*/
-      /*background: #fff;*/
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-/*--------------------------*/
+
+
+
+
+
 
 /*Set Color pimiry*/
 	.text-cyan{
