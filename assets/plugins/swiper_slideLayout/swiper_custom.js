@@ -4,7 +4,7 @@
 	return ' '+
 		'<div class="productHover w-100"> '+
 			'<div class="card mt-4 border border-secondary" style="max-width: 180rem; " >  '+
-				'<a href="'+baseurl+'product/'+productObj.coup_CouponID+'">  '+
+				// '<a href="'+baseurl+'product/'+productObj.coup_CouponID+'">  '+
   					'<img class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary"  '+
     					'src="upload/'+productObj.path_logo+productObj.logo_image+'"> '+
   					'<img class="card-img-top" src="upload/'+productObj.coup_ImagePath+productObj.coup_Image+'" > '+
@@ -29,7 +29,7 @@
 		    			'<div class="col-4 text-right"><small>ขายเเล้ว 20</small></div> '+
 			    		'</div> '+
 	    			'</div> '+
-    			'</a> '+
+    			// '</a> '+
 	    	'</div> '+
 	    '</div> ';
 	}
@@ -137,9 +137,9 @@ getProducts().then(function(respone) {
 		      spaceBetween: 30
 		    }
 		},
-		autoplay: {
-		    delay: 3000,
-		},
+		// autoplay: {
+		//     delay: 3000,
+		// },
 	    pagination: {
 	        el: '.swiper-pagination',
 	        type: 'fraction',

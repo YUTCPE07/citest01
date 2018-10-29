@@ -125,6 +125,11 @@
 
 /*product*/
 
+	#menuResponetive {
+		display: block !important;
+	}
+
+	
 
 	.layoutProductOff {
 		/*display: none;*/
@@ -141,7 +146,41 @@
 		height: 48px;
 	}
 
+	.bg-greensmoot {
+		background-color: #21af9a;
+	}
 
+	.text-greensmoot {
+		color: #21af9a;
+	}
+
+	.home_brand {
+		width: 100%;
+		height: 100%;
+	}
+	.product{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	.product:hover {
+		cursor: pointer;
+		/*opacity: 0.5;
+	    filter: alpha(opacity=50);*/
+	}
+
+	.logo-brand {
+		width: 2.5rem;
+		height: 2.5rem;
+		position:absolute;
+		top: -1.5rem;
+		right: 1rem;
+		/*border: 0.5px solid black;*/
+	}
+
+	.logo-brand:hover{
+		/*transform: scale(2.2);*/
+	}
 /*--------------------------*/
 
 /*product->pageination*/
@@ -215,36 +254,14 @@
 	.rzslider .rz-selection {
 	 	background: #21af9a;
 	}
-	/*--------------------------*/
-	.bg-greensmoot {
-		background-color: #21af9a;
-	}
+/*--------------------------*/
 
-	.text-greensmoot {
-		color: #21af9a;
+/*product_lookup*/
+	.text-instagram {
+		color: #7349BD;
 	}
-
-	.home_brand {
-		width: 100%;
-		height: 100%;
-	}
-	.product{
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-
-	.product:hover {
-		cursor: pointer;
-		opacity: 0.5;
-	    filter: alpha(opacity=50);
-	}
-
-	.logo-brand {
-		width: 2.5rem;
-		height: 2.5rem;
-		position:absolute;
-		top: -1.5rem;
-		right: 1rem;
-		/*border: 0.5px solid black;*/
+	.text-twitter {
+		color: #FFFFFF;
 	}
 /*--------------------------*/
+

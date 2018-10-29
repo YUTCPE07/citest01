@@ -33,12 +33,12 @@ class Main_model extends CI_Model {
   function getRecords(){
     // Select user records
     // $this->db->select('*');
-    $sql = 'SELECT hilight_coupon.coup_CouponID, hilight_coupon.coup_Name, hilight_coupon.coup_ImagePath, 
-            hilight_coupon.coup_Image, hilight_coupon.coup_Price,hilight_coupon.coup_Description,
-            hilight_coupon.coup_CreatedDate, 
-            mi_brand.path_logo, mi_brand.logo_image, mi_brand.category_brand 
+    $sql = 'SELECT coup_CouponID, coup_Name, coup_ImagePath, 
+            coup_Image, coup_Price,coup_Description,
+            coup_CreatedDate, 
+            path_logo, logo_image, category_brand 
             FROM hilight_coupon INNER JOIN mi_brand 
-            ON hilight_coupon.coup_CouponID=mi_brand.brand_Id ORDER BY hilight_coupon.coup_CreatedDate DESC';
+            ON bran_BrandID=brand_Id ORDER BY coup_CreatedDate DESC';
     $q = $this->db->query($sql);
     $results = $q->result_array();
 
@@ -57,13 +57,17 @@ class Main_model extends CI_Model {
   function getLookupCoupon($id){
     // Select user records
     // $this->db->select('*');
-    $sql = 'SELECT hilight_coupon.coup_CouponID, hilight_coupon.coup_Name, hilight_coupon.coup_ImagePath, 
-            hilight_coupon.coup_Image, hilight_coupon.coup_Price,hilight_coupon.coup_Description,
-            hilight_coupon.coup_CreatedDate,hilight_coupon.coup_StartDate ,hilight_coupon.coup_EndDate 
-            mi_brand.path_logo, mi_brand.logo_image, mi_brand.category_brand,mi_brand.signature_info,
-            mi_brand.coup_StartTime,mi_brand.coup_EndTime 
+    $sql = 'SELECT coup_CouponID, coup_Name, coup_ImagePath, coup_Image, coup_Price,coup_Description,
+            coup_CreatedDate,coup_StartDate ,coup_EndDate, coup_StartTime,coup_EndTime,coup_Participation,
+            shop_reservation_brief,coup_RepetitionMember,coup_QtyMember,coup_QtyPerMember,coup_Method,
+            coup_EndDateUse, coup_MethodUseOther, coup_HowToUse, coup_Condition, coup_Exception, coup_Contact,
+            coup_ActivityDuration,coup_Participation,
+            
+            path_logo, logo_image, category_brand,signature_info,open_brief,shop_howtouse_brief,open_description,
+            shop_cancellation_description, shop_q1, shop_a1, shop_q2, shop_a2, shop_q3, shop_a3,
+            shop_q4, shop_a4, shop_q5, shop_a5, website, facebook_url, line_id, instragram, tweeter
             FROM hilight_coupon INNER JOIN mi_brand 
-            ON hilight_coupon.coup_CouponID=mi_brand.brand_Id WHERE hilight_coupon.coup_CouponID ='.$id;
+            ON bran_BrandID=brand_Id WHERE coup_CouponID ='.$id;
     $q = $this->db->query($sql);
     $results = $q->result_array();
 

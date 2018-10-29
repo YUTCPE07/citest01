@@ -54,13 +54,6 @@
 <?php //print_r($pd_Recommend); ?>
 
 
-
-
-
-
-
-
-
 <div class="container content1 p-2">
     <div class="swiper-container swiperProducts">
       <div class="swiper-wrapper"></div>
@@ -75,7 +68,7 @@
   </p>
 </div>
 <!-- <img src="https://picsum.photos/400/400?random&t=4" class="rounded img-responsive home_brand shadow" alt="image LOGO"> -->
-  
+
 <div class="bg-greensmoot text-light pt-2 pb-5 mt-5">
   <div class="container">
       <h3 class="pt-5 pb-3">แบรนด์แนะนำ</h3>
@@ -98,7 +91,7 @@
           <h6 class="lead">ขอเเนะนำสินค้า โปรโมชั่น สิทธิ์สมาชิกให้ทุกคนได้เลือกช้อป</h6>
       </div>
       <!-- start row -->
-          
+
         <div class="swiper-container swiperProducts">
           <div class="swiper-wrapper"></div>
           <!-- Add Pagination -->

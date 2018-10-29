@@ -18,15 +18,20 @@
 	</div>
 
 	<div class="row">
-		<?php //layout 1 ?>
-		<div class="col-lg-3 mt-3">
+		<?php //layout 1 ?>  
+		<div class="col-lg-3 mt-3 navbar-expand-lg menu">
 			<?php //menu ?>
-			<h5 class="m-2">คัดกรอง</h5>
+			<button class="navbar-toggler text-uppercase bg-primary text-white rounded" type="button" 	
+				data-toggle="collapse" data-target="#menuResponetive" aria-controls="menuResponetive" 
+				aria-expanded="false"><i class="fas fa-filter"></i>คัดกรอง
+		    </button>
+	      	<h5 class="m-2">คัดกรอง</h5>
 			<div class="row">
-				<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded border border-secondary" >
+				<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded border border-secondary
+					collapse navbar-collapse" id="menuResponetive" >
 					<div class="row mb-3 ">
-					<div class="col-6 "><strong>หมวดหมู่</strong></div>
-					<div class="col-6 text-right">[ทั้งหมด]</div>
+						<div class="col-6 "><strong>หมวดหมู่</strong></div>
+						<div class="col-6 text-right">[ทั้งหมด]</div>
 					</div>
 					<?php //ng-repeat="(key, value) in players | groupBy: 'team'" ?>
 			
@@ -43,8 +48,10 @@
 							<p>{{ value.length }}</p>
 							<p>{{ checkbox[key] }}</p>
 						</div>
-					</div>				</div>
+					</div>				
+				</div>
 			</div> <?php //end row  ?>
+			
 			<div class="row">
 				<div class="shadow p-3 w-100 mb-5 bg-white rounded border border-secondary" >
 					<div class="row mb-3 ">
@@ -75,18 +82,18 @@
 				<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
 				<div class="product col-lg-4" ng-repeat='product in products | filter:filterProduct| startFrom:currentPage*pageSize | limitTo:pageSize'>
 					<div class="card shadow mb-3 mt-5 border border-secondary" style="max-width: 180rem;" >
-						<a href="<?php echo base_Url('product/'); ?>{{product.coup_CouponID}}">
-						<img ng-if="product.logo_image != null"
+						<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
+						<img ng-if="product.logo_image != null" 
+							ng-click='lookup("barnd",product.coup_CouponID)'
 							class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary bg-light" ng-src="upload/{{product.path_logo+product.logo_image}}">
-						<img class="rounded-circle shadow-sm img-responsive logo-brand" 
-						ng-if="product.logo_image == null" ng-src="http://placehold.it/50x50">
-			            <img class="card-img-top" ng-src="upload/{{product.coup_ImagePath+product.coup_Image}}" >
-			            <div class="text-dark">
+			            <img class="card-img-top" ng-click='lookup("coup",product.coup_CouponID)'
+		            		ng-src="upload/{{product.coup_ImagePath+product.coup_Image}}" >
+			            <div class="text-dark" ng-click='lookup("coup",product.coup_CouponID)'>
 
 			          		<h5 class="card-title m-1 setHeightCardHeadText">{{product.coup_Name}}</h5>
 				              <div class="row m-1">
 				              		<div class="col-6 text-right" style="text-decoration: line-through;">
-				              			<small>3000฿</small>
+				              			<!-- <small>3000฿</small> -->
 				              		</div>
 				              		<div class="col-6 text-right text-danger"><h5>{{ product.coup_Price|number:0}}฿</h5></div>
 		              		</div>
@@ -104,7 +111,7 @@
 				              		<div class="col-4 text-right"><small>ขายเเล้ว 20</small></div>
 			              	</div>
 			            </div>
-			            </a>
+			            <!-- </a> -->
 			        </div>
 			  	</div>
 				</div>

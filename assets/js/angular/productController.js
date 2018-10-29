@@ -1,6 +1,11 @@
 'use strict';
 app.controller('productController', ['$scope', '$http','indexService','$location', 
 function ($scope, $http,indexService,$location) {
+
+    $scope.lookup = function(data,id) {
+        (data=='coup')?
+        window.location.href = 'product/'+id : window.location.href = 'brand/'+id;
+    }
  	// console.log("this is controller")
  	 //___________________________________________________
     // getProduct
@@ -120,7 +125,7 @@ function ($scope, $http,indexService,$location) {
         }
     }
 
-    console.log($scope.priceSlider)
+    // console.log($scope.priceSlider)
 }]);
 
 

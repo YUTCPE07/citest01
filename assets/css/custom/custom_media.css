@@ -23,11 +23,19 @@
 
 @media only screen and (min-width: 0px){
 	.divHr { padding-bottom: 56px; }
+
+	/*view product*/
+	#menuResponetive > h5 {
+		visibility: hidden;
+	}
 	/*.swiper-slide { width: 80%!important; }*/
 }
 
 
 @media only screen and (min-width: 992px) {
 	.divHr { padding-bottom: 72px; }
+	#menuResponetive > h5 {
+		visibility: visible;
+	}
 	/*.swiper-slide { width: unset!important; }*/
 }
