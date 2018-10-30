@@ -1,6 +1,6 @@
 <footer>
-  <div class="lineBackToTop">
-    <div class="container bg-red">
+  <div class="lineBackToTop bg-red">
+    <div class="container">
       <div class="lineBackToTop-box " onclick="backToTop();">
         <div class="lineBackToTop-box-text text-white" >Back To Top</div>
         <div class="lineBackToTop-box-img" >
@@ -23,7 +23,7 @@
                     นโยบายความเป็นส่วนตัวและความปลอดภัย
                   </a>
                   <a class="footer-col-col light" href="https://www.memberin.com/termsofuse.php">
-                    ข้อตกลงของผู้ใช้งาน
+                    ข้อตกลงและเงื่อนไขของผู้ใช้งาน
                   </a>
                   <a class="footer-col-col light" href="https://www.memberin.com/contact.php">
                     ติดต่อเรา
@@ -95,17 +95,17 @@
     <script src="<?php echo base_url('assets/js/facebook/app.js') ?>"></script>
 
     <?php //angular ?>
-    <script src="<?php echo base_url('assets/js/angular/angular.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/angular/angular-animate.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/angular/angular-touch.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/angular/angular-sanitize.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-animate.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-touch.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-sanitize.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap/ui-bootstrap-tpls-3.0.5.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/angular/angular-filter.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-filter.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/app.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/loginController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/productController.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/navbarController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/indexService.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/angular/dynamicFilter.js') ?>"></script>
 
 
     <?php //plugins ?>
@@ -118,12 +118,6 @@
     <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/slick.min.js') ?>"></script> -->
     <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/custom.js') ?>"></script> -->
     <?php //view product user select calender jsCalendar_custom Load on lookup ?>
-
-
-
-
-
-
 
     <script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
   </body>

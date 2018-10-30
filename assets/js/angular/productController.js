@@ -40,6 +40,7 @@ function ($scope, $http,indexService,$location) {
 
     indexService.get().then(function (data) {
         $scope.products = data;
+        $scope.category_brands = data;
         // console.log(data)
         $scope.filterResult = data.length;
         $scope.pageAfterFilter = Math.ceil(data.length/$scope.pageSize)
@@ -60,6 +61,23 @@ function ($scope, $http,indexService,$location) {
 	// $scope.maxSize = 5;
 	// $scope.bigTotalItems = 175;
 	// $scope.bigCurrentPage = 3;
+
+
+
+    //____________________________________________________
+    // menu checkbox fillter 
+    //____________________________________________________
+    
+    indexService.getdata_Catrogy_barnd().then(function (data) {
+
+        $scope.catrogy_barnd = data;
+    });
+
+
+
+
+
+
     //____________________________________________________
     // checbox controller
     //____________________________________________________

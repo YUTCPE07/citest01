@@ -26,27 +26,23 @@
   </a>
 </div>
 
-
-
-
-
 <div class="container">
   <div class="pt-5 pb-3">
       <div class="d-flex">
-        <h2>สวัสดี เเครอท</h2>
+        <div class="h2 medium">สวัสดี เเครอท</div>
       </div>
       <div class="d-flex">
-          <h6> ยินดีต้อนรับเข้าสู่ memberin</h6>
+          <div class="h4 light"> ยินดีต้อนรับเข้าสู่ memberin มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
       </div>
   </div>
 </div>
 
 <div class="container">
   <div class="d-flex">
-    <h3>ใหม่ล่าสุด</h3>
+    <div class="h4 medium">ใหม่ล่าสุด</div>
   </div>
   <div class="d-flex">
-      <h6>ขอเเนะนำสินค้า ใหม่ล่าสุด</h6>
+      <div class="h4 light">ขอเเนะนำสินค้า โปรโมชั่น สิทธิ์สมาชิกใหม่ล่าสุด</div>
   </div>
 </div>
 
@@ -71,7 +67,7 @@
 
 <div class="bg-greensmoot text-light pt-2 pb-5 mt-5">
   <div class="container">
-      <h3 class="pt-5 pb-3">แบรนด์แนะนำ</h3>
+      <div class="h4 medium pt-5 pb-3">แบรนด์แนะนำ</div>
       <!-- start row -->
           <div class="swiper-container swiperBrands">
             <div class="swiper-wrapper"></div>
@@ -85,10 +81,10 @@
       <!-- end row -->
 
       <div class="d-flex pt-5 pb-3">
-        <h3>ใหม่ล่าสุด</h3>
+        <div class="h4 medium">ใหม่ล่าสุด</div>
       </div>
       <div class="d-flex">
-          <h6 class="lead">ขอเเนะนำสินค้า โปรโมชั่น สิทธิ์สมาชิกให้ทุกคนได้เลือกช้อป</h6>
+          <div class="h4 light">ขอเเนะนำสินค้า โปรโมชั่น สิทธิสมาชิกให้ทุกคนได้เลือกช้อป</div>
       </div>
       <!-- start row -->
 

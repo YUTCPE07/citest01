@@ -1,0 +1,15 @@
+/*product-index*/
+
+
+/*product->seekbar*/
+	.rzslider .rz-pointer {
+	 	background: #21af9a;
+
+	}
+	.rzslider .rz-pointer.rz-active:after{
+	 	background-color: blue;
+	}
+	.rzslider .rz-selection {
+	 	background: #21af9a;
+	}
+/*--------------------------*/

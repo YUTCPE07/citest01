@@ -9,15 +9,20 @@
     					'src="upload/'+productObj.path_logo+productObj.logo_image+'"> '+
   					'<img class="card-img-top" src="upload/'+productObj.coup_ImagePath+productObj.coup_Image+'" > '+
   					'<div class="text-dark"> '+
-        				'<h5 class="card-title text-left m-1 setHeightCardHeadText">'+productObj.coup_Name+'</h5> '+
+        				'<div class="card-title h5 bold text-left m-1 setHeightCardHeadText">'+productObj.coup_Name+'</div> '+
             			'<div class="row m-1"> '+
-                		'<div class="col-4"></div> '+
-                		'<div class="col-4 text-right" style="text-decoration: line-through;"><small>3000฿</small></div> '+
-                		'<div class="col-4 text-right text-danger"><h5>500฿</h5></div> '+
+                		'<div class="col-2"></div> '+
+                		'<div class="col-5 text-right"> '+
+                			'<del><div class="">3000฿</div></del> '+
+            			'</div> '+
+                		'<div class="col-5 text-right text-danger"> '+
+                			'<div class="h4 medium">500฿</div></div> '+
         				'</div> '+
             			'<div class="row m-1 mt-2" style="font-size: 0.3rem;">      '+
-		    			'<div class="col-3"><small > '+
-			    			'<i class="fas fa-dollar-sign"></i> 5</small> '+
+		    			'<div class="col-3"> '+
+		    				'<div > '+
+			    				'<i class="fas fa-dollar-sign"></i> 5 '+
+			    			'</div> '+
 			    		'</div> '+
 			    		'<div class="col-5 text-center text-warning " > '+
 			    			'<i class="fa fa-star fa-xs"></i> '+
@@ -26,7 +31,7 @@
 			    			'<i class="fa fa-star fa-xs"></i> '+
 			    			'<i class="fa fa-star fa-xs"></i> '+
 		    			'</div> '+
-		    			'<div class="col-4 text-right"><small>ขายเเล้ว 20</small></div> '+
+		    			'<div class="col-4 text-right"><div>ขายเเล้ว 20</div></div> '+
 			    		'</div> '+
 	    			'</div> '+
     			// '</a> '+

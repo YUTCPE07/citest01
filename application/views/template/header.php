@@ -12,6 +12,7 @@
 //header('Access-Control-Allow-Origin: *');
 //header("Access-Control-Allow-Methods: GET, OPTIONS");
 ?>
+
 	<!-- <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> -->
 	<base href="<?php echo base_url(); ?>" />
 	<!-- <title><?php //echo $title ?></title> -->
@@ -31,17 +32,19 @@
 		href="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.css'); ?>">
 
 	<!-- font -->
-
-   <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="<?php //echo base_url('assets/fonts/fonts_google_prompt.css'); ?>" > -->
+	<link href="https://fonts.googleapis.com/css?family=Prompt:100,300,400,500,700&amp;subset=thai" rel="stylesheet">
 
 
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/custom-button.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/reset.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/varible.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/custom-button.css'); ?>">
 	<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/css/custom/custom.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/css/custom/custom_media.css'); ?>"> -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/template/navbar.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/template/footer.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/home/home.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/product/index.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/product/lookup.css'); ?>">
 
 
 
@@ -49,7 +52,7 @@
 
 <body id="page-top">
 	<?php //for navbar fix ?>
-	<div class="divHr"></div>
+	<div class="hr_head_height"></div>
 
 
 

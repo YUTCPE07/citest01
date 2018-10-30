@@ -1,7 +1,22 @@
-body {
-	margin: 0px;
+html {
+	font-family: unset;
+
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: unset;
+	font-weight: unset;
+}
+
+body {
+	margin: 0px;
+	font-family: unset;
+    font-size: unset;
+    font-weight: unset;
+}
+a {
+	color: unset;
+}
 a:-webkit-any-link {
     text-decoration: unset;
 }

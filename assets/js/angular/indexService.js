@@ -13,7 +13,15 @@ app.factory('indexService', function ($q, $http) {
             });
             return deferred.promise; //รอตามสัญญา ขอเวลาอีกไม่นาน
         },
-
+        getdata_Catrogy_barnd: function () {
+            var deferred = $q.defer(); //เริ่มทำงาน
+            $http.get(baseurl + 'product/getdata_Catrogy_barnd').then(function (result) {
+                deferred.resolve(result.data); // เสร็จแล้วเอาไปเลย!!
+            }, function (error) {
+                deferred.reject(error) 
+            });
+            return deferred.promise; //รอตามสัญญา ขอเวลาอีกไม่นาน
+        },
 		
         
     };

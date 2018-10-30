@@ -45,6 +45,19 @@
   border: 2px solid rgb(33, 175, 154);
 }
 
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+}
+
+
 .btn-success {
   font-family: Raleway-SemiBold;
   /*font-size: 13px;*/

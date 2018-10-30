@@ -6,8 +6,10 @@
   --color-gray3: #f1f2f2; /*เทา อ่อน*/
   --color-gray2: #bcbec0; /*เทา กลาง*/
   --color-gray1: #6d6e71; /*เทา เข้ม*/
+
   --margin_sm: 10px;
   --margin_lg: 20px;
+
   --lg-s1: 48px; 
   --lg-s2: 41px; 
   --lg-s3: 36px; 
@@ -26,16 +28,45 @@
 
 html {
 	font-family: 'Prompt', sans-serif;
-
 }
 
 body{
 	min-width: 320px;
+	color:var(--color-black);
 }
 
 img,iframe {
 	width: 100%;
 }
+
+a:hover {
+	color:var(--color-green);
+}
+
+.h1 {
+	font-size: var(--lg-s1);
+}
+
+.h2 {
+	font-size: var(--lg-s2);
+}
+
+.h3 {
+	font-size: var(--lg-s3);
+}
+
+.h4 {
+	font-size: var(--lg-s4);
+}
+
+.h5 {
+	font-size: var(--lg-s5);
+}
+
+.h6 {
+	font-size: var(--lg-s6);
+}
+
 .bold {
 	font-weight: 700;
 }
@@ -105,6 +136,13 @@ img,iframe {
 	transform: scale(1.1);
 }
 
+.hr_head_height {/*navbar to top height*/
+	height: 56.016px 
+}
+
+.hr_footer_height {/*back to top height*/
+	height: 35.219px 
+}
 
 /*bootstarp custom------------------------*/
 	
