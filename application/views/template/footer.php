@@ -16,13 +16,13 @@
             <div class="footer-col">
               <div class="footer-col-head regular">MemberIn</div>
               <div class="footer-col-row">
-                  <a class="footer-col-col light " href="https://www.memberin.com/aboutus.php">
+                  <a class="footer-col-col light " href="<?php echo base_url('/aboutus'); ?>">
                     เกี่ยวกับเรา
                   </a>
-                  <a class="footer-col-col light" href="https://www.memberin.com/policy.php">
+                  <a class="footer-col-col light" href="<?php echo base_url('/policy'); ?>">
                     นโยบายความเป็นส่วนตัวและความปลอดภัย
                   </a>
-                  <a class="footer-col-col light" href="https://www.memberin.com/termsofuse.php">
+                  <a class="footer-col-col light" href="<?php echo base_url('/termsofuse'); ?>">
                     ข้อตกลงและเงื่อนไขของผู้ใช้งาน
                   </a>
                   <a class="footer-col-col light" href="https://www.memberin.com/contact.php">
@@ -50,7 +50,7 @@
                 <div class="footer-col-contactBox-imgSocial mail this_link">
                   <img class="" src="<?php echo base_url('assets/images/template/footer/mail.png'); ?>">
                 </div>
-                <div class="footer-col-contactBox-textSocial light">bd@memnerin.com</div>
+                <div class="footer-col-contactBox-textSocial light">bd@memberin.com</div>
               </div>
               <div class="footer-col-contactBox">
                 <div class="footer-col-contactBox-imgSocial line this_link">

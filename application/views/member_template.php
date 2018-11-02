@@ -1,1 +1,0 @@
-this is member_template

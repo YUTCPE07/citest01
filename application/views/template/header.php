@@ -4,8 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="keywords" content="memberin,สิทธิพิเศษ,วอชเชอร์,สมาชิกออนไลน์">
-	<meta name="description" content="<?php echo $description ?>">
-  	<meta name="author" content="<?php echo $author ?>" >
+	<!-- <meta name="description" content="<?php //echo $description ?>"> -->
+	<meta name="description" content="webbord, forum">
+  	<!-- <meta name="author" content="<?php //echo $author ?>" > -->
 	<meta name="baseUrl" content="<?php echo base_url(); ?>" >
 	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, minimum-scale=1.0">
 	<?php
@@ -45,6 +46,9 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/home/home.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/product/index.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/product/lookup.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/other/aboutus.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/other/policy.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/other/termsofuse.css'); ?>">
 
 
 

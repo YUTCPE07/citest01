@@ -1,0 +1,14 @@
+
+
+.content {
+	text-align: justify;
+}
+
+.content-sub {
+	display: block;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 970px){
+
+
+}
