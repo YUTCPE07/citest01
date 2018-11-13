@@ -97,15 +97,20 @@
 				              <div class="row m-1">
 				              		<div class="text-right col-12 ">
 				              			<div class="d-inline h6 regular pr-2">
-				              				<small>
 				              					<!-- {{product.coup_Cost}} -->
 				              					<!-- {{product.coup_Price}} -->
+				              				<small ng-if="parseInt(product.coup_Cost)>0">
 				              					ลด
 				              					{{  Math.round(((product.coup_Cost - product.coup_Price)/product.coup_Cost)*100)  }}
 				              					%
 				              				</small>
+				              				<!-- <small ng-if="parseInt(product.coup_Cost)==0">ฟรี</small> -->
 			              				</div>
-				              			<div class="d-inline h4 medium text-danger">{{ product.coup_Price|number:0}}฿
+				              			<div class="d-inline h4 medium text-danger"
+				              				ng-if="parseInt(product.coup_Cost)>0">{{ product.coup_Price|number:0}}฿
+				              			</div>
+				              			<div class="d-inline h4 medium text-danger"
+				              				ng-if="parseInt(product.coup_Cost)==0"> ฟรี!
 				              			</div>
 				              		</div>
 		              		</div>

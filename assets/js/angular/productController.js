@@ -3,6 +3,7 @@ app.controller('productController', ['$scope', '$http','indexService','$location
 function ($scope, $http,indexService,$location,$filter) {
 
     $scope.Math = window.Math; /*for Angular use math.round()*/
+    $scope.parseInt = window.parseInt; /*for Angular use math.round()*/
     // console.log(window.location.pathname)
 
 

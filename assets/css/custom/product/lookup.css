@@ -1,4 +1,4 @@
-/*product-lookup.css*/
+product-lookup.css*/
 
 .lookup-head-img > img{
 	width:unset;
@@ -27,8 +27,17 @@
 			color: var(--color-gray1);
 		    background-color: var(--color-green);
 		}
+	/*______________________*/
+	
 
 
+
+
+
+	/*@media view:product/shop_lookup*/
+		@media only screen and (min-width: 0px) and (max-width: 970px){
+			
+		}
 	/*______________________*/
 
-/* END view:product/shop_lookup _____________________________________________________*/
+/* END view:product/shop_lookup _____________________________________________________

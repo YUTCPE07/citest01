@@ -318,7 +318,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 			<?php //end row2 ?>
 		</div>
 		<?php //tab controller ,select time, select date, selectzone, show price, addtocart, buynow ?>
-		<div class="col-md-4 " ng-controller="shop_lookupController"
+		<div class="col-md-4 " ng-controller="shop_lookupController" id="focus_buy"
 			ng-init="
 				numForBuy = 1;
 				productPrice = <?php echo $db['coup_Price'] ?>;
@@ -354,14 +354,35 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<div class="col-12 h3 medium text-black">สรุปยอด</div>
 				<div class="col-6 text-gray1 text-left pl-4">ราคาต่อคน</div>
 				<div class="col-6 text-gray1 text-right pr-4">{{productPrice}} ฿</div>
-				<hr class="w-100 h3 bg-green">
+				<hr class="w-100 h3 bg-green ml-sm-5">
 				<div class="col-6 text-gray1 text-left pl-4">จำนวน</div>
 				<div class="col-6 text-gray1 text-right pr-4">{{numForBuy}}</div>
-				<hr class="w-100 h3 bg-green">
+				<hr class="w-100 h3 bg-green ml-sm-15">
 				<div class="col-6 text-gray1 text-left pl-4">ราคารวม</div>
 				<div class="col-6 text-gray1 text-right pr-4">{{productPrice*numForBuy}} ฿</div>
-				<div class="col-12 text-center mt-5">
+				<div class="col-12 text-center mt-5 pb-5">
 					<button class="btn btn-primary">ซื้อเลย</button>
+				</div>
+			</div>
+
+			<div class="text-right d-lg-none d-md-none"
+				style="
+					position: fixed;
+					top: 90%;
+					right: 0%;
+					border-top-left-radius: 1rem;
+					border-bottom-left-radius: 1rem;
+					background-color: var(--color-green);
+				"
+			>
+				<div class="h4 medium p-3 text-white"
+					ng-click="scrollTo('focus_buy')"
+					style="
+						width: auto;
+						margin-bottom: 0px;
+					"
+				>
+					ซื้อเลย
 				</div>
 			</div>
 		</div>
