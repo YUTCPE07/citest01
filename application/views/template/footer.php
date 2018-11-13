@@ -106,7 +106,10 @@
     <script src="<?php echo base_url('assets/js/angular/productController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/navbarController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/indexService.js') ?>"></script>
-
+    <script src="<?php echo base_url('assets/js/angular/shop_lookupController.js') ?>"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script> -->
+    <?php //product rating star ?>
+    <!-- <script src="<?php //echo base_url('assets/plugins/angular-star-rating/index.js') ?>"></script> -->
 
     <?php //plugins ?>
     <?php //view product filter seekbar for price ?>

@@ -1,40 +1,68 @@
 // Start for ProductRecommand
 	function gennerateElemenrtProduct(productObj){
 	// console.log(productObj)
+	var productLinkHref = '';
+	var brandLinkHref = baseurl+'brand/'+productObj.bran_BrandID;
+	if(productObj.coup_Type=='Use'){
+		productObj.coup_numUse = 'ใช้เเล้ว ' + productObj.coup_numUse;
+		productLinkHref = baseurl+'promotion/'+productObj.coup_CouponID;
+	}else if(productObj.coup_Type=='Buy'){
+		productObj.coup_numUse = 'ขายเเล้ว ' +  productObj.coup_numUse;
+		productLinkHref = baseurl+'shop/'+productObj.coup_CouponID;
+
+	}else{
+		productObj.coup_numUse = 'สมัครเเล้ว ' +  productObj.coup_numUse;
+		productLinkHref = baseurl+'membercard/'+productObj.coup_CouponID;
+
+	}
+
+	if (parseInt(productObj.coup_Price)==0) {
+		productObj.coup_Price = 'ฟรี!';
+	}else{
+		productObj.coup_Price = parseInt(productObj.coup_Price) + ' ฿';
+	}
+
+		
+	 
+	//productObj.coup_Description = productObj.coup_Description.substr(0,30); /*จำกัดความยาว String*/
+	
+
+
 	return ' '+
 		'<div class="productHover w-100"> '+
 			'<div class="card mt-4 border border-secondary" style="max-width: 180rem; " >  '+
-				// '<a href="'+baseurl+'product/'+productObj.coup_CouponID+'">  '+
+				'<a href="'+brandLinkHref+'">  '+
   					'<img class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary"  '+
     					'src="upload/'+productObj.path_logo+productObj.logo_image+'"> '+
-  					'<img class="card-img-top" src="upload/'+productObj.coup_ImagePath+productObj.coup_Image+'" > '+
+    			'</a> '+
+				'<a href="'+productLinkHref+'">  '+
+    				'<img class="card-img-top" src="upload/'+productObj.coup_ImagePath+productObj.coup_Image+'" > '+
   					'<div class="text-dark"> '+
-        				'<div class="card-title h5 bold text-left m-1 setHeightCardHeadText">'+productObj.coup_Name+'</div> '+
-            			'<div class="row m-1"> '+
-                		'<div class="col-2"></div> '+
-                		'<div class="col-5 text-right"> '+
-                			'<del><div class="">3000฿</div></del> '+
-            			'</div> '+
-                		'<div class="col-5 text-right text-danger"> '+
-                			'<div class="h4 medium">500฿</div></div> '+
-        				'</div> '+
-            			'<div class="row m-1 mt-2" style="font-size: 0.3rem;">      '+
-		    			'<div class="col-3"> '+
-		    				'<div > '+
-			    				'<i class="fas fa-dollar-sign"></i> 5 '+
-			    			'</div> '+
-			    		'</div> '+
-			    		'<div class="col-5 text-center text-warning " > '+
-			    			'<i class="fa fa-star fa-xs"></i> '+
-			    			'<i class="fa fa-star fa-xs"></i> '+
-			    			'<i class="fa fa-star fa-xs"></i> '+
-			    			'<i class="fa fa-star fa-xs"></i> '+
-			    			'<i class="fa fa-star fa-xs"></i> '+
-		    			'</div> '+
-		    			'<div class="col-4 text-right"><div>ขายเเล้ว 20</div></div> '+
-			    		'</div> '+
-	    			'</div> '+
-    			// '</a> '+
+			          		'<div class="card-title h5 bold m-1 setHeightCardHeadText">'+productObj.coup_Name+'</div> '+
+				              '<div class="row m-1"> '+
+				              		'<div class="text-right col-12 "> '+
+				              			'<div class="d-inline h6 regular pr-2"> '+
+				              				// '<small> '+
+				              				// 	'ลด Math.round(((productObj.coup_Cost - productObj.coup_Price)/productObj.coup_Cost)*100) '+
+				              				// 	'% '+
+				              				// '</small> '+
+			              				'</div> '+
+				              			'<div class="d-inline h4 medium text-danger">'+ productObj.coup_Price + '</div> '+
+				              		'</div> '+
+		              		'</div> '+
+				            '<div class="row m-1 mt-2" style="font-size: 0.3rem;"> '+
+			              		'<div class="col-12 text-right"> '+
+			              			'<div class="d-inline" >'+productObj.coup_numUse+'</div> '+
+			              			// '<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div> '+
+			              			// '<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div> '+
+			              			// '<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div> '+
+			              			'<div class="d-inline"> '+
+			              				' '+
+			              			'</div> '+
+			              		'</div> '+
+			              	'</div> '+
+			            '</div> '+
+    			'</a> '+
 	    	'</div> '+
 	    '</div> ';
 	}
@@ -61,7 +89,7 @@
 	  return new Promise(function(resolve, reject) {
 	  	$.ajax({
 	  			crossDomain: true,
-			    url: baseurl + 'dashboard/getdataLimit',
+			    url: baseurl + 'dashboard/get_product_limit',
 			    type: 'GET',
 			    dataType: 'json',
 			    contentType: "application/json;charset=utf-8",
@@ -69,12 +97,17 @@
 			// console.log(respone,status)
 	  		// console.log($)
 
-			if(status == "success") resolve(respone)
-		  	else reject('error getDB')
+			if(status == "success") {
+				resolve(respone);
+			}else{
+				reject('error getDB');
+			} 
+		  	
 		});
 	  })
 	}
 //End for ProductRecommand
+
 
 
 // Start for BrandRecommand
@@ -121,7 +154,8 @@
 //End for BrandRecommand
 
 getProducts().then(function(respone) {
-	// console.log(respone)
+	// console.log('sssssssssssssssss')
+	 // console.log(respone)
   return foreachDatasAnd(respone)
 }).then(function(arrayHtml){
  	var swiper = new Swiper('.swiper-container.swiperProducts', {

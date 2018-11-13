@@ -41,9 +41,9 @@
 		visibility: visible;
 	}
 
-	/*ตั้งค่าให้ height เท่ากัน*/
+	/*ตั้งค่าให้ height เท่ากัน บรรทัดละ 24px*/
 	.setHeightCardHeadText{
-		height: 48px;
+		height: 24px;
 	}
 
 	.bg-greensmoot {

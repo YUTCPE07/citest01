@@ -7,7 +7,7 @@
         <img src="assets/images/template/navbar/logo_mini.png" alt="">
       </a>
       <!-- <a class="navbar-brand js-scroll-trigger" href="<?php //echo base_url(); ?>">Memberin</a> -->
-      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-green text-white rounded"
         type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i>
       </button>
@@ -26,13 +26,13 @@
             </div>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('product'); ?>">บทความ</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('product?page=1'); ?>">บทความ</a>
           </li>
 
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('product'); ?>">Product</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('product?page=1'); ?>">Product</a>
           </li>
          <!--  <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="about">About</a>

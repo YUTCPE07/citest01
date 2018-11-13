@@ -15,22 +15,12 @@ class Product extends CI_Controller {
 	}
 
 	public function index() {
-		$header = array(
-			'title' => 'CodeIgniter By YUT',
-			'description' => 'webbord, forum',
-			'author' => 'MI Team',
-
-		);
-
-		$footer = array(
-			'location' => '2215 John Daniel Drive<br>Clark, MO 65243',
-		);
-
-		$this->load->view('template/header', $header);
+		// echo "222222222222222";
+		$this->load->view('template/header');
 		$this->load->view('template/navbar');
 		$this->load->view('template/login');
 		$this->load->view('product/index');
-		$this->load->view('template/footer', $footer);
+		$this->load->view('template/footer');
 
 		// $this->counttype();
 	}
@@ -39,12 +29,22 @@ class Product extends CI_Controller {
 	public function getdata() {
 		// echo '222';
 		// get data
-		$data = $this->Main_model->getRecords();
+		$data = $this->Main_model->getAlldataProduct();
 		echo json_encode($data);
 	}
 
 	public function getdata_Catrogy_barnd() {
 		$data = $this->Main_model->getCatrogy_barnd();
+		echo json_encode($data);
+	}
+
+	public function get_hilight_coupon_trans() {
+		$data = $this->Main_model->get_hilight_coupon_trans();
+		echo json_encode($data);
+	}
+
+	public function get_rating() {
+		$data = $this->Main_model->get_rating();
 		echo json_encode($data);
 	}
 

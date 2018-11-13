@@ -1,3 +1,5 @@
+
+
 <div ng-controller='productController' class="pb-5 ">
 <!-- <div ng-show="expression">LONDING...</div> layoutProductOff-->
 <div class="container layoutProductOff pt-3" ng-class="{layoutProductOn:isReadyShow}">
@@ -30,13 +32,13 @@
 				<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded border border-secondary
 					collapse navbar-collapse" id="menuResponetive" >
 					<div class="row mb-3 ">
-						<div class="col-6 "><strong>หมวดหมู่</strong></div>
-						<div class="col-6 text-right">[ทั้งหมด]</div>
+						<div class="col-7 "><strong>หมวดหมู่</strong></div>
+						<div class="col-5 text-right">[ทั้งหมด]</div>
 					</div>
 					<?php //ng-repeat="(key, value) in players | groupBy: 'team'" ?>
 
 					<div class="row" ng-repeat="(key,value) in products|groupBy:'category_brand'">
-						<div class="col-6">
+						<div class="col-8">
 							<div class="form-check">
 							  <input class="form-check-input" type="checkbox"
 							  		ng-model="confirmed" ng-change="checkBoxProductType(this)"
@@ -45,7 +47,7 @@
 							  <label class="form-check-label">{{ catrogy_barnd[key-1].name }}</label>
 							</div>
 						</div>
-						<div class="col-6 text-right">
+						<div class="col-4 text-right">
 							<p>{{ value.length }}</p>
 							<p>{{ checkbox[key] }}</p>
 						</div>
@@ -59,9 +61,6 @@
 						<div class="col-12"><strong>ราคา</strong></div>
 						<!-- <div class="col-6 text-right">[ทั้งหมด]</div> -->
 						<div class="col-12">
-
-
-
 							<rzslider class="bg-greensmoot" rz-slider-model="priceSlider.minValue" rz-slider-high="priceSlider.maxValue" rz-slider-options="priceSlider.options"></rzslider>
 							<div class="d-flex">
 								<p class="mr-auto">เริ่มต้น</p>
@@ -74,6 +73,10 @@
 
 		</div>
 
+		<!-- test on 17,117 -->
+		<!-- {{ createRating("117",coupon_trans | filter : { coup_CouponID: "117", hico_Rating: "!0"} : true) }} -->
+		<!-- {{ coupon_trans | filter : { coup_CouponID: "117", hico_Rating: "!0"} : true }} -->
+		<!-- {{ rating(ratingDB,117,'Use')}} -->
 		<?php //layout 2 ?>
 		<div class="col-lg-9" >
 			<!-- <div class="col-lg-4"> -->
@@ -85,39 +88,85 @@
 					<div class="card shadow mb-3 mt-5 border border-secondary" style="max-width: 180rem;" >
 						<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 						<img ng-if="product.logo_image != null"
-							ng-click='lookup("barnd",product.coup_CouponID)'
+							ng-click='lookup("barnd",product.coup_CouponID,product.coup_Type)'
 							class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary bg-light" ng-src="upload/{{product.path_logo+product.logo_image}}">
-			            <img class="card-img-top" ng-click='lookup("coup",product.coup_CouponID)'
+			            <img class="card-img-top" ng-click='lookup("coup",product.coup_CouponID,product.coup_Type)'
 		            		ng-src="upload/{{product.coup_ImagePath+product.coup_Image}}" >
-			            <div class="text-dark" ng-click='lookup("coup",product.coup_CouponID)'>
-
+			            <div class="text-dark" ng-click='lookup("coup",product.coup_CouponID,product.coup_Type)'>
+			            	<!-- {{product.coup_CouponID}} -->
 			          		<div class="card-title h5 bold m-1 setHeightCardHeadText">{{product.coup_Name}}</div>
 				              <div class="row m-1">
-				              		<div class="col-6 text-right">
-				              			<div class="h6 regular"><del>3000฿</del></div>
-				              		</div>
-				              		<div class="col-6 text-right text-danger">
-				              			<div class="h4 medium">{{ product.coup_Price|number:0}}฿</div>
+				              		<div class="text-right col-12 ">
+				              			<div class="d-inline h6 regular pr-2">
+				              				<small>
+				              					<!-- {{product.coup_Cost}} -->
+				              					<!-- {{product.coup_Price}} -->
+				              					ลด
+				              					{{  Math.round(((product.coup_Cost - product.coup_Price)/product.coup_Cost)*100)  }}
+				              					%
+				              				</small>
+			              				</div>
+				              			<div class="d-inline h4 medium text-danger">{{ product.coup_Price|number:0}}฿
+				              			</div>
 				              		</div>
 		              		</div>
 				            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
-				              		<div class="col-3"><div >
-				              			<i class="fas fa-dollar-sign"></i> 5</div>
+				              		<div class="col-3">
+				              			<!-- ส่วนลด -->
+				              			<!-- <div><i class="fas fa-dollar-sign"></i> 5</div> -->
 				              		</div>
-				              		<div class="col-5 text-center text-warning " >
-						        			<i class="fa fa-star fa-xs"></i>
-						        			<i class="fa fa-star fa-xs"></i>
-						        			<i class="fa fa-star fa-xs"></i>
-						        			<i class="fa fa-star fa-xs"></i>
-						        			<i class="fa fa-star fa-xs"></i>
+				              		<div class="col-5 text-center text-warning ">
+				              			<!-- <div class="d-inline" ng-repeat='i in [0,1,2,3,4]'>
+				              				<div class="d-inline" ng-if="arrayRating[i]=='full'">
+				              					<i class="fa fa-star text-warning " data-fa-transform="up-2"></i>
+				              				</div>
+				              				<div class="d-inline" ng-if="arrayRating[i]=='half'">
+				              					<i class="fas fa-star-half-alt text-warning" data-fa-transform="up-2" ></i>
+				              				</div>
+				              				<div class="d-inline" ng-if="arrayRating[i]=='noting'">
+				              					<i class="far fa-star text-warning " data-fa-transform="up-2"></i>
+				              				</div>
+				              			</div> -->
+						        		<!-- test 2,117 -->
+						        		<!-- <div>{{product.coup_CouponID}}</div> -->
+						        		<!-- <div>{{product.coup_Type}}</div> -->
+					        			<!-- <div ng-repeat="x in rating(ratingDB,product.coup_CouponID,product.coup_Type)">
+					        				{{x}}
+					        			</div> -->
+					        			<!-- {{numRating}} -->
+										<!-- <?php $numStarCalculator = 2;?>
+										<?php for ($i = 1; $i <= 5; $i++) {?>
+
+												<?php if ($numStarCalculator >= 1): ?>
+														<i class="fa fa-star text-warning " data-fa-transform="up-2"></i>
+							        					<?php $numStarCalculator--;?>
+												<?php else: ?>
+								        			<?php if ($numStarCalculator >= 0.5): ?>
+								        				<i class="fas fa-star-half-alt text-warning" data-fa-transform="up-2" ></i>
+						        						<?php $numStarCalculator -= 0.5;?>
+								        			<?php else: ?>
+						        						<i class="far fa-star text-warning " data-fa-transform="up-2"></i>
+								        			<?php endif;?>
+							        			<?php endif;?>
+					        			<?php }?> -->
 				              		</div>
-				              		<div class="col-4 text-right"><div>ขายเเล้ว 20</div></div>
+				              		<div class="col-4 text-right">
+				              			<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div>
+				              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
+				              			<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div>
+				              			<div class="d-inline">
+				              				{{ (coupon_trans | filter : { coup_CouponID: product.coup_CouponID } : true).length }}
+				              			</div>
+				              			<!-- <div >{{ rating(ratingDB,product.coup_CouponID,product.coup_Type)}}</div> -->
+				              		</div>
+				              			<!-- rating(ratingDB,117,'Use') -->
 			              	</div>
 			            </div>
 			            <!-- </a> -->
 			        </div>
 			  	</div>
 				</div>
+
 				<!-- <div ng-repeat='product in data | filter:filterProduct | startFrom:currentPage*pageSize | limitTo:pageSize ' > -->
 			<!-- 	<div ng-repeat='product in data | filter:filterProduct | filter:currentPage*pageSize | limitTo:pageSize ' >
 					<div class="row">

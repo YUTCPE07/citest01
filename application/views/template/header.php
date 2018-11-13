@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
 <head>
+
 	<meta charset="utf-8">
 	<meta name="keywords" content="memberin,สิทธิพิเศษ,วอชเชอร์,สมาชิกออนไลน์">
 	<!-- <meta name="description" content="<?php //echo $description ?>"> -->
@@ -31,9 +32,12 @@
 		href="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.css'); ?>">
 	<link rel="stylesheet" type="text/css"
 		href="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.css'); ?>">
+	<!-- <link rel="stylesheet" type="text/css"
+		hrel="<?php //echo base_url('assets/plugins/angular-star-rating/star-rating.css') ?>"> -->
 
 	<!-- font -->
 	<link href="https://fonts.googleapis.com/css?family=Prompt:100,300,400,500,700&amp;subset=thai" rel="stylesheet">
+	<link href="<?php echo base_url('assets/css/custom/reset.css'); ?>" rel="stylesheet">
 
 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/reset.css'); ?>">
