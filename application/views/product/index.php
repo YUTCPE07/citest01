@@ -55,11 +55,10 @@
 				</div>
 			</div> <?php //end row  ?>
 
-			<div class="row">
+			<!-- <div class="row">
 				<div class="shadow p-3 w-100 mb-5 bg-white rounded border border-secondary" >
 					<div class="row mb-3 ">
 						<div class="col-12"><strong>ราคา</strong></div>
-						<!-- <div class="col-6 text-right">[ทั้งหมด]</div> -->
 						<div class="col-12">
 							<rzslider class="bg-greensmoot" rz-slider-model="priceSlider.minValue" rz-slider-high="priceSlider.maxValue" rz-slider-options="priceSlider.options"></rzslider>
 							<div class="d-flex">
@@ -69,7 +68,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 
@@ -111,12 +110,12 @@
 				              		</div>
 		              		</div>
 				            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
-				              		<div class="col-3">
+				              		<!-- <div class="col-3"> -->
 				              			<!-- ส่วนลด -->
 				              			<!-- <div><i class="fas fa-dollar-sign"></i> 5</div> -->
-				              		</div>
-				              		<div class="col-5 text-center text-warning ">
-				              			<!-- <div class="d-inline" ng-repeat='i in [0,1,2,3,4]'>
+				              		<!-- </div> -->
+				              		<!--<div class="col-5 text-center text-warning ">
+				              			 <div class="d-inline" ng-repeat='i in [0,1,2,3,4]'>
 				              				<div class="d-inline" ng-if="arrayRating[i]=='full'">
 				              					<i class="fa fa-star text-warning " data-fa-transform="up-2"></i>
 				              				</div>
@@ -148,9 +147,9 @@
 						        						<i class="far fa-star text-warning " data-fa-transform="up-2"></i>
 								        			<?php endif;?>
 							        			<?php endif;?>
-					        			<?php }?> -->
-				              		</div>
-				              		<div class="col-4 text-right">
+					        			<?php }?>
+				              		</div>-->
+				              		<div class="col-12 text-right">
 				              			<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div>
 				              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
 				              			<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div>

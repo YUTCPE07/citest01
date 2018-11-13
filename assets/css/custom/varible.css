@@ -126,6 +126,10 @@ a:hover {
 	background-color: var(--color-yellow);
 }
 
+.hover-bg-white:hover {
+	background-color: var(--color-white);
+}
+
 .d-inline{
 	display: inline;
 	

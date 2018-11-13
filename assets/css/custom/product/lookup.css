@@ -3,3 +3,32 @@
 .lookup-head-img > img{
 	width:unset;
 }
+
+
+
+/* view:product/shop_lookup ________________________________________________________*/
+
+	/*select num Product Buy*/
+		.page-item.disabled > .page-link{ 
+			background-color: #79b5ae;
+		}
+
+		.page-item.disabled {
+			cursor: not-allowed;
+		}
+
+		.page-link {
+		    color: var(--color-gray1);
+		    background-color: none;
+
+		}
+
+		.page-link:hover {
+			color: var(--color-gray1);
+		    background-color: var(--color-green);
+		}
+
+
+	/*______________________*/
+
+/* END view:product/shop_lookup _____________________________________________________*/

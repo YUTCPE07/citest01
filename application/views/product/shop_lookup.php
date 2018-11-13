@@ -318,7 +318,12 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 			<?php //end row2 ?>
 		</div>
 		<?php //tab controller ,select time, select date, selectzone, show price, addtocart, buynow ?>
-		<div class="col-md-4 " ng-controller="shop_lookupController" >
+		<div class="col-md-4 " ng-controller="shop_lookupController"
+			ng-init="
+				numForBuy = 1;
+				productPrice = <?php echo $db['coup_Price'] ?>;
+				productId = <?php echo $db['coup_CouponID'] ?>;
+				" >
 			<div class="row mb-3">
 				<div id="my-calendar" class="blue material-theme ml-auto mr-auto" ></div>
 				<!-- Outputs -->
@@ -327,40 +332,38 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				Month change : <br>
 				<input class="form-control" id="my-input-b"><br> -->
 			</div>
-			<div class="row" ng-init="numForBuy = 1">   <!-- select num for buy -->
+			<div class="row">   <!-- select num for buy -->
 				<div class="col-12 h3 medium text-black">เลือก</div>
 				<ul class="pagination ml-auto mr-auto">
 				    <li class="page-item">
-				    	<a class="page-link" ng-click="numForBuy = numForBuy + 1 ">
+				    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy + 1 ">
 				    		<i class="fas fa-angle-up"></i>
-				    	</a>
+				    	</div>
 					</li>
-					<li class="page-item" >
-				    	<a class="page-link" >
-				    		{{numForBuy}}
-				    	</a>
+					<li class="page-item " >
+				    	<div class="page-link bg-white" >{{numForBuy}}</div>
 					</li>
-					<li class="page-item" ng-disabled="numForBuy < 2">
-				    	<a class="page-link" ng-click="numForBuy = numForBuy - 1">
+					<li class="page-item " ng-class="{disabled:numForBuy<2}" >
+				    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy - 1">
 				    		<i class="fas fa-angle-down"></i>
-				    	</a>
+				    	</div>
 					</li>
 			    </ul>
 			</div>
 			<div class="row">
-				<!-- <div class="container"> -->
-					<div class="col-12 h3 medium text-black">สรุปยอด</div>
-					<div class="col-6 text-gray1 text-left pl-4">ราคาต่อคน</div>
-					<div class="col-6 text-gray1 text-right pr-4">300 ฿</div>
-					<hr class="w-100 h3 bg-green">
-					<div class="col-6 text-gray1 text-left pl-4">จำนวน</div>
-					<div class="col-6 text-gray1 text-right pr-4">{{numForBuy}}</div>
-					<hr class="w-100 h3 bg-green">
-					<div class="col-6 text-gray1 text-left pl-4">ราคารวม</div>
-					<div class="col-6 text-gray1 text-right pr-4">2323 ฿</div>
+				<div class="col-12 h3 medium text-black">สรุปยอด</div>
+				<div class="col-6 text-gray1 text-left pl-4">ราคาต่อคน</div>
+				<div class="col-6 text-gray1 text-right pr-4">{{productPrice}} ฿</div>
+				<hr class="w-100 h3 bg-green">
+				<div class="col-6 text-gray1 text-left pl-4">จำนวน</div>
+				<div class="col-6 text-gray1 text-right pr-4">{{numForBuy}}</div>
+				<hr class="w-100 h3 bg-green">
+				<div class="col-6 text-gray1 text-left pl-4">ราคารวม</div>
+				<div class="col-6 text-gray1 text-right pr-4">{{productPrice*numForBuy}} ฿</div>
+				<div class="col-12 text-center mt-5">
+					<button class="btn btn-primary">ซื้อเลย</button>
+				</div>
 			</div>
-
-				<!-- </div> -->
 		</div>
 	</div>
 </div>
