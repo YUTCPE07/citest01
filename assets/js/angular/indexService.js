@@ -4,9 +4,9 @@ app.factory('indexService', function ($q, $http) {
 
 
     return {
-        get: function () {
+        getAlldataProduct: function () {
             var deferred = $q.defer(); //เริ่มทำงาน
-            $http.get(baseurl + 'Product/Product/getdata').then(function (result) {
+            $http.get(baseurl + 'Product/Product/getAlldataProduct').then(function (result) {
                 deferred.resolve(result.data); // เสร็จแล้วเอาไปเลย!!
             }, function (error) {
                 deferred.reject(error) 

@@ -26,7 +26,7 @@ class Product extends CI_Controller {
 	}
 
 	// Call this method from AngularJS $http request
-	public function getdata() {
+	public function getAlldataProduct() {
 		// echo '222';
 		// get data
 		$data = $this->Main_model->getAlldataProduct();

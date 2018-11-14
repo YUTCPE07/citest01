@@ -323,7 +323,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				numForBuy = 1;
 				productPrice = <?php echo $db['coup_Price'] ?>;
 				productId = <?php echo $db['coup_CouponID'] ?>;
-				" >
+				">
 			<div class="row mb-3">
 				<div id="my-calendar" class="blue material-theme ml-auto mr-auto" ></div>
 				<!-- Outputs -->
@@ -365,7 +365,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				</div>
 			</div>
 
-			<div class="text-right d-lg-none d-md-none"
+			<div class="text-right d-lg-none d-md-none" ng-if="!btnBuy"
 				style="
 					position: fixed;
 					top: 90%;
@@ -373,6 +373,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 					border-top-left-radius: 1rem;
 					border-bottom-left-radius: 1rem;
 					background-color: var(--color-green);
+					cursor: pointer;
 				"
 			>
 				<div class="h4 medium p-3 text-white"

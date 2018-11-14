@@ -29,7 +29,7 @@ function ($scope, $http,indexService,$location,$filter) {
             }
 
         }
-
+    //____________________________________________________
 
 
 
@@ -130,33 +130,33 @@ function ($scope, $http,indexService,$location,$filter) {
 
 
     //____________________________________________________
-    // pageination controller
+    // pageination& Get All Product controller
     //____________________________________________________
-    var url =  new URL(window.location.href);
-    var thisPage = url.searchParams.get("page");
-    // var url_string = "http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"; //window.location.href
-    // var url = new URL(url_string);
-    // var c = url.searchParams.get("c");
-    // console.log(c); /*m2-m3-m4-m5*/
+        var url =  new URL(window.location.href);
+        var thisPage = url.searchParams.get("page");
+        // var url_string = "http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"; //window.location.href
+        // var url = new URL(url_string);
+        // var c = url.searchParams.get("c");
+        // console.log(c); /*m2-m3-m4-m5*/
 
-    $scope.currentPage = 0;
-    $scope.pageSize = 9;
-    indexService.get().then(function (data) {
-        $scope.products = data;
-        $scope.category_brands = data;
-        // console.log(data)
-        $scope.filterResult = data.length;
-        $scope.pageAfterFilter = Math.ceil(data.length/$scope.pageSize)
-            $scope.isReadyShow = true; 
-        },function(error){ console.log(error);
-    });
-	$scope.setPage = function (pageNo) {
-    	$scope.currentPage = pageNo;
-	};
+        $scope.currentPage = 0;
+        $scope.pageSize = 9;
+        indexService.getAlldataProduct().then(function (data) {
+            $scope.products = data;
+            $scope.category_brands = data;
+             console.log(data)
+            $scope.filterResult = data.length;
+            $scope.pageAfterFilter = Math.ceil(data.length/$scope.pageSize)
+                $scope.isReadyShow = true; 
+            },function(error){ console.log(error);
+        });
+    	$scope.setPage = function (pageNo) {
+        	$scope.currentPage = pageNo;
+    	};
 
-	$scope.pageChanged = function() {
-    	console.log('Page changed to: ' + $scope.currentPage);
-	};
+    	$scope.pageChanged = function() {
+        	console.log('Page changed to: ' + $scope.currentPage);
+    	};
     
 	// $scope.maxSize = 5;
 	// $scope.bigTotalItems = 175;
@@ -172,6 +172,7 @@ function ($scope, $http,indexService,$location,$filter) {
 
             $scope.catrogy_barnd = data;
         });
+    //____________________________________________________
 
 
 
@@ -183,7 +184,7 @@ function ($scope, $http,indexService,$location,$filter) {
     //____________________________________________________
         $scope.optionArrays = []; //[{type:'1',productCount:'9'},{type:'2',productCount:'3'}]
         $scope.filterProduct = function(product){
-        	// console.log(product)
+        	//console.log(product)
         	// console.log('product.category_brand',product.category_brand)
         	if($scope.optionArrays.length == 0){
         		return ($scope.optionArrays.indexOf(product.category_brand) === -1);
@@ -227,7 +228,19 @@ function ($scope, $http,indexService,$location,$filter) {
     		$scope.pageAfterFilter = Math.ceil($scope.filterResult/$scope.pageSize)
     		// console.log($scope.filterResult)
         }
+    //____________________________________________________
    	
+
+
+
+
+  
+
+
+
+
+
+
     //____________________________________________________
     // seekbar controller
     //____________________________________________________
@@ -245,22 +258,7 @@ function ($scope, $http,indexService,$location,$filter) {
         }
 
     // console.log($scope.priceSlider)
-}]);
-
-// .filter('reverse', function() {
-  // return function(input, uppercase) {
-  //   input = input || '';
-  //   var out = '';
-  //   for (var i = 0; i < input.length; i++) {
-  //     out = input.charAt(i) + out;
-  //   }
-  //   // conditional based on optional argument
-  //   if (uppercase) {
-  //     out = out.toUpperCase();
-  //   }
-  //   return out;
-  // };
-// })
+}]); /*end app.controller 'productController' */
 
 app.filter('ratingFilter', function() {
     return function(data) {

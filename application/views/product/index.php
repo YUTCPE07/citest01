@@ -159,7 +159,8 @@
 				              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
 				              			<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div>
 				              			<div class="d-inline">
-				              				{{ (coupon_trans | filter : { coup_CouponID: product.coup_CouponID } : true).length }}
+				              				{{product.coup_numUse}}
+				              				<!-- {{ (coupon_trans | filter : { coup_CouponID: product.coup_CouponID } : true).length }} -->
 				              			</div>
 				              			<!-- <div >{{ rating(ratingDB,product.coup_CouponID,product.coup_Type)}}</div> -->
 				              		</div>

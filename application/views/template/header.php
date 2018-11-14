@@ -58,7 +58,7 @@
 
 </head>
 
-<body id="page-top" >
+<body id="page-top" scroll>
 	<?php //for navbar fix ?>
 	<div class="hr_head_height"></div>
 

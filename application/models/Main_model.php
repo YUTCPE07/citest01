@@ -486,8 +486,26 @@ class Main_model extends CI_Model {
 	function getAlldataProduct() {
 		// Select user records
 		// $this->db->select('*');
-		$sql = 'SELECT * FROM (
-					SELECT 	hilight_coupon.coup_CouponID,
+		$sql = 'SELECT
+				    z.coup_CouponID,
+				    z.bran_BrandID,
+				    z.coup_Name,
+				    z.coup_ImagePath,
+				    z.coup_Image,
+				    z.coup_Price,
+				    z.coup_Description,
+				    z.coup_UpdatedDate,
+				    z.coup_Cost,
+				    z.coup_Type,
+				    IFNULL(z.coup_numUse, 0) AS coup_numUse,
+				    mi_brand.path_logo,
+					mi_brand.logo_image,
+					mi_brand.category_brand
+				FROM
+				    (
+						SELECT
+							hilight_coupon.coup_CouponID,
+				            hilight_coupon.bran_BrandID,
 							hilight_coupon.coup_Name,
 							hilight_coupon.coup_ImagePath,
 							hilight_coupon.coup_Image,
@@ -495,16 +513,26 @@ class Main_model extends CI_Model {
 							hilight_coupon.coup_Description,
 							hilight_coupon.coup_UpdatedDate,
 							hilight_coupon.coup_Cost,
-							hilight_coupon.coup_Type,
-							mi_brand.path_logo,
-							mi_brand.logo_image,
-							mi_brand.category_brand,
-							mi_brand.flag_status,
-							mi_brand.flag_del,
-							mi_brand.flag_hidden
-					FROM hilight_coupon LEFT JOIN mi_brand ON hilight_coupon.coup_CouponID=mi_brand.brand_Id
-					UNION ALL
-					SELECT 	mi_card.card_id,
+				            hilight_coupon.coup_Type,
+							x.coup_numUse
+						FROM
+							hilight_coupon
+						LEFT JOIN
+							(
+								SELECT
+									hilight_coupon_trans.coup_CouponID AS coup_id,
+								COUNT(*) AS coup_numUse
+								FROM
+									hilight_coupon_trans
+								WHERE
+									hilight_coupon_trans.hico_Deleted != "T"
+								GROUP BY hilight_coupon_trans.coup_CouponID
+							) AS x
+						ON hilight_coupon.coup_CouponID = x.coup_id
+				    UNION ALL
+						SELECT
+							mi_card.card_id,
+				            mi_card.brand_id,
 							mi_card.name,
 							mi_card.path_image,
 							mi_card.image,
@@ -513,17 +541,24 @@ class Main_model extends CI_Model {
 							mi_card.date_update,
 							mi_card.original_fee,
 							"Member" AS coup_Type,
-							mi_brand.path_logo,
-							mi_brand.logo_image,
-							mi_brand.category_brand,
-							mi_brand.flag_status,
-							mi_brand.flag_del,
-							mi_brand.flag_hidden
-					FROM mi_card LEFT JOIN mi_brand ON mi_card.brand_id=mi_brand.brand_Id
-				) AS U
-				WHERE 	U.flag_status = 1 AND
-						U.flag_del = 0 AND
-						U.flag_hidden = "No"
+							y.coup_numUse
+						FROM
+							mi_card
+							LEFT JOIN
+								(select
+									hilight_coupon_buy.hico_HilightCouponID AS coup_id,
+									COUNT(*) AS coup_numUse
+								FROM
+									hilight_coupon_buy
+								WHERE
+									hilight_coupon_buy.hcbu_Deleted != "T"
+								GROUP BY hilight_coupon_buy.hico_HilightCouponID
+								) AS y
+							ON mi_card.card_id = y.coup_id
+				    ) AS z
+
+				LEFT JOIN mi_brand ON z.bran_BrandID = mi_brand.brand_id
+				WHERE mi_brand.flag_status = 1 AND mi_brand.flag_del = 0 AND mi_brand.flag_hidden = "No"
 				ORDER BY coup_UpdatedDate DESC';
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
