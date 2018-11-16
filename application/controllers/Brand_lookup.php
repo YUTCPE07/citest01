@@ -19,16 +19,6 @@ class Brand_lookup extends CI_Controller {
 
 	public function index() {
 		$brand_Id = $this->uri->segment(2);
-		$header = array(
-			'title' => 'CodeIgniter By YUT',
-			'description' => 'webbord, forum',
-			'author' => 'MI Team',
-
-		);
-
-		$footer = array(
-			'location' => '2215 John Daniel Drive<br>Clark, MO 65243',
-		);
 
 		$query = $this->Main_model->getLookupBrand($brand_Id);
 		if (count($query) == 1) {
@@ -38,21 +28,21 @@ class Brand_lookup extends CI_Controller {
 			redirect('/brand');
 		}
 
-		// $this->load->view('template/header',$header);
-		// $this->load->view('template/navbar');
-		// 		$this->load->view('template/login');
-		// $this->load->view('brand/lookup',$output);
-		// $this->load->view('template/footer',$footer);
-		echo 'Thsi is barnd lookup id' . $brand_Id;
+		$this->load->view('template/header');
+		$this->load->view('template/navbar');
+		$this->load->view('template/login');
+		$this->load->view('brand/brand_lookup', $output);
+		$this->load->view('template/footer');
+		// echo 'Thsi is barnd lookup id' . $brand_Id;
 		// print_r($query[0]);
 	}
 
-	public function getdata($brand_Id) {
-		// echo "ss" . $coupon_Id;
-		// get data
-		$query = $this->Main_model->getLookupBrand($brand_Id);
-		// $result = $query->result_array();
-		// echo $query;
-		// echo json_encode($data);
-	}
+	// public function getdata($brand_Id) {
+	// echo "ss" . $coupon_Id;
+	// get data
+	// $query = $this->Main_model->getLookupBrand($brand_Id);
+	// $result = $query->result_array();
+	// echo $query;
+	// echo json_encode($data);
+	// }
 }

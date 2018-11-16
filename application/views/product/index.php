@@ -21,13 +21,13 @@
 
 	<div class="row">
 		<?php //layout 1 ?>
-		<div class="col-lg-3 mt-3 navbar-expand-lg menu">
+		<div class="col-lg-3 navbar-expand-lg menu">
 			<?php //menu ?>
 			<button class="navbar-toggler text-uppercase bg-primary text-white rounded" type="button"
 				data-toggle="collapse" data-target="#menuResponetive" aria-controls="menuResponetive"
 				aria-expanded="false"><i class="fas fa-filter"></i>คัดกรอง
 		    </button>
-	      	<h5 class="m-2">คัดกรอง</h5>
+	      	<h5 class="mb-2">คัดกรอง</h5>
 			<div class="row">
 				<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded border border-secondary
 					collapse navbar-collapse" id="menuResponetive" >
@@ -37,7 +37,7 @@
 					</div>
 					<?php //ng-repeat="(key, value) in players | groupBy: 'team'" ?>
 
-					<div class="row" ng-repeat="(key,value) in products|groupBy:'category_brand'">
+					<div class="row productMenuHover" ng-repeat="(key,value) in products|groupBy:'category_brand'">
 						<div class="col-8">
 							<div class="form-check">
 							  <input class="form-check-input" type="checkbox"
@@ -84,7 +84,7 @@
 			<div class="row" >
 				<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
 				<div class="product col-lg-4" ng-repeat='product in products | filter:filterProduct| startFrom:currentPage*pageSize | limitTo:pageSize'>
-					<div class="card shadow mb-3 mt-5 border border-secondary" style="max-width: 180rem;" >
+					<div class="card shadow mb-3 mt-5 border border-secondary " style="max-width: 180rem;" >
 						<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 						<img ng-if="product.logo_image != null"
 							ng-click='lookup("barnd",product.coup_CouponID,product.coup_Type)'
@@ -94,7 +94,7 @@
 			            <div class="text-dark" ng-click='lookup("coup",product.coup_CouponID,product.coup_Type)'>
 			            	<!-- {{product.coup_CouponID}} -->
 			            	<div class="d-none">id>{{product.coup_CouponID}}|id-b>{{product.category_brand}}</div>
-			          		<div class="card-title h5 bold m-1 setHeightCardHeadText">
+			          		<div class="card-title h5 bold m-1 setHeightCardHeadText ">
 			          			{{product.coup_Name}}
 			          		</div>
 				              <div class="row m-1">

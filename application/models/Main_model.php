@@ -4,6 +4,81 @@
 
 class Main_model extends CI_Model {
 
+	function echo_data() {
+		$sql = 'SELECT *
+				FROM mi_brand';
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		$resultsKey = array_keys($results[0]);
+		echo '<pre>';
+		print_r($results[0]);
+		echo '</pre>';
+		foreach ($resultsKey as $value) {
+			echo 'mi_brand.' . $value . ',<br />';
+		}
+		exit;
+	} /*end function echo_data *watch varible mysql */
+
+	function getLookupBrand($id) {
+
+		$sql = 'SELECT
+				    mi_brand.brand_id,
+					mi_brand.name,
+					mi_brand.name_en,
+					mi_brand.company_type,
+					mi_brand.company_name,
+					mi_brand.slogan,
+					mi_brand.category_brand,
+					mi_brand.type_brand,
+					mi_brand.phone,
+					mi_brand.mobile,
+					mi_brand.fax,
+					mi_brand.email,
+					mi_brand.website,
+					mi_brand.facebook_url,
+					mi_brand.line_type,
+					mi_brand.line_id,
+					mi_brand.instragram,
+					mi_brand.tweeter,
+					mi_brand.logo_image,
+					mi_brand.cover,
+					mi_brand.path_logo,
+					mi_brand.path_cover,
+					mi_brand.signature_info,
+					mi_brand.date_create,
+					mi_brand.date_update,
+					mi_brand.create_by,
+					mi_brand.update_by,
+					mi_brand.flag_status,
+					mi_brand.date_status,
+					mi_brand.flag_del,
+					mi_brand.flag_hidden,
+					mi_brand.flag_approve,
+					mi_brand.shop_q1,
+					mi_brand.shop_a1,
+					mi_brand.shop_q2,
+					mi_brand.shop_a2,
+					mi_brand.shop_q3,
+					mi_brand.shop_a3,
+					mi_brand.shop_q4,
+					mi_brand.shop_a4,
+					mi_brand.shop_q5,
+					mi_brand.shop_a5
+				FROM
+				    mi_brand
+				WHERE
+				    mi_brand.flag_status = 1 AND
+				    mi_brand.flag_del = 0 AND
+				    mi_brand.flag_hidden = "No" AND
+				    mi_brand.brand_id = ' . $id;
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+
+	}
+
+	// ____________________________________________________________________________
+
 	function getRecordsLimit($limit) {
 		// Select user records
 		// $this->db->select('*');
@@ -53,6 +128,21 @@ class Main_model extends CI_Model {
 		return $results;
 	}
 
+	function getAllDataBrand() {
+		$sql = 'SELECT
+				    b.brand_id, b.name, b.path_logo, b.logo_image, b.date_update
+				FROM
+				    mi_brand b
+				WHERE
+				    b.flag_status = 1 AND
+				    b.flag_del = 0 AND
+				    b.flag_hidden = "No"
+				ORDER BY b.date_update DESC';
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+	}
+
 	function getBrandRecommand() {
 		// Select user records
 		// $this->db->select('*');
@@ -63,24 +153,6 @@ class Main_model extends CI_Model {
 		// return $results;
 		return $results;
 	}
-
-	function echo_data() {
-		$sql = 'SELECT *
-				FROM reward';
-		$q = $this->db->query($sql);
-		$results = $q->result_array();
-		// echo "<pre>";
-		// print_r(array_keys($results[0]));
-		$resultsKey = array_keys($results[0]);
-		echo '<pre>';
-		print_r($results[0]);
-		echo '</pre>';
-		foreach ($resultsKey as $value) {
-			echo 'reward.' . $value . ',<br />';
-		}
-		exit;
-		// return $results;
-	} /*end function echo_data *watch varible mysql */
 
 	function shop_lookup($id) {
 		/*test id 36*/
@@ -486,7 +558,7 @@ class Main_model extends CI_Model {
 	function getAlldataProduct() {
 		// Select user records
 		// $this->db->select('*');
-		$sql = 'select
+		$sql = 'SELECT
 			    z.coup_CouponID,
 			    z.bran_BrandID,
 			    z.coup_Name,
@@ -699,15 +771,6 @@ class Main_model extends CI_Model {
 		$results = $q->result_array();
 
 		// echo $results;
-		return $results;
-	}
-
-	function getLookupBrand($id) {
-		$sql = 'SELECT  brand_id,path_logo,logo_image,name,company_type,company_name,slogan,category_brand,
-              phone,mobile,fax,email,website,facebook_url,line_id,instragram,tweeter,date_create,date_update
-            FROM mi_brand WHERE brand_id =' . $id;
-		$q = $this->db->query($sql);
-		$results = $q->result_array();
 		return $results;
 	}
 

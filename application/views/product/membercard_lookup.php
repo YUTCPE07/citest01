@@ -14,7 +14,7 @@
 		src="upload/<?php echo $db['path_cover'] . $db['cover']; ?> " alt="First slide">
 </div>
 
-<div class="container h4 text-gray1">
+<div class="container h4 text-gray1 pt-5">
 	<div class="d-flex flex-row-reverse p-md-5 p-4 ">
 		<button class="btn btn-primary ml-md-5 ml-3">แชร์</button>
 		<button class="btn btn-primary">ชื่นชอบ</button>

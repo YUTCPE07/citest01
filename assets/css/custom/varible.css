@@ -126,6 +126,10 @@ a:hover {
 	background-color: var(--color-yellow);
 }
 
+.hover-text-green:hover {
+	color: var(--color-green);
+}
+
 .hover-bg-white:hover {
 	background-color: var(--color-white);
 }
@@ -133,6 +137,10 @@ a:hover {
 .d-inline{
 	display: inline;
 	
+}
+
+.cursor-pointer{
+	cursor: pointer;
 }
 
 .this_link:hover{

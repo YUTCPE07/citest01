@@ -1,4 +1,20 @@
 /*product-index*/
+.card.shadow:hover {
+	border: 3px solid rgba(74, 178, 165)!important;
+    /*border-color:  rgba(74, 178, 165)!important;*/
+    box-shadow: 0 .5rem 1rem rgba(74, 178, 165,.15)!important;
+}
+
+.productMenuHover:hover {
+	cursor: pointer;
+	color: white;
+	background-color: var(--color-green);
+}
+
+.productMenuHover > label, input[type="checkbox" i], input[type="checkbox" i] {
+	cursor: pointer!important;
+}
+
 
 
 /*product->seekbar*/

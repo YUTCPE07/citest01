@@ -62,7 +62,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 		</div>
 	<hr class="pb-3">
 </div>
-<div class="container">
+<div class="container pb-5">
 	<div class="row">
 		<div class="col-md-10">
 			<div class="row p-3">
