@@ -16,14 +16,17 @@ class Shop_lookup extends CI_Controller {
 	public function index() {
 		$coupon_Id = $this->uri->segment(2);
 		$query = $this->Main_model->shop_lookup($coupon_Id);
+		$output['db'] = $query[0];
 		// echo "<pre>";
 		// print_r($query);
 		// exit;
 		if (count($query) == 1) {
 			$output['db'] = $query[0];
 		} else {
-			$output['db'] = null;
-			redirect('/product');
+			echo '<pre>';
+			echo $query;
+			// $output['db'] = null;
+			// redirect('/product');
 		}
 		// $query->free_result();
 

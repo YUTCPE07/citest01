@@ -357,7 +357,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<hr class="w-100 h3 bg-green ml-sm-5">
 				<div class="col-6 text-gray1 text-left pl-4">จำนวน</div>
 				<div class="col-6 text-gray1 text-right pr-4">{{numForBuy}}</div>
-				<hr class="w-100 h3 bg-green ml-sm-15">
+				<hr class="w-100 h3 bg-green ml-sm-5">
 				<div class="col-6 text-gray1 text-left pl-4">ราคารวม</div>
 				<div class="col-6 text-gray1 text-right pr-4">{{productPrice*numForBuy}} ฿</div>
 				<div class="col-12 text-center mt-5 pb-5">
@@ -377,7 +377,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				"
 			>
 				<div class="h4 medium p-3 text-white"
-					ng-click="scrollTo('focus_buy')"
+					ng-click="scrollTo()"
 					style="
 						width: auto;
 						margin-bottom: 0px;

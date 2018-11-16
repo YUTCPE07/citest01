@@ -23,5 +23,5 @@ $route['aboutus'] = 'Other/Aboutus';
 $route['policy'] = 'Other/Policy';
 $route['termsofuse'] = 'Other/Termsofuse';
 
-$route['404_override'] = '';
+$route['404_override'] = 'Error';
 $route['translate_uri_dashes'] = FALSE;

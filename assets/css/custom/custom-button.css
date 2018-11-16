@@ -57,6 +57,14 @@
     border-color: var(--color-green);
 }
 
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: none; 
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: none; 
+}
 
 .btn-success {
   font-family: Raleway-SemiBold;

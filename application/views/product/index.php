@@ -93,7 +93,10 @@
 		            		ng-src="upload/{{product.coup_ImagePath+product.coup_Image}}" >
 			            <div class="text-dark" ng-click='lookup("coup",product.coup_CouponID,product.coup_Type)'>
 			            	<!-- {{product.coup_CouponID}} -->
-			          		<div class="card-title h5 bold m-1 setHeightCardHeadText">{{product.coup_Name}}</div>
+			            	<div class="d-none">id>{{product.coup_CouponID}}|id-b>{{product.category_brand}}</div>
+			          		<div class="card-title h5 bold m-1 setHeightCardHeadText">
+			          			{{product.coup_Name}}
+			          		</div>
 				              <div class="row m-1">
 				              		<div class="text-right col-12 ">
 				              			<div class="d-inline h6 regular pr-2">

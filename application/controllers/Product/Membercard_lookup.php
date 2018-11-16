@@ -23,12 +23,14 @@ class Membercard_lookup extends CI_Controller {
 		// echo $coupon_Id;
 		// exit;
 		$query = $this->Main_model->membercard_lookup($coupon_Id);
-
+		// $output['db'] = $query[0];
 		if (count($query) == 1) {
 			$output['db'] = $query[0];
 		} else {
-			$output['db'] = null;
-			redirect('/product');
+			echo '<pre>';
+			echo $query;
+			// $output['db'] = null;
+			// redirect('/product');
 		}
 		// echo $query[0]['brand_id'] . 'This is brand_id';
 		// exit;

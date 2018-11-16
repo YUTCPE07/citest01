@@ -77,7 +77,7 @@
     </div>
 </footer>
 
-
+<div>
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo base_url('assets/js/jquery/jquery-3.3.1.min.js'); ?>" ></script>
     <script src="<?php echo base_url('assets/js/bootstrap/bootstrap-popper.min.js'); ?>" ></script>
@@ -123,10 +123,7 @@
     <?php //view product user select calender jsCalendar_custom Load on lookup ?>
 
     <script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
-  </body>
-
-
-<body>
+</div>
 
 </body>
 </html>

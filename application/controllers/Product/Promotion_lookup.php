@@ -25,12 +25,15 @@ class Promotion_lookup extends CI_Controller {
 		// echo '<pre>';
 		// print_r($query);
 		// echo '</pre>';
+		// $output['db'] = $query[0];
 
 		if (count($query) == 1) {
 			$output['db'] = $query[0];
 		} else {
-			$output['db'] = null;
-			redirect('/product');
+			echo '<pre>';
+			echo $query;
+			// $output['db'] = null;
+			// redirect('/product');
 		}
 
 		$this->load->view('template/header');
