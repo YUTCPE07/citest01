@@ -7,6 +7,12 @@
 }
 /* Boostrap Buttons Styling */
 
+.input-primary {
+  border-color: var(--color-green);
+  border-radius: 1.5rem;
+}
+
+
 .btn-default {
   font-family: Raleway-SemiBold;
   /*font-size: 13px;*/
