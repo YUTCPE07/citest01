@@ -1,26 +1,20 @@
 'use strict';
-app.controller('navbarController', function ($scope, $log) {
- 	
+app.controller('navbarController',['$scope','$http','$location', function ($scope,$http,$location) {
 
- // 	$scope.items = [
-	//     'The first choice!',
-	//     'And another choice for you.',
-	//     'but wait! A third!'
-	// ];
+	var user = JSON.parse(sessionStorage.getItem("user"));
+	if(user===null){
+	    $scope.isUser = false;
+	}else{
+	    $scope.isUser = true;
+	    $scope.user = user;
+	}
 
- //  	$scope.status = {
- //    	isopen: false
- //  	};
+	$scope.logout = function () {
+		FB.logout(function(response) {
+		  	sessionStorage.removeItem("user");
+        	sessionStorage.removeItem("user_token");
+		  	location.reload();
+		});
+	}
 
- //  	$scope.toggled = function(open) {
- //    	console.log('Dropdown is now: ', open);
- //  	};
-
- //  	$scope.toggleDropdown = function($event) {
-	//     $event.preventDefault();
-	//     $event.stopPropagation();
-	//     $scope.status.isopen = !$scope.status.isopen;
- //  	};
-
-
-});
+}]);

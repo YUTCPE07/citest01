@@ -1,4 +1,6 @@
 /*product-index*/
+
+
 .card.shadow:hover {
 	border: 3px solid rgba(74, 178, 165)!important;
     /*border-color:  rgba(74, 178, 165)!important;*/
@@ -15,8 +17,6 @@
 	cursor: pointer!important;
 }
 
-
-
 /*product->seekbar*/
 	.rzslider .rz-pointer {
 	 	background: #21af9a;
@@ -29,3 +29,10 @@
 	 	background: #21af9a;
 	}
 /*--------------------------*/
+
+/*@media only screen and (max-width: 768px) {
+
+	.menu {
+		
+	}
+}*/

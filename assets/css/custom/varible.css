@@ -24,6 +24,8 @@
   --sm-s5: 13px;
   --sm-s6: 10px;
 
+  --media-mobile : 768px; 
+
 }
 
 html {
@@ -92,7 +94,7 @@ a:hover {
 }
 
 .text-green {
-	color:var(--color-green);
+	color:var(--color-green)!important;
 }
 .text-red {
 	color:var(--color-red);

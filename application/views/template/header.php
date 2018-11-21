@@ -56,6 +56,64 @@
 
 
 
+
+
+
+
+
+
+
+
+
+	<!-- Bootstrap core JavaScript -->
+    <script src="<?php echo base_url('assets/js/jquery/jquery-3.3.1.min.js'); ?>" ></script>
+    <script src="<?php echo base_url('assets/js/bootstrap/bootstrap-popper.min.js'); ?>" ></script>
+    <script src="<?php echo base_url('assets/js/bootstrap/bootstrap.min.js'); ?>" ></script>
+    <script src="<?php echo base_url('assets/js/bootstrap/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/fontawesome-free-5.3.1-web/js/all.min.js'); ?>"></script>
+
+
+    <!-- Plugin jquery -->
+    <script src="<?php echo base_url('assets/js/jquery/jquery.easing.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery/jquery.magnific-popup.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery/jquery-migrate-1.2.1.min.js'); ?>"></script>
+
+    <?php //login facebook ?>
+    <script src="<?php echo base_url('assets/js/facebook/app.js') ?>"></script>
+
+    <?php //angular ?>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-animate.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-touch.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-sanitize.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap/ui-bootstrap-tpls-3.0.5.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-filter.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/app.js') ?>"></script>
+
+    <script src="<?php echo base_url('assets/js/angular/indexService.js') ?>"></script>
+
+    <script src="<?php echo base_url('assets/js/angular/loginController.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/productController.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/navbarController.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/homeController.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/shop_lookupController.js') ?>"></script>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script> -->
+    <?php //product rating star ?>
+    <!-- <script src="<?php //echo base_url('assets/plugins/angular-star-rating/index.js') ?>"></script> -->
+
+    <?php //plugins ?>
+    <?php //view product filter seekbar for price ?>
+    <script src="<?php echo base_url('assets/plugins/seekbar/rzslider.min.js') ?>"></script>
+    <?php //view home content slider show ?>
+    <script src="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.js') ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper_custom.js') ?>"></script>
+
+    <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/slick.min.js') ?>"></script> -->
+    <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/custom.js') ?>"></script> -->
+    <?php //view product user select calender jsCalendar_custom Load on lookup ?>
+
+    <script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
 </head>
 
 <body id="page-top" scroll>

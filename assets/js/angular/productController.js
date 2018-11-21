@@ -191,7 +191,32 @@ function ($scope, $http,indexService,$location,$filter) {
         	}
             return ($scope.optionArrays.indexOf(product.category_brand) !== -1);
         };
+        // var koma = 55;
+        // var yaua = `sadsadsa${koma}dsadasdsda`;
+        // console.log(yaua)
+        $scope.menuFilterRowClick = function(ele){
+            console.log(ele)
+            var jqueryCheckbok = $(`[name='productCheckbox${ele.key}']`);
+            var jqueryRow = $(`[name='productRow${ele.key}']`);
+            if(jqueryCheckbok.prop('checked') == true){
+                console.log('yes checked befor click')
+                jqueryCheckbok.prop("checked",false);
+                jqueryRow.removeClass('bg-green text-white');
+                ele.confirmed = false;
+            }else{
+                console.log('no checked befor click')
+                jqueryCheckbok.prop("checked",true);
+                jqueryRow.addClass('bg-green text-white');
+                ele.confirmed = true;
+            }
+            $scope.checkBoxProductType(ele);
+        }
+
         $scope.checkBoxProductType = function(ele){
+            console.log('checkBoxProductType')
+            console.log(ele.key)
+            console.log(ele.value.length)
+            console.log(ele.confirmed)
             $scope.currentPage = 0; 
         	// console.log('Type is length :',ele.value.length) //count product by type select
         	// console.log('key',ele.key,'ischeckbox',ele.confirmed)

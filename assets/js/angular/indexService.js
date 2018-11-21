@@ -1,7 +1,22 @@
 'use strict';
 
-app.factory('indexService', function ($q, $http) {
+app.service('userService', function() {
+    var user = [];
+    var addUser = function(obj) {
+        user = obj;
+    };
 
+      var getUser = function(){
+        return user;
+    };
+
+    return {
+        addUser: addUser,
+        getUser: getUser
+    };
+});
+
+app.factory('indexService', function ($q, $http) {
 
     return {
         getAlldataProduct: function () {

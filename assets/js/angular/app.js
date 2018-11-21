@@ -6,4 +6,7 @@ var baseurl = angular.element('meta[name="baseUrl"').attr('content');
 // app.config('$locationProvider', function($locationProvider){
 //     $locationProvider.html5Mode(false);
 // })
+// var user_name = sessionStorage.getItem("user_name");
+// console.log(user_name,'user_name')
+
 
