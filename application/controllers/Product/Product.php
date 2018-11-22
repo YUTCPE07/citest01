@@ -34,7 +34,7 @@ class Product extends CI_Controller {
 	}
 
 	public function getdata_Catrogy_barnd() {
-		$data = $this->Main_model->getCatrogy_barnd();
+		$data = $this->Main_model->getdata_Catrogy_barnd();
 		echo json_encode($data);
 	}
 

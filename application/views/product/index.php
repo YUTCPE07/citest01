@@ -23,7 +23,7 @@
 								  <input class="form-check-input" type="checkbox"
 								  		ng-model="confirmed" ng-change="checkBoxProductType(this)"
 								  		>
-								  <label class="form-check-label">{{ catrogy_barnd[key-1].name }}</label>
+								  <label class="form-check-label">{{ catrogy_barnd[key-1].category_name }}</label>
 								</div>
         					</div>
         					<div class="col-4 text-right">
@@ -88,17 +88,17 @@
 						</div>
 						<?php //ng-repeat="(key, value) in players | groupBy: 'team'" ?>
 
-						<div class="productMenuHover" ng-repeat="(key,value) in products|groupBy:'category_brand'" ng-click="menuFilterRowClick(this);" name="productRow{{key}}" >
+						<div class="productMenuHover" ng-repeat="(key,value) in products|groupBy:'category_brand'" ng-click="menuFilterRowClick(this.key,this.value.length);" name="productRow{{key}}" >
 							<div class="d-flex justify-content-between px-2" >
 								<div class="form-check">
 								  	<input class="form-check-input" type="checkbox" name="productCheckbox{{key}}"
-								  		ng-model="confirmed" ng-change="menuFilterRowClick(this)"
+								  		ng-model="confirmed" ng-change="menuFilterRowClick(this.key,this.value.length)"
 								  		>
-								  	<div class="form-check-label">{{ catrogy_barnd[key-1].name }}</div>
+								  	<div class="form-check-label">{{ catrogy_barnd[key-1].category_name }}</div>
 								</div>
 								<div class="">
 									<p>{{ value.length }}</p>
-									<p>{{ checkbox[key] }}</p>
+									<!-- <p>{{ checkbox[key] }}</p> -->
 								</div>
 							</div>
 						</div>

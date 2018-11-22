@@ -169,19 +169,21 @@ function ($scope, $http,indexService,$location,$filter) {
     //____________________________________________________
         
         indexService.getdata_Catrogy_barnd().then(function (data) {
-
+            console.log(data,'catrogy_barnd')
             $scope.catrogy_barnd = data;
         });
     //____________________________________________________
 
 
 
-
-
+        function getProductTypeLenghtFromKey(key) {
+          
+        }
 
     //____________________________________________________
     // checbox controller
     //____________________________________________________
+
         $scope.optionArrays = []; //[{type:'1',productCount:'9'},{type:'2',productCount:'3'}]
         $scope.filterProduct = function(product){
         	//console.log(product)
@@ -194,53 +196,52 @@ function ($scope, $http,indexService,$location,$filter) {
         // var koma = 55;
         // var yaua = `sadsadsa${koma}dsadasdsda`;
         // console.log(yaua)
-        $scope.menuFilterRowClick = function(ele){
-            console.log(ele)
-            var jqueryCheckbok = $(`[name='productCheckbox${ele.key}']`);
-            var jqueryRow = $(`[name='productRow${ele.key}']`);
+        $scope.menuFilterRowClick = function(key,length){
+            console.log(key,length)
+            var jqueryCheckbok = $(`[name='productCheckbox${key}']`);
+            var jqueryRow = $(`[name='productRow${key}']`);
+            var confirmed;
             if(jqueryCheckbok.prop('checked') == true){
                 console.log('yes checked befor click')
                 jqueryCheckbok.prop("checked",false);
                 jqueryRow.removeClass('bg-green text-white');
-                ele.confirmed = false;
+                confirmed = false;
             }else{
                 console.log('no checked befor click')
                 jqueryCheckbok.prop("checked",true);
                 jqueryRow.addClass('bg-green text-white');
-                ele.confirmed = true;
+                confirmed = true;
             }
-            $scope.checkBoxProductType(ele);
+            $scope.checkBoxProductType(key,confirmed,length);
         }
 
-        $scope.checkBoxProductType = function(ele){
+        $scope.checkBoxProductType = function(key,confirmed,length){
             console.log('checkBoxProductType')
-            console.log(ele.key)
-            console.log(ele.value.length)
-            console.log(ele.confirmed)
+            console.log(key)
+            console.log(length)
+            console.log(confirmed)
             $scope.currentPage = 0; 
-        	// console.log('Type is length :',ele.value.length) //count product by type select
-        	// console.log('key',ele.key,'ischeckbox',ele.confirmed)
     		var optionArraysSum = $scope.optionArrays.filter(function(item){
-    			if(item != ele.key){
+    			if(item != key){
     			  	return item;
     			}
     		});
 
-    		if(ele.confirmed){
-    			optionArraysSum.push(ele.key);
+    		if(confirmed){
+    			optionArraysSum.push(key);
     			// console.log($scope.optionArrays)
     		}
 
     		//generate filterResult (count product after select checkBox)
-    		if(ele.confirmed){
-    			$scope.filterResult = $scope.filterResult + ele.value.length;
+    		if(confirmed){
+    			$scope.filterResult = $scope.filterResult + length;
     			if($scope.optionArrays.length == 0){
-    				$scope.filterResult = ele.value.length;
+    				$scope.filterResult = length;
     			}
     		}else{
-    			$scope.filterResult = $scope.filterResult - ele.value.length;
+    			$scope.filterResult = $scope.filterResult - length;
     			if($scope.optionArrays.length == 0){
-    				$scope.filterResult = ele.value.length;
+    				$scope.filterResult = length;
     			}
     			if($scope.filterResult == 0){
     				$scope.filterResult = $scope.products.length;
