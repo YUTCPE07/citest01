@@ -1,12 +1,19 @@
 'use strict';
 app.controller('navbarController',['$scope','$http','$location', function ($scope,$http,$location) {
 
-	var user = JSON.parse(sessionStorage.getItem("user"));
-	if(user===null){
-	    $scope.isUser = false;
-	}else{
-	    $scope.isUser = true;
-	    $scope.user = user;
+	$scope.init = function () {
+		var user = JSON.parse(sessionStorage.getItem("user"));
+	      	if(user===null){
+		    $scope.isUser = false;
+		}else{
+		    $scope.isUser = true;
+		    $scope.user = user;
+		}
+	}
+
+	$scope.login = function () {
+		console.log('login')
+		$('#emailOrPhone').focus();
 	}
 
 	$scope.logout = function () {

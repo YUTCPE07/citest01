@@ -1,7 +1,7 @@
 
-<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="loginController">
+<div class="modal fade" id="login" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="loginController">
 <!-- <div class="pt-5 mt-5" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-  <div class="modal-dialog" role="document" ng-controller="loginController">
+  <div class="modal-dialog" role="document" ng-controller="loginController" id="modal-login">
 
     <div class="modal-content" ng-show="loginFrom">
       <div class="modal-header">
@@ -18,7 +18,7 @@
           <label for="emailOrPhone" class="col-4 col-form-label text-right">อีเมลล์/เบอร์โทร</label>
           <div class="col-8 text-right">
             <!-- placeholder="อีเมลล์/เบอร์โทร" -->
-            <input type="text" class="form-control input-primary" id="emailOrPhone" >
+            <input type="text" class="form-control input-primary" id="emailOrPhone" autofocus>
           </div>
         </div>
         <div class="form-group row">

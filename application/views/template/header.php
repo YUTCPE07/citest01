@@ -90,6 +90,7 @@
     <script src="<?php echo base_url('assets/js/angular/plugin/angular-filter.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/app.js') ?>"></script>
 
+    <script src="<?php echo base_url('assets/js/angular/initRun.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/indexService.js') ?>"></script>
 
     <script src="<?php echo base_url('assets/js/angular/loginController.js') ?>"></script>

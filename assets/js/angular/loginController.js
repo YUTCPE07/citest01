@@ -77,7 +77,7 @@ app.controller('loginController', ['$scope', 'indexService' ,function($scope, in
   }
    
   function isUserLogin(value) {
-    console.log(value,'value')
+    // console.log(value,'value')
     if(value){
       $scope.loginFrom = false;
       // document.getElementById('btn-login').style.display = "none";

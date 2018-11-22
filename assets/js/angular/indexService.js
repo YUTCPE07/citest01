@@ -1,20 +1,14 @@
 'use strict';
+// app.factory('userService', function() {
+//     return {
+//         getUserFacebook: function () {
+//             var user = JSON.parse(sessionStorage.getItem("user"));
+//             console.log(user)
+//             return user;
+//         },
+//     };
+// });
 
-app.service('userService', function() {
-    var user = [];
-    var addUser = function(obj) {
-        user = obj;
-    };
-
-      var getUser = function(){
-        return user;
-    };
-
-    return {
-        addUser: addUser,
-        getUser: getUser
-    };
-});
 
 app.factory('indexService', function ($q, $http) {
 

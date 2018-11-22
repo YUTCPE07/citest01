@@ -144,7 +144,7 @@ function ($scope, $http,indexService,$location,$filter) {
         indexService.getAlldataProduct().then(function (data) {
             $scope.products = data;
             $scope.category_brands = data;
-             console.log(data)
+             // console.log(data)
             $scope.filterResult = data.length;
             $scope.pageAfterFilter = Math.ceil(data.length/$scope.pageSize)
                 $scope.isReadyShow = true; 

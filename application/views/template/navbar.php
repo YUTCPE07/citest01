@@ -3,7 +3,7 @@
 </div> -->
 
 <!-- <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav"> -->
-<div ng-controller="navbarController">
+<div ng-controller="navbarController" data-ng-init="init();">
   <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light
     text-uppercase" id="mainNav">
     <div class="container">
@@ -45,7 +45,7 @@
 
           <li class="nav-item mx-0 mx-lg-1">
 
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer" data-toggle="modal" data-target="#login" ng-show="!isUser">เข้าสู่ระบบ </a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer" data-toggle="modal" data-target="#login" ng-show="!isUser" >เข้าสู่ระบบ </a>
 
 
             <!-- <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer"  ng-show="isUser" ng-click="logout()">ออกจากระบบ</a> -->

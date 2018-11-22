@@ -1,9 +1,9 @@
 'use strict';
 app.controller('homeController', ['$scope', '$http','indexService', function ($scope, $http,indexService) {
-	console.log('homeController')
+	// console.log('homeController')
 
 	var user = JSON.parse(sessionStorage.getItem("user"));
-	console.log(user===null)
+	// console.log(user===null)
 	if(user===null){
 	    $scope.isUser = false;
 	}else{
