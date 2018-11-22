@@ -1,5 +1,5 @@
 'use strict';
-app.controller('navbarController',['$scope','$http','$location', function ($scope,$http,$location) {
+app.controller('navbarController',['$scope','$http','$location','indexService', function ($scope,$http,$location,indexService) {
 
 	$scope.init = function () {
 		var user = JSON.parse(sessionStorage.getItem("user"));
@@ -9,7 +9,14 @@ app.controller('navbarController',['$scope','$http','$location', function ($scop
 		    $scope.isUser = true;
 		    $scope.user = user;
 		}
+
+		indexService.getdata_Catrogy_barnd().then(function (data) {
+			console.log(data)
+            $scope.catrogy_barnd = data;
+        });
 	}
+
+
 
 	$scope.login = function () {
 		console.log('login')

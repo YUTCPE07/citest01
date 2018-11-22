@@ -23,10 +23,10 @@
               หมวดหมู่
             </a>
             <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <a class="dropdown-item" href="<?php echo base_url(); ?>#">Action</a>
-                <a class="dropdown-item" href="<?php echo base_url(); ?>#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo base_url(); ?>#">Something else here</a>
+                <a class="dropdown-item" href="<?php echo base_url(); ?>#">ALL</a>
+                <div ng-repeat="catrogy in catrogy_barnd" >
+                  <a class="dropdown-item" href="<?php echo base_url(); ?>#">{{catrogy.category_name}}</a>
+                </div>
             </div>
           </li>
           <li class="nav-item mx-0 mx-lg-1">

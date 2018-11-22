@@ -169,7 +169,7 @@ function ($scope, $http,indexService,$location,$filter) {
     //____________________________________________________
         
         indexService.getdata_Catrogy_barnd().then(function (data) {
-            console.log(data,'catrogy_barnd')
+            // console.log(data,'catrogy_barnd')
             $scope.catrogy_barnd = data;
         });
     //____________________________________________________
