@@ -94,6 +94,7 @@
     <script src="<?php echo base_url('assets/js/angular/indexService.js') ?>"></script>
 
     <script src="<?php echo base_url('assets/js/angular/loginController.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/registerController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/productController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/navbarController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/homeController.js') ?>"></script>

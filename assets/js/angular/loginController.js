@@ -75,7 +75,18 @@ app.controller('loginController', ['$scope', 'indexService' ,function($scope, in
       }
     });
   }
-   
+
+  $scope.loginInput = {};
+  $scope.loginSubmit = function(){
+      console.log($scope.loginInput)
+  }
+
+  $scope.loginFrom_register = function () {
+    // console.log("loginFrom_register")
+    $('#login').modal('toggle');
+    $('#registerFrom').modal('toggle');
+  }
+
   function isUserLogin(value) {
     // console.log(value,'value')
     if(value){

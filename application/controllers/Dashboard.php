@@ -36,6 +36,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template/header', $header);
 		$this->load->view('template/navbar');
 		$this->load->view('template/login');
+		$this->load->view('template/register');
 		$this->load->view('home/home');
 		$this->load->view('template/footer', $footer);
 

@@ -33,6 +33,17 @@
   border-radius: 1.5rem;
 }
 
+/*____modal______________________________________________*/
+.close  {
+    color: red;
+}
+.close:not(:disabled):not(.disabled):focus, .close:not(:disabled):not(.disabled):hover {
+    color: red;
+    text-decoration: none;
+    opacity: .75;
+}
+
+/*_______________________________________________________*/
 
 .btn-default {
   font-family: Raleway-SemiBold;

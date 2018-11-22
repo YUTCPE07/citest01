@@ -19,6 +19,7 @@ class Product extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
 		$this->load->view('template/login');
+		$this->load->view('template/register');
 		$this->load->view('product/index');
 		$this->load->view('template/footer');
 
