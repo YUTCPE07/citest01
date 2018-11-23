@@ -8,8 +8,7 @@ class Termsofuse extends CI_Controller {
 		// echo 'Termsofuse page';
 
 		$this->load->view('template/header');
-		$this->load->view('template/navbar');
-		$this->load->view('template/login');
+
 		$this->load->view('other/termsofuse');
 		$this->load->view('template/footer');
 	}

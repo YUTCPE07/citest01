@@ -22,8 +22,7 @@ class Brand extends CI_Controller {
 		// $data['brands'] = array('Clean House', 'Call Mom', 'Run Errands');
 
 		$this->load->view('template/header');
-		$this->load->view('template/navbar');
-		$this->load->view('template/login');
+
 		$this->load->view('brand/brand_index', $data);
 		$this->load->view('template/footer');
 		echo 'this is brand controller';

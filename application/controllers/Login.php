@@ -14,8 +14,8 @@ class Login extends CI_Controller {
 		$this->load->view('template/facebook');
 
 		// echo "string";
-		// $this->load->view('template/navbar');
-		// $this->load->view('template/login');
+		//
+		//
 	}
 
 	// public function getBrandRecommand() {

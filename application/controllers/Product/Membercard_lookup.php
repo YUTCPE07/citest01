@@ -41,8 +41,7 @@ class Membercard_lookup extends CI_Controller {
 		$output['reward'] = $this->Main_model->membercard_lookup_reward($output['db']['brand_id']);
 
 		$this->load->view('template/header');
-		$this->load->view('template/navbar');
-		$this->load->view('template/login');
+
 		$this->load->view('product/membercard_lookup', $output);
 		$this->load->view('template/footer');
 	}

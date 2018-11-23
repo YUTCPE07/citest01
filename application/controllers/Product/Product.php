@@ -17,9 +17,7 @@ class Product extends CI_Controller {
 	public function index() {
 		// echo "222222222222222";
 		$this->load->view('template/header');
-		$this->load->view('template/navbar');
-		$this->load->view('template/login');
-		$this->load->view('template/register');
+
 		$this->load->view('product/index');
 		$this->load->view('template/footer');
 

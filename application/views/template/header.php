@@ -123,4 +123,6 @@
 	<div class="hr_head_height"></div>
 
 
-
+	<?php $this->load->view('template/navbar')?>
+	<?php $this->load->view('template/login')?>
+	<?php $this->load->view('template/register')?>

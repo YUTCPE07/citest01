@@ -31,8 +31,7 @@ class Shop_lookup extends CI_Controller {
 		// $query->free_result();
 
 		$this->load->view('template/header');
-		$this->load->view('template/navbar');
-		$this->load->view('template/login');
+
 		$this->load->view('product/shop_lookup', $output);
 		$this->load->view('template/footer');
 	}
