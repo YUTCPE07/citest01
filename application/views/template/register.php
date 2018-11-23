@@ -15,25 +15,25 @@
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">ชื่อ*</label>
               <div class="col-6 text-right">
-                <input type="text" class="form-control input-primary" ng-model="user.fname" autofocus>
+                <input type="text" class="form-control input-primary" ng-model="user.fname" autofocus required autocomplete="cc-given-name">
               </div>
             </div>
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">สกุล*</label>
               <div class="col-6 text-right">
-                <input type="text" class="form-control input-primary" ng-model="user.lname" required>
+                <input type="text" class="form-control input-primary" ng-model="user.lname" required autocomplete="cc-family-name">
               </div>
             </div>
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">อีเมล*</label>
               <div class="col-6 text-right">
-                <input type="text" class="form-control input-primary" ng-model="user.email" required>
+                <input type="email" class="form-control input-primary" ng-model="user.email" required autocomplete="email">
               </div>
             </div>
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">เบอร์โทร*</label>
               <div class="col-6 text-right">
-                <input type="text" class="form-control input-primary" ng-model="user.phone" required>
+                <input type="tel" class="form-control input-primary" maxlength="10" ng-model="user.phone" required autocomplete="tel-national" >
               </div>
             </div>
             <div class="form-group row">
@@ -52,13 +52,13 @@
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">รหัสผ่าน*</label>
               <div class="col-6 text-right">
-                  <input type="password" class="form-control input-primary" ng-model="user.password" required>
+                  <input type="password" class="form-control input-primary" ng-model="user.password" required autocomplete="new-password">
               </div>
             </div>
             <div class="form-group row">
               <label for="" class="col-3 offset-1 col-form-label text-right">ยืนยันรหัสผ่าน*</label>
               <div class="col-6 text-right">
-                  <input type="password" class="form-control input-primary" ng-model="user.passwordConfirm" required>
+                  <input type="password" class="form-control input-primary" ng-model="user.passwordConfirm" required autocomplete="new-password">
               </div>
             </div>
 
