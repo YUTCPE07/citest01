@@ -197,18 +197,19 @@ function ($scope, $http,indexService,$location,$filter) {
         // var yaua = `sadsadsa${koma}dsadasdsda`;
         // console.log(yaua)
         $scope.menuFilterRowClick = function(key,length){
-            console.log(key,length)
+            // console.log(key,length)
             var jqueryCheckbok = $(`[name='productCheckbox${key}']`);
             var jqueryRow = $(`[name='productRow${key}']`);
             var confirmed;
-            if(jqueryCheckbok.prop('checked') == true){
-                console.log('yes checked befor click')
-                jqueryCheckbok.prop("checked",false);
+            // console.log(jqueryCheckbok.hasClass('fa-square'))
+            var boxIsCheck = !jqueryCheckbok.hasClass('fa-square');
+            // console.log(beforClickBoxIsCheck)
+            if(boxIsCheck){
+                jqueryCheckbok.toggleClass("fa-check-square fa-square");
                 jqueryRow.removeClass('bg-green text-white');
                 confirmed = false;
             }else{
-                console.log('no checked befor click')
-                jqueryCheckbok.prop("checked",true);
+                jqueryCheckbok.toggleClass("fa-square fa-check-square");
                 jqueryRow.addClass('bg-green text-white');
                 confirmed = true;
             }
@@ -216,10 +217,10 @@ function ($scope, $http,indexService,$location,$filter) {
         }
 
         $scope.checkBoxProductType = function(key,confirmed,length){
-            console.log('checkBoxProductType')
-            console.log(key)
-            console.log(length)
-            console.log(confirmed)
+            // console.log('checkBoxProductType')
+            // console.log(key)
+            // console.log(length)
+            // console.log(confirmed)
             $scope.currentPage = 0; 
     		var optionArraysSum = $scope.optionArrays.filter(function(item){
     			if(item != key){
@@ -290,7 +291,7 @@ app.filter('ratingFilter', function() {
     return function(data) {
         // console.log(data)
         for (var i = 0; i < data.length; i++) {
-            console.log(data[i].coup_CouponID)
+            // console.log(data[i].coup_CouoponID)
             if(i=10){
                 return;
             }
