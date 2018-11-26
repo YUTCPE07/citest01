@@ -11,7 +11,7 @@ app.controller('navbarController',['$scope','$http','$location','indexService', 
 		}
 
 		indexService.getdata_Catrogy_barnd().then(function (data) {
-			console.log(data)
+			// console.log(data)
             $scope.catrogy_barnd = data;
         });
 	}

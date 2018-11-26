@@ -118,6 +118,18 @@ a:hover {
 	color:var(--color-gray1);
 }
 
+.bg-gray3 {
+	background-color:var(--color-gray3);
+}
+
+.bg-gray2 {
+	background-color:var(--color-gray2);
+}
+
+.bg-gray1 {
+	background-color:var(--color-gray1);
+}
+
 .bg-green {
 	background-color: var(--color-green);
 }
@@ -158,6 +170,9 @@ a:hover {
 	height: 35.219px 
 }
 
+.hrRow {
+		border-top:1px solid var(--color-gray2);
+}
 /*bootstarp custom------------------------*/
 	
 /*end bootstarpcustom----------------------*/

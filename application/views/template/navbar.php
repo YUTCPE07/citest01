@@ -60,9 +60,11 @@
                 {{user.name}}
               </a>
               <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown-user">
-                  <a class="dropdown-item" href="#">รายการสิทธิ์ของฉัน</a>
-                  <a class="dropdown-item" href="#">ข้อมูลส่วนตัว</a>
+                  <a class="dropdown-item" href="<?php echo base_url(); ?>store">รายการสิทธิ์ของฉัน</a>
+                  <a class="dropdown-item" href="<?php echo base_url(); ?>store">ประวัติการใช้สิทธิ์</a>
+                  <a class="dropdown-item" href="<?php echo base_url(); ?>profile">ข้อมูลส่วนตัว</a>
                   <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">ตั้งค่า</a>
                   <a class="dropdown-item text-danger" href="" ng-click="logout()">ออกจากระบบ</a>
               </div>
             </li>

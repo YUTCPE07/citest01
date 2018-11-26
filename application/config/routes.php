@@ -5,6 +5,12 @@ $route['api-facebook-login']['POST'] = 'Services/loginfb';
 
 $route['default_controller'] = 'Dashboard';
 
+//user
+$route['store'] = 'User_store';
+
+//profile
+$route['profile'] = 'User_profile';
+
 $route['product'] = 'Product/Product';
 // $route['product/:num'] = 'Product/Product/Shop_lookup';
 $route['membercard/:num'] = 'Product/Membercard_lookup'; /* test : membercard/14*/
