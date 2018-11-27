@@ -4,12 +4,22 @@
 		position:relative;
 	}
 
+	.profile-boxHead {
+		position: relative;
+	}
+
+	.profile-btn-edit {
+		position: absolute;
+		right: 50px;
+	}
+
 	.profile-imgAddPictureBox {
 		position:absolute;
 		right: 0px;
 		top: 120px;
 		color: white;
 		width: 50px;
+
 	}
 
 	.profile-imgAddPicture {
@@ -28,7 +38,15 @@
 
 	.catarogyBox {
 		border: 1px solid var(--color-gray2);
+		border-radius: 0.75rem;
 	}
+
+	.catarogyBox-active {
+		border: 1px solid var(--color-green);
+		background-color: var(--color-green);
+		color:white;
+	}
+
 
 </style>
 
@@ -36,7 +54,7 @@
 <div class="h4" >
 
 	<div class="container shadow mt-5 pt-5 borderYGreen">
-		<div class="d-flex justify-content-center">
+		<div class="d-flex justify-content-center profile-boxHead">
 			<div class="profile-img">
 				<img src="https://via.placeholder.com/400x400" class="rounded rounded-circle img-responsive home_brand shadow" alt=" ">
 				<div class="profile-imgAddPictureBox">
@@ -46,6 +64,7 @@
 			<div class="">
 				<div class="h1 meduim pt-5 px-5 text-green">แครอท หัวเขียว</div>
 			</div>
+			<button class="btn btn-primary profile-btn-edit px-5">แก้ไข</button>
 		</div> <!-- end d-flex justify-content-center -->
 
 		<div class="container p-lg-5">
@@ -128,10 +147,10 @@
 
 			<div class="row ">
 				<div class="col-lg-3">
-					<div class="text-center p-2 rounded catarogyBox">asdsadas</div>
+					<div class="text-center p-2 catarogyBox">กิจกรรมกลางเเจ้ง</div>
 				</div>
 				<div class="col-lg-3">
-					<div class="text-center p-2 rounded catarogyBox">asdsadas</div>
+					<div class="text-center p-2 catarogyBox catarogyBox-active">asdsadas</div>
 				</div>
 			</div>
 		</div>
@@ -178,6 +197,44 @@
 				<div class="col-lg-12">
 					<div class="text-gray2">เบอร์โทรศัพท์(มือถือ)</div>
 					<div class="medium">06-2392323</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- end container -->
+
+
+	<div class="container p-lg-5 shadow my-5 py-5 borderYGreen">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="medium mb-2">เบอร์โทรศัพท์(มือถือ)</div>
+					<input class="bg-gray3 text-gray1" type="tel" name="otp_phone" disabled value="075-2321212">
+				</div>
+				<div class="col-lg-8">
+					<br>
+					<button class="btn btn-lg btn-primary bold">รับ OTP</button>
+					<small class="px-3 text-gray1">*รหัส OTP จะถูกส่งไปที่เบอร์เดิม</small>
+				</div>
+			</div>
+			<div class="row my-4">
+				<div class="col-lg-4">
+					<div class="medium mb-2">รหัส OTP : 1</div>
+					<input class="bg-gray3 text-gray1" type="tel" name="otp_phone" placeholder="รหัส OTP เบอร์เดิม">
+				</div>
+				<div class="col-lg-8">
+					<br>
+					<button class="btn btn-lg btn-primary bold">รับ OTP</button>
+					<small class="px-3 text-gray1">*รหัส OTP จะถูกส่งไปที่เบอร์ใหม่</small>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="medium mb-2">รหัส OTP : 2</div>
+					<input class="bg-gray3 text-gray1" type="tel" name="otp_phone" placeholder="รหัส OTP เบอร์ใหม่" >
+				</div>
+				<div class="col-lg-8">
+					<br>
+					<button class="btn btn-lg btn-primary bold px-4 active">ยืนยัน</button>
 				</div>
 			</div>
 		</div>

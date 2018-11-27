@@ -150,7 +150,14 @@ a:hover {
 
 .d-inline{
 	display: inline;
-	
+}
+
+.d-relative{
+	display: relative;
+}
+
+.d-absolute{
+	display: absolute;
 }
 
 .cursor-pointer{
