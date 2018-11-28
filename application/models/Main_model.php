@@ -77,6 +77,192 @@ class Main_model extends CI_Model {
 
 	}
 
+	function getStoreMyRight($user_id) {
+		$sql = "SELECT
+				productAll.date_expire,
+				productAll.date_create,
+				productAll.count,
+				productAll.product_id,
+				productAll.product_name,
+				productAll.product_image,
+				productAll.product_imgPath,
+				productAll.brand_id,
+			    brandAll.name As brand_name
+			from	(
+
+					SELECT mr.date_expire AS date_expire,
+							mr.date_create AS date_create,
+							COUNT(mr.member_register_id) AS count,
+							mc.card_id AS product_id,
+							mc.name AS product_name,
+							mc.image AS product_image,
+							mc.path_image AS product_imgPath,
+							mc.brand_id
+					FROM mb_member_register AS mr
+					LEFT JOIN mi_card AS mc
+					ON mr.card_id = mc.card_id
+					WHERE mr.flag_del!='T'
+					AND mr.member_id=$user_id
+					AND (mr.date_expire >= date('Y-m-d H:i:s')
+					OR mr.period_type = '4')
+					GROUP BY mr.card_id
+					UNION
+					SELECT
+						hb.hcbu_ExpiredDate AS date_expire,
+						hb.hcbu_CreatedDate AS date_create,
+						COUNT(hb.hcbu_HilightCouponBuyID) AS count,
+						hc.coup_CouponID AS product_id,
+						hc.coup_Name AS product_name,
+						hc.coup_Image AS product_image,
+						hc.coup_ImagePath AS product_path,
+						hc.bran_BrandID
+					FROM hilight_coupon_buy AS hb
+					LEFT JOIN hilight_coupon AS hc
+					ON hc.coup_CouponID = hb.hico_HilightCouponID
+					WHERE hb.hcbu_Deleted!='T'
+					AND hb.memb_MemberID=$user_id
+					AND hb.hcbu_ExpiredDate >= date('Y-m-d H:i:s')
+					AND hb.hcbu_UseStatus='Wait'
+					GROUP BY hb.hico_HilightCouponID
+			) as productAll
+			left join mi_brand as brandAll on brandAll.brand_id = productAll.brand_id
+			ORDER BY productAll.date_create DESC";
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+	}
+
+	function getStoreMyRightHistory($user_id) {
+		$sql = "SELECT
+				productAll.date_use,
+				productAll.count,
+				productAll.product_name,
+				productAll.product_image,
+				productAll.product_pathImg,
+				productAll.brand_id,
+				productAll.review,
+				productAll.rating,
+				productAll.review_img,
+				productAll.review_path,
+			    brandAll.name AS brand_name
+			from (
+
+			SELECT a.hcbu_CreatedDate AS date_use,
+			COUNT(a.hcbu_CreatedDate) AS count,
+			b.coup_Name AS product_name,
+			b.coup_Image AS product_image,
+			b.coup_ImagePath AS product_pathImg,
+			b.bran_BrandID As brand_id,
+			c.shhi_Comment AS review,
+			c.shhi_Rating AS rating,
+			c.shhi_Image AS review_img,
+			c.shhi_ImagePath AS review_path
+			FROM mb_member
+			LEFT JOIN hilight_coupon_buy AS a
+			ON a.memb_MemberID = mb_member.member_id
+			LEFT JOIN hilight_coupon AS b
+			ON a.hico_HilightCouponID = b.coup_CouponID
+			LEFT JOIN shop_history AS c
+			ON c.hcbu_HilightCouponBuyID = a.hcbu_HilightCouponBuyID
+			WHERE a.hcbu_Deleted=''
+			AND a.memb_MemberID=$user_id
+			GROUP BY a.hcbu_CreatedDate
+
+			UNION
+
+			SELECT a.hico_CreatedDate AS date_use,
+			COUNT(a.hico_CreatedDate) AS count,
+			b.coup_Name AS use_name,
+			b.coup_Image AS use_image,
+			b.coup_ImagePath AS use_path,
+			b.bran_BrandID As brand_id,
+			a.hico_Comment AS review,
+			a.hico_Rating AS rating,
+			a.hico_Image AS review_img,
+			a.hico_ImagePath AS review_path
+			FROM mb_member
+			LEFT JOIN hilight_coupon_trans AS a
+			ON a.memb_MemberID = mb_member.member_id
+			LEFT JOIN hilight_coupon AS b
+			ON a.coup_CouponID = b.coup_CouponID
+			WHERE a.hico_Deleted=''
+			AND a.memb_MemberID=$user_id
+			GROUP BY a.hico_CreatedDate
+
+			UNION
+
+			SELECT a.mepe_CreatedDate AS date_use,
+			COUNT(a.mepe_CreatedDate) AS count,
+			b.priv_Name AS use_name,
+			b.priv_Image AS use_image,
+			b.priv_ImagePath AS use_path,
+			b.bran_BrandID,
+			a.mepe_Comment AS review,
+			a.mepe_Rating AS rating,
+			a.mepe_Image AS review_img,
+			a.mepe_ImagePath AS review_path
+			FROM mb_member
+			LEFT JOIN member_privilege_trans AS a
+			ON a.memb_MemberID = mb_member.member_id
+			LEFT JOIN privilege AS b
+			ON b.priv_PrivilegeID = a.priv_PrivilegeID
+			WHERE a.mepe_Deleted=''
+			AND a.memb_MemberID=$user_id
+			GROUP BY a.mepe_CreatedDate
+
+			UNION
+
+			SELECT a.meco_CreatedDate AS date_use,
+			COUNT(a.meco_CreatedDate) AS count,
+			b.coup_Name AS use_name,
+			b.coup_Image AS use_image,
+			b.coup_ImagePath AS use_path,
+			b.bran_BrandID,
+			a.meco_Comment AS review,
+			a.meco_Rating AS rating,
+			a.meco_Image AS review_img,
+			a.meco_ImagePath AS review_path
+			FROM mb_member
+			LEFT JOIN member_coupon_trans AS a
+			ON a.memb_MemberID = mb_member.member_id
+			LEFT JOIN coupon AS b
+			ON b.coup_CouponID = a.coup_CouponID
+			WHERE a.meco_Deleted=''
+			AND a.memb_MemberID=$user_id
+			GROUP BY a.meco_CreatedDate
+
+			UNION
+
+			SELECT a.meac_CreatedDate AS date_use,
+			COUNT(a.meac_CreatedDate) AS count,
+			b.acti_Name AS use_name,
+			b.acti_Image AS use_image,
+			b.acti_ImagePath AS use_path,
+			b.bran_BrandID,
+			a.meac_Comment AS review,
+			a.meac_Rating AS rating,
+			a.meac_Image AS review_img,
+			a.meac_ImagePath AS review_path
+			FROM mb_member
+			LEFT JOIN member_activity_trans AS a
+			ON a.memb_MemberID = mb_member.member_id
+			LEFT JOIN activity AS b
+			ON b.acti_ActivityID = a.acti_ActivityID
+			WHERE a.meac_Deleted=''
+			AND a.memb_MemberID=$user_id
+			GROUP BY a.meac_CreatedDate
+
+			ORDER BY date_use DESC
+
+
+			) as productAll
+
+			left join mi_brand as brandAll on brandAll.brand_id = productAll.brand_id";
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+	}
+
 	// ____________________________________________________________________________
 
 	function getRecordsLimit($limit) {

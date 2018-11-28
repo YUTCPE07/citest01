@@ -82,7 +82,7 @@
 				<div class="row">
 					<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded border border-secondary
 						collapse navbar-collapse" id="menuResponetive" >
-						<div class="row mb-3 ">
+						<div class="row mb-3 pt-3">
 							<div class="col-7 "><strong>หมวดหมู่</strong></div>
 							<div class="col-5 text-right">[ทั้งหมด]</div>
 						</div>
@@ -90,7 +90,7 @@
 
 						<div class="productMenuHover" ng-repeat="(key,value) in products|groupBy:'category_brand'" ng-click="menuFilterRowClick(this.key,this.value.length);" name="productRow{{key}}" >
 							<div class="d-flex justify-content-between px-2" >
-								<div class="form-check">
+								<div class="">
 									<div class="d-inline">
 										<i class="far fa-square" name="productCheckbox{{key}}"></i>
 									</div>

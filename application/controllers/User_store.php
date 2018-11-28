@@ -8,6 +8,7 @@ class User_store extends CI_Controller {
 
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->model('Main_model');
 	}
 
 	public function index() {
@@ -18,9 +19,17 @@ class User_store extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	// public function getBrandRecommand() {
-	// 	$data = $this->Main_model->getBrandRecommand();
-	// 	echo json_encode($data);
-	// }
+	public function getStoreMyRight() {
+		$postdata = file_get_contents("php://input");
+		$user_id = json_decode($postdata);
+		$data = $this->Main_model->getStoreMyRight($user_id);
+		echo json_encode($data);
+	}
 
+	public function getStoreMyRightHistory() {
+		$postdata = file_get_contents("php://input");
+		$user_id = json_decode($postdata);
+		$data = $this->Main_model->getStoreMyRightHistory($user_id);
+		echo json_encode($data);
+	}
 }

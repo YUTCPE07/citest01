@@ -13,6 +13,17 @@
 app.factory('indexService', function ($q, $http) {
 
     return {
+        getSearchresultPost : function(url,data){
+            var defer = $q.defer();
+            $http.post(url, data)
+            .then(function(data, status, header, config){
+                defer.resolve(data);
+            }, function(error, status, header, config){
+                defer.reject(error);
+            });
+            return defer.promise;
+        },
+
         getAlldataProduct: function () {
             var deferred = $q.defer(); //เริ่มทำงาน
             $http.get(baseurl + 'Product/Product/getAlldataProduct').then(function (result) {
