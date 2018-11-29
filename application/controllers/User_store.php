@@ -12,6 +12,7 @@ class User_store extends CI_Controller {
 	}
 
 	public function index() {
+		// "2017-03-14 17:38:14"
 		// echo "User_store";
 		// exit;
 		$this->load->view('template/header');

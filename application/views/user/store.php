@@ -39,7 +39,7 @@
 	</div>
 	<?php //my myRightPage ?>
 	<?php //test usesr id 9 ?>
-	<div class="container h4">
+	<div class="container h4" ng-if="myRightPage">
 		<div class="row text-center">
 			<div class="col-3 text-gray1">สิทธิ์ของฉัน</div>
 			<div class="col-2 offset-7 text-gray1">จำนวน</div>
@@ -60,7 +60,7 @@
 					</div>
 					<div class="col-lg-2 ">
 						<div class="text-gray1">{{mr.count}}</div>
-						<button class="btn btn-primary mt-4 active">ใช้สิทธิ์ </button>
+						<button class="btn btn-primary mt-4 active" ng-click="useMyRight()">ใช้สิทธิ์ </button>
 					</div>
 				</div>
 			</div><br>
@@ -69,7 +69,7 @@
 
 
 	<?php //my myHistoryPage ?>
-	<div class="container h4">
+	<div class="container h4" ng-if="myHistoryPage">
 		<!-- <div class="d-flex justify-content-between"> -->
 		<div class="row text-center">
 			<div class="col-3 text-gray1">ประวัติการใช้สิทธิ์</div>
@@ -144,32 +144,34 @@
 
 
 	<?php //my myRightExpPage ?>
-	<div class="container h4">
+	<div class="container h4" ng-if="myRightExpPage">
 		<!-- <div class="d-flex justify-content-between"> -->
 		<div class="row text-center">
 			<div class="col-3 text-gray1">สิทธิ์ของฉัน</div>
 			<div class="col-2 offset-7 text-gray1">จำนวน</div>
 		</div>
 		<div class="hrRow mb-5"></div>
-
-		<div class="bg-light py-4 shadow">
-			<div class="row text-center">
-				<div class="col-lg-3">
-					<div class="userRight-img ml-auto mr-auto">
-						<img src="upload/171/logo_upload/logo_20180925_140408.jpg" class="rounded img-responsive home_brand shadow" alt="">
+		<div ng-repeat="(key, value) in dataMyRightExps | groupBy: 'date_create' as result">
+			<div class="bg-white py-4 shadow">
+				<div class="row text-center">
+					<!-- {{value | json}} -->
+					<div class="col-lg-3">
+						<div class="userRight-img ml-auto mr-auto" ng-init="pathImg = 'upload/'+value[0].product_path+value[0].product_image">
+							<img src="{{pathImg}}" class="rounded img-responsive home_brand shadow" alt="">
+						</div>
+					</div>
+					<div class="col-lg-7 text-left" >
+						<div class="text-black bold">{{value[0].product_name}}</div>
+						<div class="text-green h5">{{value[0].brand_name}}</div>
+						<div class="text-gray1 h5" >วันหมดอายุ {{value[0].date_expire | cmdate:'dd/MM/yyyy'}}</div>
+					</div>
+					<div class="col-lg-2 ">
+						<div class="text-gray1">{{result[0].length}}</div>
+						<!-- <button class="btn btn-primary mt-4 active">ต่ออายุ</button> -->
 					</div>
 				</div>
-				<div class="col-lg-7 text-left">
-					<div class="text-black">สิทธิพิเศษ Zummer bar</div>
-					<div class="text-green h5">Zummer bar</div>
-					<div class="text-gray1 h5">วันหมดอายุ 21/8/61</div>
-				</div>
-				<div class="col-lg-2 ">
-					<div class="text-gray1">1</div>
-					<button class="btn btn-primary mt-4 active">ต่ออายุ</button>
-				</div>
-			</div>
-		</div><br>
+			</div><br>
+		</div>
 	</div>
 
 	<?php //img store foolter  ?>

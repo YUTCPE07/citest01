@@ -195,7 +195,64 @@ class Main_model extends CI_Model {
 	}
 
 	function getStoreMyRightExp($user_id) {
-		$sql = "";
+		// '2018-11-29 11:44:46'
+		date_default_timezone_set("Asia/Magadan");
+		$dateTimeNow = date("Y-m-d h:i:s");
+		$sql = "SELECT
+				 productAll.date_expire AS date_expire,
+				 productAll.date_create AS date_create,
+				 productAll.bran_BrandID AS brand_id,
+				 productAll.card_id AS product_id,
+				 productAll.name AS product_name,
+				 productAll.image AS product_image,
+				 productAll.path_image AS product_path,
+				 brandAll.name AS brand_name
+				 from (
+
+				 SELECT mr.date_expire,
+				 mr.date_create ,
+				 mr.bran_BrandID,
+				 mc.card_id ,
+				 mc.name,
+				 mc.image,
+				 mc.path_image
+
+
+				 FROM mb_member_register AS mr
+				 LEFT JOIN mi_card AS mc
+				 ON mr.card_id = mc.card_id
+				 WHERE mr.flag_del='T'
+				 AND mr.member_id={$user_id}
+				 AND (mr.date_expire < '{$dateTimeNow}'
+				 AND mr.period_type != '4')
+
+
+				UNION
+
+				SELECT hb.hcbu_ExpiredDate AS date_expire,
+				 hb.hcbu_CreatedDate AS date_create,
+				 hb.bran_BrandID AS brand_id,
+				 hc.coup_CouponID AS id,
+				 hc.coup_Name AS use_name,
+				 hc.coup_Image AS use_image,
+				 hc.coup_ImagePath AS use_path
+
+				 FROM hilight_coupon_buy AS hb
+				 LEFT JOIN hilight_coupon AS hc
+				 ON hc.coup_CouponID = hb.hico_HilightCouponID
+				 WHERE hb.hcbu_Deleted='T'
+				 AND hb.memb_MemberID = {$user_id}
+				 AND hb.hcbu_ExpiredDate < '{$dateTimeNow}'
+				 AND hb.hcbu_UseStatus='Expire'
+
+				 ) as productAll
+
+				 left join mi_brand as brandAll
+				 on brandAll.brand_id = productAll.bran_BrandID
+
+				 ORDER BY date_create DESC";
+		// echo $sql;
+		// exit;
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;
