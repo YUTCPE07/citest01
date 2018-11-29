@@ -10,72 +10,20 @@ class Main_model extends CI_Model {
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		$resultsKey = array_keys($results[0]);
-		echo '<pre>';
-		print_r($results[0]);
-		echo '</pre>';
 		foreach ($resultsKey as $value) {
-			echo 'mi_brand.' . $value . ',<br />';
+			echo "AND mi_brand.$value != ' ', <br />";
 		}
+		// echo '<pre>';
+		// print_r($results[0]);
+		// echo '</pre>';
+		// foreach ($resultsKey as $value) {
+		// 	echo 'mi_brand.' . $value . ',<br />';
+		// }
+
 		exit;
 	} /*end function echo_data *watch varible mysql */
 
-	function getLookupBrand($id) {
-
-		$sql = 'SELECT
-				    mi_brand.brand_id,
-					mi_brand.name,
-					mi_brand.name_en,
-					mi_brand.company_type,
-					mi_brand.company_name,
-					mi_brand.slogan,
-					mi_brand.category_brand,
-					mi_brand.type_brand,
-					mi_brand.phone,
-					mi_brand.mobile,
-					mi_brand.fax,
-					mi_brand.email,
-					mi_brand.website,
-					mi_brand.facebook_url,
-					mi_brand.line_type,
-					mi_brand.line_id,
-					mi_brand.instragram,
-					mi_brand.tweeter,
-					mi_brand.logo_image,
-					mi_brand.cover,
-					mi_brand.path_logo,
-					mi_brand.path_cover,
-					mi_brand.signature_info,
-					mi_brand.date_create,
-					mi_brand.date_update,
-					mi_brand.create_by,
-					mi_brand.update_by,
-					mi_brand.flag_status,
-					mi_brand.date_status,
-					mi_brand.flag_del,
-					mi_brand.flag_hidden,
-					mi_brand.flag_approve,
-					mi_brand.shop_q1,
-					mi_brand.shop_a1,
-					mi_brand.shop_q2,
-					mi_brand.shop_a2,
-					mi_brand.shop_q3,
-					mi_brand.shop_a3,
-					mi_brand.shop_q4,
-					mi_brand.shop_a4,
-					mi_brand.shop_q5,
-					mi_brand.shop_a5
-				FROM
-				    mi_brand
-				WHERE
-				    mi_brand.flag_status = 1 AND
-				    mi_brand.flag_del = 0 AND
-				    mi_brand.flag_hidden = "No" AND
-				    mi_brand.brand_id = ' . $id;
-		$q = $this->db->query($sql);
-		$results = $q->result_array();
-		return $results;
-
-	}
+	/*user_store_________________________________________________________________*/
 
 	function getStoreMyRight($user_id) {
 		$sql = "SELECT
@@ -133,131 +81,121 @@ class Main_model extends CI_Model {
 	}
 
 	function getStoreMyRightHistory($user_id) {
-		$sql = "SELECT
-				productAll.date_use,
-				productAll.count,
-				productAll.product_name,
-				productAll.product_image,
-				productAll.product_pathImg,
-				productAll.brand_id,
-				productAll.review,
-				productAll.rating,
-				productAll.review_img,
-				productAll.review_path,
-			    brandAll.name AS brand_name
-			from (
+		$sql = "SELECT c.shhi_CreatedDate AS date_use,
+					c.hcbu_HilightCouponBuyID AS code_use,
+					a.hcbu_CreatedDate AS date_create,
+					b.coup_Name AS product_name,
+					b.coup_Image AS product_image,
+					b.coup_ImagePath AS peoduct_path,
+					b.bran_BrandID As brand_id,
+					c.shhi_Comment AS review,
+					c.shhi_Rating AS rating,
+					c.shhi_Image AS review_img,
+					c.shhi_ImagePath AS review_path,
+					'Shop' AS type,
+					d.name AS brand_name
+					FROM mb_member
+					LEFT JOIN hilight_coupon_buy AS a
+					ON a.memb_MemberID = mb_member.member_id
+					LEFT JOIN hilight_coupon AS b
+					ON a.hico_HilightCouponID = b.coup_CouponID
+					LEFT JOIN shop_history AS c
+					ON c.hcbu_HilightCouponBuyID = a.hcbu_HilightCouponBuyID
+					LEFT JOIN mi_brand AS d
+					ON d.brand_id = b.bran_BrandID
+					WHERE a.hcbu_Deleted=''
+					AND a.hcbu_UseStatus='Use'
+					AND a.memb_MemberID=$user_id
 
-			SELECT a.hcbu_CreatedDate AS date_use,
-			COUNT(a.hcbu_CreatedDate) AS count,
-			b.coup_Name AS product_name,
-			b.coup_Image AS product_image,
-			b.coup_ImagePath AS product_pathImg,
-			b.bran_BrandID As brand_id,
-			c.shhi_Comment AS review,
-			c.shhi_Rating AS rating,
-			c.shhi_Image AS review_img,
-			c.shhi_ImagePath AS review_path
-			FROM mb_member
-			LEFT JOIN hilight_coupon_buy AS a
-			ON a.memb_MemberID = mb_member.member_id
-			LEFT JOIN hilight_coupon AS b
-			ON a.hico_HilightCouponID = b.coup_CouponID
-			LEFT JOIN shop_history AS c
-			ON c.hcbu_HilightCouponBuyID = a.hcbu_HilightCouponBuyID
-			WHERE a.hcbu_Deleted=''
-			AND a.memb_MemberID=$user_id
-			GROUP BY a.hcbu_CreatedDate
+					UNION
 
-			UNION
+					SELECT a.mepe_CreatedDate AS date_use,
+					a.mepe_MemberPrivlegeID AS code_use,
+					e.date_create AS date_create,
+					b.priv_Name AS use_name,
+					b.priv_Image AS use_image,
+					b.priv_ImagePath AS use_path,
+					b.bran_BrandID As brand_id,
+					a.mepe_Comment AS review,
+					a.mepe_Rating AS rating,
+					a.mepe_Image AS review_img,
+					a.mepe_ImagePath AS review_path,
+					'Member Card' AS type,
+					d.name AS brand_name
+					FROM mb_member
+					LEFT JOIN member_privilege_trans AS a
+					ON a.memb_MemberID = mb_member.member_id
+					LEFT JOIN privilege AS b
+					ON b.priv_PrivilegeID = a.priv_PrivilegeID
+					LEFT JOIN mi_brand AS d
+					ON d.brand_id = b.bran_BrandID
+					LEFT JOIN mb_member_register AS e
+					ON e.member_register_id = a.mere_MemberRegisterID
+					WHERE a.mepe_Deleted=''
+					AND a.memb_MemberID=$user_id
 
-			SELECT a.hico_CreatedDate AS date_use,
-			COUNT(a.hico_CreatedDate) AS count,
-			b.coup_Name AS use_name,
-			b.coup_Image AS use_image,
-			b.coup_ImagePath AS use_path,
-			b.bran_BrandID As brand_id,
-			a.hico_Comment AS review,
-			a.hico_Rating AS rating,
-			a.hico_Image AS review_img,
-			a.hico_ImagePath AS review_path
-			FROM mb_member
-			LEFT JOIN hilight_coupon_trans AS a
-			ON a.memb_MemberID = mb_member.member_id
-			LEFT JOIN hilight_coupon AS b
-			ON a.coup_CouponID = b.coup_CouponID
-			WHERE a.hico_Deleted=''
-			AND a.memb_MemberID=$user_id
-			GROUP BY a.hico_CreatedDate
+					UNION
 
-			UNION
+					SELECT a.meco_CreatedDate AS date_use,
+					a.meco_MemberCouponID AS code_use,
+					e.date_create AS date_create,
+					b.coup_Name AS use_name,
+					b.coup_Image AS use_image,
+					b.coup_ImagePath AS use_path,
+					b.bran_BrandID As brand_id,
+					a.meco_Comment AS review,
+					a.meco_Rating AS rating,
+					a.meco_Image AS review_img,
+					a.meco_ImagePath AS review_path,
+					'Member Card' AS type,
+					d.name AS brand_name
+					FROM mb_member
+					LEFT JOIN member_coupon_trans AS a
+					ON a.memb_MemberID = mb_member.member_id
+					LEFT JOIN coupon AS b
+					ON b.coup_CouponID = a.coup_CouponID
+					LEFT JOIN mi_brand AS d
+					ON d.brand_id = b.bran_BrandID
+					LEFT JOIN mb_member_register AS e
+					ON e.member_register_id = a.mere_MemberRegisterID
+					WHERE a.meco_Deleted=''
+					AND a.memb_MemberID=$user_id
 
-			SELECT a.mepe_CreatedDate AS date_use,
-			COUNT(a.mepe_CreatedDate) AS count,
-			b.priv_Name AS use_name,
-			b.priv_Image AS use_image,
-			b.priv_ImagePath AS use_path,
-			b.bran_BrandID,
-			a.mepe_Comment AS review,
-			a.mepe_Rating AS rating,
-			a.mepe_Image AS review_img,
-			a.mepe_ImagePath AS review_path
-			FROM mb_member
-			LEFT JOIN member_privilege_trans AS a
-			ON a.memb_MemberID = mb_member.member_id
-			LEFT JOIN privilege AS b
-			ON b.priv_PrivilegeID = a.priv_PrivilegeID
-			WHERE a.mepe_Deleted=''
-			AND a.memb_MemberID=$user_id
-			GROUP BY a.mepe_CreatedDate
+					UNION
 
-			UNION
+					SELECT a.meac_CreatedDate AS date_use,
+					a.meac_MemberActivityID AS code_use,
+					e.date_create AS date_create,
+					b.acti_Name AS use_name,
+					b.acti_Image AS use_image,
+					b.acti_ImagePath AS use_path,
+					b.bran_BrandID As brand_id,
+					a.meac_Comment AS review,
+					a.meac_Rating AS rating,
+					a.meac_Image AS review_img,
+					a.meac_ImagePath AS review_path,
+					'Member Card' AS type,
+					d.name AS brand_name
+					FROM mb_member
+					LEFT JOIN member_activity_trans AS a
+					ON a.memb_MemberID = mb_member.member_id
+					LEFT JOIN activity AS b
+					ON b.acti_ActivityID = a.acti_ActivityID
+					LEFT JOIN mi_brand AS d
+					ON d.brand_id = b.bran_BrandID
+					LEFT JOIN mb_member_register AS e
+					ON e.member_register_id = a.mere_MemberRegisterID
+					WHERE a.meac_Deleted=''
+					AND a.memb_MemberID=$user_id
 
-			SELECT a.meco_CreatedDate AS date_use,
-			COUNT(a.meco_CreatedDate) AS count,
-			b.coup_Name AS use_name,
-			b.coup_Image AS use_image,
-			b.coup_ImagePath AS use_path,
-			b.bran_BrandID,
-			a.meco_Comment AS review,
-			a.meco_Rating AS rating,
-			a.meco_Image AS review_img,
-			a.meco_ImagePath AS review_path
-			FROM mb_member
-			LEFT JOIN member_coupon_trans AS a
-			ON a.memb_MemberID = mb_member.member_id
-			LEFT JOIN coupon AS b
-			ON b.coup_CouponID = a.coup_CouponID
-			WHERE a.meco_Deleted=''
-			AND a.memb_MemberID=$user_id
-			GROUP BY a.meco_CreatedDate
+					ORDER BY date_use DESC";
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+	}
 
-			UNION
-
-			SELECT a.meac_CreatedDate AS date_use,
-			COUNT(a.meac_CreatedDate) AS count,
-			b.acti_Name AS use_name,
-			b.acti_Image AS use_image,
-			b.acti_ImagePath AS use_path,
-			b.bran_BrandID,
-			a.meac_Comment AS review,
-			a.meac_Rating AS rating,
-			a.meac_Image AS review_img,
-			a.meac_ImagePath AS review_path
-			FROM mb_member
-			LEFT JOIN member_activity_trans AS a
-			ON a.memb_MemberID = mb_member.member_id
-			LEFT JOIN activity AS b
-			ON b.acti_ActivityID = a.acti_ActivityID
-			WHERE a.meac_Deleted=''
-			AND a.memb_MemberID=$user_id
-			GROUP BY a.meac_CreatedDate
-
-			ORDER BY date_use DESC
-
-
-			) as productAll
-
-			left join mi_brand as brandAll on brandAll.brand_id = productAll.brand_id";
+	function getStoreMyRightExp($user_id) {
+		$sql = "";
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;
@@ -315,18 +253,61 @@ class Main_model extends CI_Model {
 	}
 
 	function getAllDataBrand() {
-		$sql = 'SELECT
+		$sql = "SELECT
 				    b.brand_id, b.name, b.path_logo, b.logo_image, b.date_update
 				FROM
 				    mi_brand b
 				WHERE
 				    b.flag_status = 1 AND
 				    b.flag_del = 0 AND
-				    b.flag_hidden = "No"
-				ORDER BY b.date_update DESC';
+				    b.flag_hidden = 'No'
+				ORDER BY b.date_update DESC";
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;
+	}
+
+	function getLookupBrand($brand_id) {
+		// echo $brand_id;
+		// exit;
+		// test brand_id 16,18,27,28,30,39
+		$sql = "SELECT
+				    mi_brand.brand_id,
+					mi_brand.name,
+					mi_brand.name_en,
+					mi_brand.company_type,
+					mi_brand.company_name,
+					mi_brand.slogan,
+					mi_brand.category_brand,
+					mi_brand.type_brand,
+					mi_brand.phone,
+					mi_brand.mobile,
+					mi_brand.fax,
+					mi_brand.email,
+					mi_brand.website,
+					mi_brand.facebook_url,
+					mi_brand.line_type,
+					mi_brand.line_id,
+					mi_brand.instragram,
+					mi_brand.tweeter,
+					mi_brand.logo_image,
+					mi_brand.cover,
+					mi_brand.path_logo,
+					mi_brand.path_cover,
+					mi_brand.signature_info,
+					mi_brand.date_create,
+					mi_brand.date_update
+				FROM
+				    mi_brand
+				WHERE
+				    mi_brand.flag_status = 1 AND
+				    mi_brand.flag_del = 0 AND
+				    mi_brand.flag_hidden = 'No' AND
+				    mi_brand.brand_id = $brand_id ";
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+
 	}
 
 	function getBrandRecommand() {

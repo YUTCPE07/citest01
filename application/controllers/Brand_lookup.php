@@ -1,8 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-header("Access-Control-Allow-Headers: X-Requested-With");
 
 class Brand_lookup extends CI_Controller {
 
@@ -21,6 +18,8 @@ class Brand_lookup extends CI_Controller {
 		$brand_Id = $this->uri->segment(2);
 
 		$query = $this->Main_model->getLookupBrand($brand_Id);
+		// print_r($query);
+		// exit;
 		if (count($query) == 1) {
 			$output['db'] = $query[0];
 		} else {
@@ -36,12 +35,4 @@ class Brand_lookup extends CI_Controller {
 		// print_r($query[0]);
 	}
 
-	// public function getdata($brand_Id) {
-	// echo "ss" . $coupon_Id;
-	// get data
-	// $query = $this->Main_model->getLookupBrand($brand_Id);
-	// $result = $query->result_array();
-	// echo $query;
-	// echo json_encode($data);
-	// }
 }

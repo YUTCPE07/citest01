@@ -32,6 +32,9 @@ function ($scope, $http,indexService,$location,$filter) {
     //____________________________________________________
 
 
+    $scope.menu_dropDownClick = function (ele) {
+        console.log(ele)
+    }
 
         
  	 //___________________________________________________
@@ -186,7 +189,7 @@ function ($scope, $http,indexService,$location,$filter) {
 
         $scope.optionArrays = []; //[{type:'1',productCount:'9'},{type:'2',productCount:'3'}]
         $scope.filterProduct = function(product){
-        	//console.log(product)
+        	// console.log(product)
         	// console.log('product.category_brand',product.category_brand)
         	if($scope.optionArrays.length == 0){
         		return ($scope.optionArrays.indexOf(product.category_brand) === -1);

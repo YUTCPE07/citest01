@@ -31,16 +31,6 @@
 		display: block !important;
 	}
 
-	.layoutProductOff {
-		/*display: none;*/
-		visibility:hidden;
-	}
-
-	.layoutProductOn{
-		/*display: block;*/
-		visibility: visible;
-	}
-
 	/*ตั้งค่าให้ height เท่ากัน บรรทัดละ 24px*/
 	.setHeightCardHeadText{
 		height: 24px;

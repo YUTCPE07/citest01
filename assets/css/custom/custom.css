@@ -123,18 +123,6 @@
 		display: block !important;
 	}
 
-	
-
-	.layoutProductOff {
-		/*display: none;*/
-		visibility:hidden;
-	}
-
-	.layoutProductOn{
-		/*display: block;*/
-		visibility: visible;
-	}
-
 	/*ตั้งค่าให้ height เท่ากัน*/
 	.setHeightCardHeadText{
 		height: 48px;

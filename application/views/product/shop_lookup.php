@@ -335,17 +335,17 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 			<div class="row">   <!-- select num for buy -->
 				<div class="col-12 h3 medium text-black">เลือก</div>
 				<ul class="pagination ml-auto mr-auto">
-				    <li class="page-item">
-				    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy + 1 ">
-				    		<i class="fas fa-angle-up"></i>
+					<li class="page-item " ng-class="{disabled:numForBuy<2}" >
+				    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy - 1">
+				    		<i class="fas fa-angle-down"></i>
 				    	</div>
 					</li>
 					<li class="page-item " >
 				    	<div class="page-link bg-white" >{{numForBuy}}</div>
 					</li>
-					<li class="page-item " ng-class="{disabled:numForBuy<2}" >
-				    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy - 1">
-				    		<i class="fas fa-angle-down"></i>
+				    <li class="page-item">
+				    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy + 1 ">
+				    		<i class="fas fa-angle-up"></i>
 				    	</div>
 					</li>
 			    </ul>

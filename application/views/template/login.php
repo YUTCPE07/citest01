@@ -16,13 +16,13 @@
             <label for="emailOrPhone" class="col-4 col-form-label text-right">อีเมลล์/เบอร์โทร</label>
             <div class="col-8 text-right">
               <!-- placeholder="อีเมลล์/เบอร์โทร" -->
-              <input type="text" class="form-control input-primary" id="emailOrPhone" ng-model="loginInput.emailOrPhone" autofocus autocomplete="username">
+              <input type="text" class="form-control input-primary" id="emailOrPhone" name="username" ng-model="loginInput.emailOrPhone" autofocus autocomplete="username">
             </div>
           </div>
           <div class="form-group row">
             <label for="password" class="col-4 col-form-label text-right">รหัสผ่าน</label>
             <div class="col-8 text-right">
-              <input type="password" class="form-control input-primary" id="password" ng-model="loginInput.password" autocomplete="current-password">
+              <input type="password" class="form-control input-primary" id="password" name="password" ng-model="loginInput.password" autocomplete="current-password">
             </div>
           </div>
           <div class="form-group row">

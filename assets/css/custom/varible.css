@@ -130,6 +130,10 @@ a:hover {
 	background-color:var(--color-gray1);
 }
 
+.bg-white {
+	background-color:white;
+}
+
 .bg-green {
 	background-color: var(--color-green);
 }
@@ -175,6 +179,16 @@ a:hover {
 
 .hr_footer_height {/*back to top height*/
 	height: 35.219px 
+}
+
+.layoutOff { /*Redy after Show*/
+	/*display: none;*/
+	visibility:hidden;
+}
+
+.layoutOn{ /*Redy after Show*/
+	/*display: block;*/
+	visibility: visible;
 }
 
 .hrRow {

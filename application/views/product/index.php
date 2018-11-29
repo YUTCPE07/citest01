@@ -43,7 +43,7 @@
 	</div> <?php //end menu filter product type for mobile ?>
 
 <!-- <div ng-show="expression">LONDING...</div> layoutProductOff-->
-	<div class="container layoutProductOff pt-3" ng-class="{layoutProductOn:isReadyShow}">
+	<div class="container layoutOff pt-3" ng-class="{layoutOn:isReadyShow}">
 	<!-- <div class="container">  -->
 		<?php //select menu top right ?>
 
@@ -51,14 +51,14 @@
 			<button type="button" class="btn btn-primary d-inline mr-auto d-block d-lg-none" data-toggle="modal" data-target="#product_filter_left_mobile" >
 	            	คัดกรอง
 			</button>
-			<div uib-dropdown on-toggle="toggled(open)" class="d-inline ml-auto">
+			<div uib-dropdown on-toggle="toggled(open)" class="d-inline ml-auto" ng-init="menuHead = 'ล่าสุด' ">
 	            <button type="button" class="btn btn-primary" href id="dropdown-product-filter" uib-dropdown-toggle>
-	            	ทั้งหมด
+	            	{{menuHead}}
 	  			</button>
 	            <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown-product-filter">
 	                <!-- <a class="dropdown-item" href="#">แนะนำ</a> -->
-	                <a class="dropdown-item" href="#">ล่าสุด</a>
-	                <a class="dropdown-item" href="#">ยอดนิยม</a>
+	                <!-- <div class="dropdown-item" href="#">ล่าสุด</div> -->
+	                <div class="dropdown-item" ng-click="menu_dropDownClick(this)">ยอดนิยม</div>
 	                <!-- <a class="dropdown-item" href="#">สถานที่ใกล้เคียง</a> -->
 	            </div>
 	        </div>
@@ -136,7 +136,7 @@
 				<!-- <div ng-show="loading" class="loading">LOADING...</div> -->
 				<div class="row" >
 					<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
-					<div class="product col-lg-4" ng-repeat='product in products | filter:filterProduct| startFrom:currentPage*pageSize | limitTo:pageSize'>
+					<div class="product col-lg-4" ng-repeat='product in products | filter:filterProduct| startFrom:currentPage*pageSize | limitTo:pageSize '>
 						<div class="card shadow mb-3 mt-3 border border-secondary " style="max-width: 180rem;" >
 							<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 							<img ng-if="product.logo_image != null"
