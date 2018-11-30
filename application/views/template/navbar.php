@@ -25,7 +25,7 @@
             <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
                 <a class="dropdown-item" href="<?php echo base_url(); ?>product?page=1">ALL</a>
                 <div ng-repeat="catrogy in catrogy_barnd" >
-                  <a class="dropdown-item" href="<?php echo base_url(); ?>product?page=1">{{catrogy.category_name}}</a>
+                  <a class="dropdown-item" href="<?php echo base_url(); ?>product?ptype={{catrogy.category_brand}}&page=1">{{catrogy.category_name}}</a>
                 </div>
             </div>
           </li>

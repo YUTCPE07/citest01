@@ -6,6 +6,13 @@ function ($scope, $http,indexService,$location,$filter) {
     $scope.parseInt = window.parseInt; /*for Angular use math.round()*/
     // console.log(window.location.pathname)
 
+    // getData _________________________________________
+
+
+    //__________________________________________________
+
+
+      // $scope.testClick = 5;
 
     //___________________________________________________
     // action product click 
@@ -43,6 +50,27 @@ function ($scope, $http,indexService,$location,$filter) {
 
 
 
+    //link to this form select getdata_Catrogy_barnd of navbar
+    // __________________________________________________________
+        // http://localhost/product?ptype=0&page=2
+        var url_string = window.location.href; 
+        var url = new URL(url_string);
+        var ptype = url.searchParams.get("ptype");
+        $scope.selectFiterFormNavbar = function (catrogy_barndLenght) {
+            // console.log('sasad',catrogy_barndLenght)
+            angular.element(document).ready(function () { /*wait dom is ready*/
+                if(ptype && 0 < parseInt(ptype) && parseInt(ptype) <= catrogy_barndLenght ) {
+                    $scope.menuFilterRowClick(ptype);
+                }
+                
+            });
+            
+        }
+        
+        
+
+        
+    // __________________________________________________________
     
 
     
@@ -64,7 +92,6 @@ function ($scope, $http,indexService,$location,$filter) {
             // console.log(data);
             //ex 0:{coup_CouponID: "137" ,hico_HilightCouponID: "MBB019846"}
             $scope.coupon_trans = data;
-
             // createRating(data);
 
         },function(error){ 
@@ -141,8 +168,6 @@ function ($scope, $http,indexService,$location,$filter) {
 
 
 
-
-
     //____________________________________________________
     // pageination& Get All Product controller
     //____________________________________________________
@@ -152,7 +177,7 @@ function ($scope, $http,indexService,$location,$filter) {
         // var url = new URL(url_string);
         // var c = url.searchParams.get("c");
         // console.log(c); /*m2-m3-m4-m5*/
-
+        
         $scope.currentPage = 0;
         $scope.pageSize = 9;
         indexService.getAlldataProduct().then(function (data) {
@@ -185,12 +210,10 @@ function ($scope, $http,indexService,$location,$filter) {
         indexService.getdata_Catrogy_barnd().then(function (data) {
             // console.log(data,'catrogy_barnd')
             $scope.catrogy_barnd = data;
+            // $scope.selectFiterFormNavbar(data);
+
         });
-    //____________________________________________________
-
-
-
-
+    // ____________________________________________________
 
 
 
@@ -198,9 +221,13 @@ function ($scope, $http,indexService,$location,$filter) {
     // checbox controller
     //____________________________________________________
 
+        // setTimeout(function(){
+        //     $scope.menuFilterRowClick(6);
+        // }, 3000);
+
         $scope.optionArrays = []; //[{type:'1',productCount:'9'},{type:'2',productCount:'3'}]
         $scope.filterProduct = function(product){
-        	// console.log(product)
+            // console.log($scope.optionArrays)
         	// console.log('product.category_brand',product.category_brand)
         	if($scope.optionArrays.length == 0){
         		return ($scope.optionArrays.indexOf(product.category_brand) === -1);
@@ -210,14 +237,15 @@ function ($scope, $http,indexService,$location,$filter) {
         // var koma = 55;
         // var yaua = `sadsadsa${koma}dsadasdsda`;
         // console.log(yaua)
-        $scope.menuFilterRowClick = function(key,length){
-            // console.log(key,length)
+
+        $scope.menuFilterRowClick = function(key){
+            console.log('menuFilterRowClick',key)
             var jqueryCheckbok = $(`[name='productCheckbox${key}']`);
             var jqueryRow = $(`[name='productRow${key}']`);
             var confirmed;
             // console.log(jqueryCheckbok.hasClass('fa-square'))
             var boxIsCheck = !jqueryCheckbok.hasClass('fa-square');
-            // console.log(beforClickBoxIsCheck)
+            console.log('boxIsCheck',boxIsCheck)
             if(boxIsCheck){
                 jqueryCheckbok.toggleClass("fa-check-square fa-square");
                 jqueryRow.removeClass('bg-green text-white');
@@ -227,23 +255,26 @@ function ($scope, $http,indexService,$location,$filter) {
                 jqueryRow.addClass('bg-green text-white');
                 confirmed = true;
             }
-            $scope.checkBoxProductType(key,confirmed,length);
+            $scope.checkBoxProductType(parseInt(key),confirmed);
         }
 
-        $scope.checkBoxProductType = function(key,confirmed,length){
-       
+        $scope.checkBoxProductType = function(key,confirmed){
+            console.log(key,confirmed)
             $scope.currentPage = 0; 
+
     		var optionArraysSum = $scope.optionArrays.filter(function(item){
     			if(item != key){
     			  	return item;
     			}
     		});
-
+            console.log(optionArraysSum)
     		if(confirmed){
-    			optionArraysSum.push(key);
-    			// console.log($scope.optionArrays)
+    			optionArraysSum.push(`${key}`);
+    			console.log($scope.optionArraysSum)
     		}
-
+            // console.log($scope.catrogy_barndLenghtnd)
+            var length = $scope.catrogy_barnd[key-1].product_category_length;
+            console.log('length',length)
     		//generate filterResult (count product after select checkBox)
     		if(confirmed){
     			$scope.filterResult = $scope.filterResult + length;
@@ -262,23 +293,15 @@ function ($scope, $http,indexService,$location,$filter) {
 
 
     		$scope.optionArrays = optionArraysSum;
-    		// console.log($scope.optionArrays)
+    		console.log($scope.filterResult,$scope.pageSize)
     		$scope.pageAfterFilter = Math.ceil($scope.filterResult/$scope.pageSize)
     		// console.log($scope.filterResult)
         }
     //____________________________________________________
-   	
 
-
-
-
-  
-
-
-
-
-
-
+    $scope.test1 = function () {
+        console.log('test1')
+    }
     //____________________________________________________
     // seekbar controller
     //____________________________________________________
@@ -297,6 +320,20 @@ function ($scope, $http,indexService,$location,$filter) {
 
     // console.log($scope.priceSlider)
 }]); /*end app.controller 'productController' */
+
+
+app.directive('myRepeatDirective', function() {
+    return function(scope, element, attrs) {
+        
+        if (scope.$last){
+            // console.log(scope)
+            console.log('this is last')
+            scope.selectFiterFormNavbar(scope.$index+1);
+            
+        }
+    };
+})
+
 
 app.filter('ratingFilter', function() {
     return function(data) {

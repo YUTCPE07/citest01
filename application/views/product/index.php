@@ -1,46 +1,48 @@
 
 
-<div ng-controller='productController' class="pb-5 ">
-
+<div ng-controller='productController' class="pb-5 " >
+<!-- {{myVar}}
+<button ng-click="buttonClicked()">sssssssss</button> -->
 	<?php //menu filter product type for mobile ?>
-	<div class="modal fade" id="product_filter_left_mobile"  tabindex="-1" role="dialog" aria-labelledby="product_filter_left_mobile_title" aria-hidden="true">
-	<!-- <div class="" id="product_filter_left_mobile"  tabindex="-1" role="dialog" aria-labelledby="product_filter_left_mobile_title" aria-hidden="true"> -->
-		<div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		        <div class="modal-header">
-			        <div class="modal-title h4" id="product_filter_left_mobile_title">คัดกรอง</div>
-			        <div class="modal-title h4 text-danger" data-dismiss="modal"><i class="far fa-times-circle"></i></div>
-		        </div>
-		        <div class="modal-body">
-        			<div class="row">
-        				<div class="col-6"><strong>หมวดหมู่</strong></div>
-        				<div class="col-6 text-right">[ทั้งหมด]</div>
-        			</div>
-        			<div ng-repeat="(key,value) in products|groupBy:'category_brand'">
-        				<div class="row" >
-        					<div class="col-8">
-        						<div class="form-check">
-								  <input class="form-check-input" type="checkbox"
-								  		ng-model="confirmed" ng-change="checkBoxProductType(this)"
-								  		>
-								  <label class="form-check-label">{{ catrogy_barnd[key-1].category_name }}</label>
-								</div>
-        					</div>
-        					<div class="col-4 text-right">
-        						<p>{{ value.length }}</p>
-								<p>{{ checkbox[key] }}</p>
-        					</div>
-        				</div>
-        			</div>
-		        </div>
-		        <div class="modal-footer">
-			        <button type="button" class="btn btn-danger bg-danger text-white" data-dismiss="modal">
-			        	<div class="medium">Close</div>
-			    	</button>
-		        </div>
-		    </div>
-	  	</div>
-	</div> <?php //end menu filter product type for mobile ?>
+		<div class="modal fade" id="product_filter_left_mobile"  tabindex="-1" role="dialog" aria-labelledby="product_filter_left_mobile_title" aria-hidden="true">
+		<!-- <div class="" id="product_filter_left_mobile"  tabindex="-1" role="dialog" aria-labelledby="product_filter_left_mobile_title" aria-hidden="true"> -->
+			<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			        <div class="modal-header">
+				        <div class="modal-title h4" id="product_filter_left_mobile_title">คัดกรอง</div>
+				        <div class="modal-title h4 text-danger" data-dismiss="modal"><i class="far fa-times-circle"></i></div>
+			        </div>
+			        <div class="modal-body">
+	        			<div class="row">
+	        				<div class="col-6"><strong>หมวดหมู่</strong></div>
+	        				<div class="col-6 text-right">[ทั้งหมด]</div>
+	        			</div>
+	        			<div ng-repeat="(key,value) in products|groupBy:'category_brand'">
+	        				<div class="row" >
+	        					<div class="col-8">
+	        						<div class="form-check">
+									  <input class="form-check-input" type="checkbox"
+									  		ng-model="confirmed" ng-change="checkBoxProductType(this)"
+									  		>
+									  <label class="form-check-label">{{ catrogy_barnd[key-1].category_name }}</label>
+									</div>
+	        					</div>
+	        					<div class="col-4 text-right">
+	        						<p>{{ value.length }}</p>
+									<p>{{ checkbox[key] }}</p>
+	        					</div>
+	        				</div>
+	        			</div>
+			        </div>
+			        <div class="modal-footer">
+				        <button type="button" class="btn btn-danger bg-danger text-white" data-dismiss="modal">
+				        	<div class="medium">Close</div>
+				    	</button>
+			        </div>
+			    </div>
+		  	</div>
+		</div>
+	<?php //end menu filter product type for mobile ?>
 
 <!-- <div ng-show="expression">LONDING...</div> layoutProductOff-->
 	<div class="container layoutOff pt-3" ng-class="{layoutOn:isReadyShow}">
@@ -88,19 +90,19 @@
 						</div>
 						<?php //ng-repeat="(key, value) in players | groupBy: 'team'" ?>
 
-						<div class="productMenuHover" ng-repeat="(key,value) in products|groupBy:'category_brand'" ng-click="menuFilterRowClick(this.key,this.value.length);" name="productRow{{key}}" >
+						<div class="productMenuHover" ng-repeat="barndType in catrogy_barnd" ng-click="menuFilterRowClick(barndType.category_brand);" name="productRow{{barndType.category_brand}}"  my-repeat-directive>
 							<div class="d-flex justify-content-between px-2" >
 								<div class="">
 									<div class="d-inline">
-										<i class="far fa-square" name="productCheckbox{{key}}"></i>
+										<i class="far fa-square" name="productCheckbox{{barndType.category_brand}}"></i>
 									</div>
 								  	<!-- <input class="form-check-input" type="checkbox" name="productCheckbox{{key}}"
-								  		ng-model="confirmed" ng-change="menuFilterRowClick(this.key,this.value.length)"
+								  		ng-model="confirmed" ng-change="menuFilterRowClick(this.key)"
 								  		> -->
-								  	<div class="d-inline">{{ catrogy_barnd[key-1].category_name }}</div>
+								  	<div class="d-inline">{{barndType.category_brand}} {{ barndType.category_name }}</div>
 								</div>
 								<div class="">
-									<p>{{ value.length }}</p>
+									<p>{{ barndType.product_category_length }}</p>
 									<!-- <p>{{ checkbox[key] }}</p> -->
 								</div>
 							</div>

@@ -16,21 +16,23 @@ class Product extends CI_Controller {
 
 	public function index() {
 		// echo "222222222222222";
+		// $ptype_is_empty = empty($this->input->get('ptype'));
+		// if($ptype_is_empty){
+
+		// }
+
 		$this->load->view('template/header');
 		$this->load->view('product/index');
 		$this->load->view('template/footer');
 
 		// $coupon_Id = $this->uri->segment(2);
 		// http://localhost/citest01/product?ptype=5&page=2
-		// echo $this->input->get('page') == 1;
-		// echo $this->input->get('ptype');
+		// echo $this->input->get('page') === 1;
 
 		// กลับมาเเก้ต่อ
 		// https://stackoverflow.com/questions/3673514/current-uri-segment-in-codeigniter
 		//https://stackoverflow.com/questions/9666433/codeigniter-get-value-from-url
 		// echo ($this->input->get('page') === '') ? "null" : "Yes";
-
-		// exit;
 
 	}
 
