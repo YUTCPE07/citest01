@@ -107,7 +107,7 @@
 	  })
 	}
 //End for ProductRecommand
-
+// console.log(baseurl + 'dashboard/get_product_limit')
 
 
 // Start for BrandRecommand

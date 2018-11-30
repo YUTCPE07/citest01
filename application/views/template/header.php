@@ -8,7 +8,7 @@
 	<!-- <meta name="description" content="<?php //echo $description ?>"> -->
 	<meta name="description" content="webbord, forum">
   	<!-- <meta name="author" content="<?php //echo $author ?>" > -->
-	<meta name="baseUrl" content="<?php echo base_url(); ?>" >
+	<link rel="Shortcut Icon" href="/favicon.ico">
 	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, minimum-scale=1.0">
 	<?php
 //header('Access-Control-Allow-Origin: *');
@@ -19,6 +19,7 @@
 	<base href="<?php echo base_url(); ?>" />
 	<!-- <title><?php //echo $title ?></title> -->
 	<title>MemberIn</title>
+	<link rel="icon" href="<?php echo base_url() ?>favicon.ico" type="image/ico">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/bootstrap.min.css'); ?>">
 
 	<!-- template from bootstrap4(freelancer) -->

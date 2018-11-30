@@ -10,7 +10,7 @@ function ($scope, $http,indexService,$location,$filter) {
     //___________________________________________________
     // action product click 
     //____________________________________________________
-
+    
         $scope.lookup = function(data,id,coup_Type) {
             if (data == 'coup' && coup_Type == 'Buy') {
                 window.location.href = 'shop/'+id;
@@ -74,6 +74,12 @@ function ($scope, $http,indexService,$location,$filter) {
 
    
 
+
+
+
+
+
+
     //  ___________________________________________________
     // product > Rating Star
     // ____________________________________________________
@@ -132,11 +138,16 @@ function ($scope, $http,indexService,$location,$filter) {
 
 
 
+
+
+
+
+
     //____________________________________________________
     // pageination& Get All Product controller
     //____________________________________________________
-        var url =  new URL(window.location.href);
-        var thisPage = url.searchParams.get("page");
+        // var url =  new URL(window.location.href);
+        // var thisPage = url.searchParams.get("page");
         // var url_string = "http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"; //window.location.href
         // var url = new URL(url_string);
         // var c = url.searchParams.get("c");
@@ -179,9 +190,9 @@ function ($scope, $http,indexService,$location,$filter) {
 
 
 
-        function getProductTypeLenghtFromKey(key) {
-          
-        }
+
+
+
 
     //____________________________________________________
     // checbox controller
@@ -220,10 +231,7 @@ function ($scope, $http,indexService,$location,$filter) {
         }
 
         $scope.checkBoxProductType = function(key,confirmed,length){
-            // console.log('checkBoxProductType')
-            // console.log(key)
-            // console.log(length)
-            // console.log(confirmed)
+       
             $scope.currentPage = 0; 
     		var optionArraysSum = $scope.optionArrays.filter(function(item){
     			if(item != key){
