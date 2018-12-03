@@ -27,7 +27,7 @@ function crateSrcImage($path, $name) {
 <div class="container">
   	<div class="row pt-5 pb-3">
   		<?php foreach ($brands as $item): ?>
-			<div class="col-2 text-center ">
+			<div class="col-4 col-md-2 text-center ">
 				<!-- <?php //print_r($item)?> -->
 				<?php //if (	): ?>
 
@@ -35,7 +35,7 @@ function crateSrcImage($path, $name) {
 	    		<a href="<?php echo base_url() . 'brand/' . $item['brand_id'] ?>">
 					<!-- <img src="https://via.placeholder.com/400x400" class="rounded img-responsive home_brand shadow" alt=" "> -->
 					 <!-- $item['path_logo'] + $item['logo_image'] -->
-					<img src="<?php echo base_url() . crateSrcImage($item['path_logo'], $item['logo_image']) ?>" class="rounded img-responsive home_brand shadow">
+					<img src="<?php echo base_url() . crateSrcImage($item['path_logo'], $item['logo_image']) ?>" class="rounded img-responsive home_brand shadow border-my">
 				</a>
 				<div class="pt-3 pb-5"><?php echo $item['name']; ?></div>
 	    	</div>

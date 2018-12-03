@@ -8,10 +8,13 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 
 ?>
 <?php //echo $db['coup_ImagePath'] . $db['coup_Image'] ?>
-<div class="lookup-head-img">
-	<img class="img-fluid d-block ml-auto mr-auto shadow"
-		src="upload/<?php echo $db['coup_ImagePath'] . $db['coup_Image'] ?>" alt="First slide">
+<div class="container-fluid-my">
+	<div class="lookup-head-img pt-md-5 pt-0">
+		<img class="img-fluid d-block ml-auto mr-auto shadow border-my"
+			src="upload/<?php echo $db['coup_ImagePath'] . $db['coup_Image'] ?>" alt="First slide">
+	</div>
 </div>
+
 
 <div class="container">
 	<div class="d-flex flex-row-reverse p-md-5 p-4 ">

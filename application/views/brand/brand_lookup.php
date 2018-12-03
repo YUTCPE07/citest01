@@ -1,17 +1,21 @@
 <style type="text/css">
 	.lookup-head-img > img{
-     	width:unset;
+     	max-width: 640px;
     }
 </style>
 
 <!-- <pre><?php print_r($db)?></pre> -->
 <!-- this is view brand_lookup -->
 
-<div class="container py-5">
-	<div class="lookup-head-img">
-		<img class="img-fluid d-block ml-auto mr-auto shadow"
+<div class="container-fluid-my">
+	<div class="lookup-head-img pt-md-5">
+		<img class="img-fluid d-block ml-auto mr-auto shadow border-my"
 			src="upload/<?php echo $db['path_cover'] . $db['cover'] ?>" alt="First slide">
 	</div>
+</div>
+
+<div class="container py-5">
+
 	<div class="d-flex flex-row-reverse p-lg-5 ">
 		<!-- <button class="btn btn-primary ml-lg-5 ml-3">แชร์</button> -->
 		<!-- <button class="btn btn-primary">ชื่นชอบ</button> -->
@@ -21,13 +25,16 @@
 			<img class="img-thumbnail shadow
 				d-none d-lg-block d-lg-block d-xl-block"
 				src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
-			<img class="img-thumbnail w-50 shadow rounded-circle ml-auto mr-auto mb-3
+			<img class="img-thumbnail shadow w-50 ml-auto mr-auto mb-3
 				d-block d-lg-none d-lg-none d-xl-none"
 				src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
 		</div>
 		<div class="col-lg-10 w-100">
 			<div class="row">
-				<div class="col-lg-12"><div class="h2 medium"><?php echo $db['name']; ?></div></div>
+				<div class="col-lg-12 h2 medium
+				d-none d-lg-block d-lg-block d-xl-block"><?php echo $db['name']; ?></div>
+				<div class="col-lg-12 h4 medium py-3 text-center
+				d-block d-lg-none d-lg-none d-xl-none"><?php echo $db['name']; ?></div>
 			</div>
 			<div class="row">
 				<div class="col-lg-12 text-gray1">

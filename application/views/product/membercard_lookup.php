@@ -9,12 +9,16 @@
 <?php //echo '</pre>'; ?>
 
 <!-- <div>This is member page</div> -->
-<div class="lookup-head-img">
-	<img class="img-fluid d-block ml-auto mr-auto shadow"
-		src="upload/<?php echo $db['path_cover'] . $db['cover']; ?> " alt="First slide">
+
+<div class="container-fluid-my">
+	<div class="lookup-head-img pt-md-5 pt-0">
+		<img class="img-fluid d-block ml-auto mr-auto shadow border-my"
+			src="upload/<?php echo $db['path_cover'] . $db['cover']; ?> " alt="First slide">
+	</div>
 </div>
 
-<div class="container h4 text-gray1 pt-5">
+<div class="container h4 text-gray1">
+
 	<div class="d-flex flex-row-reverse p-md-5 p-4 ">
 		<button class="btn btn-primary ml-md-5 ml-3">แชร์</button>
 		<button class="btn btn-primary">ชื่นชอบ</button>

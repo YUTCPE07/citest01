@@ -1,7 +1,6 @@
-product-lookup.css*/
 
 .lookup-head-img > img{
-	width:unset;
+	max-width: 640px;
 }
 
 

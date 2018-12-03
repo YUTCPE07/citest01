@@ -119,29 +119,38 @@ a:hover {
 }
 
 .bg-gray3 {
-	background-color:var(--color-gray3);
+	background-color:var(--color-gray3)!important;
 }
 
 .bg-gray2 {
-	background-color:var(--color-gray2);
+	background-color:var(--color-gray2)!important;
 }
 
 .bg-gray1 {
-	background-color:var(--color-gray1);
+	background-color:var(--color-gray1)!important;
 }
 
 .bg-white {
-	background-color:white;
+	background-color:!whiteimportant;
 }
 
 .bg-green {
-	background-color: var(--color-green);
+	background-color: var(--color-green)!important;
 }
 .bg-red {
-	background-color: var(--color-red);
+	background-color: var(--color-red)!important;
 }
 .bg-yellow {
-	background-color: var(--color-yellow);
+	background-color: var(--color-yellow)!important;
+}
+
+.container-fluid-my {
+	/*max-width: 1024px;*/
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .hover-text-green:hover {
@@ -189,6 +198,10 @@ a:hover {
 .layoutOn{ /*Redy after Show*/
 	/*display: block;*/
 	visibility: visible;
+}
+
+.border-my {
+	border:1px solid var(--color-gray2);
 }
 
 .hrRow {

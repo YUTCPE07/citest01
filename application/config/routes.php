@@ -7,9 +7,8 @@ $route['default_controller'] = 'Dashboard';
 
 //user
 $route['store'] = 'User_store';
-
-//profile
 $route['profile'] = 'User_profile';
+$route['pay'] = 'Pay';
 
 $route['product'] = 'Product/Product';
 // $route['product/:num'] = 'Product/Product/Shop_lookup';
