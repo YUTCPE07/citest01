@@ -294,7 +294,7 @@ function ($scope, $http,indexService,$location,$filter) {
 
     		$scope.optionArrays = optionArraysSum;
     		console.log($scope.filterResult,$scope.pageSize)
-    		$scope.pageAfterFilter = Math.ceil($scope.filterResult/$scope.pageSize)
+    		$scope.pageAfterFilter = Math.ceil(parseInt($scope.filterResult)/parseInt($scope.pageSize));
     		// console.log($scope.filterResult)
         }
     //____________________________________________________

@@ -23,20 +23,20 @@
               หมวดหมู่
             </a>
             <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <a class="dropdown-item" href="<?php echo base_url(); ?>product?page=1">ALL</a>
+                <a class="dropdown-item" href="<?php echo base_url(); ?>product">ALL</a>
                 <div ng-repeat="catrogy in catrogy_barnd" >
                   <a class="dropdown-item" href="<?php echo base_url(); ?>product?ptype={{catrogy.category_brand}}&page=1">{{catrogy.category_name}}</a>
                 </div>
             </div>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('product?page=1'); ?>">บทความ</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('product'); ?>">บทความ</a>
           </li>
 
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('product?page=1'); ?>">Product</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('product'); ?>">Product</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('brand'); ?>">Brand</a>
