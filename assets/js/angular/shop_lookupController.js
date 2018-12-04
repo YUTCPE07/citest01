@@ -7,6 +7,10 @@ function ($scope, $http,indexService,$location,$filter,$anchorScroll,$window) {
     	$anchorScroll('focus_buy');
     }
 
+    $scope.userActionBuy = function (productId,numForBuy) {
+    	console.log(productId,numForBuy)
+    }
+
  //    $window.onscroll = function(el) {
  //    	var scrollPosiion = document.documentElement.scrollTop;
 	//   	// console.log('scroll',scrollPosiion);

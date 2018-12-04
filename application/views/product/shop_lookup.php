@@ -363,7 +363,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<div class="col-6 text-gray1 text-left pl-4">ราคารวม</div>
 				<div class="col-6 text-gray1 text-right pr-4">{{productPrice*numForBuy}} ฿</div>
 				<div class="col-12 text-center mt-5 pb-5">
-					<button class="btn btn-primary">ซื้อเลย</button>
+					<button class="btn btn-primary" ng-click="userActionBuy(productId,numForBuy)">ซื้อเลย</button>
 				</div>
 			</div>
 

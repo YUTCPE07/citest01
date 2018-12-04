@@ -2,8 +2,43 @@
 app.controller('payController', ['$scope', '$http','indexService','$filter','$window', function ($scope, $http,indexService,$filter,$window) {
 	console.log('payController')
     
+    function getFormattedDate() {
+        var date = new Date();
+        var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        return str;
+    }
+
     $scope.numStepNow = 1;
 
+    // $scope.actionRespone = false;
+    $scope.actionRespone = false;
+    $scope.bankRespone = 'false';
+    $scope.userAction = function (value) {
+        if (value=='success') {
+            $scope.actionRespone = true;
+            $scope.bankRespone = true;
+        }else{
+            $scope.actionRespone = true;
+            $scope.bankRespone = false;
+        }
+    }
+
+
+    var dateNow = new Date();
+    console.log(dateNow,'dateNow')
+    $scope.modalData = {};
+    $scope.userSelectPay = function (select) {
+        if (select == 'visaMasterCard') {
+            $scope.modalData.bank_name = 'visa MasterCard';
+        }else if (select == 'BBL') { /*กรุงเทพ*/
+            $scope.modalData.bank_name = 'ธ กรุงเทพ';
+        }else if (select == 'SCB') { /*ไทยพานิช*/
+            $scope.modalData.bank_name = 'ธ ไทยพานิช';
+        }else if (select == 'BAY') { /*กรุงศรี*/
+            $scope.modalData.bank_name = 'ธ กรุงศรี';
+            $scope.modalData.dateTime = getFormattedDate();
+        }
+    }
 
 	/* get data myRight-------------------------------------------------------------*/
         // indexService.getSearchresultPost(baseurl + "User_store/getStoreMyRight",'9')
