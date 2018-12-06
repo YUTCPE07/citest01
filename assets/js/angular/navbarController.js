@@ -1,9 +1,10 @@
 'use strict';
 app.controller('navbarController',['$scope','$http','$location','indexService', function ($scope,$http,$location,indexService) {
 
+	var user = JSON.parse(sessionStorage.getItem("user"));
 	$scope.init = function () {
-		var user = JSON.parse(sessionStorage.getItem("user"));
-	      	if(user===null){
+		
+      	if(user===null){
 		    $scope.isUser = false;
 		}else{
 		    $scope.isUser = true;
@@ -24,11 +25,19 @@ app.controller('navbarController',['$scope','$http','$location','indexService', 
 	}
 
 	$scope.logout = function () {
-		FB.logout(function(response) {
-		  	sessionStorage.removeItem("user");
-        	sessionStorage.removeItem("user_token");
-		  	location.reload();
-		});
+
+		console.log('logout',user)
+		if(user.loginBy==='facebook'){
+			FB.logout(function(response) {
+				sessionStorage.removeItem("user");
+    			sessionStorage.removeItem("user_token");
+    			location.reload();
+			});
+		}else{
+		    sessionStorage.removeItem("user");
+			sessionStorage.removeItem("user_token");
+			location.reload();
+		}
 	}
 
 }]);

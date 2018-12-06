@@ -15,6 +15,7 @@ window.fbAsyncInit = function() {
       FB.api('/me','GET',{"fields":"id,name,email,birthday"},
         function(response) {
           // console.log(responssse,'response')
+          response.imgPath = `https://graph.facebook.com/${response.id}/picture?type=square`;
           sessionStorage.user = JSON.stringify(response);
           // sessionStorage.setItem("user_id", response.id);
           // sessionStorage.setItem("user_name", response.name);
@@ -23,15 +24,16 @@ window.fbAsyncInit = function() {
           // sendDataToService(response);
         }
       );
-    }else {
-      // console.log('getLoginStatus>else')
-      // sessionStorage.clear();
-           // The user isn't logged in to Facebook. You can launch a
-        // login dialog with a user gesture, but the user may have
-        // to log in to Facebook before authorizing your application.
-      sessionStorage.removeItem("user");
-      sessionStorage.removeItem("user_token");
     }
+    // else {
+    //   // console.log('getLoginStatus>else')
+    //   // sessionStorage.clear();
+    //        // The user isn't logged in to Facebook. You can launch a
+    //     // login dialog with a user gesture, but the user may have
+    //     // to log in to Facebook before authorizing your application.
+    //   sessionStorage.removeItem("user");
+    //   sessionStorage.removeItem("user_token");
+    // }
   });
 };
 
@@ -48,6 +50,7 @@ window.fbAsyncInit = function() {
 app.controller('loginController', ['$scope', 'indexService' ,function($scope, indexService) {
   // console.log(sessionStorage,'sessionStorage')
   var user = JSON.parse(sessionStorage.getItem("user"));
+  console.log(user)
   if(user===null){
     isUserLogin(false)
   }else{
@@ -61,8 +64,10 @@ app.controller('loginController', ['$scope', 'indexService' ,function($scope, in
       sessionStorage.user_token = response.authResponse.accessToken;
       if (response.authResponse) {
         FB.api('/me?fields=id,name,email,birthday', function(response) {
-          console.log(response);
           // $("#login").modal("hide");
+          response.imgPath = `https://graph.facebook.com/${response.id}/picture?type=square`;
+          response.loginBy = `facebook`;
+          console.log(response,'response')
           isUserLogin(true);
           sessionStorage.user = JSON.stringify(response);
           location.reload();
@@ -78,7 +83,23 @@ app.controller('loginController', ['$scope', 'indexService' ,function($scope, in
 
   $scope.loginInput = {};
   $scope.loginSubmit = function(){
-      console.log($scope.loginInput)
+    var input = $scope.loginInput;
+    console.log(input)
+    if (input.emailOrPhone == 'admin' && input.password=='admin') {
+      console.log('true')
+        isUserLogin(true);
+        sessionStorage.user = JSON.stringify({
+          "id":"0000048106700000",
+          "name":"admin","email":"admin@admin.com",
+          "birthday":"01/11/1994",
+          "imgPath":`${baseurl}assets/images/login/admin.jpg`,
+          "loginBy":`mainWebsite`
+        });
+        location.reload();
+    }else{
+      console.log('false')
+
+    }
   }
 
   $scope.loginFrom_register = function () {
@@ -103,6 +124,8 @@ app.controller('loginController', ['$scope', 'indexService' ,function($scope, in
 
   function checkLoginState() {
     console.log('click fb login')
+
+
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         console.log('sucess');
@@ -113,6 +136,8 @@ app.controller('loginController', ['$scope', 'indexService' ,function($scope, in
         // setElements(false);
       }
     });
+
   }
+
 }]);
 

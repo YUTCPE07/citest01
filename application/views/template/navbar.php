@@ -57,7 +57,7 @@
             <!-- <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer"  ng-show="isUser" ng-click="logout()">ออกจากระบบ</a> -->
             <div class="d-inline" ng-show="isUser">
                 <a href="<?php echo base_url(); ?>profile">
-                  <img style="width: 35px; height: 35px;" class="rounded-circle shadow bg-white rounded" ng-src="https://graph.facebook.com/{{user.id}}/picture?type=square" >
+                  <img style="width: 35px; height: 35px;" class="rounded-circle shadow bg-white rounded" ng-src="{{user.imgPath}}" >
                 </a>
             </div>
             <li class="d-inline " uib-dropdown on-toggle="toggled(open)" ng-show="isUser" >

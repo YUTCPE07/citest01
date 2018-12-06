@@ -409,6 +409,8 @@ class Main_model extends CI_Model {
 					hilight_coupon.coup_Contact,
 					hilight_coupon.coup_ActivityDuration,
 
+                    mi_brand.brand_id,
+                    mi_brand.name As brand_name,
                     mi_brand.shop_reservation_brief,
 					mi_brand.signature_info,
 					mi_brand.open_brief,

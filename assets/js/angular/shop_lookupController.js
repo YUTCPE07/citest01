@@ -7,9 +7,19 @@ function ($scope, $http,indexService,$location,$filter,$anchorScroll,$window) {
     	$anchorScroll('focus_buy');
     }
 
-    $scope.userActionBuy = function (productId,numForBuy) {
-    	console.log(productId,numForBuy)
+    $scope.userActionBuy = function (productPrice,productId,brandId,brandName,productName,numForBuy) {
+    	// console.log(productId,brandId,numForBuy)
+    	window.location.href = `pay/?
+    	p_id=${productId}&
+    	b_id=${brandId}&
+    	p_name${productName}&
+    	p_num=${numForBuy}&
+    	b_name=${brandName}&
+    	p_price_once=${productPrice}`;
     }
+
+
+
 
  //    $window.onscroll = function(el) {
  //    	var scrollPosiion = document.documentElement.scrollTop;

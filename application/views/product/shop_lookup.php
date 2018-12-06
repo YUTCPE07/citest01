@@ -1,7 +1,7 @@
 <!-- test shop/36 : -->
-<?php //echo '<pre>' ?>
-<?php //print_r($db)?>
-<?php //echo '</pre>' ?>
+<?php echo '<pre>' ?>
+<?php print_r($db)?>
+<?php echo '</pre>' ?>
 
 <?php
 function setDate($string) {return date("d-m-Y", strtotime($string));}
@@ -325,6 +325,9 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				numForBuy = 1;
 				productPrice = <?php echo $db['coup_Price'] ?>;
 				productId = <?php echo $db['coup_CouponID'] ?>;
+				brandId = <?php echo $db['brand_id'] ?>
+				brandName = <?php echo $db['brand_name'] ?>
+				productName = <?php echo $db['coup_Name'] ?>
 				">
 			<div class="row mb-3">
 				<div id="my-calendar" class="blue material-theme ml-auto mr-auto" ></div>
@@ -363,7 +366,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<div class="col-6 text-gray1 text-left pl-4">ราคารวม</div>
 				<div class="col-6 text-gray1 text-right pr-4">{{productPrice*numForBuy}} ฿</div>
 				<div class="col-12 text-center mt-5 pb-5">
-					<button class="btn btn-primary" ng-click="userActionBuy(productId,numForBuy)">ซื้อเลย</button>
+					<button class="btn btn-primary" ng-click="userActionBuy(productPrice,productId,brandId,brandName,productName,numForBuy)">ซื้อเลย</button>
 				</div>
 			</div>
 

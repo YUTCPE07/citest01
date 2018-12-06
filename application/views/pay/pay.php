@@ -67,8 +67,9 @@
 	}
 
 </style>
-
-
+<?php echo '<pre>' ?>
+<?php print_r($userAction)?>
+<?php echo '</pre>' ?>
 
 <!-- html -->
 <div class="h4" ng-controller="payController">
