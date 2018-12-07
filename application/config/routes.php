@@ -19,6 +19,8 @@ $route['promotion/:num'] = 'Product/Promotion_lookup'; /* test : /promotion/1*/
 $route['brand'] = 'Brand';
 $route['brand/:num'] = 'Brand_lookup';
 
+// test
+$route['test'] = 'Test';
 $route['db'] = 'Echo_db';
 
 // $route['service_ci/CountNumberSell/:num'] = 'service_ci/CountNumberSell';

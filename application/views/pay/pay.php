@@ -58,6 +58,7 @@
 	.pay-BankBorderHover:hover {
 		border:solid 5px var(--color-green);
 		transform: scale(1.1);
+		cursor: pointer;
 	}
 
 
@@ -67,9 +68,10 @@
 	}
 
 </style>
-<?php echo '<pre>' ?>
-<?php print_r($userAction)?>
-<?php echo '</pre>' ?>
+<!-- <?php echo '<pre>' ?> -->
+<!-- <?php print_r($userAction)?> -->
+<!-- <?php echo json_encode($userAction) ?> -->
+<!-- <?php echo '</pre>' ?> -->
 
 <!-- html -->
 <div class="h4" ng-controller="payController">
@@ -145,9 +147,10 @@
 		</div>
 	</div> <!-- end container -->
 
-	<div class="container mb-5" ng-if="actionRespone">
-		<div>actionRespone</div>
-		<div ng-if="bankRespone==true">
+	<div class="container my-5" ng-if="actionRespone">
+		<!-- <div>actionRespone</div> -->
+		<!-- <div ng-if="bankRespone==true"> -->
+		<div ng-show="bankRespone==true">
 			<div class="text-center">
 				<img class="pay-img-mark d-inline-block" src="<?php echo base_url() ?>assets/images/pay/mark-success.png">
 				<div class="d-inline-block medium" >ชำระเงินเรียบร้อย</div>
@@ -157,12 +160,17 @@
 			</div>
 			<div class="row pt-4">
 				<div class="col-12 text-center">
-					<button class="btn btn-primary medium this_link">หน้าเเรก</button>
-					<button class="btn btn-primary active ml-5 medium this_link">สิทธิ์ของฉัน</button>
+					<a href="<?php echo base_url() ?>">
+						<button class="btn btn-primary medium this_link">หน้าเเรก</button>
+					</a>
+					<a href="<?php echo base_url() ?>store">
+						<button class="btn btn-primary active ml-5 medium this_link">สิทธิ์ของฉัน</button>
+					</a>
 				</div>
 			</div>
 		</div>
-		<div ng-if="bankRespone==false ">
+		<!-- <div ng-if="bankRespone==false "> -->
+		<div ng-show="bankRespone==false ">
 			<div class="text-center">
 				<img class="pay-img-mark d-inline-block" src="<?php echo base_url() ?>assets/images/pay/mark-error.png">
 				<div class="d-inline-block medium">การชำระเงินของท่านยังไม่สมบูรณ์</div>
@@ -172,7 +180,7 @@
 			</div>
 			<div class="row pt-4">
 				<div class="col-12 text-center">
-					<button class="btn btn-primary active medium this_link">ชำระเงิน</button>
+					<button class="btn btn-primary active medium this_link" ng-click="payAgian()">ชำระเงิน</button>
 				</div>
 			</div>
 		</div>
@@ -180,28 +188,28 @@
 
 
 	<div class="container"><!-- modal -->
-		<!-- <div class="modal fade" id="modalTestUserAction" tabindex="-1" role="dialog" aria-labelledby="ViewDataLabel"> -->
-		<div class="" id="modalTestUserAction" tabindex="-1" role="dialog" aria-labelledby="ViewDataLabel">
+		<div class="modal fade" id="modalTestUserAction" tabindex="-1" role="dialog" aria-labelledby="ViewDataLabel" >
+		<!-- <div class="" id="modalTestUserAction" tabindex="-1" role="dialog" aria-labelledby="ViewDataLabel"> -->
    			<div class="modal-dialog" role="document" style="width:80%">
    				<div class="modal-content p-4">
    					<div class="text-center bold">ทดสอบ Action Respone Form Bank</div>
-   					<div class="text-center">
+   					<div class="text-center" >
    						<div class="text-green medium d-inline-block">user เลือก :</div>
    						<div class="d-inline-block">{{modalData.bank_name}}</div><br>
    						<div class="text-green medium d-inline-block">user วันที่ เวลา : </div>
    						<div class="d-inline-block">{{modalData.dateTime}}</div><br>
    						<div class="text-green medium d-inline-block">product id : </div>
-   						<div class="d-inline-block">{{modalData.product_id}}</div><br>
+   						<div class="d-inline-block">{{action.coup_CouponID}}</div><br>
    						<div class="text-green medium d-inline-block">product ราคา/ชิ้น : </div>
-   						<div class="d-inline-block">{{modalData.product_priceOnce}}</div><br>
+   						<div class="d-inline-block">{{action.coup_Price*1}}</div><br>
    						<div class="text-green medium d-inline-block">product จำนวน : </div>
-   						<div class="d-inline-block">{{modalData.product_numSelect}}</div><br>
+   						<div class="d-inline-block">{{action.p_num_select}}</div><br>
    						<div class="text-green medium d-inline-block">product ราคารวม : </div>
-   						<div class="d-inline-block">{{modalData.product_priceSum}}</div><br>
+   						<div class="d-inline-block">{{action.coup_Price*action.p_num_select}}</div><br>
    						<div class="text-green medium d-inline-block">brand id : </div>
-   						<div class="d-inline-block">{{modalData.brand_id}}</div><br>
+   						<div class="d-inline-block">{{action.brand_id}}</div><br>
    						<div class="text-green medium d-inline-block">brand name : </div>
-   						<div class="d-inline-block">{{modalData.brand_name}}</div><br>
+   						<div class="d-inline-block">{{action.brand_name}}</div><br>
 
    						<button class="btn" ng-click="userAction('success')">Success</button>
    						<button class="btn" ng-click="userAction('error')">Error</button>

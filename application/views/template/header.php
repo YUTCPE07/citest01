@@ -33,6 +33,8 @@
 		href="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.css'); ?>">
 	<link rel="stylesheet" type="text/css"
 		href="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.css'); ?>">
+	<link rel="stylesheet" type="text/css"
+		href="<?php echo base_url('assets/plugins/google-map/map.css'); ?>">
 	<!-- <link rel="stylesheet" type="text/css"
 		hrel="<?php //echo base_url('assets/plugins/angular-star-rating/star-rating.css') ?>"> -->
 

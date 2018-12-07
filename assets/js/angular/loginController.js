@@ -50,7 +50,7 @@ window.fbAsyncInit = function() {
 app.controller('loginController', ['$scope', 'indexService' ,function($scope, indexService) {
   // console.log(sessionStorage,'sessionStorage')
   var user = JSON.parse(sessionStorage.getItem("user"));
-  console.log(user)
+  // console.log(user)
   if(user===null){
     isUserLogin(false)
   }else{

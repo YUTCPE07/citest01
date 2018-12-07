@@ -55,15 +55,15 @@
 	<div class="row mt-5">
 		<div class="col-10 ">
 			<div class="row mb-5">
-				<div class="col-lg-6 pb-3">
-					<i class="fas fa-business-time mr-3 d-inline text-gray1"></i>
-					<div class="d-inline meduim text-black">อายุสิทธิ์ :</div>
-					<div class="d-inline "><?php echo $db['period_type']; ?></div>
+				<div class="col-lg-6 pb-3 d-flex align-items-start">
+					<div class="mr-3 text-gray1"><i class="fas fa-business-time fa-fw"></i></div>
+					<div class="meduim text-black">อายุสิทธิ์ :</div>
+					<div class="light ml-2"><?php echo $db['period_type']; ?></div>
 				</div>
-				<div class="col-lg-6 pb-3">
-					<i class="fas fa-coins mr-3 d-inline text-gray1"></i>
-					<div class="d-inline meduim text-black">ค่าสมัคร :</div>
-					<div class="d-inline ">
+				<div class="col-lg-6 pb-3 d-flex align-items-start">
+					<div class="mr-3 text-gray1"><i class="fas fa-coins fa-fw"></i></div>
+					<div class="meduim text-black">ค่าสมัคร :</div>
+					<div class="light ml-2">
 						<?php if ($db['price_type'] == 'Free Card'): ?>
 						<?php echo 'ฟรี'; ?>
 						<?php endif?>
@@ -74,10 +74,10 @@
 					</div>
 				</div>
 
-				<div class="col-lg-6 pb-3">
-					<i class="fas fa-infinity mr-3 d-inline text-gray1"></i>
-					<div class="d-inline meduim text-black">สิทธิ์คงเหลือ :</div>
-					<div class="d-inline ">
+				<div class="col-lg-6 pb-3 d-flex align-items-start">
+					<div class="mr-3 text-gray1"><i class="fas fa-infinity fa-fw"></i></div>
+					<div class="meduim text-black">สิทธิ์คงเหลือ :</div>
+					<div class="light ml-2">
 						<?php echo ($db['limit_member'] == '') ? 'ไม่จำกัด' : $db['limit_member']; ?>
 					</div>
 				</div>
@@ -87,11 +87,11 @@
 					<div class="d-inline ">-</div>
 				</div> -->
 				<?php if ($db['date_last_register'] != '0000-00-00'): ?>
-					<div class="col-lg-6 pb-3">
+					<div class="col-lg-6 pb-3 align-items-start">
 						<!-- test on card_id 36 -->
-						<i class="far fa-calendar-alt mr-3 d-inline text-gray1"></i>
-						<div class="d-inline meduim text-black">สมัครได้ถึง :</div>
-						<div class="d-inline ">
+						<div class="mr-3 text-gray1"><i class="far fa-calendar-alt fa-fw"></i></div>
+						<div class="meduim text-black">สมัครได้ถึง :</div>
+						<div class="light ml-2">
 							<?php echo date("d/m/y", strtotime($db['date_last_register'])) ?>
 						</div>
 					</div>

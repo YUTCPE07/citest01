@@ -41,7 +41,7 @@ class Product extends CI_Controller {
 		// echo '222';
 		// get data
 		$data = $this->Main_model->getAlldataProduct();
-		echo json_encode($data);
+		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 
 	public function getdata_Catrogy_barnd() {

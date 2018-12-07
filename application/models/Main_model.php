@@ -6,18 +6,18 @@ class Main_model extends CI_Model {
 
 	function echo_data() {
 		$sql = 'SELECT *
-				FROM mi_brand';
+				FROM hilight_coupon';
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		$resultsKey = array_keys($results[0]);
 		foreach ($resultsKey as $value) {
-			echo "AND mi_brand.$value != ' ', <br />";
+			echo "AND hilight_coupon.$value != ' ', <br />";
 		}
 		// echo '<pre>';
 		// print_r($results[0]);
 		// echo '</pre>';
 		// foreach ($resultsKey as $value) {
-		// 	echo 'mi_brand.' . $value . ',<br />';
+		// 	echo 'hilight_coupon.' . $value . ',<br />';
 		// }
 
 		exit;

@@ -1,19 +1,37 @@
 'use strict';
 app.controller('payController', ['$scope', '$http','indexService','$filter','$window', function ($scope, $http,indexService,$filter,$window) {
 	console.log('payController')
-    
+    $scope.parseInt = window.parseInt; /*for Angular use math.round()*/
+
     function getFormattedDate() {
         var date = new Date();
         var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
         return str;
     }
 
-    $scope.numStepNow = 1;
+    var url_string = window.location.href; 
+    var url = new URL(url_string);
+    var p_id = url.searchParams.get("p_id");
+    var p_num = url.searchParams.get("p_num");
+    // console.log(p_id,p_num)
+    indexService.getSearchresultPost(baseurl + "product/shop_lookup/shop_lookup",p_id)
+    .then(function(respone){
+        console.log(respone.data[0]) /*data real*/
+        respone.data[0].p_num_select = p_num;
+        $scope.action = respone.data[0];
+    }, function(error){
+        console.log("Some Error Occured", error);
+    });
 
+
+
+
+    $scope.numStepNow = 2;
     // $scope.actionRespone = false;
     $scope.actionRespone = false;
     $scope.bankRespone = 'false';
     $scope.userAction = function (value) {
+        $("#modalTestUserAction").modal('toggle');
         if (value=='success') {
             $scope.actionRespone = true;
             $scope.bankRespone = true;
@@ -28,6 +46,7 @@ app.controller('payController', ['$scope', '$http','indexService','$filter','$wi
     console.log(dateNow,'dateNow')
     $scope.modalData = {};
     $scope.userSelectPay = function (select) {
+        $("#modalTestUserAction").modal('toggle'); /*show modal*/
         if (select == 'visaMasterCard') {
             $scope.modalData.bank_name = 'visa MasterCard';
         }else if (select == 'BBL') { /*กรุงเทพ*/
@@ -38,6 +57,10 @@ app.controller('payController', ['$scope', '$http','indexService','$filter','$wi
             $scope.modalData.bank_name = 'ธ กรุงศรี';
             $scope.modalData.dateTime = getFormattedDate();
         }
+    }
+
+    $scope.payAgian = function(){
+        $scope.actionRespone = false;
     }
 
 	/* get data myRight-------------------------------------------------------------*/

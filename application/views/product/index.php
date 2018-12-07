@@ -53,14 +53,14 @@
 			<button type="button" class="btn btn-primary d-inline mr-auto d-block d-lg-none" data-toggle="modal" data-target="#product_filter_left_mobile" >
 	            	คัดกรอง
 			</button>
-			<div uib-dropdown on-toggle="toggled(open)" class="d-inline ml-auto" ng-init="menuHead = 'ล่าสุด' ">
+			<div uib-dropdown on-toggle="toggled(open)" class="d-inline ml-auto" ng-init="menuHead = 'ล่าสุด';menuChild = 'ยอดนิยม'; ">
 	            <button type="button" class="btn btn-primary" href id="dropdown-product-filter" uib-dropdown-toggle>
 	            	{{menuHead}}
 	  			</button>
 	            <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown-product-filter">
 	                <!-- <a class="dropdown-item" href="#">แนะนำ</a> -->
 	                <!-- <div class="dropdown-item" href="#">ล่าสุด</div> -->
-	                <div class="dropdown-item" ng-click="menu_dropDownClick(this)">ยอดนิยม</div>
+	                <div class="dropdown-item" ng-click="menu_dropDownClick(this)">{{menuChild}}</div>
 	                <!-- <a class="dropdown-item" href="#">สถานที่ใกล้เคียง</a> -->
 	            </div>
 	        </div>
@@ -82,7 +82,7 @@
 				<?php //menu ?>
 		      	<h5 class="mb-2">คัดกรอง</h5>
 				<div class="row">
-					<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded border border-secondary
+					<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded
 						collapse navbar-collapse" id="menuResponetive" >
 						<div class="row mb-3 pt-3">
 							<div class="col-7 "><strong>หมวดหมู่</strong></div>

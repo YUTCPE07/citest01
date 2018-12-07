@@ -39,9 +39,7 @@ function ($scope, $http,indexService,$location,$filter) {
     //____________________________________________________
 
 
-    $scope.menu_dropDownClick = function (ele) {
-        console.log(ele)
-    }
+  
 
         
  	 //___________________________________________________
@@ -181,9 +179,10 @@ function ($scope, $http,indexService,$location,$filter) {
         $scope.currentPage = 0;
         $scope.pageSize = 9;
         indexService.getAlldataProduct().then(function (data) {
+            // data.coup_numUse = parseInt(data.coup_numUse);
             $scope.products = data;
-            $scope.category_brands = data;
-             // console.log(data)
+            // $scope.category_brands = data;
+              console.log(data)
             $scope.filterResult = data.length;
             $scope.pageAfterFilter = Math.ceil(data.length/$scope.pageSize)
                 $scope.isReadyShow = true; 
@@ -201,7 +200,26 @@ function ($scope, $http,indexService,$location,$filter) {
 	// $scope.bigTotalItems = 175;
 	// $scope.bigCurrentPage = 3;
 
+    //____________________________________________________
+    // menu dropdown fillter 
+    //____________________________________________________
+        $scope.menu_dropDownClick = function (ele) {
+            if($scope.menuHead === 'ล่าสุด'){
+                $scope.menuHead = 'ยอดนิยม';
+                $scope.menuChild = 'ล่าสุด';
+                $scope.products = $filter('orderBy')($scope.products,'-coup_numUse');
+                console.log($scope.products)
+            }else{
+                $scope.menuHead = 'ล่าสุด';
+                $scope.menuChild = 'ยอดนิยม';
+                $scope.products = $filter('orderBy')($scope.products,'-coup_UpdatedDate');
+                console.log($scope.products)
+                /*แก้ล่าสุดยังไม่สมบูรณ์*/
+            }
+        }
+    // var once = $filter('filter')(data,{coup_CouponID :id});
 
+    // ____________________________________________________
 
     //____________________________________________________
     // menu checkbox fillter 

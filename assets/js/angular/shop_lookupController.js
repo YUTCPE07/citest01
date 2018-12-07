@@ -3,19 +3,28 @@ app.controller('shop_lookupController',
 ['$scope', '$http','indexService','$location','$filter', '$anchorScroll', '$window',
 function ($scope, $http,indexService,$location,$filter,$anchorScroll,$window) {
 
+	// console.log($window.location.pathname)
+    var paramArr = $window.location.pathname.split('/');
+    let p_id = paramArr[3];
+    // console.log(p_id);
+	indexService.getSearchresultPost(baseurl + "product/shop_lookup/shop_lookup",p_id)
+    .then(function(respone){
+        console.log(respone.data[0]) /*data real*/
+        $scope.user = respone.data[0];
+    }, function(error){
+        console.log("Some Error Occured", error);
+    });
+
     $scope.scrollTo = function(){
     	$anchorScroll('focus_buy');
     }
 
-    $scope.userActionBuy = function (productPrice,productId,brandId,brandName,productName,numForBuy) {
-    	// console.log(productId,brandId,numForBuy)
-    	window.location.href = `pay/?
-    	p_id=${productId}&
-    	b_id=${brandId}&
-    	p_name${productName}&
-    	p_num=${numForBuy}&
-    	b_name=${brandName}&
-    	p_price_once=${productPrice}`;
+    $scope.userActionBuy = function (user,numForBuy) {
+    	console.log(user)
+    	// var str = `pay/?action=${JSON.stringify(user)}`;
+    	var str = `pay/?p_id=${user.coup_CouponID}&p_num=${numForBuy}`;
+    	console.log(str)
+    	window.location.href = str;
     }
 
 

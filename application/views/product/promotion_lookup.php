@@ -36,29 +36,9 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 					<div class="col-md-12"> <!-- test promotion/137@@ : promotion/1@@ -->
 						<div class="text-justify" ><?php echo nl2br($db['signature_info']); ?></div>
 					</div>
-					<!-- heard is hide wait data -->
-					<!-- <div class="col-md-2 h3">
-						<i class="fas fa-heart text-danger" data-fa-transform="up-1"></i> 2.0k
-					</div> -->
-					<div class="col-md-10 h3"><!-- Rating Star -->
-						<?php //$numStar = rand(0, 5);?>
-						<!-- <?php $numStar = 3.5;?>
-						<?php $numStarCalculator = 3.5;?>
-						<?php for ($i = 1; $i <= 5; $i++) {?>
 
-							<?php if ($numStarCalculator >= 1): ?>
-									<i class="fa fa-star text-warning " data-fa-transform="up-2"></i>
-		        					<?php $numStarCalculator--;?>
-							<?php else: ?>
-			        			<?php if ($numStarCalculator >= 0.5): ?>
-			        				<i class="fas fa-star-half-alt text-warning" data-fa-transform="up-2" ></i>
-	        						<?php $numStarCalculator -= 0.5;?>
-			        			<?php else: ?>
-	        						<i class="far fa-star text-warning " data-fa-transform="up-2"></i>
-			        			<?php endif;?>
-		        			<?php endif;?>
-	        			<?php }?>
-	        			<?php echo $numStar; ?> -->
+					<div class="col-md-10 h3"><!-- Rating Star -->
+
 	              	</div>
 				</div>
 			</div>
@@ -69,16 +49,10 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 	<div class="row">
 		<div class="col-md-10">
 			<div class="row p-3">
-				<!-- DB coup_ActivityDuration All is Not Specific  -->
-					<!-- <div class="col-12 col-md-6">
-						<i class="fas fa-stopwatch mr-4" data-fa-transform="down-2"></i>
-						<div class= medium">ระยะเวลากิจกรรม: </div>
-						<div class= light ml-2"> <?php //echo $db['coup_ActivityDuration']; ?></div>
-					</div> -->
-				<div class="col-12 col-md-6">
-					<i class="fas fa-business-time mr-3" data-fa-transform="down-2"></i>
-					<div class = "d-inline medium">ระยะเวลาโปร: </div> <!-- test test promotion/3@@ : promotion/1@@ -->
-					<div class = "light" style="display: inline-grid;">
+				<div class="col-12 col-md-6 d-flex align-items-start">
+					<div class="mr-3"><i class="fas fa-business-time fa-fw"></i></div>
+					<div class="medium">ระยะเวลาโปร: </div> <!-- test test promotion/3@@ : promotion/1@@ -->
+					<div class="light ml-2" style="display: inline-grid;">
 						<div>
 							<?php echo date("d/m/y", strtotime($db['coup_StartDate'])) ?>
 							-
@@ -96,27 +70,27 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 
 
 				<?php if (!empty(trim($db['coup_Participation']))): ?>
-					<div class="col-12 col-md-6">
-						<i class="fas fa-infinity mr-3" data-fa-transform="down-2"></i>
-						<div class= medium">สิทธิ์คงเหลือ: </div>
-						<div class= light ml-2">
+					<div class="col-12 col-md-6 d-flex align-items-start">
+						<div class="mr-3"><i class="fas fa-infinity fa-fw"></i></div>
+						<div class="medium">สิทธิ์คงเหลือ: </div>
+						<div class="light ml-2">
 							<?php echo $db['coup_Participation']; ?>
 						</div>
 					</div>
 				<?php endif?>
 
 				<?php if (!empty(trim($db['open_brief']))): ?>
-					<div class="col-12 col-md-6">
-						<i class="fas fa-store mr-3" data-fa-transform="down-2"></i>
-						<div class= medium">วันทำการ: </div>
-						<div class= light ml-2"><?php echo $db['open_brief']; ?></div>
+					<div class="col-12 col-md-6 d-flex align-items-start">
+						<div class="mr-3"><i class="fas fa-store fa-fw"></i></div>
+						<div class="medium">วันทำการ: </div>
+						<div class="light ml-2"><?php echo $db['open_brief']; ?></div>
 					</div>
 				<?php endif?>
 
-				<div class="col-12 col-md-6">
-					<i class="fas fa-users mr-3"></i>
-					<div class= "medium d-inline">ผู้เข้าร่วมขั้นต่ำ: </div>
-					<div class= "light ml-2 d-inline">
+				<div class="col-12 col-md-6 d-flex align-items-start">
+					<div class="mr-3"><i class="fas fa-users fa-fw"></i></div>
+					<div class="medium">ผู้เข้าร่วมขั้นต่ำ: </div>
+					<div class="light ml-2">
 						<?php if (empty(trim($db['coup_Participation']))): ?>
 							<?php echo "ไม่กำหนด" ?>
 						<?php else: ?>
@@ -125,10 +99,10 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 					</div>
 				</div>
 
-				<div class="col-12 col-md-6">
-					<i class="far fa-calendar-alt mr-3"></i>
-					<div class= "d-inline medium">ใช้สิทธิ์ได้ถึง: </div>
-					<div class= "d-inline light ml-2">
+				<div class="col-12 col-md-6 d-flex align-items-start">
+					<div class="mr-3"><i class="far fa-calendar-alt fa-fw"></i></div>
+					<div class="medium">ใช้สิทธิ์ได้ถึง: </div>
+					<div class="light ml-2">
 						<?php $mh = $db['coup_Method'];?>
 						<?php if ($mh == 'No'): ?>
 							<?php echo "ไม่กำหนด"; ?>
@@ -145,19 +119,19 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				</div>
 
 				<?php if (!empty(trim($db['shop_howtouse_brief']))): ?>
-					<div class="col-12 col-md-6">
-						<i class="far fas fa-eraser mr-3"></i>
-						<div class= "d-inline">วิธีใช้สิทธิ์: </div>
-						<div class= "d-inline light ml-2">
+					<div class="col-12 col-md-6 d-flex align-items-start">
+						<div class="mr-3"><i class="far fas fa-eraser fa-fw"></i></div>
+						<div class= "menium">วิธีใช้สิทธิ์: </div>
+						<div class= "light ml-2">
 							<?php echo $db['shop_howtouse_brief']; ?>
 						</div>
 					</div>
 				<?php endif?>
 
-				<div class="col-12 col-md-6">
-					<i class="fas fa-user-tag mr-3"></i>
-					<div class="d-inline">จำกัดสิทธิ์: </div>
-					<div class= "d-inline light ml-2">
+				<div class="col-12 col-md-6 d-flex align-items-start">
+					<i class="fas fa-user-tag mr-3 fa-fw"></i>
+					<div class="medium">จำกัดสิทธิ์: </div>
+					<div class="light ml-2">
 						<?php echo (empty(trim($db['coup_Participation']))) ? "ไม่จำกัด" : $db['coup_Participation']; ?>
 					</div>
 				</div>
@@ -166,7 +140,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 		<div class="col-md-2 ">
 			<a href="#">
 				<div class="membercard_lookup_buttom bg-green text-center text-white p-2"
-					style=" border-radius: 10px 10px 10px 10px;">
+					style="border-radius: 10px 10px 10px 10px;">
 					<div class="medium">รับสิทธิ์</div>
 				</div>
 			</a>
@@ -265,7 +239,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<?php if ($db['website'] != ''): ?>
 					<div class="col-12">
 						<a href="<?php echo $db['website']; ?>">
-							<i class="fas fa-globe mr-3"></i>
+							<i class="fas fa-globe mr-3 fa-fw"></i>
 							<?php echo $db['website']; ?>
 						</a>
 					</div>
@@ -273,7 +247,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<?php if ($db['facebook_url'] != ''): ?>
 					<div class="col-12">
 						<a href="<?php echo $db['facebook_url']; ?>">
-							<i class="fab fa-facebook-square mr-3"></i>
+							<i class="fab fa-facebook-square mr-3 fa-fw"></i>
 							<?php echo $db['facebook_url']; ?>
 						</a>
 					</div>
@@ -281,7 +255,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<?php if ($db['line_id'] != ''): ?>
 					<div class="col-12">
 						<a href="<?php echo $db['line_id']; ?>">
-							<i class="fab fa-line mr-3"></i>
+							<i class="fab fa-line mr-3 fa-fw"></i>
 							<?php echo $db['line_id']; ?>
 						</a>
 					</div>
@@ -289,7 +263,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<?php if ($db['instragram'] != ''): ?>
 					<div class="col-12">
 						<a href="<?php echo $db['instragram']; ?>">
-							<i class="fab fa-instagram mr-3"></i>
+							<i class="fab fa-instagram mr-3 fa-fw"></i>
 							<?php echo $db['instragram']; ?>
 						</a>
 					</div>
@@ -297,7 +271,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<?php if ($db['tweeter'] != ''): ?>
 					<div class="col-12">
 						<a href="<?php echo $db['tweeter']; ?>">
-							<i class="fab fa-twitter mr-3 "></i>
+							<i class="fab fa-twitter mr-3 fa-fw"></i>
 							<?php echo $db['tweeter']; ?>
 						</a>
 					</div>
