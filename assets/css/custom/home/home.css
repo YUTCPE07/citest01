@@ -26,9 +26,13 @@
 /*---------------------------------------------------*/
 
 /*product item -----------------------------------*/
-
+	
 	#menuResponetive {
 		display: block !important;
+	}
+
+	.img-head {
+		height: 500px;
 	}
 
 	/*ตั้งค่าให้ height เท่ากัน บรรทัดละ 24px*/

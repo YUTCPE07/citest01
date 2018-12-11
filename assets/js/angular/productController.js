@@ -177,7 +177,7 @@ function ($scope, $http,indexService,$location,$filter) {
         // console.log(c); /*m2-m3-m4-m5*/
         
         $scope.currentPage = 0;
-        $scope.pageSize = 9;
+        $scope.pageSize = 15;
         indexService.getAlldataProduct().then(function (data) {
             // data.coup_numUse = parseInt(data.coup_numUse);
             $scope.products = data;
@@ -285,10 +285,10 @@ function ($scope, $http,indexService,$location,$filter) {
     			  	return item;
     			}
     		});
-            console.log(optionArraysSum)
+            
     		if(confirmed){
     			optionArraysSum.push(`${key}`);
-    			console.log($scope.optionArraysSum)
+    			console.log(optionArraysSum)
     		}
             // console.log($scope.catrogy_barndLenghtnd)
             var length = $scope.catrogy_barnd[key-1].product_category_length;

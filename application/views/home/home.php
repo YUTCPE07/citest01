@@ -1,4 +1,4 @@
-<?php //img silde show in home ?>
+<!-- <?php //img silde show in home ?> -->
 <div ng-controller="homeController">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -7,13 +7,16 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active">
+       <!--  <div class="carousel-item active img-head">
+          <img class="d-block w-100" src="assets/images/home/slide_head (1).jpeg" alt="First slide">
+        </div >-->
+        <div class="carousel-item img-head active">
           <img class="d-block w-100" src="assets/images/home/slide_head (3).jpg" alt="First slide">
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item img-head">
           <img class="d-block w-100" src="assets/images/home/slide_head (4).jpeg" alt="Second slide">
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item img-head">
           <img class="d-block w-100" src="assets/images/home/slide_head (5).jpg" alt="Third slide">
         </div>
       </div>
