@@ -146,9 +146,9 @@
 						<?php //echo '</pre>' ?>
 						<div class="product col-lg-4">
 							<div class="card shadow mb-3 border border-secondary" style="max-width: 180rem;" >
-					            <img class="card-img-top" '
+					            <img class="card-img-top"
 				            		src="upload/<?php echo $value['priv_ImagePath'] . $value['priv_Image']; ?> " >
-					            <div class="text-dark" '>
+					            <div class="text-dark">
 					          		<div class="card-title h5 bold m-1 setHeightCardHeadText">
 					          			<?php echo $value['priv_Name'] ?>
 					          		</div>

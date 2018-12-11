@@ -1,4 +1,6 @@
 /*-----------------------start-main---------------------------------------*/
+	
+
 	footer {
 		position: relative;
 	}
@@ -34,17 +36,77 @@
 	.footer {
 		background-color: #424242;
 		padding-top: 40px;
-		padding-bottom: 10px;
+		padding-bottom: 40px;
 	}
 
+
+	.footer-social2 {
+		width: 40px;
+	}
+
+	.footer-qrCode {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100px;
+	}
+
+	.footer-col-contactBox {
+		position: relative;
+		cursor: pointer;
+		margin-bottom: 2rem;
+		width: 100%;
+	}
+
+	.footer-social1-img {
+		/*position: absolute;*/
+		position: absolute;
+		left: 20px;
+		top: -10px;
+		width: 45px;
+	}
+
+	.footer-social1-text {
+		margin-left: 3rem; 
+		margin-right: 5rem; 
+		padding: 1px 20px 1px;
+		font-size: var(--lg-s6);
+		color: var(--color-gray1);
+		background-color: white;
+		border-radius: 3rem;
+		width: 178.5px;
+		
+	}
+
+
+	/*.footer-col-contactBox-imgSocial {
+		position: absolute;
+		left: 20px;
+		width: 45px;
+	}
+
+	.footer-col-contactBox-textSocial {
+
+		margin-top: 5px;
+		padding: 1px 20px 1px;
+		display: inline;
+		border-radius: 3rem;
+		background: white;
+		line-height: 2;
+		margin-right: auto;
+		margin-left: 45px;
+		padding-left: 25px;
+		font-size: var(--lg-s6);
+		color: var(--color-gray1);
+
+	}*/
+	/*
 	.footer-row {
 		display: grid;
-		grid-template-columns: 33.33333333333333% 33.33333333333333% 33.33333333333333%;
+		grid-template-columns: 30% 30% 30%;
 	}
 
 	.footer-col {
 		margin: 0 10px;
-		/*background: red;*/
 	}
 
 	.footer-row :last-child {
@@ -120,12 +182,12 @@
 		width: 45px;
 		height: 45px;
 		cursor: pointer;
-	}
+	}*/
 /*-----------------------end-main---------------------------------------*/
 
 /*-----------------------start-sm---------------------------------------*/
 	@media only screen and (min-width: 0px) and (max-width: 970px){
-		.footer {
+		/*.footer {
 			background-color: #424242;
 			padding-top: 40px;
 			 
@@ -139,6 +201,10 @@
 
 		.footer-col:last-child {
 			grid-row-gap: 20px;
+		}*/
+
+		.footer-social1-text {
+			width:  auto;
 		}
 
 	} /*end media*/

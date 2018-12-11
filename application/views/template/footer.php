@@ -10,9 +10,86 @@
     </div>
   </div>
 
-    <div class="footer">
+    <div class="footer h5 text-white light">
       <div class="container">
-        <div class="footer-row">
+        <div class="row">
+          <div class="col-md-3 col-12 mb-3 mb-md-0">
+            <div class="pb-md-3 pb-3 medium">เกี่ยวกับเรา</div>
+            <div class="pl-md-3 pl-3">
+              <a href="<?php echo base_url('/#'); ?>">
+                <div>บล็อค</div>
+              </a>
+              <a href="<?php echo base_url('/aboutus'); ?>">
+                <div>เกี่ยวกับเรา</div>
+              </a>
+              <a href="<?php echo base_url('/policy'); ?>">
+                <div>นโยบายความเป็นส่วนตัวและความปลอดภัย</div>
+              </a>
+              <a href="<?php echo base_url('/termsofuse'); ?>">
+                <div>ข้อตกลงและเงื่อนไขของผู้ใช้งาน</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-12 mb-3 mb-md-0">
+            <div class="pb-md-3 pb-3 medium">ร่วมธุรกิจกับเรา</div>
+            <div class="pl-md-3 pl-3">
+              <a href="<?php echo base_url('/#'); ?>">
+                <div>ร่วมธุรกิจกับเรา</div>
+              </a>
+              <a href="<?php echo base_url('/#'); ?>">
+                <div>พาร์ทเนอร์เรา</div>
+              </a>
+              <a href="<?php echo base_url('/#'); ?>">
+                <div>ร่วมงานกับเรา</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-12 mb-3 mb-md-0">
+            <div class="pb-md-3 pb-3 medium">ช่วยเหลือ</div>
+            <div class="pl-md-3 pl-3">
+              <a href="<?php echo base_url('/#'); ?>">
+                <div>เคล็ดลับ</div>
+              </a>
+              <a href="<?php echo base_url('/#'); ?>">
+                <div>ข้อสเนอเเนะ</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-12 text-center">
+            <div class="pb-md-3 pb-3 medium">ติดต่อเรา</div>
+            <div class="footer-col-contactBox ">
+              <div class="footer-social1-img this_link">
+                <img src="<?php echo base_url('assets/images/template/footer/mail.png'); ?>">
+              </div>
+              <div class="footer-social1-text light">bd@memberin.com</div>
+            </div>
+
+            <div class="footer-col-contactBox">
+              <div class="footer-social1-img this_link">
+                 <img src="<?php echo base_url('assets/images/template/footer/line.png'); ?>">
+              </div>
+              <div class="footer-social1-text light">@memberin</div>
+            </div>
+            <div class="footer-qrCode">
+              <div class="footer-qrCode">
+                <img class="qr_code" src="<?php echo base_url('assets/images/template/footer/QR_code.jpg'); ?>">
+              </div>
+            </div>
+            <div class="d-flex mt-md-3 mt-3">
+              <div class="footer-social2 this_link ml-auto">
+                  <img class="facebook" src="<?php echo base_url('assets/images/template/footer/fb.png'); ?>">
+              </div>
+              <div class="footer-social2 this_link ml-3 mr-auto">
+                  <img class="youtube" src="<?php echo base_url('assets/images/template/footer/youtube.png'); ?>">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- <div class="footer-row">
             <div class="footer-col">
               <div class="footer-col-head regular">MemberIn</div>
               <div class="footer-col-row">
@@ -44,6 +121,7 @@
                   </a>
                 </div>
             </div>
+
             <div class="footer-col">
               <div class="footer-col-contactHead regular">ติดต่อเรา</div>
               <div class="footer-col-contactBox">
@@ -72,7 +150,7 @@
                 </div>
               </div>
             </div>
-        </div>
+        </div> -->
       </div>
     </div>
 </footer>
