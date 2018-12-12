@@ -56,8 +56,12 @@
 		padding-right: 5px;
 	}
 
-	.product:hover {
+	.card {
 		cursor: pointer;
+	}
+
+	.product:hover {
+		/*cursor: pointer;*/
 		/*opacity: 0.5;
 	    filter: alpha(opacity=50);*/
 	}
