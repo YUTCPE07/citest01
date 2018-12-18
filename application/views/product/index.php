@@ -101,28 +101,29 @@
 			<?php //layout 1 ?>
 			<div class="col-lg-3 d-none d-lg-block ">
 				<?php //menu ?>
-		      	<h5 class="mb-2">คัดกรอง</h5>
+		      	<h5 class="mb-2 medium h4">คัดกรอง</h5>
 				<div class="row">
 					<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded
 						collapse navbar-collapse" id="menuResponetive" >
 						<div class="row mb-3 pt-3">
-							<div class="col-7 "><strong>หมวดหมู่</strong></div>
-							<div class="col-5 text-right">[ทั้งหมด]</div>
+							<div class="col-7 medium">หมวดหมู่</div>
+							<div class="col-5 text-right text-gray1">[ทั้งหมด]</div>
 						</div>
 						<?php //ng-repeat="(key, value) in players | groupBy: 'team'" ?>
 
 						<div class="productMenuHover" ng-repeat="barndType in catrogy_barnd" ng-click="menuFilterRowClick(barndType.category_brand);" name="productRow{{barndType.category_brand}}"  my-repeat-directive>
 							<div class="d-flex justify-content-between px-2" >
-								<div class="">
+								<div class="text-gray1">
 									<div class="d-inline">
 										<i class="far fa-square" name="productCheckbox{{barndType.category_brand}}"></i>
 									</div>
 								  	<!-- <input class="form-check-input" type="checkbox" name="productCheckbox{{key}}"
 								  		ng-model="confirmed" ng-change="menuFilterRowClick(this.key)"
 								  		> -->
-								  	<div class="d-inline">{{barndType.category_brand}} {{ barndType.category_name }}</div>
+								  		<!-- {{barndType.category_brand}} -->
+								  	<div class="d-inline"> {{ barndType.category_name }}</div>
 								</div>
-								<div class="">
+								<div class="text-gray2">
 									<p>{{ barndType.product_category_length }}</p>
 									<!-- <p>{{ checkbox[key] }}</p> -->
 								</div>
@@ -157,7 +158,7 @@
 				          		</div>
 					              <div class="row m-1">
 					              		<div class="text-right col-12 ">
-					              			<div class="d-inline h6 regular pr-2">
+					              			<div class="d-inline h6 regular pr-2 text-gray1">
 					              					<!-- {{product.coup_Cost}} -->
 					              					<!-- {{product.coup_Price}} -->
 					              				<small ng-if="parseInt(product.coup_Cost)>0">
@@ -177,7 +178,7 @@
 			              		</div>
 					            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
 
-					              		<div class="col-12 text-right">
+					              		<div class="col-12 text-right text-gray1">
 					              			<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div>
 					              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
 					              			<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div>
@@ -194,9 +195,9 @@
 				        </div>
 				  	</div>
 					</div>
-					<div class="row">
-						<div class="col-12 text-right">
-							<button class="btn btn-primary" ng-click="additional()">เพิ่มเติม</button>
+					<div class="row mb-5 p-3 text-right">
+						<div class="box-additional ml-auto px-3 py-1">
+							<div class="cursor-pointer h4 medium w-100 m-0" ng-click="additional()">เพิ่มเติม</div>
 						</div>
 					</div>
 			  	</div>

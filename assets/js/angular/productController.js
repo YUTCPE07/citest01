@@ -57,18 +57,28 @@ function ($scope, $http,indexService,$location,$filter) {
         }
         console.log($scope.checkBoxCatagoryArr)
     }
-    
+   
     $scope.selectAnimationAndIsCheckBox = function (key) {
         var jqueryCheckbok = $(`[name='productCheckbox${key}']`);
-        var jqueryRow = $(`[name='productRow${key}']`);
-        var boxIsCheck = !jqueryCheckbok.hasClass('fa-square');
-        if(boxIsCheck){
-            jqueryCheckbok.toggleClass("fa-check-square fa-square");
-            jqueryRow.removeClass('bg-green text-white');
+        var jqueryRow = $(`[name='productRow${key}']>div>div`);
+        // console.log(jqueryCheckbok.get()['0'].dataset.prefix)
+        var boxIsCheck = !(jqueryCheckbok.get()['0'].dataset.prefix == "far") ;
+        // var boxIsCheck = !jqueryCheckbok.hasClass('far');
+            //<i class="far fa-square"></i> //unCheck
+            //<i class="fas fa-square"></i> //Check
+        if(boxIsCheck){ 
+            console.log('true')
+            // jqueryCheckbok.toggleClass("fas far");
+            jqueryCheckbok.get()['0'].dataset.prefix = "far"
+            jqueryRow.removeClass('text-green');
+            // jqueryRow.removeClass('bg-green text-white');
             return false;
         }else{
-             jqueryCheckbok.toggleClass("fa-square fa-check-square");
-            jqueryRow.addClass('bg-green text-white');
+            console.log('false')
+             // jqueryCheckbok.toggleClass("far fas");
+            jqueryCheckbok.get()['0'].dataset.prefix = "fas"
+            jqueryRow.addClass('text-green');
+            // jqueryRow.addClass('bg-green text-white');
             return true;
         }
     }

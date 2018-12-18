@@ -4,10 +4,22 @@
 }
 
 .card.shadow:hover {
-	border: 3px solid rgba(74, 178, 165)!important;
+	box-shadow: 0px 0px 0px var(--color-green)!important;
+    /*border: unset;*/
+	border: 3px solid var(--color-green)!important;
     /*border-color:  rgba(74, 178, 165)!important;*/
-    box-shadow: 0 .5rem 1rem rgba(74, 178, 165,.15)!important;
+    /*box-shadow: 0 .5rem 1rem rgba(74, 178, 165,.15)!important;*/
 }
+
+.box-additional{ color: var(--color-green); }
+
+.box-additional:hover  {
+	color: var(--color-white)!important;
+	background-color: var(--color-green);
+	border-radius: 35px;
+}
+
+
 
 .btn-squre {
 	border-radius: 5px;
@@ -23,8 +35,15 @@
 
 .productMenuHover:hover {
 	cursor: pointer;
-	color: white;
-	background-color: var(--color-green);
+
+	/*color: white!important;*/
+	/*background-color: var(--color-green);*/
+	/*border: 1px solid var(--color-green);*/
+}
+
+.productMenuHover:hover > div > div  {
+	color: var(--color-green);
+	/*color: var(--color-white);*/
 }
 
 .productMenuHover > label, input[type="checkbox" i], input[type="checkbox" i] {

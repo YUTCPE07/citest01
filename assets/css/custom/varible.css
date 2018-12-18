@@ -6,6 +6,7 @@
   --color-gray3: #f1f2f2; /*เทา อ่อน*/
   --color-gray2: #bcbec0; /*เทา กลาง*/
   --color-gray1: #6d6e71; /*เทา เข้ม*/
+  --color-white:#ffff;
 
   --margin_sm: 10px;
   --margin_lg: 20px;
@@ -147,6 +148,7 @@ a:hover {
 .shadow {
     /*box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;*/
     box-shadow: 3px 3px 3px var(--color-gray2)!important;
+    border: unset; 
 }
 
 .container-fluid-my {

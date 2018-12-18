@@ -17,16 +17,19 @@
             <div class="pb-md-3 pb-3 medium">เกี่ยวกับเรา</div>
             <div class="pl-md-3 pl-3">
               <a href="<?php echo base_url('/#'); ?>">
-                <div>บล็อค</div>
+                <div class="mb-2">บล็อค</div>
               </a>
               <a href="<?php echo base_url('/aboutus'); ?>">
-                <div>เกี่ยวกับเรา</div>
+                <div class="mb-2">เกี่ยวกับเรา</div>
+              </a>
+              <a href="<?php echo base_url('/#'); ?>">
+                <div class="mb-2">ที่อยู่</div>
               </a>
               <a href="<?php echo base_url('/policy'); ?>">
-                <div>นโยบายความเป็นส่วนตัวและความปลอดภัย</div>
+                <div class="mb-2">นโยบายความเป็นส่วนตัวและความปลอดภัย</div>
               </a>
               <a href="<?php echo base_url('/termsofuse'); ?>">
-                <div>ข้อตกลงและเงื่อนไขของผู้ใช้งาน</div>
+                <div class="mb-2">ข้อตกลงและเงื่อนไขของผู้ใช้งาน</div>
               </a>
             </div>
           </div>
@@ -35,13 +38,13 @@
             <div class="pb-md-3 pb-3 medium">ร่วมธุรกิจกับเรา</div>
             <div class="pl-md-3 pl-3">
               <a href="<?php echo base_url('/#'); ?>">
-                <div>ร่วมธุรกิจกับเรา</div>
+                <div class="mb-2">ร่วมธุรกิจกับเรา</div>
               </a>
               <a href="<?php echo base_url('/#'); ?>">
-                <div>พาร์ทเนอร์เรา</div>
+                <div class="mb-2">พาร์ทเนอร์เรา</div>
               </a>
               <a href="<?php echo base_url('/#'); ?>">
-                <div>ร่วมงานกับเรา</div>
+                <div class="mb-2">ร่วมงานกับเรา</div>
               </a>
             </div>
           </div>
@@ -50,10 +53,10 @@
             <div class="pb-md-3 pb-3 medium">ช่วยเหลือ</div>
             <div class="pl-md-3 pl-3">
               <a href="<?php echo base_url('/#'); ?>">
-                <div>เคล็ดลับ</div>
+                <div class="mb-2">เคล็ดลับ</div>
               </a>
               <a href="<?php echo base_url('/#'); ?>">
-                <div>ข้อสเนอเเนะ</div>
+                <div class="mb-2">ข้อสเนอเเนะ</div>
               </a>
             </div>
           </div>
