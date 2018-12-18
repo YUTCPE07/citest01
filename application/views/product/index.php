@@ -1,6 +1,6 @@
 
 
-<div ng-controller='productController' class="pb-5 " >
+<div ng-controller='productController' class="pb-5" >
 <!-- {{myVar}}
 <button ng-click="buttonClicked()">sssssssss</button> -->
 	<?php //menu filter product type for mobile ?>
@@ -49,21 +49,42 @@
 	<!-- <div class="container">  -->
 		<?php //select menu top right ?>
 
+
+		<!-- <select
+			class="selectpicker">
+		    <option value="-coup_numUse" >ยอดนิยม</option>
+			<option value="coup_Price" >ราคาน้อยไปมาก</option>
+			<option value="-coup_Price" >ราคามากไปน้อย</option>
+		</select> -->
+		<select ng-model="register.countryId" ng-options="country.id as country.name for country in options"></select>
+
 		<div class="row mt-5 ">
-			<button type="button" class="btn btn-primary d-inline mr-auto d-block d-lg-none" data-toggle="modal" data-target="#product_filter_left_mobile" >
+			<!-- <select class="selectpicker " data-style="btn-primary" name=""> -->
+
+			  <!-- <option ng-click="selectOderBy('-coup_numUse')" >ยอดนิยม</option> -->
+			  <!-- <option ng-click="selectOderBy('coup_Price')" >ราคาน้อยไปมาก</option> -->
+			  <!-- <option ng-click="selectOderBy('-coup_Price')" >ราคามากไปน้อย</option> -->
+			<!-- </select> -->
+
+
+
+			<!-- <select ng-model="blisterPackTemplateSelected" ng-change="changedValue(blisterPackTemplateSelected)"
+            data-ng-options="blisterPackTemplate as blisterPackTemplate.name for blisterPackTemplate in blisterPackTemplates" class="btn btn-primary">
+		      	<option value="">ทั้งหมด</option>
+		    </select> -->
+			<!-- <button type="button" class="btn btn-primary d-inline mr-auto d-block d-lg-none" data-toggle="modal" data-target="#product_filter_left_mobile" >
 	            	คัดกรอง
-			</button>
-			<div uib-dropdown on-toggle="toggled(open)" class="d-inline ml-auto" ng-init="menuHead = 'ล่าสุด';menuChild = 'ยอดนิยม'; ">
-	            <button type="button" class="btn btn-primary" href id="dropdown-product-filter" uib-dropdown-toggle>
-	            	{{menuHead}}
+			</button> -->
+			<!-- <div uib-dropdown on-toggle="toggled(open)" class="d-inline ml-auto dropdownMyWide">
+	            <button type="button" class="btn btn-primary btn-squre w-100 " href id="dropdown-product-filter" uib-dropdown-toggle>
+	            	{{drowdownTextHead}}
 	  			</button>
 	            <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown-product-filter">
-	                <!-- <a class="dropdown-item" href="#">แนะนำ</a> -->
-	                <!-- <div class="dropdown-item" href="#">ล่าสุด</div> -->
-	                <div class="dropdown-item" ng-click="menu_dropDownClick(this)">{{menuChild}}</div>
-	                <!-- <a class="dropdown-item" href="#">สถานที่ใกล้เคียง</a> -->
+	                <div class="dropdown-item text-center" ng-click="selectOderBy('-coup_numUse')">ยอดนิม</div>
+	                <div class="dropdown-item text-center" ng-click="selectOderBy('coup_Price')">ราคาน้อยไปมาก</div>
+	                <div class="dropdown-item text-center" ng-click="selectOderBy('-coup_Price')">ราคามากไปน้อย</div>
 	            </div>
-	        </div>
+	        </div> -->
 
 			 <!--  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			    ทั้งหมด
@@ -109,22 +130,6 @@
 						</div>
 					</div>
 				</div> <?php //end row  ?>
-
-				<!-- <div class="row">
-					<div class="shadow p-3 w-100 mb-5 bg-white rounded border border-secondary" >
-						<div class="row mb-3 ">
-							<div class="col-12"><strong>ราคา</strong></div>
-							<div class="col-12">
-								<rzslider class="bg-greensmoot" rz-slider-model="priceSlider.minValue" rz-slider-high="priceSlider.maxValue" rz-slider-options="priceSlider.options"></rzslider>
-								<div class="d-flex">
-									<p class="mr-auto">เริ่มต้น</p>
-									<p class="ml-auto">สูงสุด</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
-
 			</div>
 
 			<!-- test on 17,117 -->
@@ -133,13 +138,11 @@
 			<!-- {{ rating(ratingDB,117,'Use')}} -->
 			<?php //layout 2 ?>
 			<div class="col-lg-9 mt-4" >
-				<!-- <div class="col-lg-4"> -->
-				<?php //start record product ?>
-				<!-- <div ng-show="loading" class="loading">LOADING...</div> -->
-				<div class="row" >
+				<!-- {{orderByStr}} -->
+				<div class="row">
 					<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
-					<div class="product col-lg-4" ng-repeat='product in products | filter:filterProduct| startFrom:currentPage*pageSize | limitTo:pageSize '>
-						<div class="card shadow mb-3 mt-3 border border-secondary " style="max-width: 180rem;" >
+					<div class="product col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{category_brand:checkBoxCatagoryArr} | orderBy:orderByStr | limitTo:numLimitProduct'>
+						<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
 							<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 							<img ng-if="product.logo_image != null"
 								ng-click='lookup("barnd",product.coup_CouponID,product.coup_Type)'
@@ -173,45 +176,7 @@
 					              		</div>
 			              		</div>
 					            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
-					              		<!-- <div class="col-3"> -->
-					              			<!-- ส่วนลด -->
-					              			<!-- <div><i class="fas fa-dollar-sign"></i> 5</div> -->
-					              		<!-- </div> -->
-					              		<!--<div class="col-5 text-center text-warning ">
-					              			 <div class="d-inline" ng-repeat='i in [0,1,2,3,4]'>
-					              				<div class="d-inline" ng-if="arrayRating[i]=='full'">
-					              					<i class="fa fa-star text-warning " data-fa-transform="up-2"></i>
-					              				</div>
-					              				<div class="d-inline" ng-if="arrayRating[i]=='half'">
-					              					<i class="fas fa-star-half-alt text-warning" data-fa-transform="up-2" ></i>
-					              				</div>
-					              				<div class="d-inline" ng-if="arrayRating[i]=='noting'">
-					              					<i class="far fa-star text-warning " data-fa-transform="up-2"></i>
-					              				</div>
-					              			</div> -->
-							        		<!-- test 2,117 -->
-							        		<!-- <div>{{product.coup_CouponID}}</div> -->
-							        		<!-- <div>{{product.coup_Type}}</div> -->
-						        			<!-- <div ng-repeat="x in rating(ratingDB,product.coup_CouponID,product.coup_Type)">
-						        				{{x}}
-						        			</div> -->
-						        			<!-- {{numRating}} -->
-											<!-- <?php $numStarCalculator = 2;?>
-											<?php for ($i = 1; $i <= 5; $i++) {?>
 
-													<?php if ($numStarCalculator >= 1): ?>
-															<i class="fa fa-star text-warning " data-fa-transform="up-2"></i>
-								        					<?php $numStarCalculator--;?>
-													<?php else: ?>
-									        			<?php if ($numStarCalculator >= 0.5): ?>
-									        				<i class="fas fa-star-half-alt text-warning" data-fa-transform="up-2" ></i>
-							        						<?php $numStarCalculator -= 0.5;?>
-									        			<?php else: ?>
-							        						<i class="far fa-star text-warning " data-fa-transform="up-2"></i>
-									        			<?php endif;?>
-								        			<?php endif;?>
-						        			<?php }?>
-					              		</div>-->
 					              		<div class="col-12 text-right">
 					              			<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div>
 					              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
@@ -229,56 +194,10 @@
 				        </div>
 				  	</div>
 					</div>
-
-					<!-- <div ng-repeat='product in data | filter:filterProduct | startFrom:currentPage*pageSize | limitTo:pageSize ' > -->
-				<!-- 	<div ng-repeat='product in data | filter:filterProduct | filter:currentPage*pageSize | limitTo:pageSize ' >
-						<div class="row">
-							<div class="col-6">
-								{{product.coup_CouponID}}
-							</div>
-							<div class="col-6">
-								{{product.coup_Name}}
-							</div>
+					<div class="row">
+						<div class="col-12 text-right">
+							<button class="btn btn-primary" ng-click="additional()">เพิ่มเติม</button>
 						</div>
-					</div> -->
-					<?php //start pagination ?>
-					<!-- <ul>
-				        <li ng-repeat="item in data | startFrom:currentPage*pageSize | limitTo:pageSize">
-				            {{item}}
-				        </li>
-				    </ul> -->
-
-				    <!-- {{currentPage+1}}/{{numberOfPages()}} -->
-
-
-	    			<!-- <pagination num-pages="noOfPages" current-page="currentPage" class="pagination-small"></pagination> -->
-
-
-					<!-- <div class="d-flex justify-content-center ">
-						<ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"
-							maxSize="itemsPerPage"></ul>
-
-					</div> -->
-
-					<!-- test01 -->
-					<div class="d-flex justify-content-center mb-3">
-						<button class="btn btn-primary mr-auto" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-				        Previous
-				    	</button>
-				    	 <h5>{{currentPage+1}}</h5>
-					    <h5>/</h5>
-					    <h5>{{pageAfterFilter}}</h5>
-					    <button class="btn btn-primary ml-auto"  ng-click="currentPage=currentPage+1"
-				    			ng-disabled="currentPage+1 >= pageAfterFilter">
-					        Next
-					    </button>
-						<!-- <ul class="pagination">
-						  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-						  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-						  <li class="page-item"><a class="page-link" href="#">2</a></li>
-						  <li class="page-item"><a class="page-link" href="#">3</a></li>
-						  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-						</ul> -->
 					</div>
 			  	</div>
 			</div>

@@ -11,13 +11,13 @@
           <img class="d-block w-100" src="assets/images/home/slide_head (1).jpeg" alt="First slide">
         </div >-->
         <div class="carousel-item img-head active">
-          <img class="d-block w-100" src="assets/images/home/slide_head (3).jpg" alt="First slide">
+          <img class="d-block w-100" src="assets/images/home/slide_head_custom_01.jpg" alt="First slide">
         </div>
         <div class="carousel-item img-head">
-          <img class="d-block w-100" src="assets/images/home/slide_head (4).jpeg" alt="Second slide">
+          <img class="d-block w-100" src="assets/images/home/slide_head_custom_02.jpg" alt="Second slide">
         </div>
         <div class="carousel-item img-head">
-          <img class="d-block w-100" src="assets/images/home/slide_head (5).jpg" alt="Third slide">
+          <img class="d-block w-100" src="assets/images/home/slide_head_custom_03.jpg" alt="Third slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -32,7 +32,11 @@
 	}
 
 	.img-head {
-		height: 500px;
+		/*max-height: 500px;*/
+	}
+
+	.img-head > img {
+		/*height: 100%;	*/
 	}
 
 	/*ตั้งค่าให้ height เท่ากัน บรรทัดละ 24px*/

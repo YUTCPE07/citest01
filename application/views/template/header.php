@@ -21,6 +21,7 @@
 	<title>MemberIn</title>
 	<link rel="icon" href="<?php echo base_url() ?>favicon.ico" type="image/ico">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/bootstrap.min.css'); ?>">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
 
 	<!-- template from bootstrap4(freelancer) -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/magnific-popup.css'); ?>">
@@ -40,7 +41,6 @@
 
 	<!-- font -->
 	<link href="https://fonts.googleapis.com/css?family=Prompt:100,300,400,500,700&amp;subset=thai" rel="stylesheet">
-	<link href="<?php echo base_url('assets/css/custom/reset.css'); ?>" rel="stylesheet">
 
 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/reset.css'); ?>">
@@ -71,10 +71,12 @@
 	<!-- Bootstrap core JavaScript -->
     <script src="<?php echo base_url('assets/js/jquery/jquery-3.3.1.min.js'); ?>" ></script>
     <script src="<?php echo base_url('assets/js/bootstrap/bootstrap-popper.min.js'); ?>" ></script>
-    <script src="<?php echo base_url('assets/js/bootstrap/bootstrap.min.js'); ?>" ></script>
+    <!-- <script src="<?php //echo base_url('assets/js/bootstrap/bootstrap.min.js'); ?>" ></script> -->
+    <!-- disbale for select is working for one click and bootstrap.bundle.min.js is replace bootstrap.min.js -->
     <script src="<?php echo base_url('assets/js/bootstrap/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/plugins/fontawesome-free-5.3.1-web/js/all.min.js'); ?>"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/i18n/defaults-*.min.js"></script> -->
 
     <!-- Plugin jquery -->
     <script src="<?php echo base_url('assets/js/jquery/jquery.easing.min.js'); ?>"></script>

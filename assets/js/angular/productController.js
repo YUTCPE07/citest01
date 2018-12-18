@@ -2,9 +2,124 @@
 app.controller('productController', ['$scope', '$http','indexService','$location','$filter', 
 function ($scope, $http,indexService,$location,$filter) {
 
+    // bran_BrandID: 29
+    // category_brand: 7
+    // coup_Cost: 100
+    // coup_CouponID: 36
+    // coup_Description: "TEST Buy Coupon"
+    // coup_Image: "coupon_20180202_130921.png"
+    // coup_ImagePath: "29/earn_attention_upload/"
+    // coup_Name: "Buy 25 ฿"
+    // coup_Price: 25
+    // coup_Type: "Buy"
+    // coup_UpdatedDate: "2018-11-19 10:05:42"
+    // coup_numUse: 0
+    // logo_image: "logo_20161031_134140.jpg"
+    // path_logo: "29/logo_upload/"
+
+    // $scope.itemList = [];
+
+
+
+    
+
+    // $scope.hostSelected = $scope.options[0];
+
+    // $scope.changedValue = function(item) {
+    //     $scope.itemList.push(item.name);
+    //     console.log(item)
+    // }       
+
     $scope.Math = window.Math; /*for Angular use math.round()*/
     $scope.parseInt = window.parseInt; /*for Angular use math.round()*/
     // console.log(window.location.pathname)
+    $scope.checkBoxCatagoryArr = [];
+    $scope.numLimitProduct = 15;
+    indexService.getAlldataProduct().then(function (data) {
+        $scope.products = data;
+        
+          // console.log(data)
+        $scope.isReadyShow = true; 
+        },function(error){ console.log(error);}
+
+    );
+
+    $scope.menuFilterRowClick = function(key){
+        var isBoxCheck = $scope.selectAnimationAndIsCheckBox(key);
+        var numIndex = $scope.checkBoxCatagoryArr.indexOf(key);
+        console.log(numIndex)
+        if(isBoxCheck){
+            $scope.checkBoxCatagoryArr.push(key);
+            // $scope.checkBoxCatagoryArr['pick'] = key;
+        }else{
+            $scope.checkBoxCatagoryArr.splice(numIndex, 1); /*remove arr form indexof splice(#position, #numPositionForDel)*/
+            // $scope.checkBoxObj['pick'] = false;
+        }
+        console.log($scope.checkBoxCatagoryArr)
+    }
+    
+    $scope.selectAnimationAndIsCheckBox = function (key) {
+        var jqueryCheckbok = $(`[name='productCheckbox${key}']`);
+        var jqueryRow = $(`[name='productRow${key}']`);
+        var boxIsCheck = !jqueryCheckbok.hasClass('fa-square');
+        if(boxIsCheck){
+            jqueryCheckbok.toggleClass("fa-check-square fa-square");
+            jqueryRow.removeClass('bg-green text-white');
+            return false;
+        }else{
+             jqueryCheckbok.toggleClass("fa-square fa-check-square");
+            jqueryRow.addClass('bg-green text-white');
+            return true;
+        }
+    }
+
+
+    $scope.additional = function() {
+        $scope.numLimitProduct += $scope.numLimitProduct;
+    }
+
+
+    $scope.orderByStr = "-coup_UpdatedDate";
+
+    // $(".selectpicker").change(function () {
+    //     $scope.orderByStr = $(this).val();
+    //     console.log($scope.orderByStr)
+        
+    // });
+    $scope.options = [
+        {id:1,name:"ล่าสุด"},
+        {id:2,name:"ยอดนิยม"},
+        {id:3,name:"ราคาน้อยไปมาก"},
+        {id:4,name:"ราคามากไปน้อย"}
+    ];
+
+    $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+        console.log(e)
+        // this.orderByStr = $(this).val();
+
+    });
+
+
+    $scope.selectOderBy = function () {
+        // $scope.orderByStr = key;
+        console.log($scope.myOption)
+        // $scope.showBtnMoreToLessAge = !$scope.showBtnMoreToLessAge;
+        // $scope.showBtnMoreToLessSeq = !$scope.showBtnMoreToLessSeq;
+    } 
+
+    // $scope.selectOderBy = function (key) {
+    //     $scope.orderByStr = key;
+    //     $scope.showBtnMoreToLessAge = !$scope.showBtnMoreToLessAge;
+    //     $scope.showBtnMoreToLessSeq = !$scope.showBtnMoreToLessSeq;
+    // }
+
+    // $scope.initSelectOrderBy = function() {
+    //     $scope.showBtnMoreToLessAge = true;
+    //     $scope.showBtnMoreToLessSeq = true;
+    // }
+
+      
+
 
     // getData _________________________________________
 
@@ -176,25 +291,25 @@ function ($scope, $http,indexService,$location,$filter) {
         // var c = url.searchParams.get("c");
         // console.log(c); /*m2-m3-m4-m5*/
         
-        $scope.currentPage = 0;
-        $scope.pageSize = 15;
-        indexService.getAlldataProduct().then(function (data) {
-            // data.coup_numUse = parseInt(data.coup_numUse);
-            $scope.products = data;
-            // $scope.category_brands = data;
-              console.log(data)
-            $scope.filterResult = data.length;
-            $scope.pageAfterFilter = Math.ceil(data.length/$scope.pageSize)
-                $scope.isReadyShow = true; 
-            },function(error){ console.log(error);
-        });
-    	$scope.setPage = function (pageNo) {
-        	$scope.currentPage = pageNo;
-    	};
+     //    $scope.currentPage = 0;
+     //    $scope.pageSize = 15;
+         //    indexService.getAlldataProduct().then(function (data) {
+         //        // data.coup_numUse = parseInt(data.coup_numUse);
+         //        $scope.products = data;
+         //        // $scope.category_brands = data;
+         //          console.log(data)
+         //        $scope.filterResult = data.length;
+         //        $scope.pageAfterFilter = Math.ceil(data.length/$scope.pageSize)
+         //            $scope.isReadyShow = true; 
+         //        },function(error){ console.log(error);
+         //    });
+    	// $scope.setPage = function (pageNo) {
+     //    	$scope.currentPage = pageNo;
+    	// };
 
-    	$scope.pageChanged = function() {
-        	console.log('Page changed to: ' + $scope.currentPage);
-    	};
+    	// $scope.pageChanged = function() {
+     //    	console.log('Page changed to: ' + $scope.currentPage);
+    	// };
     
 	// $scope.maxSize = 5;
 	// $scope.bigTotalItems = 175;
@@ -203,20 +318,7 @@ function ($scope, $http,indexService,$location,$filter) {
     //____________________________________________________
     // menu dropdown fillter 
     //____________________________________________________
-        $scope.menu_dropDownClick = function (ele) {
-            if($scope.menuHead === 'ล่าสุด'){
-                $scope.menuHead = 'ยอดนิยม';
-                $scope.menuChild = 'ล่าสุด';
-                $scope.products = $filter('orderBy')($scope.products,'-coup_numUse');
-                console.log($scope.products)
-            }else{
-                $scope.menuHead = 'ล่าสุด';
-                $scope.menuChild = 'ยอดนิยม';
-                $scope.products = $filter('orderBy')($scope.products,'-coup_UpdatedDate');
-                console.log($scope.products)
-                /*แก้ล่าสุดยังไม่สมบูรณ์*/
-            }
-        }
+       
     // var once = $filter('filter')(data,{coup_CouponID :id});
 
     // ____________________________________________________
@@ -256,25 +358,7 @@ function ($scope, $http,indexService,$location,$filter) {
         // var yaua = `sadsadsa${koma}dsadasdsda`;
         // console.log(yaua)
 
-        $scope.menuFilterRowClick = function(key){
-            console.log('menuFilterRowClick',key)
-            var jqueryCheckbok = $(`[name='productCheckbox${key}']`);
-            var jqueryRow = $(`[name='productRow${key}']`);
-            var confirmed;
-            // console.log(jqueryCheckbok.hasClass('fa-square'))
-            var boxIsCheck = !jqueryCheckbok.hasClass('fa-square');
-            console.log('boxIsCheck',boxIsCheck)
-            if(boxIsCheck){
-                jqueryCheckbok.toggleClass("fa-check-square fa-square");
-                jqueryRow.removeClass('bg-green text-white');
-                confirmed = false;
-            }else{
-                jqueryCheckbok.toggleClass("fa-square fa-check-square");
-                jqueryRow.addClass('bg-green text-white');
-                confirmed = true;
-            }
-            $scope.checkBoxProductType(parseInt(key),confirmed);
-        }
+        
 
         $scope.checkBoxProductType = function(key,confirmed){
             console.log(key,confirmed)
@@ -339,38 +423,76 @@ function ($scope, $http,indexService,$location,$filter) {
     // console.log($scope.priceSlider)
 }]); /*end app.controller 'productController' */
 
+app.filter('filterMultiple',['$filter',function ($filter) { /*use arrayOfObjectswithKeys | filterMultiple:{key1:['value1','value2','value3',...etc],key2:'value4',key3:[value5,value6,...etc]}*/
+return function (items, keyObj) {
+    var filterObj = {
+        data:items,
+        filteredData:[],
+        applyFilter : function(obj,key){
+            var fData = [];
+            if (this.filteredData.length == 0)
+                this.filteredData = this.data;
+            if (obj){
+                var fObj = {};
+                if (!angular.isArray(obj)){
+                    fObj[key] = obj;
+                    fData = fData.concat($filter('filter')(this.filteredData,fObj));
+                } else if (angular.isArray(obj)){
+                    if (obj.length > 0){
+                        for (var i=0;i<obj.length;i++){
+                            if (angular.isDefined(obj[i])){
+                                fObj[key] = obj[i];
+                                fData = fData.concat($filter('filter')(this.filteredData,fObj));    
+                            }
+                        }
 
-app.directive('myRepeatDirective', function() {
-    return function(scope, element, attrs) {
-        
-        if (scope.$last){
-            // console.log(scope)
-            console.log('this is last')
-            scope.selectFiterFormNavbar(scope.$index+1);
-            
-        }
-    };
-})
-
-
-app.filter('ratingFilter', function() {
-    return function(data) {
-        // console.log(data)
-        for (var i = 0; i < data.length; i++) {
-            // console.log(data[i].coup_CouoponID)
-            if(i=10){
-                return;
+                    }
+                }
+                if (fData.length > 0){
+                    this.filteredData = fData;
+                }
             }
         }
-    return ;
-  };
-});
-
-app.filter('startFrom', function() {
-    return function(input, start) {
-    	// console.log(input)
-        if (!input || !input.length) { return; }
-        start = +start; //parse to int
-        return input.slice(start);
+    };
+    if (keyObj){
+        angular.forEach(keyObj,function(obj,key){
+            filterObj.applyFilter(obj,key);
+        });
     }
-});
+    return filterObj.filteredData;
+}
+}]);
+// app.directive('myRepeatDirective', function() {
+//     return function(scope, element, attrs) {
+        
+//         if (scope.$last){
+//             // console.log(scope)
+//             console.log('this is last')
+//             scope.selectFiterFormNavbar(scope.$index+1);
+            
+//         }
+//     };
+// })
+
+
+// app.filter('ratingFilter', function() {
+//     return function(data) {
+//         // console.log(data)
+//         for (var i = 0; i < data.length; i++) {
+//             // console.log(data[i].coup_CouoponID)
+//             if(i=10){
+//                 return;
+//             }
+//         }
+//     return ;
+//   };
+// });
+
+// app.filter('startFrom', function() {
+//     return function(input, start) {
+//     	// console.log(input)
+//         if (!input || !input.length) { return; }
+//         start = +start; //parse to int
+//         return input.slice(start);
+//     }
+// });

@@ -1,6 +1,6 @@
 /*product-index*/
-.card-product {
-	margin-bottom: 7rem;
+.productMargin {
+	margin-bottom: 4rem;
 }
 
 .card.shadow:hover {
@@ -11,6 +11,10 @@
 
 .btn-squre {
 	border-radius: 5px;
+}
+
+.dropdownMyWide {
+	width: 158px;
 }
 
 .dropdown-item {
