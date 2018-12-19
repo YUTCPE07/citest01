@@ -14,8 +14,10 @@ window.fbAsyncInit = function() {
       sessionStorage.user_token = response.authResponse.accessToken;
       FB.api('/me','GET',{"fields":"id,name,email,birthday"},
         function(response) {
+
           // console.log(responssse,'response')
           response.imgPath = `https://graph.facebook.com/${response.id}/picture?type=square`;
+          response.loginBy = `facebook`;
           sessionStorage.user = JSON.stringify(response);
           // sessionStorage.setItem("user_id", response.id);
           // sessionStorage.setItem("user_name", response.name);

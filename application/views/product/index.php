@@ -56,7 +56,7 @@
 			<option value="coup_Price" >ราคาน้อยไปมาก</option>
 			<option value="-coup_Price" >ราคามากไปน้อย</option>
 		</select> -->
-		<select ng-model="register.countryId" ng-options="country.id as country.name for country in options"></select>
+		<!-- <select ng-model="register.countryId" ng-options="country.id as country.name for country in options"></select> -->
 
 		<div class="row mt-5 ">
 			<!-- <select class="selectpicker " data-style="btn-primary" name=""> -->
@@ -176,6 +176,7 @@
 					              			</div>
 					              		</div>
 			              		</div>
+			              		<!-- <hr class="my-0 mx-3"> -->
 					            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
 
 					              		<div class="col-12 text-right text-gray1">
@@ -195,10 +196,12 @@
 				        </div>
 				  	</div>
 					</div>
-					<div class="row mb-5 p-3 text-right">
+					<div class="row mb-5 p-3 text-right" ng-if="numLimitProduct < products.length">
 						<div class="box-additional ml-auto px-3 py-1">
 							<div class="cursor-pointer h4 medium w-100 m-0" ng-click="additional()">เพิ่มเติม</div>
 						</div>
+						<!-- {{ numLimitProduct }} -->
+						<!-- {{ products.length }} -->
 					</div>
 			  	</div>
 			</div>

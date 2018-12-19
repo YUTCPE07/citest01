@@ -43,7 +43,7 @@ function ($scope, $http,indexService,$location,$filter) {
         },function(error){ console.log(error);}
 
     );
-
+    
     $scope.menuFilterRowClick = function(key){
         var isBoxCheck = $scope.selectAnimationAndIsCheckBox(key);
         var numIndex = $scope.checkBoxCatagoryArr.indexOf(key);

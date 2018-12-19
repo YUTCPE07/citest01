@@ -44,7 +44,7 @@ class Dashboard extends CI_Controller {
 		$limit = 9;
 		// $data = $this->Main_model->getRecordsLimit($limit);
 		$data = $this->Main_model->get_product_limit(9);
-		echo json_encode($data);
+		echo json_encode($data, JSON_NUMERIC_CHECK);
 		// echo ('<pre>');
 		// print_r($data);
 		// return $data;
@@ -52,7 +52,7 @@ class Dashboard extends CI_Controller {
 
 	public function getBrandRecommand() {
 		$data = $this->Main_model->getBrandRecommand();
-		echo json_encode($data);
+		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 
 }

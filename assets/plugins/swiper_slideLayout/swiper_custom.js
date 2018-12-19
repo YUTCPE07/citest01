@@ -1,70 +1,114 @@
 // Start for ProductRecommand
+
+
+
 	function gennerateElemenrtProduct(productObj){
-	// console.log(productObj)
-	var productLinkHref = '';
-	var brandLinkHref = baseurl+'brand/'+productObj.bran_BrandID;
-	if(productObj.coup_Type=='Use'){
-		productObj.coup_numUse = 'ใช้เเล้ว ' + productObj.coup_numUse;
-		productLinkHref = baseurl+'promotion/'+productObj.coup_CouponID;
-	}else if(productObj.coup_Type=='Buy'){
-		productObj.coup_numUse = 'ขายเเล้ว ' +  productObj.coup_numUse;
-		productLinkHref = baseurl+'shop/'+productObj.coup_CouponID;
+	
+		var product = productObj;
+		var brandLinkHref = baseurl+'brand/'+productObj.bran_BrandID;
+		var productLinkHref;
 
-	}else{
-		productObj.coup_numUse = 'สมัครเเล้ว ' +  productObj.coup_numUse;
-		productLinkHref = baseurl+'membercard/'+productObj.coup_CouponID;
+		if(productObj.coup_Type=='Use'){
+			product.coup_numUse = 'ใช้เเล้ว ' + productObj.coup_numUse;
+			productLinkHref = baseurl+'promotion/'+productObj.coup_CouponID;
+		}else if(productObj.coup_Type=='Buy'){
+			product.coup_numUse = 'ขายเเล้ว ' +  productObj.coup_numUse;
+			productLinkHref = baseurl+'shop/'+productObj.coup_CouponID;
+		}else{
+			product.coup_numUse = 'สมัครเเล้ว ' +  productObj.coup_numUse;
+			productLinkHref = baseurl+'membercard/'+productObj.coup_CouponID;
+		}
+		var coup_PriceStr;
+		if (productObj.coup_Price == 0) {
+			coup_PriceStr = 'ฟรี!';
+		}else{
+			coup_PriceStr = `${productObj.coup_Price} ฿`;
+		}
+		var productSellStr = Math.round(((productObj.coup_Cost - productObj.coup_Price)/productObj.coup_Cost)*100);
 
-	}
 
-	if (parseInt(productObj.coup_Price)==0) {
-		productObj.coup_Price = 'ฟรี!';
-	}else{
-		productObj.coup_Price = parseInt(productObj.coup_Price) + ' ฿';
-	}
 
+// <div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div>
+// 		              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
+// 		              			<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div>
 		
-	 
+
+	
 	//productObj.coup_Description = productObj.coup_Description.substr(0,30); /*จำกัดความยาว String*/
 	
+	return	`
+			<div class="product productShowHome mt-4 mb-3">
+				<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
+					<img class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary bg-light" src="upload/${product.path_logo}${product.logo_image}">
+		            <img class="card-img-top" src="upload/${product.coup_ImagePath+product.coup_Image}" >
+		            <div class="text-dark" ng-click='lookup("coup",product.coup_CouponID,product.coup_Type)'>
+		          		<div class="card-title h5 bold m-1 setHeightCardHeadText ">
+		          			${product.coup_Name}
+		          		</div>
+			              <div class="row m-1">
+			              		<div class="text-right col-12 ">
+			              			<div class="d-inline h6 regular pr-2 text-gray1">
+			              				<small>
+			              					ลด ${productSellStr}%
+			              				</small>
+		              				</div>
+			              			<div class="d-inline h4 medium text-danger">
+			              				${coup_PriceStr}
+			              			</div>
+			              		</div>
+	              		</div>
+	              		<!-- <hr class="my-0 mx-3"> -->
+			            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
+
+			              		<div class="col-12 text-right text-gray1">
+			              			<div class="d-inline">${product.coup_numUse}</div>
+			              		</div>
+		              	</div>
+		            </div>
+		        </div>
+	        </div>`;
+
+	// return ' '+
+	// 	'<div class="productHover w-100"> '+
+	// 		'<div class="card mt-4 border border-secondary" style="max-width: 180rem; " >  '+
+	// 			'<a href="'+brandLinkHref+'">  '+
+ //  					'<img class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary"  '+
+ //    					'src="upload/'+productObj.path_logo+productObj.logo_image+'"> '+
+ //    			'</a> '+
+	// 			'<a href="'+productLinkHref+'">  '+
+ //    				'<img class="card-img-top" src="upload/'+productObj.coup_ImagePath+productObj.coup_Image+'" > '+
+ //  					'<div class="text-dark"> '+
+	// 		          		'<div class="card-title h5 bold m-1 setHeightCardHeadText">'+productObj.coup_Name+'</div> '+
+	// 			              '<div class="row m-1"> '+
+	// 			              		'<div class="text-right col-12 "> '+
+	// 			              			'<div class="d-inline h6 regular pr-2"> '+
+	// 			              				// '<small> '+
+	// 			              				// 	'ลด Math.round(((productObj.coup_Cost - productObj.coup_Price)/productObj.coup_Cost)*100) '+
+	// 			              				// 	'% '+
+	// 			              				// '</small> '+
+	// 		              				'</div> '+
+	// 			              			'<div class="d-inline h4 medium text-danger">'+ productObj.coup_Price + '</div> '+
+	// 			              		'</div> '+
+	// 	              		'</div> '+
+	// 			            '<div class="row m-1 mt-2" style="font-size: 0.3rem;"> '+
+	// 		              		'<div class="col-12 text-right"> '+
+	// 		              			'<div class="d-inline" >'+productObj.coup_numUse+'</div> '+
+	// 		              			// '<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div> '+
+	// 		              			// '<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div> '+
+	// 		              			// '<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div> '+
+	// 		              			'<div class="d-inline"> '+
+	// 		              				' '+
+	// 		              			'</div> '+
+	// 		              		'</div> '+
+	// 		              	'</div> '+
+	// 		            '</div> '+
+ //    			'</a> '+
+	//     	'</div> '+
+	//     '</div> ';
 
 
-	return ' '+
-		'<div class="productHover w-100"> '+
-			'<div class="card mt-4 border border-secondary" style="max-width: 180rem; " >  '+
-				'<a href="'+brandLinkHref+'">  '+
-  					'<img class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary"  '+
-    					'src="upload/'+productObj.path_logo+productObj.logo_image+'"> '+
-    			'</a> '+
-				'<a href="'+productLinkHref+'">  '+
-    				'<img class="card-img-top" src="upload/'+productObj.coup_ImagePath+productObj.coup_Image+'" > '+
-  					'<div class="text-dark"> '+
-			          		'<div class="card-title h5 bold m-1 setHeightCardHeadText">'+productObj.coup_Name+'</div> '+
-				              '<div class="row m-1"> '+
-				              		'<div class="text-right col-12 "> '+
-				              			'<div class="d-inline h6 regular pr-2"> '+
-				              				// '<small> '+
-				              				// 	'ลด Math.round(((productObj.coup_Cost - productObj.coup_Price)/productObj.coup_Cost)*100) '+
-				              				// 	'% '+
-				              				// '</small> '+
-			              				'</div> '+
-				              			'<div class="d-inline h4 medium text-danger">'+ productObj.coup_Price + '</div> '+
-				              		'</div> '+
-		              		'</div> '+
-				            '<div class="row m-1 mt-2" style="font-size: 0.3rem;"> '+
-			              		'<div class="col-12 text-right"> '+
-			              			'<div class="d-inline" >'+productObj.coup_numUse+'</div> '+
-			              			// '<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div> '+
-			              			// '<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div> '+
-			              			// '<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div> '+
-			              			'<div class="d-inline"> '+
-			              				' '+
-			              			'</div> '+
-			              		'</div> '+
-			              	'</div> '+
-			            '</div> '+
-    			'</a> '+
-	    	'</div> '+
-	    '</div> ';
+
+
 	}
 	let foreachDatasAnd = function(respone){
 	  return new Promise(function(resolve, reject) {
@@ -115,7 +159,7 @@
 		// console.log(brandObj)
 		return '<a href="'+baseurl+'brand/'+brandObj.brand_id+'"> '+
 				'<img src="upload/'+brandObj.path_logo+brandObj.logo_image+'" '+
-				'class="rounded img-responsive home_brand shadow" alt="'+brandObj.name+'">'+
+				'class="rounded img-responsive home_brand" alt="'+brandObj.name+'">'+
 			'</a>';
 	}
 

@@ -11,13 +11,13 @@
           <img class="d-block w-100" src="assets/images/home/slide_head (1).jpeg" alt="First slide">
         </div >-->
         <div class="carousel-item img-head active">
-          <img class="d-block w-100" src="assets/images/home/slide_head_custom_01.jpg" alt="First slide">
+          <img class="d-block w-100" src="assets/images/home/slide_head_custom(16-7)_01.jpg" alt="First slide">
         </div>
         <div class="carousel-item img-head">
-          <img class="d-block w-100" src="assets/images/home/slide_head_custom_02.jpg" alt="Second slide">
+          <img class="d-block w-100" src="assets/images/home/slide_head_custom(16-7)_02.jpg" alt="Second slide">
         </div>
         <div class="carousel-item img-head">
-          <img class="d-block w-100" src="assets/images/home/slide_head_custom_03.jpg" alt="Third slide">
+          <img class="d-block w-100" src="assets/images/home/slide_head_custom(16-7)_03.jpg" alt="Third slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -32,8 +32,8 @@
     <div class="container">
       <div class="pt-5 pb-3">
           <div class="d-flex">
-            <div class="h2 medium" ng-if="isUser">สวัสดี {{user.name}}</div>
-            <div class="h2 medium" ng-if="!isUser">Memberin</div>
+            <div class="h2 medium " ng-if="isUser">สวัสดี {{user.name}}</div>
+            <div class="h2 medium " ng-if="!isUser">Memberin</div>
           </div>
           <div class="d-flex">
               <div class="h4 light" ng-if="isUser"> ยินดีต้อนรับเข้าสู่ memberin มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
