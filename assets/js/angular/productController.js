@@ -1,6 +1,6 @@
 'use strict';
-app.controller('productController', ['$scope', '$http','indexService','$location','$filter', 
-function ($scope, $http,indexService,$location,$filter) {
+app.controller('productController', ['$scope','$rootScope', '$http','indexService','$location','$filter', 
+function ($scope,$rootScope, $http,indexService,$location,$filter) {
 
     // bran_BrandID: 29
     // category_brand: 7
@@ -19,7 +19,7 @@ function ($scope, $http,indexService,$location,$filter) {
 
     // $scope.itemList = [];
 
-
+   
 
     
 
@@ -28,7 +28,22 @@ function ($scope, $http,indexService,$location,$filter) {
     // $scope.changedValue = function(item) {
     //     $scope.itemList.push(item.name);
     //     console.log(item)
-    // }       
+    // }
+
+    
+
+
+    
+    $scope.$on('navbarController_searchClick', function(events, data){
+        // console.log(data);
+        $scope.searchValue = [data];
+    });
+
+    // if (sessionStorage.getItem("search") != '') {
+    //     $scope.searchValue = [sessionStorage.getItem("search")];
+    // }
+    
+    $scope.productsToSee;
 
     $scope.Math = window.Math; /*for Angular use math.round()*/
     $scope.parseInt = window.parseInt; /*for Angular use math.round()*/
@@ -37,8 +52,9 @@ function ($scope, $http,indexService,$location,$filter) {
     $scope.numLimitProduct = 15;
     indexService.getAlldataProduct().then(function (data) {
         $scope.products = data;
-        
-          // console.log(data)
+            // brand_name: "Together Cafe"
+            // coup_Name: "Buy 25 ฿"
+          console.log(data)
         $scope.isReadyShow = true; 
         },function(error){ console.log(error);}
 
@@ -47,6 +63,8 @@ function ($scope, $http,indexService,$location,$filter) {
     $scope.menuFilterRowClick = function(key){
         var isBoxCheck = $scope.selectAnimationAndIsCheckBox(key);
         var numIndex = $scope.checkBoxCatagoryArr.indexOf(key);
+
+        $rootScope.$broadcast('clearForm');
         console.log(numIndex)
         if(isBoxCheck){
             $scope.checkBoxCatagoryArr.push(key);
@@ -159,7 +177,8 @@ function ($scope, $http,indexService,$location,$filter) {
             if (data =='barnd') {
                 window.location.href = 'brand/'+id;
             }
-
+            
+            sessionStorage.removeItem("search"); 
         }
     //____________________________________________________
 
@@ -440,28 +459,35 @@ return function (items, keyObj) {
         filteredData:[],
         applyFilter : function(obj,key){
             var fData = [];
-            if (this.filteredData.length == 0)
-                this.filteredData = this.data;
-            if (obj){
-                var fObj = {};
-                if (!angular.isArray(obj)){
-                    fObj[key] = obj;
-                    fData = fData.concat($filter('filter')(this.filteredData,fObj));
-                } else if (angular.isArray(obj)){
-                    if (obj.length > 0){
-                        for (var i=0;i<obj.length;i++){
-                            if (angular.isDefined(obj[i])){
-                                fObj[key] = obj[i];
-                                fData = fData.concat($filter('filter')(this.filteredData,fObj));    
-                            }
-                        }
 
+            try {
+                if (this.filteredData.length == 0)
+                    this.filteredData = this.data;
+                if (obj){
+                    var fObj = {};
+                    if (!angular.isArray(obj)){
+                        fObj[key] = obj;
+                        fData = fData.concat($filter('filter')(this.filteredData,fObj));
+                    } else if (angular.isArray(obj)){
+                        if (obj.length > 0){
+                            for (var i=0;i<obj.length;i++){
+                                if (angular.isDefined(obj[i])){
+                                    fObj[key] = obj[i];
+                                    fData = fData.concat($filter('filter')(this.filteredData,fObj));    
+                                }
+                            }
+
+                        }
+                    }
+                    if (fData.length > 0){
+                        this.filteredData = fData;
                     }
                 }
-                if (fData.length > 0){
-                    this.filteredData = fData;
-                }
             }
+            catch(err) {
+              // console.log(err)
+            }
+            
         }
     };
     if (keyObj){

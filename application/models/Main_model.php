@@ -797,6 +797,7 @@ class Main_model extends CI_Model {
 			    z.coup_Type,
 			    IFNULL(z.coup_numUse, 0) as coup_numUse,
 			    mi_brand.path_logo,
+			    mi_brand.name as brand_name,
 				mi_brand.logo_image,
 				mi_brand.category_brand
 			from

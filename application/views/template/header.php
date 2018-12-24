@@ -21,7 +21,7 @@
 	<title>MemberIn</title>
 	<link rel="icon" href="<?php echo base_url() ?>favicon.ico" type="image/ico">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/bootstrap.min.css'); ?>">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css"> -->
 
 	<!-- template from bootstrap4(freelancer) -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/magnific-popup.css'); ?>">
@@ -117,7 +117,7 @@
     <?php //view home content slider show ?>
     <script src="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.js') ?>"></script>
     <script src="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper_custom.js') ?>"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgOYYNGdJV_5X_VG1PRgFChTnekgc-6To&language=TH&region=TH&callback=initMap" async defer></script>
+
 
     <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/slick.min.js') ?>"></script> -->
     <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/custom.js') ?>"></script> -->

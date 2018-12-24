@@ -401,3 +401,4 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 <script src="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.js') ?>"></script>
 <script src="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.lang.uk.js') ?>"></script>
 <script src="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar_custom.js') ?>"></script>
+

@@ -2,6 +2,7 @@
   --color-green: #4ab2a5;
   --color-yellow: #ffb739;
   --color-red: #ed1c24;
+  --color-blueMiOld: #5AB3DC;
   --color-black: #231f20;
   --color-gray3: #f1f2f2; /*เทา อ่อน*/
   --color-gray2: #bcbec0; /*เทา กลาง*/
@@ -94,6 +95,10 @@ a:hover {
 	color:white;
 }
 
+.text-blueMiOld {
+	color:var(--color-blueMiOld)!important;
+}
+
 .text-green {
 	color:var(--color-green)!important;
 }
@@ -117,6 +122,10 @@ a:hover {
 
 .text-gray1 {
 	color:var(--color-gray1);
+}
+
+.bg-blueMiOld {
+	background-color:var(--color-blueMiOld)!important;
 }
 
 .bg-gray3 {

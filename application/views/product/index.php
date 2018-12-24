@@ -142,7 +142,11 @@
 				<!-- {{orderByStr}} -->
 				<div class="row">
 					<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
-					<div class="product col-md-6 col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{category_brand:checkBoxCatagoryArr} | orderBy:orderByStr | limitTo:numLimitProduct'>
+					<div class="product col-md-6 col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{
+							category_brand:checkBoxCatagoryArr,
+							brand_name:searchValue,
+							coup_Name:searchValue
+						} | orderBy:orderByStr | limitTo:numLimitProduct ' >
 						<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
 							<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 							<img ng-if="product.logo_image != null"
@@ -200,8 +204,8 @@
 						<div class="box-additional ml-auto px-3 py-1">
 							<div class="cursor-pointer h4 medium w-100 m-0" ng-click="additional()">เพิ่มเติม</div>
 						</div>
+
 						<!-- {{ numLimitProduct }} -->
-						<!-- {{ products.length }} -->
 					</div>
 			  	</div>
 			</div>

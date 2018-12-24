@@ -32,7 +32,22 @@
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url(); ?>">บทความ</a>
           </li>
+          <li class="nav-item mx-0 mx-lg-1"  ng-if="!isShowFormSerach" ng-click="toggleSearchUI()">
+            <div class="navbar-brand py-2 px-0 px-lg-3" >
+              <i class="fas fa-search"></i>
+            </div>
+          </li>
+          <div class="form-inline my-2 my-lg-0" ng-if="isShowFormSerach">
+            <div class="input-group navbarSearch">
+              <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon1" ng-model="searchValue" focus-me="true">
+              <div class="input-group-prepend" ng-click="setSesscionSearch(searchValue)" >
+                <span class="input-group-text" id="search-addon1" ><i class="fas fa-search"></i></span>
+              </div>
 
+            </div>
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button> -->
+          </div>
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
@@ -78,9 +93,11 @@
             </li>
           </li>
 
-
         </ul>
       </div>
     </div>
   </nav>
+  {{searchValue}}
 </div>
+
+

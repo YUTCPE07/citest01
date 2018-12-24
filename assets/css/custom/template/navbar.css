@@ -1,3 +1,30 @@
+.input-group-text {
+	color: white;
+	background-color: var(--color-blueMiOld);
+    border: unset;
+}
+
+.navbarSearch > input {
+	border-color: var(--color-blueMiOld);
+}
+
+.navbarSearch > .input-group-prepend {
+	cursor: pointer;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+} 
+
+.navbarSearch > .input-group-prepend > .input-group-text {
+	border-top-right-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+.navbarSearch > input:focus {
+    color: unset;
+    background-color: unset;
+    border-color: var(--color-blueMiOld);
+    outline: 0;
+    box-shadow: unset;
+}
 
 nav.navbar {
 	line-height: 10px;
@@ -13,6 +40,15 @@ nav.navbar {
 	width: 45px;
 }
 
+.nav-item {
+	cursor: pointer;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: unset; 
+}
+
 .dropdown-menu {
 	line-height: 1.5;
 }
+
