@@ -34,8 +34,8 @@
 		href="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.css'); ?>">
 	<link rel="stylesheet" type="text/css"
 		href="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.css'); ?>">
-	<link rel="stylesheet" type="text/css"
-		href="<?php echo base_url('assets/plugins/google-map/map.css'); ?>">
+
+
 	<!-- <link rel="stylesheet" type="text/css"
 		hrel="<?php //echo base_url('assets/plugins/angular-star-rating/star-rating.css') ?>"> -->
 
@@ -117,6 +117,7 @@
     <?php //view home content slider show ?>
     <script src="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.js') ?>"></script>
     <script src="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper_custom.js') ?>"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgOYYNGdJV_5X_VG1PRgFChTnekgc-6To&language=TH&region=TH&callback=initMap" async defer></script>
 
     <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/slick.min.js') ?>"></script> -->
     <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/custom.js') ?>"></script> -->

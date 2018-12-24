@@ -25,7 +25,7 @@
 	</div> <!-- end row -->
 	<div class="row mb-5">
 		<div class="col-md-2">
-			<img class="img-thumbnail shadow
+			<img class="img-thumbnail shadow imgBrandSize ml-auto
 				d-none d-md-block d-lg-block d-xl-block"
 				src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
 			<img class="img-thumbnail w-50 shadow rounded-circle ml-auto mr-auto mb-3
@@ -131,6 +131,12 @@
 
 		</div> <!-- end row -->
 	<?php endif?>
+
+	<div class="row mb-5">
+		<div class="col-12 col-md-6 offset-md-3">
+			<img src="<?php echo base_url() . "upload/" . $db['path_image'] . $db['image'] ?>">
+		</div>
+	</div>
 
 	<?php if (count($privileges) > 0): ?>
 		<div class="row mb-5">

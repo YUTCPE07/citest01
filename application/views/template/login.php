@@ -11,21 +11,21 @@
         <div class="close" data-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></i></div>
       </div>
       <div class="modal-body">
-        <form ng-submit="loginSubmit()">
-          <div class="form-group row pt-3">
+        <form ng-submit="loginSubmit()" class="px-4">
+          <div class="form-group row pt-3 mr-2">
             <label for="emailOrPhone" class="col-4 col-form-label text-right">อีเมลล์/เบอร์โทร</label>
             <div class="col-8 text-right">
               <!-- placeholder="อีเมลล์/เบอร์โทร" -->
               <input type="text" class="form-control input-primary" id="emailOrPhone" name="username" ng-model="loginInput.emailOrPhone" autofocus autocomplete="username">
             </div>
           </div>
-          <div class="form-group row">
+          <div class="form-group row mr-2">
             <label for="password" class="col-4 col-form-label text-right">รหัสผ่าน</label>
             <div class="col-8 text-right">
               <input type="password" class="form-control input-primary" id="password" name="password" ng-model="loginInput.password" autocomplete="current-password">
             </div>
           </div>
-          <div class="form-group row">
+          <div class="form-group row mr-2">
             <div class="col-12 text-right">
               <a class="" href=""><u>ลืมรหัสผ่าน</u></a>
             </div>

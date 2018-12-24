@@ -23,7 +23,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 	</div>
 		<div class="row">
 			<div class="col-md-2">
-				<img class="img-thumbnail shadow
+				<img class="img-thumbnail shadow imgBrandSize ml-auto
 					d-none d-md-block d-lg-block d-xl-block"
 					src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
 				<img class="img-thumbnail w-50 shadow rounded-circle ml-auto mr-auto mb-3

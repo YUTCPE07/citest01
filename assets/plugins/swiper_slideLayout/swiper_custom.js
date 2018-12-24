@@ -39,32 +39,36 @@
 	return	`
 			<div class="product productShowHome mt-4 mb-3">
 				<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
-					<img class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary bg-light" src="upload/${product.path_logo}${product.logo_image}">
-		            <img class="card-img-top" src="upload/${product.coup_ImagePath+product.coup_Image}" >
-		            <div class="text-dark" ng-click='lookup("coup",product.coup_CouponID,product.coup_Type)'>
-		          		<div class="card-title h5 bold m-1 setHeightCardHeadText ">
-		          			${product.coup_Name}
-		          		</div>
-			              <div class="row m-1">
-			              		<div class="text-right col-12 ">
-			              			<div class="d-inline h6 regular pr-2 text-gray1">
-			              				<small>
-			              					ลด ${productSellStr}%
-			              				</small>
-		              				</div>
-			              			<div class="d-inline h4 medium text-danger">
-			              				${coup_PriceStr}
-			              			</div>
-			              		</div>
-	              		</div>
-	              		<!-- <hr class="my-0 mx-3"> -->
-			            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
+					<a href="${brandLinkHref}">
+						<img class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary bg-light" src="upload/${product.path_logo}${product.logo_image}">
+	            	</a>
+	            	<a href="${productLinkHref}">
+		            	<img class="card-img-top" src="upload/${product.coup_ImagePath+product.coup_Image}" >
+		            	<div class="text-dark" ng-click='lookup("coup",product.coup_CouponID,product.coup_Type)'>
+			          		<div class="card-title h5 bold m-1 setHeightCardHeadText ">
+			          			${product.coup_Name}
+			          		</div>
+				              <div class="row m-1">
+				              		<div class="text-right col-12 ">
+				              			<div class="d-inline h6 regular pr-2 text-gray1">
+				              				<small>
+				              					ลด ${productSellStr}%
+				              				</small>
+			              				</div>
+				              			<div class="d-inline h4 medium text-danger">
+				              				${coup_PriceStr}
+				              			</div>
+				              		</div>
+		              		</div>
+		              		<!-- <hr class="my-0 mx-3"> -->
+				            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
 
-			              		<div class="col-12 text-right text-gray1">
-			              			<div class="d-inline">${product.coup_numUse}</div>
-			              		</div>
-		              	</div>
-		            </div>
+				              		<div class="col-12 text-right text-gray1">
+				              			<div class="d-inline">${product.coup_numUse}</div>
+				              		</div>
+			              	</div>
+			            </div>
+		            </a>
 		        </div>
 	        </div>`;
 

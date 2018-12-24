@@ -142,7 +142,7 @@
 				<!-- {{orderByStr}} -->
 				<div class="row">
 					<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
-					<div class="product col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{category_brand:checkBoxCatagoryArr} | orderBy:orderByStr | limitTo:numLimitProduct'>
+					<div class="product col-md-6 col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{category_brand:checkBoxCatagoryArr} | orderBy:orderByStr | limitTo:numLimitProduct'>
 						<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
 							<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 							<img ng-if="product.logo_image != null"

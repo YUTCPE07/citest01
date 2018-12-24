@@ -2,7 +2,7 @@
 <!-- <?php //echo '<pre>' ?> -->
 <!-- <?php //print_r($db)?> -->
 <!-- <?php //echo '</pre>' ?> -->
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/google-map/map.css'); ?>">
 <?php
 function setDate($string) {return date("d-m-Y", strtotime($string));}
 ?>
@@ -22,7 +22,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 	</div>
 		<div class="row">
 			<div class="col-md-2">
-				<img class="img-thumbnail shadow
+				<img class="img-thumbnail shadow imgBrandSize ml-auto
 					d-none d-md-block d-lg-block d-xl-block"
 					src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
 				<img class="img-thumbnail w-50 shadow rounded-circle ml-auto mr-auto mb-3
@@ -30,9 +30,9 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 					src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
 			</div>
 			<div class="col-md-10 w-100">
-				<div class="col-12 col-md-6">
-					<div class="col-md-12"><div class="h2 medium"><?php echo $db['coup_Name']; ?></div></div>
-					<div class="col-md-12">
+				<div class="col-12">
+					<div class="col-12"><div class="h2 medium"><?php echo $db['coup_Name']; ?></div></div>
+					<div class="col-12">
 						<div class="text-justify" ><?php echo nl2br($db['signature_info']); ?></div>
 					</div>
 
@@ -382,20 +382,19 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 		</div>
 	</div>
 </div>
-<div class="ml-auto mr-auto" id="map"></div>
-<script type="text/javascript">
-var map;
-function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
-	  center: {lat: 13.847860, lng: 100.604274},
-	  zoom: 11
-	});
-}
-</script>
-<!-- <script src="<?php echo base_url('assets/plugins/google-map/google_map.js') ?>"></script> -->
-<script  async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNcsYt2Qftv9YkWVer0pj67vvNNOSrP3I&callback=initMap">
-</script>
+<div></div>
+
+<div class="container pb-5">
+	<div class="row">
+		<div class="boxMap mx-auto">
+		  <div id="map"></div>
+		</div>
+	</div>
+</div>
+
+
+<script src="<?php echo base_url('assets/plugins/google-map/google_map.js') ?>"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgOYYNGdJV_5X_VG1PRgFChTnekgc-6To&language=TH&region=TH&callback=initMap" async defer></script>
 
 <div class="hr_footer_height"></div>
 <?php //view product user select calender ?>
