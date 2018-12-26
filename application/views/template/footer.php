@@ -83,10 +83,14 @@
             </div>
             <div class="d-flex mt-md-3 mt-3">
               <div class="footer-social2 this_link ml-auto">
+                <a href="https://www.facebook.com/MemberInApp/">
                   <img class="facebook" src="<?php echo base_url('assets/images/template/footer/fb.png'); ?>">
+                </a>
               </div>
               <div class="footer-social2 this_link ml-3 mr-auto">
+                <a href="https://www.youtube.com/channel/UCQwsfxA8-AzRLJ4NGwezqrg/videos">
                   <img class="youtube" src="<?php echo base_url('assets/images/template/footer/youtube.png'); ?>">
+                </a>
               </div>
             </div>
           </div>

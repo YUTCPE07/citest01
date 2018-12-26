@@ -10,8 +10,9 @@
 
 /* _________________on navbar________________________*/
 .dropdown-menu {
-    background-color: rgb(248, 249, 250, 0.95);
+    /*background-color: rgb(248, 249, 250, 0.95);*/
 }
+
 
 .dropdown-item.active, .dropdown-item:active {
     color: #fff;

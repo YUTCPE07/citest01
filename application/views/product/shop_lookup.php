@@ -1,7 +1,7 @@
 <!-- test shop/36 : -->
-<!-- <?php //echo '<pre>' ?> -->
-<!-- <?php //print_r($db)?> -->
-<!-- <?php //echo '</pre>' ?> -->
+<?php //echo '<pre>' ?>
+<?php //print_r($db)?>
+<?php //echo '</pre>' ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/google-map/map.css'); ?>">
 <?php
 function setDate($string) {return date("d-m-Y", strtotime($string));}
@@ -22,12 +22,14 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 	</div>
 		<div class="row">
 			<div class="col-md-2">
-				<img class="img-thumbnail shadow imgBrandSize ml-auto
+				<a href="<?php echo base_url(); ?>brand/<?php echo $db['brand_id'] ?>">
+					<img class="img-thumbnail shadow shadowHover imgBrandSize ml-auto
 					d-none d-md-block d-lg-block d-xl-block"
 					src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
-				<img class="img-thumbnail w-50 shadow rounded-circle ml-auto mr-auto mb-3
-					d-block d-md-none d-lg-none d-xl-none"
-					src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
+					<img class="img-thumbnail w-50 shadow rounded-circle ml-auto mr-auto mb-3
+						d-block d-md-none d-lg-none d-xl-none"
+						src="upload/<?php echo $db['path_logo'] . $db['logo_image'] ?>" alt="First slide">
+				</a>
 			</div>
 			<div class="col-md-10 w-100">
 				<div class="col-12">
@@ -258,7 +260,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 				<div class="row pt-3">
 					<div class="col-12 bold">ติดต่อ</div>
 					<div class="col-12 light">
-						<div class="d-inline text-gray-dark">โทร</div>
+						<!-- <div class="d-inline text-gray-dark">โทร</div> -->
 						<div class="d-inline "><?php echo $db['coup_Contact']; ?></div>
 					</div>
 				</div>

@@ -6,12 +6,12 @@ class Main_model extends CI_Model {
 
 	function echo_data() {
 		$sql = 'SELECT *
-				FROM hilight_coupon';
+				FROM mi_branch';
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		$resultsKey = array_keys($results[0]);
 		foreach ($resultsKey as $value) {
-			echo "AND hilight_coupon.$value != ' ', <br />";
+			echo "mi_branch.$value, <br />";
 		}
 		// echo '<pre>';
 		// print_r($results[0]);
@@ -329,38 +329,57 @@ class Main_model extends CI_Model {
 		// exit;
 		// test brand_id 16,18,27,28,30,39
 		$sql = "SELECT
-				    mi_brand.brand_id,
-					mi_brand.name,
-					mi_brand.name_en,
-					mi_brand.company_type,
-					mi_brand.company_name,
-					mi_brand.slogan,
-					mi_brand.category_brand,
-					mi_brand.type_brand,
-					mi_brand.phone,
-					mi_brand.mobile,
-					mi_brand.fax,
-					mi_brand.email,
-					mi_brand.website,
-					mi_brand.facebook_url,
-					mi_brand.line_type,
-					mi_brand.line_id,
-					mi_brand.instragram,
-					mi_brand.tweeter,
-					mi_brand.logo_image,
-					mi_brand.cover,
-					mi_brand.path_logo,
-					mi_brand.path_cover,
-					mi_brand.signature_info,
-					mi_brand.date_create,
-					mi_brand.date_update
+					mi_brand.brand_id,
+				    mi_brand.name,
+				    mi_brand.name_en,
+				    mi_brand.company_type,
+				    mi_brand.company_name,
+				    mi_brand.slogan,
+				    mi_brand.category_brand,
+				    mi_brand.type_brand,
+				    mi_brand.phone,
+				    mi_brand.mobile,
+				    mi_brand.fax,
+				    mi_brand.email,
+				    mi_brand.website,
+				    mi_brand.facebook_url,
+				    mi_brand.line_type,
+				    mi_brand.line_id,
+				    mi_brand.instragram,
+				    mi_brand.tweeter,
+				    mi_brand.logo_image,
+				    mi_brand.cover,
+				    mi_brand.path_logo,
+				    mi_brand.path_cover,
+				    mi_brand.signature_info,
+				    mi_brand.date_create,
+				    mi_brand.date_update,
+				    mi_branch.name As mi_branch_name,
+				    mi_branch.map_latitude,
+				    mi_branch.map_longitude,
+				    mi_branch.address_no,
+				    mi_branch.moo,
+				    mi_branch.junction,
+				    mi_branch.soi,
+				    mi_branch.road,
+				    mi_branch.sub_district,
+				    mi_branch.district,
+				    mi_branch.sub_district_id,
+				    mi_branch.district_id,
+				    mi_branch.province_id,
+				    mi_branch.region_id,
+				    mi_branch.country_id,
+				    mi_branch.postcode
 				FROM
-				    mi_brand
+				    mi_brand ,
+				    mi_branch
 				WHERE
-				    mi_brand.flag_status = 1 AND
-				    mi_brand.flag_del = 0 AND
-				    mi_brand.flag_hidden = 'No' AND
-				    mi_brand.brand_id = $brand_id ";
+					mi_brand.flag_status = 1
+					AND mi_brand.flag_del = 0
+					AND mi_brand.flag_hidden = 'No'
+					AND mi_brand.brand_id = $brand_id
+				    AND mi_brand.brand_id = mi_branch.brand_id
+					AND mi_branch.default_status = 1";
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;
@@ -468,7 +487,9 @@ class Main_model extends CI_Model {
 			    	mi_category_brand ON mi_category_brand.category_brand_id = i.category_brand
 				WHERE
 					i.brand_name LIKE '%{$searchStr}%' OR
-			    	i.coup_Name LIKE '%{$searchStr}%' ORDER BY coup_UpdatedDate DESC";
+			    	i.coup_Name LIKE '%{$searchStr}%' OR
+			    	mi_category_brand.name LIKE '%{$searchStr}%'
+			    	ORDER BY coup_UpdatedDate DESC";
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;

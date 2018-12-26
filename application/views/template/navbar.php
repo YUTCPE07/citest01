@@ -19,15 +19,20 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mr-auto">
           <li uib-dropdown on-toggle="toggled(open)">
+            <div class="dropdown-menu shadow" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <a class="dropdown-item" href="<?php echo base_url(); ?>product">ALL</a>
+                <div ng-repeat="catrogy in catrogy_barnd" >
+                  <a class="dropdown-item" href="<?php echo base_url(); ?>product?search={{catrogy.category_name}}">{{catrogy.category_name}}</a>
+                </div>
+            </div>
+
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href id="simple-dropdown" uib-dropdown-toggle>
               หมวดหมู่
             </a>
-            <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <a class="dropdown-item" href="<?php echo base_url(); ?>product">ALL</a>
-                <div ng-repeat="catrogy in catrogy_barnd" >
-                  <a class="dropdown-item" href="<?php echo base_url(); ?>product?ptype={{catrogy.category_brand}}&page=1">{{catrogy.category_name}}</a>
-                </div>
-            </div>
+
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url(); ?>brand">แบรนด์</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url(); ?>">บทความ</a>
@@ -39,7 +44,7 @@
           </li>
           <div class="form-inline my-2 my-lg-0" ng-if="isShowFormSerach">
             <div class="input-group navbarSearch">
-              <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon1" ng-model="navbarInput.searchValue" focus-me="true" ng-keydown="keydownEnter($event)">
+              <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Search" aria-describedby="search-addon1" ng-model="navbarInput.searchValue" focus-me="true" ng-keydown="keydownEnter($event)">
               <!-- <input type="text" ng-model="navbarInput.searchValue" > -->
               <div class="input-group-prepend" ng-click="setUrlSearch()" >
                 <span class="input-group-text" id="search-addon1" ><i class="fas fa-search"></i></span>
@@ -48,7 +53,7 @@
           </div>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
+          <!-- <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('pay'); ?>">Pay</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
@@ -56,7 +61,7 @@
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url('brand'); ?>">Brand</a>
-          </li>
+          </li> -->
          <!--  <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="about">About</a>
           </li> -->
@@ -80,7 +85,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-green" href id="dropdown-user" uib-dropdown-toggle>
                 {{user.name}}
               </a>
-              <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown-user">
+              <div class="dropdown-menu shadow" uib-dropdown-menu aria-labelledby="dropdown-user">
                   <a class="dropdown-item" href="<?php echo base_url(); ?>store">รายการสิทธิ์ของฉัน</a>
                   <a class="dropdown-item" href="<?php echo base_url(); ?>store">ประวัติการใช้สิทธิ์</a>
                   <a class="dropdown-item" href="<?php echo base_url(); ?>profile">ข้อมูลส่วนตัว</a>

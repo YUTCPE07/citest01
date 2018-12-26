@@ -24,9 +24,15 @@
 		}else{
 			coup_PriceStr = `${productObj.coup_Price} ฿`;
 		}
-		var productSellStr = Math.round(((productObj.coup_Cost - productObj.coup_Price)/productObj.coup_Cost)*100);
 
-
+		var productSellStr;
+		if (productObj.coup_Cost == 0) {
+			productSellStr = ' ';
+		}else{
+			productSellStr = 'ลด ' + Math.round(((productObj.coup_Cost - productObj.coup_Price)/productObj.coup_Cost)*100) + '%';
+		}
+		
+// debugger
 
 // <div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div>
 // 		              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
@@ -52,7 +58,7 @@
 				              		<div class="text-right col-12 ">
 				              			<div class="d-inline h6 regular pr-2 text-gray1">
 				              				<small>
-				              					ลด ${productSellStr}%
+				              					${productSellStr}
 				              				</small>
 			              				</div>
 				              			<div class="d-inline h4 medium text-danger">
