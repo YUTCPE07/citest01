@@ -39,14 +39,12 @@
           </li>
           <div class="form-inline my-2 my-lg-0" ng-if="isShowFormSerach">
             <div class="input-group navbarSearch">
-              <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon1" ng-model="searchValue" focus-me="true">
-              <div class="input-group-prepend" ng-click="setSesscionSearch(searchValue)" >
+              <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon1" ng-model="navbarInput.searchValue" focus-me="true" ng-keydown="keydownEnter($event)">
+              <!-- <input type="text" ng-model="navbarInput.searchValue" > -->
+              <div class="input-group-prepend" ng-click="setUrlSearch()" >
                 <span class="input-group-text" id="search-addon1" ><i class="fas fa-search"></i></span>
               </div>
-
             </div>
-            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button> -->
           </div>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -97,7 +95,7 @@
       </div>
     </div>
   </nav>
-  {{searchValue}}
+
 </div>
 
 

@@ -65,18 +65,14 @@ app.factory('indexService', function ($q, $http) {
     };
 });
 
-
-
-// app.service('indexService', function($http){
-
-// 	this.loginService =function(data) {
-// 		var formData = data;
-// 		var promise = $http({
-// 			method: 'POST',
-// 			url: baseurl + 'api-facebook-login',
-// 			data: formData
-// 		});
-// 		console.log('ssss')
-// 		return promise;
-// 	}
-// });
+app.factory('svc', function () {
+    var isShowFormSerach;
+    return {
+        setIsShowFormSerach: function(x) {
+            isShowFormSerach = x;
+        },
+        getIsShowFormSerach: function() {
+            return isShowFormSerach;
+        }
+    };
+});

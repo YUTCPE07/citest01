@@ -2,25 +2,41 @@
 app.controller('productController', ['$scope','$rootScope', '$http','indexService','$location','$filter', 
 function ($scope,$rootScope, $http,indexService,$location,$filter) {
 
-    // bran_BrandID: 29
-    // category_brand: 7
-    // coup_Cost: 100
-    // coup_CouponID: 36
+    // $$hashKey: "object:45"
+    // bran_BrandID: "29"
+    // brand_name: "Together Cafe"
+    // category_brand: "7"
+    // category_brand_name: "Knowledge"
+    // coup_Cost: "100.00"
+    // coup_CouponID: "36"
     // coup_Description: "TEST Buy Coupon"
     // coup_Image: "coupon_20180202_130921.png"
     // coup_ImagePath: "29/earn_attention_upload/"
     // coup_Name: "Buy 25 ฿"
-    // coup_Price: 25
+    // coup_Price: "25.00"
     // coup_Type: "Buy"
     // coup_UpdatedDate: "2018-11-19 10:05:42"
-    // coup_numUse: 0
+    // coup_numUse: "0"
     // logo_image: "logo_20161031_134140.jpg"
     // path_logo: "29/logo_upload/"
 
     // $scope.itemList = [];
+    $scope.init = function(){
+        var parameterSearch = $scope.getParameterBy('search');
+        if(parameterSearch != null){
+            $scope.getProductsByValue(parameterSearch);
+            
+        }else{
+            $scope.getProductsByValue(''); /*get all data product*/
+        }
+    }
 
-   
-
+    $scope.getParameterBy = function(paramiterUrl) {
+        var url_string = window.location.href; /*"http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"*/
+        var url = new URL(url_string);
+        var paramiterValue = url.searchParams.get(paramiterUrl);
+        return paramiterValue;
+    }
     
 
     // $scope.hostSelected = $scope.options[0];
@@ -35,8 +51,9 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
 
     
     $scope.$on('navbarController_searchClick', function(events, data){
-        // console.log(data);
-        $scope.searchValue = [data];
+        console.log(data);
+        window.location.href += '?search='+data; 
+        // $scope.getProductsByValue(data);
     });
 
     // if (sessionStorage.getItem("search") != '') {
@@ -49,23 +66,66 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
     $scope.parseInt = window.parseInt; /*for Angular use math.round()*/
     // console.log(window.location.pathname)
     $scope.checkBoxCatagoryArr = [];
-    $scope.numLimitProduct = 15;
-    indexService.getAlldataProduct().then(function (data) {
-        $scope.products = data;
-            // brand_name: "Together Cafe"
-            // coup_Name: "Buy 25 ฿"
-          console.log(data)
-        $scope.isReadyShow = true; 
-        },function(error){ console.log(error);}
+    let numLimitProduct = 12;
+    $scope.numLimitProduct = numLimitProduct;
 
-    );
+
+    $scope.getProductsByValue = function(value) {
+        $scope.isReadyShow = false; 
+        $scope.isLoading = true;
+        
+        indexService.getSearchresultPost(baseurl + "Product/Product/getProductsByValue",value)
+        .then(function(respone){
+            var data = respone.data;
+            // console.log(data) /*data real*/
+            $scope.products = data;
+            $scope.catrogy_barnd = data;
+            $scope.isReadyShow = true; 
+            $scope.isLoading = false;
+            $scope.numProductLimitNow = data.length;
+        }, function(error){
+            console.log("Some Error Occured", error);
+        });
+    } 
     
-    $scope.menuFilterRowClick = function(key){
+
+    // indexService.getAlldataProduct().then(function (data) {
+    //     // $scope.products = data;
+    //     $scope.products = data;
+    //     $scope.catrogy_barnd = data;
+    //       // console.log(data)
+    //     $scope.isReadyShow = true; 
+    //     $scope.isLoading = false;
+    //     },function(error){ console.log(error);}
+
+    // );
+    // var a = [1,2,3,1];
+    // var sum = a.reduce(function(a, b) { return a + b; }, 0);
+    // console.log(sum)
+    $scope.setNumProductLimitNow = function(isBoxCheck,numProductByKey){
+        if (isBoxCheck && $scope.numProductLimitNow === $scope.products.length) { /*onniit user see productlimit = all num product*/
+            $scope.numProductLimitNow = numProductByKey;            /*when user first clik filter productlimit = numProductByKey*/
+        }else if(isBoxCheck && $scope.numProductLimitNow != $scope.products.length){
+            $scope.numProductLimitNow+= numProductByKey;
+        }else if (!isBoxCheck){
+            $scope.numProductLimitNow-= numProductByKey;
+            if ($scope.numProductLimitNow === 0) {
+                $scope.numProductLimitNow = $scope.products.length;
+            }
+        }
+    }
+
+    $scope.menuFilterRowClick = function(key,numProductByKey){
+
         var isBoxCheck = $scope.selectAnimationAndIsCheckBox(key);
         var numIndex = $scope.checkBoxCatagoryArr.indexOf(key);
+        $scope.numLimitProduct = numLimitProduct;
+        $scope.setNumProductLimitNow(isBoxCheck,numProductByKey);
+
+        // debugger        
 
         $rootScope.$broadcast('clearForm');
-        console.log(numIndex)
+        // console.log(numIndex)
         if(isBoxCheck){
             $scope.checkBoxCatagoryArr.push(key);
             // $scope.checkBoxCatagoryArr['pick'] = key;
@@ -73,7 +133,9 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
             $scope.checkBoxCatagoryArr.splice(numIndex, 1); /*remove arr form indexof splice(#position, #numPositionForDel)*/
             // $scope.checkBoxObj['pick'] = false;
         }
-        console.log($scope.checkBoxCatagoryArr)
+        // console.log($scope.checkBoxCatagoryArr)
+
+       
     }
    
     $scope.selectAnimationAndIsCheckBox = function (key) {
@@ -85,14 +147,14 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
             //<i class="far fa-square"></i> //unCheck
             //<i class="fas fa-square"></i> //Check
         if(boxIsCheck){ 
-            console.log('true')
+            // console.log('true')
             // jqueryCheckbok.toggleClass("fas far");
             jqueryCheckbok.get()['0'].dataset.prefix = "far"
             jqueryRow.removeClass('text-green');
             // jqueryRow.removeClass('bg-green text-white');
             return false;
         }else{
-            console.log('false')
+            // console.log('false')
              // jqueryCheckbok.toggleClass("far fas");
             jqueryCheckbok.get()['0'].dataset.prefix = "fas"
             jqueryRow.addClass('text-green');
@@ -103,7 +165,7 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
 
 
     $scope.additional = function() {
-        $scope.numLimitProduct += $scope.numLimitProduct;
+        $scope.numLimitProduct += numLimitProduct;
     }
 
 
@@ -122,7 +184,7 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
     ];
 
     $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-        console.log(e)
+        // console.log(e)
         // this.orderByStr = $(this).val();
 
     });
@@ -130,7 +192,7 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
 
     $scope.selectOderBy = function () {
         // $scope.orderByStr = key;
-        console.log($scope.myOption)
+        // console.log($scope.myOption)
         // $scope.showBtnMoreToLessAge = !$scope.showBtnMoreToLessAge;
         // $scope.showBtnMoreToLessSeq = !$scope.showBtnMoreToLessSeq;
     } 
@@ -234,6 +296,7 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
             // console.log(data);
             //ex 0:{coup_CouponID: "137" ,hico_HilightCouponID: "MBB019846"}
             $scope.coupon_trans = data;
+
             // createRating(data);
 
         },function(error){ 
@@ -356,12 +419,12 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
     // menu checkbox fillter 
     //____________________________________________________
         
-        indexService.getdata_Catrogy_barnd().then(function (data) {
-            // console.log(data,'catrogy_barnd')
-            $scope.catrogy_barnd = data;
-            // $scope.selectFiterFormNavbar(data);
+        // indexService.getdata_Catrogy_barnd().then(function (data) {
+        //     // console.log(data,'catrogy_barnd')
+        //     $scope.catrogy_barnd = data;
+        //     // $scope.selectFiterFormNavbar(data);
 
-        });
+        // });
     // ____________________________________________________
 
 

@@ -37,6 +37,16 @@ class Product extends CI_Controller {
 	}
 
 	// Call this method from AngularJS $http request
+	public function getProductsByValue() {
+		$postdata = file_get_contents("php://input");
+		// $searchStr = json_decode($postdata);
+		// $data = $this->Main_model->shop_lookup($p_id);
+		// echo json_encode($data);
+		$data = $this->Main_model->getProductsByValue($postdata);
+		// echo json_encode($data);
+		echo json_encode($data);
+	}
+
 	public function getAlldataProduct() {
 		// echo '222';
 		// get data

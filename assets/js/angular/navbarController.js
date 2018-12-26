@@ -13,45 +13,67 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
 			return false;
 		}
 	}
-	$scope.isShowFormSerach = $scope.isPageProduct();
+
+	$scope.getParameterBy = function(paramiterUrl) {
+        var url_string = window.location.href; /*"http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"*/
+        var url = new URL(url_string);
+        var paramiterValue = url.searchParams.get(paramiterUrl);
+        return paramiterValue;
+    }
+
+
+	// $scope.isShowFormSerach = $scope.isPageProduct();
 
 	$scope.toggleSearchUI = function() {
-		// $scope.isShowFormSerach = !$scope.isShowFormSerach;
-		if ($scope.isPageProduct()) {
+		
+		$scope.isShowFormSerach = !$scope.isShowFormSerach;
+		// if ($scope.isPageProduct()) {
 
-			// console.log('product page')
-		}else{
+		// 	// console.log('product page')
+		// }else{
 
-			window.location.href = baseurl + "product";
-			// console.log('other page')
-		}	
+		// 	window.location.href = baseurl + "product";
+		// 	// console.log('other page')
+		// }	
 	}
 
-
+	$scope.keydownEnter = function(event) {
+		console.log('enter')
+		if (event.key === "Enter") {
+			var inputSearchValue = event.target.value;
+			$scope.setUrlSearch(); 
+			// $scope.setSesscionSearch(inputSearchValue);
+		}
+	}
 
 	var jquerySearch = $('.navbarSearch > input');
 	$scope.$on("clearForm", function() {
 	   // $scope.searchValue = ''; 
-	   console.log("clearForm")
-	   console.log($scope)
+	   // console.log("clearForm")
+	   // console.log($scope)
 	});
+
+	$scope.navbarInput = {};
+	$scope.setUrlSearch = function() {
+		var value = $scope.navbarInput.searchValue;
+		window.location.href = baseurl + "product?search=" + value;
+	}
 
 	$scope.setSesscionSearch = function(value) {
 		$rootScope.$broadcast('navbarController_searchClick', value);
-
-	// 	// var searchValue = jquerySearch.val().trim();
-	// 	// $scope.searchValue = value;
-	// 	var url_string = window.location.href; 
-	// 	// console.log($scope.searchValue,value) 
-	// 	// console.log(searchValue.length) 
-	// 	// console.log(baseurl) 
-	// 	sessionStorage.setItem("search", value.trim());
-	// 	// console.log(url_string)
-	// 	// console.log(baseurl)
-	// 	if (url_string != (baseurl + "product")) {
-	// 		window.location.href = baseurl + "product";
-	// 	}else{
-	// 		$scope.isShowFormSerach = true;
+		// 	// var searchValue = jquerySearch.val().trim();
+		// 	// $scope.searchValue = value;
+		// 	var url_string = window.location.href; 
+		// 	// console.log($scope.searchValue,value) 
+		// 	// console.log(searchValue.length) 
+		// 	// console.log(baseurl) 
+		// 	sessionStorage.setItem("search", value.trim());
+		// 	// console.log(url_string)
+		// 	// console.log(baseurl)
+		// 	if (url_string != (baseurl + "product")) {
+		// 		window.location.href = baseurl + "product";
+		// 	}else{
+		// 		$scope.isShowFormSerach = true;
 	}
 
 	// }
@@ -88,7 +110,13 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
             $scope.catrogy_barnd = data;
         });
 
-		
+		var parameterSearch = $scope.getParameterBy('search');
+        if(parameterSearch != null){
+			$scope.isShowFormSerach = true;
+            $scope.navbarInput.searchValue = parameterSearch;
+        }else{
+           	$scope.isShowFormSerach = false;
+        }
 
 	}
 

@@ -1,52 +1,13 @@
 
 
-<div ng-controller='productController' class="pb-5" >
-<!-- {{myVar}}
-<button ng-click="buttonClicked()">sssssssss</button> -->
-	<?php //menu filter product type for mobile ?>
-		<div class="modal fade" id="product_filter_left_mobile"  tabindex="-1" role="dialog" aria-labelledby="product_filter_left_mobile_title" aria-hidden="true">
-		<!-- <div class="" id="product_filter_left_mobile"  tabindex="-1" role="dialog" aria-labelledby="product_filter_left_mobile_title" aria-hidden="true"> -->
-			<div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			        <div class="modal-header">
-				        <div class="modal-title h4" id="product_filter_left_mobile_title">คัดกรอง</div>
-				        <div class="modal-title h4 text-danger" data-dismiss="modal"><i class="far fa-times-circle"></i></div>
-			        </div>
-			        <div class="modal-body">
-	        			<div class="row">
-	        				<div class="col-6"><strong>หมวดหมู่</strong></div>
-	        				<div class="col-6 text-right">[ทั้งหมด]</div>
-	        			</div>
-	        			<div ng-repeat="(key,value) in products|groupBy:'category_brand'">
-	        				<div class="row" >
-	        					<div class="col-8">
-	        						<div class="form-check">
-									  <input class="form-check-input" type="checkbox"
-									  		ng-model="confirmed" ng-change="checkBoxProductType(this)"
-									  		>
-									  <label class="form-check-label">{{ catrogy_barnd[key-1].category_name }}</label>
-									</div>
-	        					</div>
-	        					<div class="col-4 text-right">
-	        						<p>{{ value.length }}</p>
-									<p>{{ checkbox[key] }}</p>
-	        					</div>
-	        				</div>
-	        			</div>
-			        </div>
-			        <div class="modal-footer">
-				        <button type="button" class="btn btn-danger bg-danger text-white" data-dismiss="modal">
-				        	<div class="medium">Close</div>
-				    	</button>
-			        </div>
-			    </div>
-		  	</div>
-		</div>
-	<?php //end menu filter product type for mobile ?>
+<div ng-controller='productController' class="pb-5" ng-init="init()">
+	<!-- {{myVar}}
+	<button ng-click="buttonClicked()">sssssssss</button> -->
 
-<!-- <div ng-show="expression">LONDING...</div> layoutProductOff-->
+
+	<!-- <div ng-show="expression">LONDING...</div> layoutProductOff-->
 	<div class="container layoutOff pt-3" ng-class="{layoutOn:isReadyShow}">
-	<!-- <div class="container">  -->
+		<!-- <div class="container">  -->
 		<?php //select menu top right ?>
 
 
@@ -97,7 +58,7 @@
 			  </div> -->
 		</div>
 
-		<div class="row">
+		<div class="row" ng-if="catrogy_barnd.length > 0">
 			<?php //layout 1 ?>
 			<div class="col-lg-3 d-none d-lg-block ">
 				<?php //menu ?>
@@ -111,27 +72,25 @@
 						</div>
 						<?php //ng-repeat="(key, value) in players | groupBy: 'team'" ?>
 
-						<div class="productMenuHover" ng-repeat="barndType in catrogy_barnd" ng-click="menuFilterRowClick(barndType.category_brand);" name="productRow{{barndType.category_brand}}"  my-repeat-directive>
+						<div class="productMenuHover" ng-repeat="(key, value) in catrogy_barnd | orderBy:'category_brand_name' | groupBy: 'category_brand_name' " ng-click="menuFilterRowClick(value[0].category_brand,value.length);" name="productRow{{value[0].category_brand}}" >
+							<!-- {{key }}{{value.length }} -->
 							<div class="d-flex justify-content-between px-2" >
 								<div class="text-gray1">
 									<div class="d-inline">
-										<i class="far fa-square" name="productCheckbox{{barndType.category_brand}}"></i>
+										<i class="far fa-square" name="productCheckbox{{value[0].category_brand}}"></i>
 									</div>
-								  	<!-- <input class="form-check-input" type="checkbox" name="productCheckbox{{key}}"
-								  		ng-model="confirmed" ng-change="menuFilterRowClick(this.key)"
-								  		> -->
-								  		<!-- {{barndType.category_brand}} -->
-								  	<div class="d-inline"> {{ barndType.category_name }}</div>
+
+								  	<div class="d-inline"> {{ key }}</div>
 								</div>
 								<div class="text-gray2">
-									<p>{{ barndType.product_category_length }}</p>
-									<!-- <p>{{ checkbox[key] }}</p> -->
+									<p>{{ value.length }}</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div> <?php //end row  ?>
 			</div>
+
 
 			<!-- test on 17,117 -->
 			<!-- {{ createRating("117",coupon_trans | filter : { coup_CouponID: "117", hico_Rating: "!0"} : true) }} -->
@@ -143,9 +102,7 @@
 				<div class="row">
 					<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
 					<div class="product col-md-6 col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{
-							category_brand:checkBoxCatagoryArr,
-							brand_name:searchValue,
-							coup_Name:searchValue
+							category_brand:checkBoxCatagoryArr
 						} | orderBy:orderByStr | limitTo:numLimitProduct ' >
 						<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
 							<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
@@ -160,59 +117,85 @@
 				          		<div class="card-title h5 bold m-1 setHeightCardHeadText ">
 				          			{{product.coup_Name}}
 				          		</div>
-					              <div class="row m-1">
-					              		<div class="text-right col-12 ">
-					              			<div class="d-inline h6 regular pr-2 text-gray1">
-					              					<!-- {{product.coup_Cost}} -->
-					              					<!-- {{product.coup_Price}} -->
-					              				<small ng-if="parseInt(product.coup_Cost)>0">
-					              					ลด
-					              					{{  Math.round(((product.coup_Cost - product.coup_Price)/product.coup_Cost)*100)  }}
-					              					%
-					              				</small>
-					              				<!-- <small ng-if="parseInt(product.coup_Cost)==0">ฟรี</small> -->
-				              				</div>
-					              			<div class="d-inline h4 medium text-danger"
-					              				ng-if="parseInt(product.coup_Cost)>0">{{ product.coup_Price|number:0}}฿
-					              			</div>
-					              			<div class="d-inline h4 medium text-danger"
-					              				ng-if="parseInt(product.coup_Cost)==0"> ฟรี!
-					              			</div>
-					              		</div>
-			              		</div>
-			              		<!-- <hr class="my-0 mx-3"> -->
+					            <div class="row m-1">
+				              		<div class="text-right col-12 ">
+				              			<div class="d-inline h6 regular pr-2 text-gray1">
+				              					<!-- {{product.coup_Cost}} -->
+				              					<!-- {{product.coup_Price}} -->
+				              				<small ng-if="parseInt(product.coup_Cost)>0">
+				              					ลด
+				              					{{  Math.round(((product.coup_Cost - product.coup_Price)/product.coup_Cost)*100)  }}
+				              					%
+				              				</small>
+				              				<!-- <small ng-if="parseInt(product.coup_Cost)==0">ฟรี</small> -->
+			              				</div>
+				              			<div class="d-inline h4 medium text-danger"
+				              				ng-if="parseInt(product.coup_Cost)>0">{{ product.coup_Price|number:0}}฿
+				              			</div>
+				              			<div class="d-inline h4 medium text-danger"
+				              				ng-if="parseInt(product.coup_Cost)==0"> ฟรี!
+				              			</div>
+				              		</div>
+		              			</div>
+			              			<!-- <hr class="my-0 mx-3"> -->
 					            <div class="row m-1 mt-2" style="font-size: 0.3rem;">
-
-					              		<div class="col-12 text-right text-gray1">
-					              			<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div>
-					              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
-					              			<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div>
-					              			<div class="d-inline">
-					              				{{product.coup_numUse}}
-					              				<!-- {{ (coupon_trans | filter : { coup_CouponID: product.coup_CouponID } : true).length }} -->
-					              			</div>
-					              			<!-- <div >{{ rating(ratingDB,product.coup_CouponID,product.coup_Type)}}</div> -->
-					              		</div>
-					              			<!-- rating(ratingDB,117,'Use') -->
+				              		<div class="col-12 text-right text-gray1">
+				              			<div class="d-inline" ng-if="product.coup_Type == 'Buy'">ขายเเล้ว</div>
+				              			<div class="d-inline" ng-if="product.coup_Type == 'Member'">สมัครเเล้ว</div>
+				              			<div class="d-inline" ng-if="product.coup_Type == 'Use'">ใช้เเล้ว</div>
+				              			<div class="d-inline">
+				              				{{product.coup_numUse}}
+				              				<!-- {{ (coupon_trans | filter : { coup_CouponID: product.coup_CouponID } : true).length }} -->
+				              			</div>
+				              			<!-- <div >{{ rating(ratingDB,product.coup_CouponID,product.coup_Type)}}</div> -->
+				              		</div>
+				              		<!-- rating(ratingDB,117,'Use') -->
 				              	</div>
 				            </div>
 				            <!-- </a> -->
 				        </div>
 				  	</div>
-					</div>
-					<div class="row mb-5 p-3 text-right" ng-if="numLimitProduct < products.length">
-						<div class="box-additional ml-auto px-3 py-1">
-							<div class="cursor-pointer h4 medium w-100 m-0" ng-click="additional()">เพิ่มเติม</div>
-						</div>
+				</div>
+				<!-- {{numLimitProduct}}|{{numProductLimitNow}}<br> -->
 
-						<!-- {{ numLimitProduct }} -->
+				<div class="row mb-5 p-3 text-right" ng-if="numLimitProduct < numProductLimitNow">
+					<div class="box-additional ml-auto px-3 py-1">
+						<div class="cursor-pointer h4 medium w-100 m-0" ng-click="additional()">เพิ่มเติม</div>
 					</div>
-			  	</div>
+
+					<!-- {{ numLimitProduct }} -->
+				</div>
+		  	</div>
+		</div>
+	</div>
+
+	<div class="container" ng-init="isLoading = true">
+		<div class="row" ng-if="isLoading" >
+			<div class="col-12 text-center">
+				<div class="d-inline">
+					<div class="mb-5">
+						<div class="fa-3x">
+							<i class="fas fa-spinner fa-pulse"></i>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
-
+	<div class="container">
+		<div class="row" ng-if="products.length == 0" >
+			<div class="col-12 text-center mb-4">
+				<div class="d-inline ">
+					<div class="h3">ไม่พบสิ่งที่คุณหา</div>
+					<i class="fas fa-search h3"></i>
+				</div>
+				<div class="py-3">
+					<button onclick="history.go(-1)" class="btn btn-lg btn-primary">ย้อนกลับ</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 </div> <!-- end ProductController -->
