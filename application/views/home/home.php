@@ -11,14 +11,24 @@
           <img class="d-block w-100" src="assets/images/home/slide_head (1).jpeg" alt="First slide">
         </div >-->
         <div class="carousel-item img-head active">
-          <img class="d-block w-100" src="assets/images/home/slide_head_custom(16-7)_01.jpg" alt="First slide">
+          <picture>
+            <source media="(min-width: 768px)" srcset="assets/images/home/slide_head_custom_01.jpg">
+            <img class="d-block w-100" src="assets/images/home/slide_head_custom(4-3)_01.jpg" alt="First slide">
+          </picture>
         </div>
-        <div class="carousel-item img-head">
-          <img class="d-block w-100" src="assets/images/home/slide_head_custom(16-7)_02.jpg" alt="Second slide">
+        <div class="carousel-item img-head ">
+          <picture>
+            <source media="(min-width: 768px)" srcset="assets/images/home/slide_head_custom_02.jpg">
+            <img class="d-block w-100" src="assets/images/home/slide_head_custom(4-3)_02.jpg" alt="First slide">
+          </picture>
         </div>
-        <div class="carousel-item img-head">
-          <img class="d-block w-100" src="assets/images/home/slide_head_custom(16-7)_03.jpg" alt="Third slide">
+        <div class="carousel-item img-head ">
+          <picture>
+            <source media="(min-width: 768px)" srcset="assets/images/home/slide_head_custom_03.jpg">
+            <img class="d-block w-100" src="assets/images/home/slide_head_custom(4-3)_03.jpg" alt="First slide">
+          </picture>
         </div>
+
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

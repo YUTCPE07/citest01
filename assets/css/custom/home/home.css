@@ -1,10 +1,24 @@
 
-/*main -----------------------------------*/
-	
+/*header -----------------------------------*/
+	/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { 
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+
+}
 /*---------------------------------------------------*/
 
 
 /*slider product -----------------------------------*/
+
 	.swiper-container {
       width: 100%;
     }
@@ -26,16 +40,24 @@
 /*---------------------------------------------------*/
 
 /*product item -----------------------------------*/
-	
+		
+
 	#menuResponetive {
 		display: block !important;
+		height: 600px;
+
 	}
 
 	.img-head {
-		/*max-height: 500px;*/
+		/*height: 40%;*/
+		/*width: 100%;*/
+		/*display: block;*/
 	}
 
 	.img-head > img {
+		/*max-width: 500px;*/
+		/*width: 1234px;*/
+    	/*height: 446px;*/
 		/*height: 100%;	*/
 	}
 
