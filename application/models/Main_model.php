@@ -307,22 +307,25 @@ class Main_model extends CI_Model {
 		// echo $results;
 		// return $results;
 		return $results;
-	}
+	} /*dashboard controller*/
 
 	function getAllDataBrand() {
 		$sql = "SELECT
 				    b.brand_id, b.name, b.path_logo, b.logo_image, b.date_update
 				FROM
-				    mi_brand b
+				    mi_brand b,
+				    mi_branch bch
 				WHERE
-				    b.flag_status = 1 AND
-				    b.flag_del = 0 AND
-				    b.flag_hidden = 'No'
+				    b.flag_status = 1
+					AND b.flag_del = 0
+					AND b.flag_hidden = 'No'
+				    AND b.brand_id = bch.brand_id
+					AND bch.default_status = 1
 				ORDER BY b.date_update DESC";
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;
-	}
+	} /*dashboard controller*/
 
 	function getLookupBrand($brand_id) {
 		// echo $brand_id;
@@ -1010,14 +1013,6 @@ class Main_model extends CI_Model {
 		return $results;
 	}
 
-	function get_hilight_coupon_trans() {
-		/*test coupon_Id = 137 Ans 14*/
-		$sql = 'SELECT hico_HilightCouponID,coup_CouponID,hico_Rating FROM hilight_coupon_trans WHERE hico_Deleted != "T" ';
-		$q = $this->db->query($sql);
-		$results = $q->result_array();
-		return $results;
-	}
-
 	function get_product_limit($limit) {
 		/*test coupon_Id = 137 Ans 14*/
 		// echo $limit;exit;
@@ -1095,13 +1090,6 @@ class Main_model extends CI_Model {
 				LEFT JOIN mi_brand ON z.bran_BrandID = mi_brand.brand_id
 				WHERE mi_brand.flag_status = 1 AND mi_brand.flag_del = 0 AND mi_brand.flag_hidden = "No"
 				ORDER BY coup_UpdatedDate DESC LIMIT ' . $limit;
-		$q = $this->db->query($sql);
-		$results = $q->result_array();
-		return $results;
-	}
-
-	function get_rating() {
-		$sql = 'SELECT coup_CouponID, COUNT(hico_Rating) as coup_count, SUM(hico_Rating) as coup_sum FROM hilight_coupon_trans WHERE hico_Rating != "0" GROUP BY coup_CouponID';
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;
@@ -1216,4 +1204,18 @@ class Main_model extends CI_Model {
 		return $results;
 	}
 
+	// function get_rating() {
+	// 	$sql = 'SELECT coup_CouponID, COUNT(hico_Rating) as coup_count, SUM(hico_Rating) as coup_sum FROM hilight_coupon_trans WHERE hico_Rating != "0" GROUP BY coup_CouponID';
+	// 	$q = $this->db->query($sql);
+	// 	$results = $q->result_array();
+	// 	return $results;
+	// }
+
+	// function get_hilight_coupon_trans() {
+	// 	/*test coupon_Id = 137 Ans 14*/
+	// 	$sql = 'SELECT hico_HilightCouponID,coup_CouponID,hico_Rating FROM hilight_coupon_trans WHERE hico_Deleted != "T" ';
+	// 	$q = $this->db->query($sql);
+	// 	$results = $q->result_array();
+	// 	return $results;
+	// }
 }

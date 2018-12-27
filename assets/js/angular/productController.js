@@ -292,16 +292,16 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
         // }
 
 
-        indexService.get_hilight_coupon_trans().then(function (data) {
-            // console.log(data);
-            //ex 0:{coup_CouponID: "137" ,hico_HilightCouponID: "MBB019846"}
-            $scope.coupon_trans = data;
+        // indexService.get_hilight_coupon_trans().then(function (data) {
+        //     // console.log(data);
+        //     //ex 0:{coup_CouponID: "137" ,hico_HilightCouponID: "MBB019846"}
+        //     $scope.coupon_trans = data;
 
-            // createRating(data);
+        //     // createRating(data);
 
-        },function(error){ 
-            console.log(error);
-        });
+        // },function(error){ 
+        //     console.log(error);
+        // });
     // ____________________________________________________
 
    
@@ -315,30 +315,22 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
     //  ___________________________________________________
     // product > Rating Star
     // ____________________________________________________
-        indexService.get_rating().then(function (data) {
-            // console.log(data);
-            $scope.ratingDB = data;
-        },function(error){ 
-            console.log(error);
-        });
+        // indexService.get_rating().then(function (data) {
+        //     $scope.ratingDB = data;
+        // },function(error){ 
+        //     console.log(error);
+        // });
 
-        $scope.rating = function(data,id,type){
-            // console.log(data)
-            if (data != undefined && type == "Use") {
-                var once = $filter('filter')(data,{coup_CouponID :id});
-                 // console.log(once)
-                // console.log(once[0].coup_count)
-                // console.log(once[0].coup_sum)
-                var ratinged = once[0].coup_sum/once[0].coup_count;
-                 return createRatingArray(ratinged);
-                 // return ratinged;
-            }
-            return;
-        }
         // $scope.rating = function(data,id,type){
-        //     return createRatingArray(3);
+        //     // console.log(data)
+        //     if (data != undefined && type == "Use") {
+        //         var once = $filter('filter')(data,{coup_CouponID :id});
+        //         var ratinged = once[0].coup_sum/once[0].coup_count;
+        //          return createRatingArray(ratinged);
+        //     }
+        //     return;
         // }
-        
+  
 
         function createRatingArray(numStarCalculator){
 

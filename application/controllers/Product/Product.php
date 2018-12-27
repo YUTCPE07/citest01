@@ -59,15 +59,15 @@ class Product extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	public function get_hilight_coupon_trans() {
-		$data = $this->Main_model->get_hilight_coupon_trans();
-		echo json_encode($data);
-	}
+	// public function get_hilight_coupon_trans() {
+	// 	$data = $this->Main_model->get_hilight_coupon_trans();
+	// 	echo json_encode($data);
+	// }
 
-	public function get_rating() {
-		$data = $this->Main_model->get_rating();
-		echo json_encode($data);
-	}
+	// public function get_rating() {
+	// 	$data = $this->Main_model->get_rating();
+	// 	echo json_encode($data);
+	// }
 
 	public function counttype() {
 		$data = $this->Main_model->countColumnType();
