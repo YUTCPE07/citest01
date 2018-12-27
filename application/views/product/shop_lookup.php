@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/google-map/map.css'); ?>">
 <?php
 function setDate($string) {return date("d-m-Y", strtotime($string));}
+function setTime($string) {return date("H:i", strtotime($string));}
 ?>
 <?php //echo $db['coup_ImagePath'] . $db['coup_Image'] ?>
 <div class="container-fluid-my">
@@ -70,79 +71,147 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 		<div class="col-md-8">
 			<?php //row 1 ?>
 			<div class="row p-3" style="line-height: 2;">
-				<div class="col-12 col-md-6 d-flex">
-					<div class="mr-3"><i class="fas fa-stopwatch fa-fw"></i></div>
-					<!-- data-fa-transform="down-2" -->
-					<div class="medium">ระยะเวลากิจกรรม: </div>
-					<div class="light pl-2"> <?php echo $db['coup_ActivityDuration']; ?></div>
+				<div class="col-12 col-md-6 d-md-flex">
+					<div class="">
+						<i class="fas fa-bell fa-fw d-inline"></i>
+						<div class="medium d-inline">ระยะเวลากิจกรรม: </div>
+					</div>
+					<div class=" light ml-5 ml-md-2">
+						<?php if ($db['coup_ActivityDuration'] == 'Not Specific'): ?>
+							<?php echo 'ไม่กำหนดวัน'; ?>
+						<?php else: ?>
+							<?php echo $db['coup_ActivityDuration']; ?>
+						<?php endif?>
+				 	</div>
 				</div>
-				<div class="col-12 col-md-6 d-flex align-items-start">
-					<div class="mr-3 "><i class="fas fa-business-time fa-fw"></i></div>
-					<div class="medium">ระยะเวลาโปร: </div>
-					<div class="light pl-2">
+				<div class="col-12 col-md-6 d-md-flex ">
+					<div class="">
+						<i class="fas fa-users fa-fw d-inline"></i>
+						<div class="medium d-inline">ผู้เข้าร่วมขั้นต่ำ: </div>
+					</div>
+					<div class="light ml-5 ml-md-2">
+						<?php if (empty($db['coup_Participation'])): ?>
+							<?php echo "ไม่กำหนด" ?>
+						<?php else: ?>
+							<?php echo $db['coup_Participation'] ?>
+						<?php endif?>
+				 	</div>
+				</div>
+				<div class="col-12 col-md-6 d-md-flex ">
+					<div class="">
+						<i class="fas fa-business-time fa-fw d-inline"></i>
+						<div class="medium d-inline">ระยะเวลาโปร: </div>
+					</div>
+					<div class="light ml-5 ml-md-2">
 						<?php if ($db['coup_StartDate'] == '0000-00-00'): ?>
 							<?php echo "00-00-0000 - " . setDate($db['coup_EndDate']) . '<br>' ?>
 						<?php else: ?>
 							<?php echo setDate($db['coup_StartDate']) . ' - ' . setDate($db['coup_EndDate']) . '<br>' ?>
 						<?php endif?>
-						<?php echo $db['coup_StartTime'] . ' - ' . $db['coup_EndTime'] ?>
-					</div>
-				</div>
-				<?php if (!empty(trim($db['coup_Participation']))): ?> <!-- test shop/36 -->
-					<div class="col-12 col-md-6 d-flex">
-						<div class="mr-3"><i class="fas fa-infinity fa-fw" ></i></div>
-						<div class="medium">สิทธิ์คงเหลือ: </div>
-						<div class="light pl-2">
-							<?php echo $db['coup_Participation']; ?>
-						</div>
-					</div>
-				<?php endif?>
-				<?php if (!empty(trim($db['open_brief']))): ?>
-				<div class="col-12 col-md-6 d-flex">
-					<div class="mr-3 "><i class="fas fa-store fa-fw" ></i></div>
-					<div class="medium">วันทำการ: </div>
-					<div class="light pl-2"><?php echo $db['open_brief']; ?></div>
-				</div>
-				<?php endif?>
-				<div class="col-12 col-md-6 d-flex">
-					<div class="mr-3 "><i class="fas fa-users fa-fw"></i></div>
-					<div class="medium">ผู้เข้าร่วมขั้นต่ำ: </div>
-					<div class="light pl-2">
-						<?php if (empty(trim($db['coup_Participation']))): ?>
-							<?php echo "ไม่กำหนด" ?>
+
+						<?php if ($db['coup_StartTime'] == '00:00:00' || $db['coup_EndTime'] == '00:00:00'): ?>
+							<?php echo 'ไม่กำหนดเวลา' . '<br>' ?>
 						<?php else: ?>
-							<?php echo $db['coup_Participation'] ?>
+							<?php echo setTime($db['coup_StartTime']) . ' - ' . setTime($db['coup_EndTime']) ?>
 						<?php endif?>
-					</div>
+				 	</div>
 				</div>
-				<div class="col-12 col-md-6 d-flex">
-					<div class="mr-3"><i class="far fa-calendar-alt fa-fw"></i></div>
-					<div class="medium">ใช้สิทธิ์ได้ถึง: </div>
-					<div class="light pl-2">
+				<div class="col-12 col-md-6 d-md-flex ">
+					<div class="">
+						<i class="fas fa-calendar-alt fa-fw d-inline"></i>
+						<div class="medium d-inline">ใช้สิทธิ์ได้ถึง: </div>
+					</div>
+					<div class="light ml-5 ml-md-2">
 						<?php $mh = $db['coup_Method'];?>
 						<?php if ($mh == 'No'): ?>
 							<?php echo "ไม่กำหนด"; ?>
-						<?php elseif ($mh == 'Fix'): ?>
+						<?php elseif ($mh == 'Fix' && ($db['coup_EndDateUse'] == '0000-00-00')): ?>
+							<?php echo "ไม่มีข้อมูล" ?>
+						<?php elseif ($mh == 'Fix' && ($db['coup_EndDateUse'] != '0000-00-00')): ?>
 							<?php echo setDate($db['coup_EndDateUse']) ?>
-						<?php elseif ($mh == 'Month'): ?>
-							<?php echo 'Month'; ?>
-						<?php elseif ($mh == 'Year'): ?>
-							<?php echo 'Year'; ?>
 						<?php endif?>
+				 	</div>
+				</div>
+				<div class="col-12 col-md-6 d-md-flex ">
+					<div class="">
+						<i class="fas fa-calendar-check fa-fw d-inline"></i>
+						<div class="medium d-inline">วิธีการจอง: </div>
 					</div>
+					<div class="light ml-5 ml-md-2">
+						<?php if (empty($db['shop_reservation_brief'])): ?>
+							<?php echo "ยังไม่กำหนด" ?>
+						<?php else: ?>
+							<?php echo $db["shop_reservation_brief"]; ?>
+						<?php endif?>
+				 	</div>
 				</div>
-				<div class="col-12 col-md-6 d-flex">
-					<div class="mr-3"><i class="far fas fa-eraser fa-fw"></i></div>
-					<div class="medium">วิธีใช้สิทธิ์: </div>
-					<div class="light pl-2">
-						<?php echo $db['shop_howtouse_brief']; ?>
+
+
+				<div class="col-12 col-md-6 d-md-flex ">
+					<div class="">
+						<i class="fas fa-eraser fa-fw d-inline"></i>
+						<div class="medium d-inline">วิธีใช้สิทธิ์: </div>
 					</div>
+					<div class="light ml-5 ml-md-2">
+						<?php if (empty($db['shop_howtouse_brief'])): ?>
+							<?php echo "ยังไม่กำหนด" ?>
+						<?php else: ?>
+							<?php echo $db["shop_howtouse_brief"]; ?>
+						<?php endif?>
+				 	</div>
 				</div>
-				<div class="col-12 col-md-6 d-flex">
-					<div class="mr-3"><i class="fas fa-user-tag fa-fw"></i></div>
-					<div class="medium">จำกัดสิทธิ์: </div>
-					<div class="light pl-2">ไม่จำกัด</div>
+				<div class="col-12 col-md-6 d-md-flex "> <!-- test shop/36 -->
+					<div class="">
+						<i class="fas fa-infinity fa-fw d-inline"></i>
+						<div class="medium d-inline">สิทธิ์คงเหลือ: </div>
+					</div>
+					<div class="light ml-5 ml-md-2">
+						<?php if (empty($db['coup_Repetition'])): ?> <!-- if null -->
+							<?php echo 'ไม่จำกัด'; ?>
+						<?php else: ?>
+							<?php echo $db['coup_Repetition']; ?>
+						<?php endif?>
+				 	</div>
 				</div>
+				<div class="col-12 col-md-6 d-md-flex ">
+					<div class="">
+						<i class="fas fa-user-tag fa-fw d-inline"></i>
+						<div class="medium d-inline">จำกัดสิทธิ์: </div>
+					</div>
+					<div class="light ml-5 ml-md-2">
+						<?php if (empty($db['coup_RepetitionMember'])): ?>
+							<?php echo "ไม่จำกัด" ?>
+						<?php else: ?>
+							<?php echo $db["coup_QtyMember"] . ' ครั้ง' ?>
+							<?php if ($db["coup_QtyPerMember"] == 'Daily'): ?>
+								<?php echo 'ต่อ วัน' ?>
+							<?php elseif ($db["coup_QtyPerMember"] == 'Weekly'): ?>
+								<?php echo 'ต่อ สัปดาห์ <br> ' . $db["coup_QtyPerMemberData"] ?>
+							<?php elseif ($db["coup_QtyPerMember"] == 'Monthly'): ?>
+								<?php echo 'ต่อเดือน <br>' . $db["coup_QtyPerMemberData"] ?>
+							<?php endif?>
+						<?php endif?>
+				 	</div>
+				</div>
+				<div class="col-12 col-md-6 d-md-flex ">
+					<div class="">
+						<i class="fas fa-store fa-fw d-inline"></i>
+						<div class="medium d-inline">วันทำการ: </div>
+					</div>
+					<div class="light ml-5 ml-md-2">
+						<?php if (empty($db['open_brief'])): ?>
+							<?php echo 'ยังไม่ได้กำหนด'; ?>
+						<?php else: ?>
+							<?php echo nl2br($db['open_brief']); ?>
+						<?php endif?>
+				 	</div>
+				</div>
+
+
+
+
+
+
 			</div>
 			<?php //end row1 ?>
 			<?php //row 2 ?>

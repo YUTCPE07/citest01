@@ -528,6 +528,7 @@ class Main_model extends CI_Model {
 					hilight_coupon.coup_Exception,
 					hilight_coupon.coup_Contact,
 					hilight_coupon.coup_ActivityDuration,
+					hilight_coupon.coup_QtyPerMemberData,
 
                     mi_brand.brand_id,
                     mi_brand.name As brand_name,
