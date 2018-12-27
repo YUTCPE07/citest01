@@ -4,9 +4,15 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
     
 
 	$scope.init = function() {
-		$scope.myRightPage = true;
-		$scope.myHistoryPage = false;
-		$scope.myRightExpPage = false;
+
+        var parameterSearch = $scope.getParameterBy('tab');
+        if(parameterSearch != null){
+            $scope.selectTab(parameterSearch);
+        }else{
+            $scope.myRightPage = true;
+            $scope.myHistoryPage = false;
+            $scope.myRightExpPage = false;
+        }
 
         let user = JSON.parse(sessionStorage.getItem("user"));
         if(user===null){
@@ -18,6 +24,12 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
         }
 	}
 
+    $scope.getParameterBy = function(paramiterUrl) {
+        var url_string = window.location.href; /*"http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"*/
+        var url = new URL(url_string);
+        var paramiterValue = url.searchParams.get(paramiterUrl);
+        return paramiterValue;
+    }
 
     $scope.orederLookUp = function (data) {
         console.log(data)
@@ -88,15 +100,15 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
 
     $scope.selectTab = function(value) {
     	// console.log(value)
-    	if(value === 'right'){
+    	if(value === 'myRightPage'){
     		$scope.myRightPage = true;
     		$scope.myHistoryPage = false;
     		$scope.myRightExpPage = false;
-    	}else if (value === 'rightHistory') {
+    	}else if (value === 'myHistoryPage') {
     		$scope.myRightPage = false;
     		$scope.myHistoryPage = true;
     		$scope.myRightExpPage = false;
-    	}else if (value === 'rightExp'){
+    	}else if (value === 'myRightExpPage'){
     		$scope.myRightPage = false;
     		$scope.myHistoryPage = false;
     		$scope.myRightExpPage = true;

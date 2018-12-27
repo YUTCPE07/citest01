@@ -32,9 +32,9 @@
 <div class="bg-gray3" ng-controller="storeController" ng-init="init()" >
 	<div class="container py-5 h4">
 		<div class="row text-center shadow store-row cursor-pointer">
-			<div class="col-4 py-2 text-gray2 brColum" ng-class="{'store-tabSelect':myRightPage}" ng-click="selectTab('right')">สิทธิ์ของฉัน</div>
-			<div class="col-4 py-2 text-gray2 brColum" ng-class="{'store-tabSelect':myHistoryPage}" ng-click="selectTab('rightHistory')">ประวัติการใช้</div>
-			<div class="col-4 py-2 text-gray2 " ng-class="{'store-tabSelect':myRightExpPage}" ng-click="selectTab('rightExp')">หมดอายุ</div>
+			<div class="col-4 py-2 text-gray2 brColum" ng-class="{'store-tabSelect':myRightPage}" ng-click="selectTab('myRightPage')">สิทธิ์ของฉัน</div>
+			<div class="col-4 py-2 text-gray2 brColum" ng-class="{'store-tabSelect':myHistoryPage}" ng-click="selectTab('myHistoryPage')">ประวัติการใช้</div>
+			<div class="col-4 py-2 text-gray2 " ng-class="{'store-tabSelect':myRightExpPage}" ng-click="selectTab('myRightExpPage')">หมดอายุ</div>
 		</div>
 	</div>
 	<?php //my myRightPage ?>
@@ -166,8 +166,9 @@
 						<div class="text-gray1 h5" >วันหมดอายุ {{value[0].date_expire | cmdate:'dd/MM/yyyy'}}</div>
 					</div>
 					<div class="col-lg-2 ">
-						<div class="text-gray1">{{result[0].length}}</div>
-						<!-- <button class="btn btn-primary mt-4 active">ต่ออายุ</button> -->
+
+						<div class="text-gray1">{{result[key].length}}</div>
+						<button class="btn btn-primary mt-4 active">ต่ออายุ</button>
 					</div>
 				</div>
 			</div><br>

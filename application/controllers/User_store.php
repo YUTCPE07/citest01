@@ -14,6 +14,10 @@ class User_store extends CI_Controller {
 	public function index() {
 		// "2017-03-14 17:38:14"
 		// echo "User_store";
+		// $brand_Id = $this->uri->segment(1);
+		// echo isset($_GET["a"]);
+
+		// print_r($output['db']);
 		// exit;
 		$this->load->view('template/header');
 		$this->load->view('user/store');
