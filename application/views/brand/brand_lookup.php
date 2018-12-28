@@ -59,8 +59,10 @@
 	</div>
 
 	<div class="row pb-4">
-		<div class="boxMap mx-auto shadow">
-		  <div id="map"></div>
+		<div class="col-12">
+			<div class="boxMap mx-auto shadow">
+			  <div id="map"></div>
+			</div>
 		</div>
 	</div>
 	<div class="d-none">
