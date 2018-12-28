@@ -7,14 +7,40 @@ function ($scope, $http,indexService,$location,$filter,$anchorScroll,$window) {
     var paramArr = $window.location.pathname.split('/');
     let p_id = paramArr[3];
     // console.log(p_id);
-	indexService.getSearchresultPost(baseurl + "product/shop_lookup/shop_lookup",p_id)
-    .then(function(respone){
-        console.log(respone.data[0]) /*data real*/
-        $scope.user = respone.data[0];
-    }, function(error){
-        console.log("Some Error Occured", error);
-    });
 
+	$scope.init = function () {
+		$scope.numLimitProductInit = 3;
+		$scope.numLimitProductNow = $scope.numLimitProductInit;
+		$scope.getSearchresultPost();
+	}
+
+	$scope.additional = function() {
+		$scope.numLimitProductNow += $scope.numLimitProductInit;
+	}
+
+	$scope.getRecommentCouponOther = function(b_id) {
+		indexService.getSearchresultPost(baseurl + "product/shop_lookup/getRecommentCouponOther",b_id)
+	    .then(function(respone){
+
+	        $scope.productRecomment = respone.data;
+	        // console.log(respone.data) /*data real*/
+	    }, function(error){
+	        console.log("Some Error Occured", error);
+	    });
+	}
+	
+
+    $scope.getSearchresultPost = function() {
+    	indexService.getSearchresultPost(baseurl + "product/shop_lookup/shop_lookup",p_id)
+	    .then(function(respone){
+	        $scope.user = respone.data[0];
+	        $scope.getRecommentCouponOther($scope.user.brand_id);
+	        // console.log($scope.user) /*data real*/
+	    }, function(error){
+	        console.log("Some Error Occured", error);
+	    });
+    }
+	
     $scope.scrollTo = function(){
     	$anchorScroll('focus_buy');
     }

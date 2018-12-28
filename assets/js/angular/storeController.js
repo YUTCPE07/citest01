@@ -4,7 +4,7 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
     
 
 	$scope.init = function() {
-
+        $scope.isLoading = true;
         var parameterSearch = $scope.getParameterBy('tab');
         if(parameterSearch != null){
             $scope.selectTab(parameterSearch);
@@ -22,6 +22,10 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
             // $scope.isUser = true;
             $scope.user = user;
         }
+
+        $scope.getStoreMyRight();
+        $scope.getStoreMyRightHistory();
+        $scope.getStoreMyRightExp();
 	}
 
     $scope.getParameterBy = function(paramiterUrl) {
@@ -47,16 +51,37 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
     }
 
 	/* get data myRight-------------------------------------------------------------*/
+    $scope.getStoreMyRight = function() {
+        $scope.isLoading = true;
         indexService.getSearchresultPost(baseurl + "User_store/getStoreMyRight",'9')
         .then(function(respone){
             // console.log(respone.data) /*data real*/
-            var dataForTest = `[{"date_expire":"2017-07-18 11:44:46","date_create":"2017-07-18 11:44:46","count":"1","product_id":"45","product_name":"MemberIn Card","product_image":"card_20170523_140108.jpg","product_imgPath":"50/card_upload/","brand_id":"50","brand_name":"Exhibition"},
-            {"date_expire":"2017-07-18 11:44:46","date_create":"2017-07-18 11:44:46","count":"1","product_id":"45","product_name":"MemberIn Card","product_image":"card_20170523_140108.jpg","product_imgPath":"50/card_upload/","brand_id":"50","brand_name":"Exhibition"}]`;/*for many order*/
+            var dataForTest = `[
+                {
+                    "date_expire":"2017-07-18 11:44:46",
+                    "date_create":"2017-07-18 11:44:46","count":"1",
+                    "product_id":"45","product_name":"MemberIn Card",
+                    "product_image":"card_20170523_140108.jpg",
+                    "product_imgPath":"50/card_upload/",
+                    "brand_id":"50","brand_name":"Exhibition"
+                },
+                {
+                    "date_expire":"2017-07-18 11:44:46",
+                    "date_create":"2017-07-18 11:44:46",
+                    "count":"1","product_id":"45",
+                    "product_name":"MemberIn Card",
+                    "product_image":"card_20170523_140108.jpg",
+                    "product_imgPath":"50/card_upload/",
+                    "brand_id":"50","brand_name":"Exhibition"
+                }
+            ]`;/*for many order*/
             // $scope.dataMyRights = respone.data;
             $scope.dataMyRights = JSON.parse(dataForTest); /*datause*/
+            $scope.isLoading = false;
         }, function(error){
             console.log("Some Error Occured", error);
         });
+    }
     /*----------------------------------------------------------------------------*/
 
 
@@ -65,6 +90,8 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
 
 
     /* get data myRightHistory-------------------------------------------------------------*/
+    $scope.getStoreMyRightHistory = function() {
+        $scope.isLoading = true;
         indexService.getSearchresultPost(baseurl + "User_store/getStoreMyRightHistory",'9')
         .then(function(respone){
             // console.log(respone.data)
@@ -73,9 +100,12 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
             // var data = formatDath(respone.data);
             // console.log(data)
             $scope.dataMyRightHistorys = respone.data; /*data use*/
+            $scope.isLoading = false;
         }, function(error){
             console.log("Some Error Occured", error);
         });
+    }
+        
     /*----------------------------------------------------------------------------*/
 
 
@@ -84,13 +114,19 @@ app.controller('storeController', ['$scope', '$http','indexService','$filter','$
 
 
     /* get data myRightExp-------------------------------------------------------------*/
+    $scope.getStoreMyRightExp = function() {
+        $scope.isLoading = true;
         indexService.getSearchresultPost(baseurl + "User_store/getStoreMyRightExp",'10')
         .then(function(respone){
             // console.log(respone.data)
             $scope.dataMyRightExps = respone.data; /*data use*/
+             $scope.isLoading = false;
+
         }, function(error){
             console.log("Some Error Occured", error);
         });
+    }
+        
     /*----------------------------------------------------------------------------*/
     
 

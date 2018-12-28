@@ -498,74 +498,186 @@ class Main_model extends CI_Model {
 		return $results;
 	} /*end function shop_lookup*/
 
+	function getRecommentCouponOther($brand_id) {
+		$sql = "SELECT
+				    i.coup_CouponID,
+				    i.bran_BrandID,
+				    i.brand_name,
+				    i.coup_Name,
+				    i.coup_ImagePath,
+				    i.coup_Image,
+				    i.coup_Price,
+				    i.coup_Description,
+				    i.coup_UpdatedDate,
+				    i.coup_Cost,
+				    i.coup_Type,
+				    i.coup_numUse,
+				    i.path_logo,
+				    i.logo_image,
+				    i.category_brand,
+				    mi_category_brand.name AS category_brand_name
+				FROM
+				    (SELECT
+				        z.coup_CouponID,
+				            z.bran_BrandID,
+				            z.coup_Name,
+				            z.coup_ImagePath,
+				            z.coup_Image,
+				            z.coup_Price,
+				            z.coup_Description,
+				            z.coup_UpdatedDate,
+				            z.coup_Cost,
+				            z.coup_Type,
+				            IFNULL(z.coup_numUse, 0) AS coup_numUse,
+				            mi_brand.name AS brand_name,
+				            mi_brand.path_logo,
+				            mi_brand.logo_image,
+				            mi_brand.category_brand
+				    FROM
+				        (SELECT
+				        hilight_coupon.coup_CouponID,
+				            hilight_coupon.bran_BrandID,
+				            hilight_coupon.coup_Name,
+				            hilight_coupon.coup_ImagePath,
+				            hilight_coupon.coup_Image,
+				            hilight_coupon.coup_Price,
+				            hilight_coupon.coup_Description,
+				            hilight_coupon.coup_UpdatedDate,
+				            hilight_coupon.coup_Cost,
+				            hilight_coupon.coup_Type,
+				            x.coup_numUse
+				    FROM
+				        hilight_coupon
+				    LEFT JOIN (SELECT
+				        hilight_coupon_trans.coup_CouponID AS coup_id,
+				            COUNT(*) AS coup_numUse
+				    FROM
+				        hilight_coupon_trans
+				    WHERE
+				        hilight_coupon_trans.hico_Deleted != 'T'
+				    GROUP BY hilight_coupon_trans.coup_CouponID) AS x ON hilight_coupon.coup_CouponID = x.coup_id UNION ALL SELECT
+				        mi_card.card_id,
+				            mi_card.brand_id,
+				            mi_card.name,
+				            mi_card.path_image,
+				            mi_card.image,
+				            mi_card.member_price,
+				            mi_card.description,
+				            mi_card.date_update,
+				            mi_card.original_fee,
+				            'Member' AS coup_Type,
+				            y.coup_numUse
+				    FROM
+				        mi_card
+				    LEFT JOIN (SELECT
+				        hilight_coupon_buy.hico_HilightCouponID AS coup_id,
+				            COUNT(*) AS coup_numUse
+				    FROM
+				        hilight_coupon_buy
+				    WHERE
+				        hilight_coupon_buy.hcbu_Deleted != 'T'
+				    GROUP BY hilight_coupon_buy.hico_HilightCouponID) AS y ON mi_card.card_id = y.coup_id) AS z
+				    LEFT JOIN mi_brand ON z.bran_BrandID = mi_brand.brand_id
+				    WHERE
+				        mi_brand.flag_status = 1
+				            AND mi_brand.flag_del = 0
+				            AND mi_brand.flag_hidden = 'No') AS i
+				        LEFT JOIN
+				    mi_category_brand ON mi_category_brand.category_brand_id = i.category_brand
+				WHERE bran_BrandID = $brand_id
+				ORDER BY coup_UpdatedDate DESC";
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+	} /*end function getRecommentCouponOther*/
+
 	function shop_lookup($id) {
 		/*test id 36*/
-		$sql = 'SELECT
-					hilight_coupon.coup_CouponID,
-					hilight_coupon.coup_Name,
-					hilight_coupon.coup_ImagePath,
-					hilight_coupon.coup_Image,
-					hilight_coupon.coup_Price,
-					hilight_coupon.coup_Description,
-					hilight_coupon.coup_UpdatedDate,
-					hilight_coupon.coup_Cost,
-					hilight_coupon.coup_Type,
-					hilight_coupon.coup_CreatedDate,
-					hilight_coupon.coup_StartDate,
-					hilight_coupon.coup_EndDate,
-					hilight_coupon.coup_StartTime,
-					hilight_coupon.coup_EndTime,
-					hilight_coupon.coup_Participation,
-
-					hilight_coupon.coup_RepetitionMember,
-					hilight_coupon.coup_QtyMember,
-					hilight_coupon.coup_QtyPerMember,
-					hilight_coupon.coup_Method,
-					hilight_coupon.coup_EndDateUse,
-					hilight_coupon.coup_MethodUseOther,
-					hilight_coupon.coup_HowToUse,
-					hilight_coupon.coup_Condition,
-					hilight_coupon.coup_Exception,
-					hilight_coupon.coup_Contact,
-					hilight_coupon.coup_ActivityDuration,
-					hilight_coupon.coup_QtyPerMemberData,
-
-                    mi_brand.brand_id,
-                    mi_brand.name As brand_name,
-                    mi_brand.shop_reservation_brief,
-					mi_brand.signature_info,
-					mi_brand.open_brief,
-					mi_brand.shop_howtouse_brief,
-					mi_brand.open_description,
-					mi_brand.shop_cancellation_description,
-					mi_brand.shop_q1,
-					mi_brand.shop_a1,
-					mi_brand.shop_q2,
-					mi_brand.shop_a2,
-					mi_brand.shop_q3,
-					mi_brand.shop_a3,
-					mi_brand.shop_q4,
-					mi_brand.shop_a4,
-					mi_brand.shop_q5,
-					mi_brand.shop_a5,
-					mi_brand.website,
-					mi_brand.facebook_url,
-					mi_brand.line_id,
-					mi_brand.instragram,
-					mi_brand.tweeter,
-					mi_brand.path_logo,
-					mi_brand.logo_image,
-					mi_brand.category_brand,
-					mi_brand.flag_status,
-					mi_brand.flag_del,
-					mi_brand.flag_hidden
-				FROM hilight_coupon LEFT JOIN mi_brand ON hilight_coupon.bran_BrandID=mi_brand.brand_Id
-
-				WHERE 	mi_brand.flag_status = 1 AND
-						mi_brand.flag_del = 0 AND
-						mi_brand.flag_hidden = "No" AND
-						hilight_coupon.coup_Type = "Buy" AND
-						hilight_coupon.coup_CouponID =' . $id;
+		$sql = "SELECT
+				    hilight_coupon.coup_CouponID,
+				    hilight_coupon.coup_Name,
+				    hilight_coupon.coup_ImagePath,
+				    hilight_coupon.coup_Image,
+				    hilight_coupon.coup_Price,
+				    hilight_coupon.coup_Description,
+				    hilight_coupon.coup_UpdatedDate,
+				    hilight_coupon.coup_Cost,
+				    hilight_coupon.coup_Type,
+				    hilight_coupon.coup_CreatedDate,
+				    hilight_coupon.coup_StartDate,
+				    hilight_coupon.coup_EndDate,
+				    hilight_coupon.coup_StartTime,
+				    hilight_coupon.coup_EndTime,
+				    hilight_coupon.coup_Participation,
+				    hilight_coupon.coup_RepetitionMember,
+				    hilight_coupon.coup_QtyMember,
+				    hilight_coupon.coup_QtyPerMember,
+				    hilight_coupon.coup_Method,
+				    hilight_coupon.coup_EndDateUse,
+				    hilight_coupon.coup_MethodUseOther,
+				    hilight_coupon.coup_HowToUse,
+				    hilight_coupon.coup_Condition,
+				    hilight_coupon.coup_Exception,
+				    hilight_coupon.coup_Contact,
+				    hilight_coupon.coup_ActivityDuration,
+				    hilight_coupon.coup_QtyPerMemberData,
+				    mi_brand.brand_id,
+				    mi_brand.name AS brand_name,
+				    mi_brand.shop_reservation_brief,
+				    mi_brand.signature_info,
+				    mi_brand.open_brief,
+				    mi_brand.shop_howtouse_brief,
+				    mi_brand.open_description,
+				    mi_brand.shop_cancellation_description,
+				    mi_brand.shop_q1,
+				    mi_brand.shop_a1,
+				    mi_brand.shop_q2,
+				    mi_brand.shop_a2,
+				    mi_brand.shop_q3,
+				    mi_brand.shop_a3,
+				    mi_brand.shop_q4,
+				    mi_brand.shop_a4,
+				    mi_brand.shop_q5,
+				    mi_brand.shop_a5,
+				    mi_brand.website,
+				    mi_brand.facebook_url,
+				    mi_brand.line_id,
+				    mi_brand.instragram,
+				    mi_brand.tweeter,
+				    mi_brand.path_logo,
+				    mi_brand.logo_image,
+				    mi_brand.category_brand,
+				    mi_brand.flag_status,
+				    mi_brand.flag_del,
+				    mi_brand.flag_hidden,
+				    mi_branch.map_latitude,
+				    mi_branch.map_longitude,
+				    mi_branch.address_no,
+				    mi_branch.moo,
+				    mi_branch.junction,
+				    mi_branch.soi,
+				    mi_branch.road,
+				    mi_branch.sub_district,
+				    mi_branch.district,
+				    mi_branch.sub_district_id,
+				    mi_branch.district_id,
+				    mi_branch.province_id,
+				    mi_branch.region_id,
+				    mi_branch.country_id,
+				    mi_branch.postcode
+				FROM
+				    hilight_coupon,
+				    mi_brand,
+				    mi_branch
+				WHERE
+		    		hilight_coupon.bran_BrandID = mi_brand.brand_Id
+		        AND mi_brand.flag_status = 1
+		        AND mi_brand.flag_del = 0
+		        AND mi_brand.flag_hidden = 'No'
+		        AND mi_brand.brand_id = mi_branch.brand_id
+		        AND mi_branch.default_status = 1
+		        AND hilight_coupon.coup_Type = 'Buy'
+		        AND hilight_coupon.coup_CouponID = $id ";
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;

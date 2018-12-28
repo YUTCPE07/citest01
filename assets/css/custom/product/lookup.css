@@ -12,6 +12,18 @@
 	width: 100px;
 }
 
+.text-child-limit {
+   word-wrap: break-word;
+   max-width: 200px;
+}
+
+
+@media (max-width: 768px) {
+/*	.text-limit-srcUrl {
+		word-wrap: break-word;
+	   	max-width: 200px;
+	}*/
+}
 
 /* view:product/shop_lookup ________________________________________________________*/
 

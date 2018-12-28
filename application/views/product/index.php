@@ -1,6 +1,6 @@
 
 
-<div ng-controller='productController' class="pb-5" ng-init="init()">
+<div ng-controller='productController' class="pb-5" ng-init="init()" ng-if="!isLoading">
 	<!-- {{myVar}}
 	<button ng-click="buttonClicked()">sssssssss</button> -->
 
@@ -169,7 +169,7 @@
 		</div>
 	</div>
 
-	<div class="container" ng-init="isLoading = true">
+	<div class="container">
 		<div class="row" ng-if="isLoading" >
 			<div class="col-12 text-center">
 				<div class="d-inline">

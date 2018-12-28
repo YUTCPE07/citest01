@@ -179,6 +179,21 @@
 	<div class="w-50 ml-auto">
 		<img class="store-imgFooter" src="assets/images/user/store-01.jpg">
 	</div>
+
+	<div class="container" ng-init="isLoading = true">
+		<div class="row" ng-if="isLoading" >
+			<div class="col-12 text-center">
+				<div class="d-inline">
+					<div class="mb-5">
+						<div class="fa-3x">
+							<i class="fas fa-spinner fa-pulse"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- <div class="hr_footer_height"></div> -->
 </div>
 
