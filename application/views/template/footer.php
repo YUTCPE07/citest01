@@ -22,7 +22,7 @@
               <a href="<?php echo base_url('/aboutus'); ?>">
                 <div class="mb-2">เกี่ยวกับเรา</div>
               </a>
-              <a href="<?php echo base_url(); ?>">
+              <a href="<?php echo base_url(); ?>address">
                 <div class="mb-2">ที่อยู่</div>
               </a>
               <a href="<?php echo base_url('/policy'); ?>">
@@ -37,13 +37,13 @@
           <div class="col-md-3 col-12 mb-3 mb-md-0">
             <div class="pb-md-3 pb-3 medium">ร่วมธุรกิจกับเรา</div>
             <div class="pl-md-3 pl-3">
-              <a href="<?php echo base_url(); ?>">
+              <a href="<?php echo base_url(); ?>joinBusinessUs">
                 <div class="mb-2">ร่วมธุรกิจกับเรา</div>
               </a>
               <a href="<?php echo base_url(); ?>">
                 <div class="mb-2">พาร์ทเนอร์เรา</div>
               </a>
-              <a href="<?php echo base_url(); ?>">
+              <a href="<?php echo base_url(); ?>joinJobUs">
                 <div class="mb-2">ร่วมงานกับเรา</div>
               </a>
             </div>
@@ -52,11 +52,11 @@
           <div class="col-md-3 col-12 mb-3 mb-md-0">
             <div class="pb-md-3 pb-3 medium">ช่วยเหลือ</div>
             <div class="pl-md-3 pl-3">
-              <a href="<?php echo base_url(); ?>">
+              <a href="<?php echo base_url(); ?>trick">
                 <div class="mb-2">เคล็ดลับ</div>
               </a>
-              <a href="<?php echo base_url(); ?>">
-                <div class="mb-2">ข้อสเนอเเนะ</div>
+              <a href="<?php echo base_url(); ?>counsel">
+                <div class="mb-2">ข้อเสนอเเนะ</div>
               </a>
             </div>
           </div>

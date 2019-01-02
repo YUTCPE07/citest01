@@ -51,7 +51,7 @@
 </style>
 
 
-<div class="h4" ng-controller="userProfileController" >
+<div class="h4" ng-controller="user_profileController" >
 	<img class="backgroud" src="<?php echo base_url(); ?>assets/images/background/background01.png">
 	<div class="container pt-5">
 		<div class="container shadow-style-1 pt-5 borderYGreen bg-white ">

@@ -29,6 +29,11 @@ $route['db'] = 'Echo_db';
 $route['aboutus'] = 'Other/Aboutus';
 $route['policy'] = 'Other/Policy';
 $route['termsofuse'] = 'Other/Termsofuse';
+$route['counsel'] = 'Other/Counsel';
+$route['trick'] = 'Other/Trick';
+$route['address'] = 'Other/Address';
+$route['joinBusinessUs'] = 'Other/JoinBusinessUs';
+$route['joinJobUs'] = 'Other/JoinJobUs';
 
 $route['404_override'] = 'Error';
 $route['translate_uri_dashes'] = FALSE;
