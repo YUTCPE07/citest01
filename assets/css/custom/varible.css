@@ -141,7 +141,7 @@ a:hover {
 }
 
 .bg-white {
-	background-color:!whiteimportant;
+	background-color:white!important;
 }
 
 .bg-green {
@@ -160,10 +160,26 @@ a:hover {
 
 .shadow {
     /*box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;*/
+    -moz-box-shadow: 3px 3px 3px rgba(0,0,0,.15);
+	-webkit-box-shadow: 3px 3px 3px rgba(0,0,0,.15);
     box-shadow: 3px 3px 3px rgba(0,0,0,.15)!important;
     border: unset; 
 }
 
+.shadow-style-1 {
+	-moz-box-shadow: 3px 3px 10px 3px rgba(0,0,0,.15);
+	-webkit-box-shadow: 3px 3px 10px 3px rgba(0,0,0,.15);
+    box-shadow: 3px 3px 10px 3px rgba(0,0,0,.15)!important;
+    border: unset; 
+}
+
+.backgroud {
+	position: fixed;
+	z-index: -1;
+	/*background-image: var(--url-background-1);*/
+  	/*background-position: right bottom, left top;*/
+ 	/*background-repeat: no-repeat;*/
+}
 .container-fluid-my {
 	/*max-width: 1024px;*/
     width: 100%;
@@ -232,6 +248,8 @@ a:hover {
 	box-shadow: unset!important;
 	border: 3px solid var(--color-green);
 }
+
+
 /*bootstarp custom------------------------*/
 	
 /*end bootstarpcustom----------------------*/
