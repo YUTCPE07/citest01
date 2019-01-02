@@ -94,6 +94,7 @@
     color: #fff;
     background-color: var(--color-green);
     border-color: var(--color-green);
+    box-shadow:unset;
 }
 
 .btn-primary.focus, .btn-primary:focus {
