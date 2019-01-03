@@ -35,7 +35,7 @@
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url(); ?>brand">แบรนด์</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url(); ?>">บทความ</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url(); ?>blog">บทความ</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1"  ng-if="!isShowFormSerach" ng-click="toggleSearchUI()">
             <div class="navbar-brand py-2 px-0 px-lg-3" >
