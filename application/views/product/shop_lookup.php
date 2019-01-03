@@ -10,6 +10,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 function setTime($string) {return date("H:i", strtotime($string));}
 ?>
 <?php //echo $db['coup_ImagePath'] . $db['coup_Image'] ?>
+
 <div ng-controller="shop_lookupController" ng-init="init()" class="text-gray1 h5">
 	<div class="container-fluid-my">
 		<div class="lookup-head-img pt-0">
