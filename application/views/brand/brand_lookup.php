@@ -9,13 +9,13 @@
 <!-- this is view brand_lookup -->
 
 <div class="container-fluid-my">
-	<div class="lookup-head-img pt-md-5">
+	<div class="lookup-head-img">
 		<img class="img-fluid d-block ml-auto mr-auto shadow border-my"
 			src="upload/<?php echo $db['path_cover'] . $db['cover'] ?>" alt="First slide">
 	</div>
 </div>
 
-<div class="container py-5">
+<div class="container py-5 text-gray1 h5">
 
 	<!-- <div class="d-flex flex-row-reverse p-lg-5 ">
 		<button class="btn btn-primary ml-lg-5 ml-3">แชร์</button>
@@ -32,9 +32,9 @@
 		</div>
 		<div class="col-lg-10 w-100">
 			<div class="row">
-				<div class="col-lg-12 h2 medium
+				<div class="col-lg-12 h3 medium text-black
 				d-none d-lg-block d-lg-block d-xl-block"><?php echo $db['name']; ?></div>
-				<div class="col-lg-12 h4 medium py-3 text-center
+				<div class="col-lg-12 h4 medium text-black py-3 text-center
 				d-block d-lg-none d-lg-none d-xl-none"><?php echo $db['name']; ?></div>
 			</div>
 			<div class="row">
@@ -50,7 +50,7 @@
 	<hr class="pb-4">
 
 	<div class="row pb-4">
-		<div class="col-12 bold">ที่ตั้ง</div>
+		<div class="col-12 medium text-black h4">ที่ตั้ง</div>
 		<div class="col-12 light">
 			<?php echo $db['address_no'] . ' '; ?>
 			<?php echo $db['moo'] . ' ' . $db['junction'] . ' ' . $db['soi'] . ' '; ?>
@@ -73,7 +73,7 @@
 
 		<?php if (!empty($db['phone']) || !empty($db['mobile'])): ?> <!-- start ติดต่อ test : shop/23 : shop/126 -->
 			<div class="row mb-4">
-				<div class="col-12 bold">ติดต่อ</div>
+				<div class="col-12 medium text-black h4">ติดต่อ</div>
 				<div class="col-12 light">
 					<div class="d-inline text-gray-dark">โทร</div>
 					<?php if (!empty($db['phone']) && !empty($db['mobile'])): ?>
@@ -93,7 +93,7 @@
 
 		<div class="row">
 			<?php if ($db['website'] != '' || $db['facebook_url'] != '' || $db['line_id'] != '' || $db['instragram'] != '' || $db['tweeter'] != ''): ?>
-				<div class="col-12 bold text-black">ที่มา</div>
+				<div class="col-12 medium text-black h4">ที่มา</div>
 			<?php endif?>
 			<?php if ($db['website'] != ''): ?>
 				<div class="col-12">

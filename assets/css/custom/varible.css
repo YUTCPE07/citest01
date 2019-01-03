@@ -4,6 +4,9 @@
   --color-red: #ed1c24;
   --color-blueMiOld: #5AB3DC;
   --color-black: #231f20;
+
+
+  --color-gray4:  #CACACA; 
   --color-gray3: #f1f2f2; /*เทา อ่อน*/
   --color-gray2: #bcbec0; /*เทา กลาง*/
   --color-gray1: #6d6e71; /*เทา เข้ม*/
@@ -110,6 +113,10 @@ a:hover {
 }
 .text-black {
 	color:var(--color-black);
+}
+
+.text-gray4 {
+	color:var(--color-gray4);
 }
 
 .text-gray3 {

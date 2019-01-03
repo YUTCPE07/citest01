@@ -42,19 +42,19 @@
     <div class="container">
       <div class="pt-5 pb-3">
           <div class="d-flex">
-            <div class="h2 medium " ng-if="isUser">สวัสดี {{user.name}}</div>
+            <div class="h2 medium text-green" ng-if="isUser">สวัสดี {{user.name}}</div>
             <div class="h2 medium " ng-if="!isUser">Memberin</div>
           </div>
           <div class="d-flex">
-              <div class="h4 light" ng-if="isUser"> ยินดีต้อนรับเข้าสู่ memberin มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
-              <div class="h4 light" ng-if="!isUser"> ยินดีต้อนรับ มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
+              <div class="h4 light text-gray1" ng-if="isUser"> ยินดีต้อนรับเข้าสู่ memberin มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
+              <div class="h4 light text-gray1" ng-if="!isUser"> ยินดีต้อนรับ มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
           </div>
       </div>
     </div>
 
     <div class="container">
       <div class="d-flex">
-        <div class="h4 medium">ใหม่ล่าสุด</div>
+        <div class="h3 medium">ใหม่ล่าสุด</div>
       </div>
       <div class="d-flex">
           <div class="h4 light">ขอเเนะนำสินค้า โปรโมชั่น สิทธิ์สมาชิกใหม่ล่าสุด</div>

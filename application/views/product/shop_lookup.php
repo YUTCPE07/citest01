@@ -10,9 +10,9 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 function setTime($string) {return date("H:i", strtotime($string));}
 ?>
 <?php //echo $db['coup_ImagePath'] . $db['coup_Image'] ?>
-<div ng-controller="shop_lookupController" ng-init="init()">
+<div ng-controller="shop_lookupController" ng-init="init()" class="text-gray1 h5">
 	<div class="container-fluid-my">
-		<div class="lookup-head-img pt-md-5 pt-0">
+		<div class="lookup-head-img pt-0">
 			<img class="img-fluid d-block ml-auto mr-auto shadow border-my"
 			src="upload/<?php echo $db['coup_ImagePath'] . $db['coup_Image'] ?>" alt="First slide">
 		</div>
@@ -21,8 +21,8 @@ function setTime($string) {return date("H:i", strtotime($string));}
 	<div class="container">
 
 		<div class="d-flex flex-row-reverse p-md-5 p-4 ">
-			<button class="btn btn-lg btn-primary bold ml-md-5 ml-3">แชร์</button>
-			<button class="btn btn-lg btn-primary bold active">ชื่นชอบ</button>
+			<button class="btn btn-lg btn-primary ml-md-5 ml-3">แชร์</button>
+			<button class="btn btn-lg btn-primary active bg-red border-unset">ชื่นชอบ</button>
 		</div>
 			<div class="row">
 				<div class="col-lg-2">
@@ -37,7 +37,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 				</div>
 				<div class="col-lg-10 w-100">
 					<div class="col-12">
-						<div class="col-12"><div class="h2 medium"><?php echo $db['coup_Name']; ?></div></div>
+						<div class="col-12"><div class="h3 medium text-black"><?php echo $db['coup_Name']; ?></div></div>
 						<div class="col-12">
 							<div class="text-justify" ><?php echo nl2br($db['signature_info']); ?></div>
 						</div>
@@ -73,11 +73,11 @@ function setTime($string) {return date("H:i", strtotime($string));}
 		<div class="row">
 			<div class="col-lg-8">
 				<?php //row 1 ?>
-					<div class="row p-3" style="line-height: 2;">
+					<div class="row p-3 light" style="line-height: 2;">
 						<div class="col-12 col-md-6 d-md-flex">
 							<div class="">
 								<i class="fas fa-bell fa-fw d-inline"></i>
-								<div class="medium d-inline">ระยะเวลากิจกรรม: </div>
+								<div class="medium text-black d-inline">ระยะเวลากิจกรรม: </div>
 							</div>
 							<div class=" light ml-5 ml-md-2">
 								<?php if ($db['coup_ActivityDuration'] == 'Not Specific'): ?>
@@ -90,7 +90,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<div class="col-12 col-md-6 d-md-flex ">
 							<div class="">
 								<i class="fas fa-users fa-fw d-inline"></i>
-								<div class="medium d-inline">ผู้เข้าร่วมขั้นต่ำ: </div>
+								<div class="medium text-black d-inline">ผู้เข้าร่วมขั้นต่ำ: </div>
 							</div>
 							<div class="light ml-5 ml-md-2">
 								<?php if (empty($db['coup_Participation'])): ?>
@@ -103,7 +103,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<div class="col-12 col-md-6 d-md-flex ">
 							<div class="">
 								<i class="fas fa-business-time fa-fw d-inline"></i>
-								<div class="medium d-inline">ระยะเวลาโปร: </div>
+								<div class="medium text-black d-inline">ระยะเวลาโปร: </div>
 							</div>
 							<div class="light ml-5 ml-md-2">
 								<?php if ($db['coup_StartDate'] == '0000-00-00'): ?>
@@ -122,7 +122,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<div class="col-12 col-md-6 d-md-flex ">
 							<div class="">
 								<i class="fas fa-calendar-alt fa-fw d-inline"></i>
-								<div class="medium d-inline">ใช้สิทธิ์ได้ถึง: </div>
+								<div class="medium text-black d-inline">ใช้สิทธิ์ได้ถึง: </div>
 							</div>
 							<div class="light ml-5 ml-md-2">
 								<?php $mh = $db['coup_Method'];?>
@@ -138,7 +138,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<div class="col-12 col-md-6 d-md-flex ">
 							<div class="">
 								<i class="fas fa-calendar-check fa-fw d-inline"></i>
-								<div class="medium d-inline">วิธีการจอง: </div>
+								<div class="medium text-black d-inline">วิธีการจอง: </div>
 							</div>
 							<div class="light ml-5 ml-md-2 text-child-limit">
 								<?php if (empty($db['shop_reservation_brief'])): ?>
@@ -151,7 +151,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<div class="col-12 col-md-6 d-md-flex ">
 							<div class="">
 								<i class="fas fa-eraser fa-fw d-inline"></i>
-								<div class="medium d-inline">วิธีใช้สิทธิ์: </div>
+								<div class="medium text-black d-inline">วิธีใช้สิทธิ์: </div>
 							</div>
 							<div class="light ml-5 ml-md-2 text-child-limit">
 								<?php if (empty($db['shop_howtouse_brief'])): ?>
@@ -164,7 +164,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<div class="col-12 col-md-6 d-md-flex "> <!-- test shop/36 -->
 							<div class="">
 								<i class="fas fa-infinity fa-fw d-inline"></i>
-								<div class="medium d-inline">สิทธิ์คงเหลือ: </div>
+								<div class="medium text-black d-inline">สิทธิ์คงเหลือ: </div>
 							</div>
 							<div class="light ml-5 ml-md-2">
 								<?php if (empty($db['coup_Repetition'])): ?> <!-- if null -->
@@ -177,7 +177,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<div class="col-12 col-md-6 d-md-flex ">
 							<div class="">
 								<i class="fas fa-user-tag fa-fw d-inline"></i>
-								<div class="medium d-inline">จำกัดสิทธิ์: </div>
+								<div class="medium text-black d-inline">จำกัดสิทธิ์: </div>
 							</div>
 							<div class="light ml-5 ml-md-2">
 								<?php if (empty($db['coup_RepetitionMember'])): ?>
@@ -197,7 +197,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<div class="col-12 col-md-6 d-md-flex ">
 							<div class="">
 								<i class="fas fa-store fa-fw d-inline"></i>
-								<div class="medium d-inline">วันทำการ: </div>
+								<div class="medium text-black d-inline">วันทำการ: </div>
 							</div>
 							<div class="light ml-5 ml-md-2">
 								<?php if (empty($db['open_brief'])): ?>
@@ -231,7 +231,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 					<?php if (!empty($db['open_description'])): ?>
 						<div class="row pt-5">
-							<div class="col-12 bold">เวลาทำการ</div>
+							<div class="col-12 medium text-black h4">เวลาทำการ</div>
 							<div class=" col-12 light text-justify">
 								<?php echo nl2br($db['open_description']); ?>
 							</div>
@@ -240,7 +240,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 					<?php if (!empty($db['coup_HowToUse'])): ?>
 						<div class="row pt-5">
-							<div class="col-12 bold">วิธีการจอง</div>
+							<div class="col-12 medium text-black h4">วิธีการจอง</div>
 							<div class="col-12 light">
 								<?php echo nl2br($db['coup_HowToUse']); ?>
 							</div>
@@ -249,7 +249,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 					<?php if (!empty($db['coup_Condition'])): ?>
 						<div class="row pt-5">
-							<div class="col-12 bold">ข้อตกลง/เงื่อนไข</div>
+							<div class="col-12 medium text-black h4">ข้อตกลง/เงื่อนไข</div>
 							<div class="col-12 light">
 								<?php echo nl2br($db['coup_Condition']); ?>
 							</div>
@@ -258,7 +258,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 					<?php if (!empty($db['coup_Exception'])): ?>
 						<div class="row pt-5">
-							<div class="col-12 bold">ข้อยกเว้น</div>
+							<div class="col-12 medium text-black h4">ข้อยกเว้น</div>
 							<div class=" col-12 light text-justify">
 								<?php echo nl2br($db['coup_Exception']); ?>
 							</div>
@@ -267,7 +267,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 					<?php if (!empty($db['shop_cancellation_description'])): ?> <!-- start นโยบายการยกเลิก -->
 						<div class="row pt-5">  <!-- test : shop/112 : shop/23-->
-							<div class="col-12 bold">นโยบายการยกเลิก</div>
+							<div class="col-12 medium text-black h4">นโยบายการยกเลิก</div>
 							<div class=" col-12 light text-justify">
 								<?php echo nl2br($db['shop_cancellation_description']); ?>
 							</div>
@@ -276,7 +276,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 					<?php if (1): ?> <!-- start ที่ตั้ง -->
 						<div class="row pt-5">
-							<div class="col-12 bold">ที่ตั้ง</div>
+							<div class="col-12 medium text-black h4">ที่ตั้ง</div>
 							<div class="col-12 light text-justify">
 								<?php echo $db['address_no'] . ' '; ?>
 								<?php echo $db['moo'] . ' ' . $db['junction'] . ' ' . $db['soi'] . ' '; ?>
@@ -317,7 +317,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 						<?php }?>
 
 						<?php if (checkQuestionAnsIshave($db)): ?>
-							<div class="col-12 bold text-black pt-5">ถาม/ตอบ</div>
+							<div class="col-12 medium text-black h4 pt-5">ถาม/ตอบ</div>
 						<?php endif?>
 						<?php for ($i = 1; $i <= 5; $i++) {?>
 							<?php if (!(empty($db['shop_q' . $i]) || empty($db['shop_a' . $i]))): ?>
@@ -335,7 +335,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 					<?php if (!empty($db['coup_Contact'])): ?> <!-- start ติดต่อ test : shop/23 : shop/126 -->
 						<div class="row pt-5">
-							<div class="col-12 bold">ติดต่อ</div>
+							<div class="col-12 medium text-black h4">ติดต่อ</div>
 							<div class="col-12 light">
 								<!-- <div class="d-inline text-gray-dark">โทร</div> -->
 								<div class="d-inline "><?php echo $db['coup_Contact']; ?></div>
@@ -345,7 +345,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 					<?php if ($db['website'] != '' || $db['facebook_url'] != '' || $db['line_id'] != '' || $db['instragram'] != '' || $db['tweeter'] != ''): ?>
 						<div class="row pt-5"> <!-- ที่มา test shop/36 : shop/26 -->
-							<div class="col-12 bold text-black pt-3">ที่มา</div>
+							<div class="col-12 medium text-black h4 pt-3">ที่มา</div>
 
 							<?php if ($db['website'] != ''): ?>
 								<div class="col-12">
@@ -402,44 +402,48 @@ function setTime($string) {return date("H:i", strtotime($string));}
 			<?php //tab controller ,select time, select date, selectzone, show price, addtocart, buynow ?>
 			<div class="col-lg-4 " id="focus_buy"
 				ng-init="numForBuy = 1;">
-				<div class="row mb-3">
+
+				<div class="row mb-3 text-center">
 					<div id="my-calendar" class="blue material-theme ml-auto mr-auto" ></div>
-					<!-- Outputs -->
-					<!-- Day click : <br>
-					<input class="form-control" id="my-input-a"><br>
-					Month change : <br>
-					<input class="form-control" id="my-input-b"><br> -->
+
 				</div>
+
 				<div class="row">   <!-- select num for buy -->
-					<div class="col-12 h3 medium text-black">เลือก</div>
-					<ul class="pagination ml-auto mr-auto">
-						<li class="page-item " ng-class="{disabled:numForBuy<2}" >
-					    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy - 1">
-					    		<i class="fas fa-angle-down fa-fw"></i>
-					    	</div>
-						</li>
-						<li class="page-item " >
-					    	<div class="page-link bg-white" >{{numForBuy}}</div>
-						</li>
-					    <li class="page-item">
-					    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy + 1 ">
-					    		<i class="fas fa-angle-up fa-fw"></i>
-					    	</div>
-						</li>
-				    </ul>
+					<div class="col-12">
+						<div class="h4 bold text-black">เลือกจำนวน</div>
+						<div class="d-flex">
+							<ul class="pagination ml-auto mr-auto">
+								<li class="page-item " ng-class="{disabled:numForBuy<2}" >
+							    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy - 1">
+							    		<i class="fas fa-angle-down fa-fw"></i>
+							    	</div>
+								</li>
+								<li class="page-item " >
+							    	<div class="page-link bg-white" >{{numForBuy}}</div>
+								</li>
+							    <li class="page-item">
+							    	<div class="page-link bg-green text-white" ng-click="numForBuy = numForBuy + 1 ">
+							    		<i class="fas fa-angle-up fa-fw"></i>
+							    	</div>
+								</li>
+						    </ul>
+						</div>
+					</div>
 				</div>
 				<div class="row">
-					<div class="col-12 h3 medium text-black">สรุปยอด</div>
+					<div class="col-12 h4 bold text-black">สรุปยอด</div>
 					<div class="col-6 text-gray1 text-left pl-4">ราคาต่อคน</div>
 					<div class="col-6 text-gray1 text-right pr-4">{{user.coup_Price*1}} ฿</div>
 					<hr class="w-100 h3 bg-green ml-sm-5 ml-lg-0">
 					<div class="col-6 text-gray1 text-left pl-4">จำนวน</div>
 					<div class="col-6 text-gray1 text-right pr-4">{{numForBuy}}</div>
 					<hr class="w-100 h3 bg-green ml-sm-5 ml-lg-0">
-					<div class="col-6 text-gray1 text-left pl-4">ราคารวม</div>
-					<div class="col-6 text-gray1 text-right pr-4">{{user.coup_Price*numForBuy}} ฿</div>
+					<div class="col-6 text-black bold text-left pl-4">ราคารวม</div>
+					<div class="col-6 text-black bold text-right pr-4">{{user.coup_Price*numForBuy}} ฿</div>
 					<div class="col-12 text-center mt-5 pb-5">
-						<button class="btn btn-primary" ng-click="userActionBuy(user,numForBuy)">ซื้อเลย</button>
+						<button class="btn btn-lg btn-primary active" ng-click="userActionBuy(user,numForBuy)">
+							ซื้อเลย
+						</button>
 					</div>
 
 				</div>
@@ -471,7 +475,7 @@ function setTime($string) {return date("H:i", strtotime($string));}
 
 	<div class="container pb-5">
 		<div class="row pt-5">
-			<div class="col-12 bold">สิ่งที่คุณอาจสนใจ</div>
+			<div class="col-12 medium text-black h4">สิ่งที่คุณอาจสนใจ</div>
 			<div class="product col-md-4 productMargin" ng-repeat='product in productRecomment | limitTo:numLimitProductNow' >
 				<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
 					<img ng-if="product.logo_image != null"
