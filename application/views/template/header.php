@@ -35,7 +35,6 @@
 	<link rel="stylesheet" type="text/css"
 		href="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.css'); ?>">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
 	<!-- <link rel="stylesheet" type="text/css"
 		hrel="<?php //echo base_url('assets/plugins/angular-star-rating/star-rating.css') ?>"> -->
 
@@ -46,6 +45,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/reset.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/varible.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/custom-button.css'); ?>">
+
+
 	<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/css/custom/custom.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/css/custom/custom_media.css'); ?>"> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/template/navbar.css'); ?>">
@@ -118,6 +119,7 @@
     <?php //view home content slider show ?>
     <script src="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.js') ?>"></script>
     <script src="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper_custom.js') ?>"></script>
+
 
 
     <!-- <script src="<?php //echo base_url('assets/plugins/slick_slideLayout/slick.min.js') ?>"></script> -->

@@ -44,7 +44,7 @@ class Product extends CI_Controller {
 		// echo json_encode($data);
 		$data = $this->Main_model->getProductsByValue($postdata);
 		// echo json_encode($data);
-		echo json_encode($data);
+		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 
 	public function getAlldataProduct() {

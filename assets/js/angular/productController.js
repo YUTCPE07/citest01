@@ -39,6 +39,13 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
     }
     
 
+    $scope.dropDrowns = [
+      {name:'ล่าสุด', value:'-coup_UpdatedDate'},
+      {name:'ยอดนิยม', value:'-coup_numUse'}
+    ];
+    $scope.selectDropDrowns = $scope.dropDrowns[0];
+
+
     // $scope.hostSelected = $scope.options[0];
 
     // $scope.changedValue = function(item) {
@@ -77,7 +84,7 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
         indexService.getSearchresultPost(baseurl + "Product/Product/getProductsByValue",value)
         .then(function(respone){
             var data = respone.data;
-            // console.log(data) /*data real*/
+            console.log(data) /*data real*/
             $scope.products = data;
             $scope.catrogy_barnd = data;
             $scope.isReadyShow = true; 
@@ -169,33 +176,33 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
     }
 
 
-    $scope.orderByStr = "-coup_UpdatedDate";
+    // $scope.orderByStr = "-coup_UpdatedDate";
 
     // $(".selectpicker").change(function () {
     //     $scope.orderByStr = $(this).val();
     //     console.log($scope.orderByStr)
         
     // });
-    $scope.options = [
-        {id:1,name:"ล่าสุด"},
-        {id:2,name:"ยอดนิยม"},
-        {id:3,name:"ราคาน้อยไปมาก"},
-        {id:4,name:"ราคามากไปน้อย"}
-    ];
+    // $scope.options = [
+    //     {id:1,name:"ล่าสุด"},
+    //     {id:2,name:"ยอดนิยม"},
+    //     {id:3,name:"ราคาน้อยไปมาก"},
+    //     {id:4,name:"ราคามากไปน้อย"}
+    // ];
 
-    $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+    // $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
         // console.log(e)
         // this.orderByStr = $(this).val();
 
-    });
+    // });
 
 
-    $scope.selectOderBy = function () {
+    // $scope.selectOderBy = function () {
         // $scope.orderByStr = key;
         // console.log($scope.myOption)
         // $scope.showBtnMoreToLessAge = !$scope.showBtnMoreToLessAge;
         // $scope.showBtnMoreToLessSeq = !$scope.showBtnMoreToLessSeq;
-    } 
+    // } 
 
     // $scope.selectOderBy = function (key) {
     //     $scope.orderByStr = key;
@@ -587,3 +594,4 @@ return function (items, keyObj) {
 //         return input.slice(start);
 //     }
 // });
+

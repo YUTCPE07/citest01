@@ -1,0 +1,50 @@
+/*inclue varible.css*/
+.prettydropdown > ul {
+    border: unset;
+    border-radius: 5px;
+}
+
+.prettydropdown > ul.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    border: 1px solid #a9a9a9;
+    box-sizing: content-box;
+    color: #000;
+    cursor: pointer;
+    font: normal 18px Calibri, sans-serif;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1;
+}
+
+
+.prettydropdown > ul > li.selected{
+    background-color: var(--color-green);
+    color: white;
+    /*border: 2px solid red;*/
+    border-radius: 5px;
+}
+
+.prettydropdown > ul.active > li:not(.label):hover, .prettydropdown > ul.active > li.hover:not(.label), .prettydropdown > ul.active > li:first-child:hover:after {
+    background: var(--color-green);
+    color: #fff;
+    border-radius: unset;
+}
+
+.prettydropdown:not(.disabled) > ul.active {
+    width: auto;
+    max-height: none !important;
+    border-color: var(--color-green);
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 99;
+    border-radius: 5px;
+}

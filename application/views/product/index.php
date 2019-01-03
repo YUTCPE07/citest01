@@ -60,11 +60,28 @@
 
 		<div class="row" ng-if="catrogy_barnd.length > 0">
 			<?php //layout 1 ?>
+			<div class="col-lg-12 text-right">
+				<select class="prettyDropdown" ng-model="selectDropDrowns" ng-options="item.name for item in dropDrowns" >
+				</select>
+				<!-- <pre class="text-center">
+					<div class="row" ng-repeat="product in products | orderBy: selectDropDrowns.value">
+						<div class="col-6">
+							{{product.coup_UpdatedDate}}
+						</div>
+						<div class="col-6">
+							{{product.coup_numUse}}
+						</div>
+
+					</div>
+
+
+				</pre> -->
+			</div>
 			<div class="col-lg-3 d-none d-lg-block ">
 				<?php //menu ?>
 		      	<h5 class="mb-2 medium h4">คัดกรอง</h5>
 				<div class="row">
-					<div class="shadow m-2 p-2 w-100 mb-5 bg-white rounded
+					<div class="shadow mr-2 p-2 w-100 bg-white rounded
 						collapse navbar-collapse" id="menuResponetive" >
 						<div class="row mb-3 pt-3">
 							<div class="col-7 medium">หมวดหมู่</div>
@@ -90,8 +107,6 @@
 					</div>
 				</div> <?php //end row  ?>
 			</div>
-
-
 			<!-- test on 17,117 -->
 			<!-- {{ createRating("117",coupon_trans | filter : { coup_CouponID: "117", hico_Rating: "!0"} : true) }} -->
 			<!-- {{ coupon_trans | filter : { coup_CouponID: "117", hico_Rating: "!0"} : true }} -->
@@ -103,7 +118,7 @@
 					<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
 					<div class="product col-md-6 col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{
 							category_brand:checkBoxCatagoryArr
-						} | orderBy:orderByStr | limitTo:numLimitProduct ' >
+						} | orderBy:selectDropDrowns.value | limitTo:numLimitProduct ' >
 						<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
 							<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 							<img ng-if="product.logo_image != null"
@@ -197,10 +212,16 @@
 		</div>
 	</div>
 
+<!-- <div class="teddt">asdsadasd</div> -->
 
 </div> <!-- end ProductController -->
 
 
+<script type="text/javascript">
 
+	// $(document).ready(function() {
+
+    // });
+</script>
 
 
