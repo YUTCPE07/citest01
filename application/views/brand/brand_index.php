@@ -19,13 +19,13 @@ function crateSrcImage($path, $name) {
 <div class="container">
   <div class="pt-5 pb-3">
       <div class="d-flex">
-        <div class="h2 medium text-gray1">แบรนด์</div>
+        <div class="h3 medium text-black">แบรนด์</div>
       </div>
   </div>
 </div>
 
 <div class="container">
-  	<div class="row pt-5 pb-3 text-gray1">
+  	<div class="row pt-5 pb-3 h5 light text-gray1">
   		<?php foreach ($brands as $item): ?>
 			<div class="col-4 col-md-2 text-center ">
 				<!-- <?php //print_r($item)?> -->

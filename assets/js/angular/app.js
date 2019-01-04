@@ -2,7 +2,7 @@ var app = angular.module('app',['angular.filter','rzModule','ngAnimate','ui.boot
 
 // var baseurl = angular.element('meta[name="baseUrl"').attr('content');
 var baseurl = document.getElementsByTagName('base')[0].href;
-console.log(baseurl)
+// console.log(baseurl)
 
 // app.config('$locationProvider', function($locationProvider){
 //     $locationProvider.html5Mode(false);

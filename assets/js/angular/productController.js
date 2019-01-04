@@ -73,7 +73,7 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
     $scope.parseInt = window.parseInt; /*for Angular use math.round()*/
     // console.log(window.location.pathname)
     $scope.checkBoxCatagoryArr = [];
-    let numLimitProduct = 12;
+    let numLimitProduct = 15;
     $scope.numLimitProduct = numLimitProduct;
 
 
@@ -84,7 +84,7 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
         indexService.getSearchresultPost(baseurl + "Product/Product/getProductsByValue",value)
         .then(function(respone){
             var data = respone.data;
-            console.log(data) /*data real*/
+            // console.log(data) /*data real*/
             $scope.products = data;
             $scope.catrogy_barnd = data;
             $scope.isReadyShow = true; 

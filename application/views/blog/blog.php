@@ -5,8 +5,8 @@
 <?php //exit;?>
 
 <picture>
-	<source media="(min-width: 768px)" srcset="assets/images/other/joinus_big.jpg">
-	<img class="d-block w-100" src="assets/images/other/joinus_small.jpg">
+	<source media="(min-width: 768px)" srcset="assets/images/other/blog_big.jpg">
+	<img class="d-block w-100" src="assets/images/other/blog_small.jpg">
 </picture>
 <div class="container">
   <div class="pt-5 pb-3">

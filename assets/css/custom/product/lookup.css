@@ -17,6 +17,10 @@
    max-width: 200px;
 }
 
+.setHeightCardHeadText-memberCard {
+	height: 60px; 
+}
+
 
 @media (max-width: 768px) {
 /*	.text-limit-srcUrl {

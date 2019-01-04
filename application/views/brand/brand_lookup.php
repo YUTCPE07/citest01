@@ -15,7 +15,7 @@
 	</div>
 </div>
 
-<div class="container py-5 text-gray1 h5">
+<div class="container py-5 h5 light text-gray1">
 
 	<!-- <div class="d-flex flex-row-reverse p-lg-5 ">
 		<button class="btn btn-primary ml-lg-5 ml-3">แชร์</button>
@@ -50,7 +50,7 @@
 	<hr class="pb-4">
 
 	<div class="row pb-4">
-		<div class="col-12 medium text-black h4">ที่ตั้ง</div>
+		<div class="col-12 h4 medium text-black">ที่ตั้ง</div>
 		<div class="col-12 light">
 			<?php echo $db['address_no'] . ' '; ?>
 			<?php echo $db['moo'] . ' ' . $db['junction'] . ' ' . $db['soi'] . ' '; ?>
@@ -73,7 +73,7 @@
 
 		<?php if (!empty($db['phone']) || !empty($db['mobile'])): ?> <!-- start ติดต่อ test : shop/23 : shop/126 -->
 			<div class="row mb-4">
-				<div class="col-12 medium text-black h4">ติดต่อ</div>
+				<div class="col-12 h4 medium text-black">ติดต่อ</div>
 				<div class="col-12 light">
 					<div class="d-inline text-gray-dark">โทร</div>
 					<?php if (!empty($db['phone']) && !empty($db['mobile'])): ?>
@@ -93,7 +93,7 @@
 
 		<div class="row">
 			<?php if ($db['website'] != '' || $db['facebook_url'] != '' || $db['line_id'] != '' || $db['instragram'] != '' || $db['tweeter'] != ''): ?>
-				<div class="col-12 medium text-black h4">ที่มา</div>
+				<div class="col-12 h4 medium text-black">ที่มา</div>
 			<?php endif?>
 			<?php if ($db['website'] != ''): ?>
 				<div class="col-12">

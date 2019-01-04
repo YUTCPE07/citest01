@@ -61,8 +61,8 @@
 		<div class="row" ng-if="catrogy_barnd.length > 0">
 			<?php //layout 1 ?>
 			<div class="col-lg-12 text-right">
-				<select class="prettyDropdown" ng-model="selectDropDrowns" ng-options="item.name for item in dropDrowns" >
-				</select>
+				<!-- <select class="prettyDropdown" ng-model="selectDropDrowns" ng-options="item.name for item in dropDrowns" >
+				</select> -->
 				<!-- <pre class="text-center">
 					<div class="row" ng-repeat="product in products | orderBy: selectDropDrowns.value">
 						<div class="col-6">
@@ -122,7 +122,7 @@
 						<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
 							<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 							<img ng-if="product.logo_image != null"
-								ng-click='lookup("barnd",product.coup_CouponID,product.coup_Type)'
+								ng-click='lookup("barnd",product.bran_BrandID,product.coup_Type)'
 								class="rounded-circle shadow-sm img-responsive logo-brand border border-secondary bg-light" ng-src="upload/{{product.path_logo+product.logo_image}}">
 				            <img class="card-img-top" ng-click='lookup("coup",product.coup_CouponID,product.coup_Type)'
 			            		ng-src="upload/{{product.coup_ImagePath+product.coup_Image}}" >

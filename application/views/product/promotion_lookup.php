@@ -9,7 +9,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 ?>
 <?php //echo $db['coup_ImagePath'] . $db['coup_Image'] ?>
 <div class="container-fluid-my">
-	<div class="lookup-head-img pt-md-5 pt-0">
+	<div class="lookup-head-img pt-0">
 		<img class="img-fluid d-block ml-auto mr-auto shadow border-my"
 			src="upload/<?php echo $db['coup_ImagePath'] . $db['coup_Image'] ?>" alt="First slide">
 	</div>
@@ -32,7 +32,7 @@ function setDate($string) {return date("d-m-Y", strtotime($string));}
 			</div>
 			<div class="col-md-10 w-100">
 				<div class="row">
-					<div class="col-md-12"><div class="h2 medium"><?php echo $db['coup_Name']; ?></div></div>
+					<div class="col-md-12"><div class="h3 medium"><?php echo $db['coup_Name']; ?></div></div>
 					<div class="col-md-12"> <!-- test promotion/137@@ : promotion/1@@ -->
 						<div class="text-justify" ><?php echo nl2br($db['signature_info']); ?></div>
 					</div>
