@@ -34,12 +34,14 @@
 		href="<?php echo base_url('assets/plugins/swiper_slideLayout/swiper.css'); ?>">
 	<link rel="stylesheet" type="text/css"
 		href="<?php echo base_url('assets/plugins/jsCalendar/jsCalendar.css'); ?>">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css"
+		href="<?php echo base_url('assets/plugins/fontawesome-free-5.3.1-web/css/all.min.css'); ?>">
 	<!-- <link rel="stylesheet" type="text/css"
 		hrel="<?php //echo base_url('assets/plugins/angular-star-rating/star-rating.css') ?>"> -->
 
 	<!-- font -->
 	<link href="https://fonts.googleapis.com/css?family=Prompt:100,300,400,500,700&amp;subset=thai" rel="stylesheet">
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/setFont.css'); ?>"> -->
 
 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/reset.css'); ?>">

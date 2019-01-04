@@ -1,0 +1,21 @@
+@font-face {
+	font-family: 'Prompt';
+	src: url('../../fonts/Prompt-googlefont/Prompt-Black.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-BlackItalic.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-Bold.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-BoldItalic.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-ExtraBold.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-ExtraBoldItalic.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-ExtraLight.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-ExtraLightItalic.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-Italic.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-Light.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-LightItalic.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-Medium.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-MediumItalic.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-Regular.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-SemiBold.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-SemiBoldItalic.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-Thin.ttf'),
+	url('../../fonts/Prompt-googlefont/Prompt-ThinItalic.ttf');
+}
