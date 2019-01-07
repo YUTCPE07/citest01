@@ -5,10 +5,10 @@
 <!-- <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav"> -->
 <div ng-controller="navbarController" data-ng-init="init();" >
   <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light
-    text-uppercase" id="mainNav">
+    text-uppercase d-none" id="mainNav" >
     <div class="container">
       <a class="navbar-brand" href="<?php echo base_url(); ?>">
-        <img src="assets/images/template/navbar/logo_mini.png" alt="">
+        <img src="assets/images/template/navbar/logo_mini.png" alt="navbar memberin logo">
       </a>
       <!-- <a class="navbar-brand js-scroll-trigger" href="<?php //echo base_url(); ?>">Memberin</a> -->
       <button class="navbar-toggler navbar-toggler-right text-uppercase bg-green text-white rounded"
@@ -43,13 +43,22 @@
             </div>
           </li>
           <div class="form-inline my-2 my-lg-0" ng-if="isShowFormSerach">
+
             <div class="input-group navbarSearch">
+              <div class="input-group-prepend cursor-pointer " title="คลิกเพื่อย้อนกลับ" onclick="history.go(-1)" ng-show="isShowSearchBtnGoback()">
+                <span class="input-group-text btn-search-backHistory" >
+                  <i class="fas fa-undo"></i>
+                </span>
+              </div>
+
               <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Search" aria-describedby="search-addon1" ng-model="navbarInput.searchValue" focus-me="true" ng-keydown="keydownEnter($event)">
+
               <!-- <input type="text" ng-model="navbarInput.searchValue" > -->
-              <div class="input-group-prepend" ng-click="setUrlSearch()" >
+              <div class="input-group-prepend input-group-custom-right" ng-click="setUrlSearch()" >
                 <span class="input-group-text" id="search-addon1" ><i class="fas fa-search"></i></span>
               </div>
             </div>
+
           </div>
         </ul>
         <ul class="navbar-nav ml-auto">

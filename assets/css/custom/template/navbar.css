@@ -1,3 +1,11 @@
+.btn-search-backHistory {
+	opacity: 0.7;
+}
+
+.btn-search-backHistory:hover {
+	opacity: 1;
+}
+
 .input-group-text {
 	color: white;
 	background-color: var(--color-blueMiOld);
@@ -8,12 +16,12 @@
 	border-color: var(--color-blueMiOld);
 }
 
-.navbarSearch > .input-group-prepend {
+.navbarSearch > .input-group-custom-right {
 	cursor: pointer;
 	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 } 
 
-.navbarSearch > .input-group-prepend > .input-group-text {
+.navbarSearch > .input-group-custom-right > .input-group-text {
 	border-top-right-radius: .25rem;
 	border-bottom-right-radius: .25rem;
 }

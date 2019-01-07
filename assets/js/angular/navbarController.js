@@ -1,10 +1,6 @@
 'use strict';
 app.controller('navbarController',['$scope','$rootScope','$http','$location','$window','indexService', function ($scope,$rootScope,$http,$location,$window,indexService) {
 
-    $( "#inputSearch" ).focus(function () {
-    	console.log('asdsad')
-    });
-
 	$scope.isPageProduct = function () {
 		var url_string = window.location.href; 
 		if (url_string == (baseurl + "product")) {
@@ -22,6 +18,16 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
     }
 
 
+    $scope.isShowSearchBtnGoback = function() {
+    	var search = $scope.getParameterBy('search');
+    	// console.log(search)
+    	if (search == null) {
+    		return false;
+    	}else{
+    		return true;
+    	}
+    }
+
 	// $scope.isShowFormSerach = $scope.isPageProduct();
 
 	$scope.toggleSearchUI = function() {
@@ -38,7 +44,7 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
 	}
 
 	$scope.keydownEnter = function(event) {
-		console.log('enter')
+		// console.log('enter')
 		if (event.key === "Enter") {
 			var inputSearchValue = event.target.value;
 			$scope.setUrlSearch(); 
@@ -98,6 +104,9 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
 	var user = JSON.parse(sessionStorage.getItem("user"));
 	$scope.init = function () {
 		
+        $scope.isReady = false;
+
+
       	if(user===null){
 		    $scope.isUser = false;
 		}else{
@@ -108,6 +117,8 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
 		indexService.getdata_Catrogy_barnd().then(function (data) {
 			// console.log(data)
             $scope.catrogy_barnd = data;
+            $scope.isReady = true;
+            $("#mainNav").toggleClass('d-flex');
         });
 
 		var parameterSearch = $scope.getParameterBy('search');
