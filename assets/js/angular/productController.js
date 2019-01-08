@@ -29,6 +29,8 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
         }else{
             $scope.getProductsByValue(''); /*get all data product*/
         }
+
+        $scope.dropdowHeaderText = 'เลือก';
     }
 
     $scope.getParameterBy = function(paramiterUrl) {
@@ -37,13 +39,18 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
         var paramiterValue = url.searchParams.get(paramiterUrl);
         return paramiterValue;
     }
+
+    $scope.dropDownClick = function(dropDrowns) {
+        $scope.selectDropDrowns = dropDrowns.value;
+        $scope.dropdowHeaderText = dropDrowns.name;
+    }
     
 
     $scope.dropDrowns = [
       {name:'ล่าสุด', value:'-coup_UpdatedDate'},
       {name:'ยอดนิยม', value:'-coup_numUse'}
     ];
-    $scope.selectDropDrowns = $scope.dropDrowns[0];
+    $scope.selectDropDrowns = $scope.dropDrowns[0].value;
 
 
     // $scope.hostSelected = $scope.options[0];
@@ -52,9 +59,6 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
     //     $scope.itemList.push(item.name);
     //     console.log(item)
     // }
-
-    
-
 
     
     $scope.$on('navbarController_searchClick', function(events, data){
@@ -175,45 +179,6 @@ function ($scope,$rootScope, $http,indexService,$location,$filter) {
         $scope.numLimitProduct += numLimitProduct;
     }
 
-
-    // $scope.orderByStr = "-coup_UpdatedDate";
-
-    // $(".selectpicker").change(function () {
-    //     $scope.orderByStr = $(this).val();
-    //     console.log($scope.orderByStr)
-        
-    // });
-    // $scope.options = [
-    //     {id:1,name:"ล่าสุด"},
-    //     {id:2,name:"ยอดนิยม"},
-    //     {id:3,name:"ราคาน้อยไปมาก"},
-    //     {id:4,name:"ราคามากไปน้อย"}
-    // ];
-
-    // $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-        // console.log(e)
-        // this.orderByStr = $(this).val();
-
-    // });
-
-
-    // $scope.selectOderBy = function () {
-        // $scope.orderByStr = key;
-        // console.log($scope.myOption)
-        // $scope.showBtnMoreToLessAge = !$scope.showBtnMoreToLessAge;
-        // $scope.showBtnMoreToLessSeq = !$scope.showBtnMoreToLessSeq;
-    // } 
-
-    // $scope.selectOderBy = function (key) {
-    //     $scope.orderByStr = key;
-    //     $scope.showBtnMoreToLessAge = !$scope.showBtnMoreToLessAge;
-    //     $scope.showBtnMoreToLessSeq = !$scope.showBtnMoreToLessSeq;
-    // }
-
-    // $scope.initSelectOrderBy = function() {
-    //     $scope.showBtnMoreToLessAge = true;
-    //     $scope.showBtnMoreToLessSeq = true;
-    // }
 
       
 

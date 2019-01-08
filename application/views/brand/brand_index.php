@@ -16,35 +16,58 @@ function crateSrcImage($path, $name) {
 // echo crateSrcImage("ssss", "sss/ss");
 // exit;
 ?>
-<div class="container">
-  <div class="pt-5 pb-3">
-      <div class="d-flex">
-        <div class="h3 medium text-black">แบรนด์</div>
-      </div>
-  </div>
-</div>
+<div ng-controller="brandController" ng-init="init();">
+	<div class="container">
+	  	<div class="pt-5 pb-3">
+		    <div class="d-flex">
+		        <div class="h3 medium text-black">แบรนด์</div>
+		    </div>
+	  	</div>
+	</div>
 
-<div class="container">
-  	<div class="row pt-5 pb-3 h5 light text-gray1">
-  		<?php foreach ($brands as $item): ?>
-			<div class="col-4 col-md-2 text-center ">
-				<!-- <?php //print_r($item)?> -->
-				<?php //if (	): ?>
+	<div class="container">
+	  	<div class="row pt-5 pb-3 h5 light text-gray1">
+			<div ng-repeat="item in brands | limitTo: brandsLimitNow" class="col-4 col-md-2 text-center ">
+	    		<a href="{{baseurl}}brand/{{item.brand_id}}">
 
-				<?php //endif ?>
-	    		<a href="<?php echo base_url() . 'brand/' . $item['brand_id'] ?>">
-					<!-- <img src="https://via.placeholder.com/400x400" class="rounded img-responsive home_brand shadow" alt=" "> -->
-					 <!-- $item['path_logo'] + $item['logo_image'] -->
-					<img src="<?php echo base_url() . crateSrcImage($item['path_logo'], $item['logo_image']) ?>" class="rounded img-responsive home_brand shadow shadowHover">
+					<img src="{{item.src}}" class="rounded img-responsive home_brand shadow shadowHover">
 				</a>
-				<div class="pt-3 pb-5"><?php echo $item['name']; ?></div>
+				<div class="pt-3 pb-5">{{item.name}}</div>
 	    	</div>
-        <?php endforeach;?>
-  	</div>
-</div>
+	  	</div>
+	</div>
 
+	<div class="container">
+		<div class="row mb-5 p-3 text-right" >
+			<div class="box-additional ml-auto px-3 py-1" ng-if="brandsLimitNow < brands.length">
+				<div class="cursor-pointer h4 medium w-100 m-0"
+				ng-click="brandsLimitNow = brandsLimitNow + brandsLimitInit">เพิ่มเติม</div>
+			</div>
+		</div>
+	</div>
+	brands.length is {{brands.length}} <br>
+	brandsNumLimit is {{brandsLimitInit}} <br>
+	brandsNumNow is {{brandsLimitNow}}
+
+
+
+</div>
 
 
 <div class="hr_footer_height"></div>
+<!--
 
+<?php foreach ($brands as $item): ?>
+	<div class="col-4 col-md-2 text-center ">
+		<!-- <?php //print_r($item)?>
+		<?php //if (	): ?>
 
+		<?php //endif ?>
+		<a href="<?php echo base_url() . 'brand/' . $item['brand_id'] ?>">
+			 <img src="https://via.placeholder.com/400x400" class="rounded img-responsive home_brand shadow" alt=" ">
+			  $item['path_logo'] + $item['logo_image']
+			<img src="<?php echo base_url() . crateSrcImage($item['path_logo'], $item['logo_image']) ?>" class="rounded img-responsive home_brand shadow shadowHover">
+		</a>
+		<div class="pt-3 pb-5"><?php echo $item['name']; ?></div>
+	</div>
+<?php endforeach;?> -->

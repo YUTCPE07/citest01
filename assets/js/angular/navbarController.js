@@ -59,10 +59,17 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
 	   // console.log($scope)
 	});
 
+
 	$scope.navbarInput = {};
 	$scope.setUrlSearch = function() {
 		var value = $scope.navbarInput.searchValue;
-		window.location.href = baseurl + "product?search=" + value;
+		if (value == undefined) {
+			$("#inputSerach").focus();
+		}
+
+		if (value != undefined) {
+			window.location.href = baseurl + "product?search=" + value;
+		}
 	}
 
 	$scope.setSesscionSearch = function(value) {

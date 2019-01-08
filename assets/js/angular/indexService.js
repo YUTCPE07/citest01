@@ -65,14 +65,14 @@ app.factory('indexService', function ($q, $http) {
     };
 });
 
-app.factory('svc', function () {
-    var isShowFormSerach;
-    return {
-        setIsShowFormSerach: function(x) {
-            isShowFormSerach = x;
-        },
-        getIsShowFormSerach: function() {
-            return isShowFormSerach;
-        }
-    };
-});
+// app.factory('svc', function () {
+//     var isShowFormSerach;
+//     return {
+//         setIsShowFormSerach: function(x) {
+//             isShowFormSerach = x;
+//         },
+//         getIsShowFormSerach: function() {
+//             return isShowFormSerach;
+//         }
+//     };
+// });

@@ -1,6 +1,6 @@
 
 
-<div ng-controller='productController' class="pb-5" ng-init="init()" ng-if="!isLoading">
+<div ng-controller='productController' class="pb-5" ng-init="init();" ng-if="!isLoading">
 	<!-- {{myVar}}
 	<button ng-click="buttonClicked()">sssssssss</button> -->
 
@@ -61,21 +61,23 @@
 		<div class="row" ng-if="catrogy_barnd.length > 0">
 			<?php //layout 1 ?>
 			<div class="col-lg-12 text-right">
-				<!-- <select class="prettyDropdown" ng-model="selectDropDrowns" ng-options="item.name for item in dropDrowns" >
-				</select> -->
-				<!-- <pre class="text-center">
-					<div class="row" ng-repeat="product in products | orderBy: selectDropDrowns.value">
-						<div class="col-6">
-							{{product.coup_UpdatedDate}}
-						</div>
-						<div class="col-6">
-							{{product.coup_numUse}}
-						</div>
-
-					</div>
+				<!-- <div class="dropdown">
+					<select class="btn btn-secondary dropdown-toggle" ng-model="selectDropDrowns" ng-options="item.name for item in dropDrowns" id="dropdownMenuButton" uib-dropdown-toggle >
+					</select>
+				</div> -->
 
 
-				</pre> -->
+				<div class="dropdown" >
+				  <button class="myDropdow-btn dropdown-toggle h4 cursor-pointer" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 158px;">
+				    {{dropdowHeaderText}}
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+				    <div class="dropdown-item" ng-repeat=" item in dropDrowns" ng-click="dropDownClick(item)" >{{item.name}}</div>
+				    <!-- <div class="dropdown-item" ng-click="dropDownClick(item)">ยอดนิยม</div> -->
+				  </div>
+
+				</div>
+
 			</div>
 			<div class="col-lg-3 d-none d-lg-block ">
 				<?php //menu ?>
@@ -118,7 +120,7 @@
 					<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
 					<div class="product col-md-6 col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{
 							category_brand:checkBoxCatagoryArr
-						} | orderBy:selectDropDrowns.value | limitTo:numLimitProduct ' >
+						} | orderBy:selectDropDrowns | limitTo:numLimitProduct ' >
 						<div class="card shadow mb-3 mt-3 " style="max-width: 180rem;" >
 							<!-- <a href="<?php //echo base_Url('product/'); ?>{{product.coup_CouponID}}"> -->
 							<img ng-if="product.logo_image != null"
@@ -220,8 +222,8 @@
 <script type="text/javascript">
 
 	// $(document).ready(function() {
-
-    // });
+	// 	$('select').niceSelect();
+	// });
 </script>
 
 

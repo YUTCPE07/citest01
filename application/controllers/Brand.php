@@ -15,20 +15,22 @@ class Brand extends CI_Controller {
 	}
 
 	public function index() {
-		$data['brands'] = $this->Main_model->getAllDataBrand();
-		// echo "<pre>";
-		// print_r($data);
-		// exit;
-		// $data['brands'] = array('Clean House', 'Call Mom', 'Run Errands');
+		// $data['brands'] = $this->Main_model->getAllDataBrand();
+
+		//// echo "<pre>";
+		//// print_r($data);
+		//// exit;
+		//// $data['brands'] = array('Clean House', 'Call Mom', 'Run Errands');
 
 		$this->load->view('template/header');
-		$this->load->view('brand/brand_index', $data);
+		$this->load->view('brand/brand_index');
+		// $this->load->view('brand/brand_index', $data);
 		$this->load->view('template/footer');
 	}
 
-	// public function counttype(){
-	// 	$data = $this->Main_model->countColumnType();
-	// 	echo json_encode($data);
-	// }
+	public function getAllDataBrand() {
+		$data = $this->Main_model->getAllDataBrand();
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
 
 }

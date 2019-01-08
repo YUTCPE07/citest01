@@ -51,7 +51,7 @@
                 </span>
               </div>
 
-              <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Search" aria-describedby="search-addon1" ng-model="navbarInput.searchValue" focus-me="true" ng-keydown="keydownEnter($event)">
+              <input type="text" class="form-control" placeholder="ค้นหา" aria-label="Search" aria-describedby="search-addon1" ng-model="navbarInput.searchValue" focus-me="true" ng-keydown="keydownEnter($event)" id="inputSerach">
 
               <!-- <input type="text" ng-model="navbarInput.searchValue" > -->
               <div class="input-group-prepend input-group-custom-right" ng-click="setUrlSearch()" >
