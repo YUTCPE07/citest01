@@ -60,7 +60,7 @@
 
 		<div class="row" ng-if="catrogy_barnd.length > 0">
 			<?php //layout 1 ?>
-			<div class="col-lg-12 text-right">
+			<div class="col-lg-12 p-0 text-right">
 				<!-- <div class="dropdown">
 					<select class="btn btn-secondary dropdown-toggle" ng-model="selectDropDrowns" ng-options="item.name for item in dropDrowns" id="dropdownMenuButton" uib-dropdown-toggle >
 					</select>
@@ -68,10 +68,10 @@
 
 
 				<div class="dropdown" >
-				  <button class="myDropdow-btn dropdown-toggle h4 cursor-pointer" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 158px;">
+				  <button class="myDropdown-btn dropdown-toggle h4 cursor-pointer" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 160px;">
 				    {{dropdowHeaderText}}
 				  </button>
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+				  <div class="dropdown-menu myDropdown-menu" aria-labelledby="dropdownMenuButton" >
 				    <div class="dropdown-item" ng-repeat=" item in dropDrowns" ng-click="dropDownClick(item)" >{{item.name}}</div>
 				    <!-- <div class="dropdown-item" ng-click="dropDownClick(item)">ยอดนิยม</div> -->
 				  </div>
@@ -116,7 +116,7 @@
 			<?php //layout 2 ?>
 			<div class="col-lg-9 mt-4" >
 				<!-- {{orderByStr}} -->
-				<div class="row">
+				<div class="row pt-2">
 					<!-- <div class="col-lg-4 product" ng-repeat='product in products | filter:filterProduct'> -->
 					<div class="product col-md-6 col-lg-4 productMargin" ng-repeat='product in products | filterMultiple:{
 							category_brand:checkBoxCatagoryArr

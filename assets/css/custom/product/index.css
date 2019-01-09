@@ -1,7 +1,9 @@
 /*product-index*/
 
 
-.myDropdow-btn {
+.myDropdown-btn {
+	margin-right: 5px;
+	outline:unset!important;
 	color: var(--color-black);
 	background-color: var(--color-white);
     display: inline-block;
@@ -21,8 +23,14 @@
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.myDropdow-btn:after {
+.myDropdown-btn:after {
+	margin-left: 60px;
+	margin-right: 0px;
 	color: 	var(--color-green);
+}
+
+.myDropdown-menu {
+	border-radius: 8px;
 }
 
 
