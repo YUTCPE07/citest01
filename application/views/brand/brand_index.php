@@ -39,17 +39,12 @@ function crateSrcImage($path, $name) {
 
 	<div class="container">
 		<div class="row mb-5 p-3 text-right" >
-			<div class="box-additional ml-auto px-3 py-1" ng-if="brandsLimitNow < brands.length">
+			<div class="box-additional ml-auto px-3 py-1" ng-show="brandsLimitNow < brands.length">
 				<div class="cursor-pointer h4 medium w-100 m-0"
-				ng-click="brandsLimitNow = brandsLimitNow + brandsLimitInit">เพิ่มเติม</div>
+				ng-click="brandsLimitNow = (brandsLimitNow + brandsLimitInit)">เพิ่มเติม</div>
 			</div>
 		</div>
 	</div>
-	brands.length is {{brands.length}} <br>
-	brandsNumLimit is {{brandsLimitInit}} <br>
-	brandsNumNow is {{brandsLimitNow}}
-
-
 
 </div>
 
