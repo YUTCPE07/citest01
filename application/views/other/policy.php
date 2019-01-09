@@ -1,3 +1,5 @@
+<img class="backgroud d-none d-md-inline-flex" src="<?php echo base_url(); ?>assets/images/background/background01_cus2.png">
+
 <div class="container">
 	<div class="h5 light text-gray1 my-5">
 		<div class="pb-3 h3 medium text-black">นโยบายความเป็นส่วนตัวและความปลอดภัย</div>
