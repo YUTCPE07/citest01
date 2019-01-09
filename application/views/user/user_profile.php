@@ -209,33 +209,33 @@
 				<div class="row">
 					<div class="col-lg-5">
 						<div class="medium mb-2">เบอร์โทรศัพท์(มือถือ)</div>
-						<input class="bg-gray3 text-gray1" type="tel" name="otp_phone" disabled value="075-2321212">
+						<input class="form-control bg-gray3 text-gray1 h5 light" type="tel" name="otp_phone" disabled value="075-2321212">
 					</div>
 					<div class="col-lg-7">
 						<br>
-						<button class="btn btn-lg btn-primary bold">รับ OTP</button>
+						<button class="btn btn-lg btn-primary medium">รับ OTP</button>
 						<small class="px-3 text-gray1">*รหัส OTP จะถูกส่งไปที่เบอร์เดิม</small>
 					</div>
 				</div>
 				<div class="row my-4">
 					<div class="col-lg-5">
 						<div class="medium mb-2">รหัส OTP : 1</div>
-						<input class="bg-gray3 text-gray1" type="tel" name="otp_phone" placeholder="รหัส OTP เบอร์เดิม">
+						<input class="form-control bg-gray3 text-gray1 h5 light" type="tel" name="otp_phone" placeholder="รหัส OTP เบอร์เดิม">
 					</div>
 					<div class="col-lg-7">
 						<br>
-						<button class="btn btn-lg btn-primary bold">รับ OTP</button>
+						<button class="btn btn-lg btn-primary medium">รับ OTP</button>
 						<small class="px-3 text-gray1">*รหัส OTP จะถูกส่งไปที่เบอร์ใหม่</small>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-5">
 						<div class="medium mb-2">รหัส OTP : 2</div>
-						<input class="bg-gray3 text-gray1" type="tel" name="otp_phone" placeholder="รหัส OTP เบอร์ใหม่" >
+						<input class="form-control bg-gray3 text-gray1 h5 light" type="tel" name="otp_phone" placeholder="รหัส OTP เบอร์ใหม่" >
 					</div>
 					<div class="col-lg-7">
 						<br>
-						<button class="btn btn-lg btn-primary bold px-4 active">ยืนยัน</button>
+						<button class="btn btn-lg btn-primary medium px-4 active">ยืนยัน</button>
 					</div>
 				</div>
 			</div>

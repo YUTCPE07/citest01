@@ -65,11 +65,12 @@
 }
 
 .btn-primary {
+  min-width: 125px;
   /*font-family: Raleway-SemiBold;*/
-  font-size: 20px;
+  /*font-size: 20px;*/
   color: rgb(33, 175, 154);
   /*letter-spacing: 1px;*/
-  letter-spacing: 3px;
+  /*letter-spacing: 3px;*/
   /*line-height: 15px;*/
   line-height: 20px;
   border: 2px solid rgb(33, 175, 154);
@@ -95,6 +96,10 @@
     background-color: var(--color-green);
     border-color: var(--color-green);
     box-shadow:unset;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: unset; 
 }
 
 .btn-primary.focus, .btn-primary:focus {

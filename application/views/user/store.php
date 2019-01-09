@@ -60,7 +60,7 @@
 					</div>
 					<div class="col-lg-2 ">
 						<div class="text-gray1">{{mr.count}}</div>
-						<button class="btn btn-primary mt-4 active" ng-click="useMyRight()">ใช้สิทธิ์ </button>
+						<button class="btn btn-primary mt-4 active light px-3" ng-click="useMyRight()">ใช้สิทธิ์ </button>
 					</div>
 				</div>
 			</div><br>
@@ -94,7 +94,7 @@
 					</div>
 					<div class="col-lg-2 ">
 						<div class="text-gray1">{{result[key].length}}</div>
-						<button class="btn btn-primary mt-4 active" data-toggle="modal" data-target="#store_modal{{$index}}" >
+						<button class="btn btn-primary mt-4 active light " data-toggle="modal" data-target="#store_modal{{$index}}" >
 							<i class="fas fa-search"></i>
 							<i class="fas fa-qrcode"></i>
 						</button>
@@ -168,7 +168,7 @@
 					<div class="col-lg-2 ">
 
 						<div class="text-gray1">{{result[key].length}}</div>
-						<button class="btn btn-primary mt-4 active">ต่ออายุ</button>
+						<button class="btn btn-primary mt-4 active light ">ต่ออายุ</button>
 					</div>
 				</div>
 			</div><br>
