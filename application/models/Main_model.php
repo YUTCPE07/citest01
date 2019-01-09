@@ -591,6 +591,29 @@ class Main_model extends CI_Model {
 		return $results;
 	} /*end function getRecommentCouponOther*/
 
+	function isMyUser($user) {
+		// test@test.com
+		// test
+		$username = $user->username;
+		// $username = 'test@test.com';
+		$password = $user->password;
+		// $password = 'test';
+		$sql = "SELECT
+				    mb_member.email,
+				    mb_member.home_phone,
+				    mb_member.firstname,
+				    mb_member.lastname
+				FROM
+				    mb_member
+				WHERE
+					( email =  '$username'  OR home_phone =  '$username' )
+					AND password = '$password' ";
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+		// return $user;
+	} /*end function shop_lookup*/
+
 	function shop_lookup($id) {
 		/*test id 36*/
 		$sql = "SELECT

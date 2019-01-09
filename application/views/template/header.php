@@ -111,6 +111,7 @@
     <script src="<?php echo base_url('assets/js/angular/payController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/user_profileController.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/brandController.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/test_loginController.js') ?>"></script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script> -->
     <?php //product rating star ?>
