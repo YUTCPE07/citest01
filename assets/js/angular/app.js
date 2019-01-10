@@ -1,4 +1,4 @@
-var app = angular.module('app',['angular.filter','rzModule','ngAnimate','ui.bootstrap']);
+var app = angular.module('app',['angular.filter','rzModule','ngAnimate','ui.bootstrap','ngCookies']);
 
 // var baseurl = angular.element('meta[name="baseUrl"').attr('content');
 var baseurl = document.getElementsByTagName('base')[0].href;

@@ -9,7 +9,6 @@
 //     };
 // });
 
-
 app.factory('indexService', function ($q, $http) {
 
     return {
@@ -61,7 +60,23 @@ app.factory('indexService', function ($q, $http) {
             return deferred.promise; //รอตามสัญญา ขอเวลาอีกไม่นาน
         },
 		
-        
+        lockData : function(data){
+            var defer = $q.defer();
+            // data += 'stringify';
+            let dataObjToStr =  JSON.stringify(data);
+            let dataProtect = btoa(dataObjToStr);
+            defer.resolve(dataProtect);
+            return defer.promise;
+        },
+
+        unlockData : function(data){
+            var defer = $q.defer();
+            // data += 'parse';
+            let dataUnProtect = atob(data);
+            let dataStrToObj =  JSON.parse(dataUnProtect);
+            defer.resolve(dataStrToObj);
+            return defer.promise;
+        },
     };
 });
 

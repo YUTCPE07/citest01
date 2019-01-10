@@ -611,8 +611,19 @@ class Main_model extends CI_Model {
 		$q = $this->db->query($sql);
 		$results = $q->result_array();
 		return $results;
-		// return $user;
-	} /*end function shop_lookup*/
+	} /*end function isMyUser*/
+
+	function isUsernameMyHave($username) {
+		// test@test.com
+		$sql = "SELECT
+				    count(*) as value
+				FROM
+				    mb_member
+				WHERE email =  '$username'  OR home_phone =  '$username' ";
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+	} /*end function isUsernameMyHave*/
 
 	function shop_lookup($id) {
 		/*test id 36*/

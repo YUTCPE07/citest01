@@ -91,6 +91,7 @@
 
     <?php //angular ?>
     <script src="<?php echo base_url('assets/js/angular/plugin/angular.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/angular/plugin/angular-cookies.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/plugin/angular-animate.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/plugin/angular-touch.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/angular/plugin/angular-sanitize.min.js') ?>"></script>

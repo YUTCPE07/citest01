@@ -20,7 +20,39 @@ class Test extends CI_Controller {
 	public function isMyUser() {
 		$postdata = file_get_contents("php://input");
 		$user = json_decode($postdata);
+		$user->password = md5($user->password);
+		// echo $user->password;
 		$data = $this->Main_model->isMyUser($user);
-		echo json_encode($data);
+		$arrobj = $data[0];
+		$arrobj['isUser'] = false;
+		// echo $arrobj['firstname'];
+		if ($data) {
+			$arrobj['isUser'] = true;
+			// $session_data = array(
+			// 	'username' => $user->username,
+			// );
+			// echo "t";
+			//$this->session->set_userdata($arrobj); //set session By ci
+			// isset($_SESSION['some_name'])
+		}
+		echo json_encode($arrobj);
+
 	}
+
+	public function isUsernameMyHave() {
+		$postdata = file_get_contents("php://input");
+		// $username = json_decode($postdata);
+		$username = $postdata; //becaus $postdata is string not obj
+		$data = $this->Main_model->isUsernameMyHave($username);
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+
+	public function test_md5() {
+		//test
+		//4c172282115c7410291640853a8fbe62
+
+		$str = "test";
+		echo md5($str);
+	}
+
 }
