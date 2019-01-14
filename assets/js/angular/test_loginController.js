@@ -44,9 +44,13 @@ app.controller('test_loginController', ['$scope', '$http','$cookies','indexServi
 	}
 
 	$scope.checkIsUserSession = function() {
-		var app_session = $cookies.get('app_session');
+		const app_session = $cookies.get('app_session');
 		if(app_session != undefined){
 			$scope.isUserSession = true;
+			indexService.unlockData(app_session).then(function(respone){
+		  	    // console.log(respone);
+		  	    $scope.userSession = respone;
+		  	});
 		}else{
 			$scope.isUserSession = false;
 		}

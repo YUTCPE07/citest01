@@ -34,11 +34,11 @@
           </span>
         </div>
       </div>
-
-      <div class="form-check">
+      <br>
+      <!-- <div class="form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div><br>
+      </div> -->
       <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
       <!-- formLogin.username.$invalid ||  formLogin.password.$invalid ||  -->
       <button ng-click="submit()" class="btn btn-primary"
@@ -52,7 +52,7 @@
 
   <div class="col-6 offset-3" ng-show="isUserSession">
 
-    <div>สวัสดี </div>
+    <div>สวัสดี {{userSession.firstname}}{{userSession.lastname}}</div>
     <?php echo isset($_SESSION['isUser']) ?>
     <div><?php echo $this->session->userdata("firstname"); ?></div>
     <div><?php echo $this->session->userdata("firstname"); ?></div>
