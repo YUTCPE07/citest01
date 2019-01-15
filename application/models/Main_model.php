@@ -594,7 +594,7 @@ class Main_model extends CI_Model {
 	function insertUserFormFacebook($user) {
 		date_default_timezone_set("Asia/Bangkok");
 		$dateTimeNow = date("Y-m-d H:i");
-		$image = "member_" . date("Ymd_His");
+		$image = "member_" . date("Ymd_His") . ".jpg";
 		$sql = "INSERT INTO
 					mb_member
 					(
@@ -613,12 +613,12 @@ class Main_model extends CI_Model {
 					VALUES
 					(
 					'$user->id',
-					'name asdasdasd sadas',
+					'$user->name',
 					'email@email.com',
 					'fname',
 					'lname',
 					'15/11/1993',
-					'testAddNew',
+					'$image',
 					'$dateTimeNow',
 					'$dateTimeNow',
 					'$dateTimeNow',

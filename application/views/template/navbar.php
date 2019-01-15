@@ -84,6 +84,7 @@
             <!-- <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer"  ng-show="isUserSession" ng-click="logout()">ออกจากระบบ</a> -->
             <div class="d-inline" ng-if="isUserSession">
                 <a href="<?php echo base_url(); ?>profile">
+                  <!-- http://graph.facebook.com/1933048106773317/picture?type=large -->
                   <img style="width: 35px; height: 35px;" class="rounded-circle shadow bg-white rounded" ng-src="upload/member_upload/{{userSession.member_image}}"
                   ng-if="userSession.member_image !== undefined">
                   <img style="width: 35px; height: 35px;" class="rounded-circle shadow bg-white rounded" ng-src="assets/images/login/user_image_undifind.png"

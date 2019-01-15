@@ -181,7 +181,7 @@ app.controller('loginController', ['$scope','$cookies', 'indexService','$locatio
       console.log(user)
       indexService.getSearchresultPost(baseurl + "Login/insertUserFormFacebook",user)
       .then(function(respone){
-          console.log(respone)
+          console.log(respone.data)
       });
     }
     // FB.login(function(response) {
