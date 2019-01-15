@@ -28,6 +28,7 @@ class Test extends CI_Controller {
 		// echo $arrobj['firstname'];
 		if ($data) {
 			$arrobj['isUser'] = true;
+			// $arrobj['loginBy'] = 'normal';
 			// $session_data = array(
 			// 	'username' => $user->username,
 			// );

@@ -196,7 +196,7 @@ class Main_model extends CI_Model {
 
 	function getStoreMyRightExp($user_id) {
 		// '2018-11-29 11:44:46'
-		date_default_timezone_set("Asia/Magadan");
+		// date_default_timezone_set("Asia/Magadan");
 		$dateTimeNow = date("Y-m-d h:i:s");
 		$sql = "SELECT
 				 productAll.date_expire AS date_expire,
@@ -591,6 +591,64 @@ class Main_model extends CI_Model {
 		return $results;
 	} /*end function getRecommentCouponOther*/
 
+	function insertUserFormFacebook($user) {
+		date_default_timezone_set("Asia/Bangkok");
+		$dateTimeNow = date("Y-m-d H:i");
+		$image = "member_" . date("Ymd_His");
+		$sql = "INSERT INTO
+					mb_member
+					(
+					mb_member.facebook_id,
+					mb_member.facebook_name,
+					mb_member.email,
+					mb_member.firstname,
+					mb_member.lastname,
+					mb_member.date_birth,
+					mb_member.member_image,
+					mb_member.date_create,
+					mb_member.date_update,
+					mb_member.date_login,
+					mb_member.platform
+					)
+					VALUES
+					(
+					'$user->id',
+					'name asdasdasd sadas',
+					'email@email.com',
+					'fname',
+					'lname',
+					'15/11/1993',
+					'testAddNew',
+					'$dateTimeNow',
+					'$dateTimeNow',
+					'$dateTimeNow',
+					'website'
+					)";
+		$q = $this->db->query($sql);
+		// $results = $q->result_array();
+		return $q;
+
+	} /*end function insertUserFormFacebook*/
+
+	function getUserByFacebookId($id) {
+
+		$sql = "SELECT
+				    mb_member.member_id,
+				    mb_member.facebook_id,
+				    mb_member.email,
+				    mb_member.home_phone,
+				    mb_member.firstname,
+				    mb_member.lastname,
+				    mb_member.member_image
+				FROM
+				    mb_member
+				WHERE
+					facebook_id = '$id'";
+		$q = $this->db->query($sql);
+		$results = $q->result_array();
+		return $results;
+	} /*end function getUserByFacebookId*/
+
 	function isMyUser($user) {
 		// test@test.com
 		// test
@@ -598,11 +656,15 @@ class Main_model extends CI_Model {
 		// $username = 'test@test.com';
 		$password = $user->password;
 		// $password = 'test';
+		// mb_member.facebook_id == '' ? user register by normal : by facebook
 		$sql = "SELECT
+				    mb_member.member_id,
+				    mb_member.facebook_id,
 				    mb_member.email,
 				    mb_member.home_phone,
 				    mb_member.firstname,
-				    mb_member.lastname
+				    mb_member.lastname,
+				    mb_member.member_image
 				FROM
 				    mb_member
 				WHERE

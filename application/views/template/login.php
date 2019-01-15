@@ -1,7 +1,11 @@
+<style type="text/css">
 
+</style>
 <div class="modal fade" id="login" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="loginController">
 <!-- <div class="pt-5 mt-5" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-  <div class="modal-dialog" role="document" ng-controller="loginController" id="modal-login">
+  <div class="modal-dialog" role="document" id="modal-login"
+    ng-controller="loginController" ng-init="init();"
+    >
 
     <div class="modal-content" ng-show="loginFrom">
       <div class="modal-header bg-green">
@@ -11,18 +15,41 @@
         <div class="close" data-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></i></div>
       </div>
       <div class="modal-body">
-        <form ng-submit="loginSubmit()" class="px-4">
+        <form class="px-4" name="formLogin" novalidate>
           <div class="form-group row pt-3 mr-2">
             <label for="emailOrPhone" class="col-4 col-form-label text-right">อีเมลล์/เบอร์โทร</label>
             <div class="col-8 text-right">
               <!-- placeholder="อีเมลล์/เบอร์โทร" -->
-              <input type="text" class="form-control input-primary" id="emailOrPhone" name="username" ng-model="loginInput.emailOrPhone" autofocus autocomplete="username">
+                <!-- ng-model="loginInput.emailOrPhone" -->
+              <input type="text" class="form-control input-primary" id="emailOrPhone" name="username"
+                autofocus autocomplete="username"
+                ng-model="user.username"
+                ng-model-options="{ debounce: 1000 }"
+                ng-change="isUsernameMyHave()"
+                required
+              >
+              <div class="text-red text-left h6 mt-2" ng-show="formLogin.username.$dirty && formLogin.username.$invalid">
+                <span ng-show="formLogin.username.$error.required">กรุณากรอก อีเมลล์/เบอร์โทร</span>
+              </div>
+              <div class="text-red text-left h6 mt-2" ng-if="isLoginUsernameFaill">
+                <span>
+                  อีเมลหรือหมายเลขโทรศัพท์ที่คุณป้อนไม่ตรงกับบัญชีผู้ใช้ใดๆ ลงทะเบียนเพื่อสมัครใช้งาน
+                </span>
+              </div>
             </div>
           </div>
           <div class="form-group row mr-2">
             <label for="password" class="col-4 col-form-label text-right">รหัสผ่าน</label>
             <div class="col-8 text-right">
-              <input type="password" class="form-control input-primary" id="password" name="password" ng-model="loginInput.password" autocomplete="current-password">
+              <!-- ng-model="loginInput.password" -->
+              <input type="password" class="form-control input-primary" id="password" name="password"
+                required
+                autocomplete="current-password"
+                ng-model="user.password"
+                ng-change="isLoginPasswordFaill = false"
+              >
+              <div class="text-red text-left h6 mt-2" ng-show="formLogin.password.$dirty && formLogin.password.$invalid">กรุณากรอก Password</div>
+              <div class="text-red text-left h6 mt-2" ng-if="isLoginPasswordFaill && !formLogin.password.$invalid">รหัสผ่านที่คุณป้อนไม่ถุกต้อง</div>
             </div>
           </div>
           <div class="form-group row mr-2">
@@ -32,8 +59,15 @@
           </div>
           <br>
           <div class="form-group text-center">
-              <button type="button" class="btn btn-primary btn-lg mr-5" ng-click="loginFrom_register()">ลงทะเบียน</button>
-              <input class="btn btn-primary btn-lg active" type="submit" value="เข้าสู่ระบบ" />
+              <button type="button" class="btn btn-primary btn-lg mr-5" ng-click="loginFrom_register()">
+                ลงทะเบียน
+              </button>
+              <button type="button" class="btn btn-primary btn-lg active" ng-click="loginSubmit()"
+                ng-disabled="formLogin.username.$invalid || isLoginUsernameFaill ||
+                formLogin.password.$invalid
+                ">
+                เข้าสู่ระบบ
+              </button>
               <!-- <button type="button" class="btn btn-primary btn-lg ml-5">เข้าสู่ระบบ</button> -->
           </div>
           <!-- {{loginInput | json}} -->

@@ -1,5 +1,5 @@
 <!-- <?php //img silde show in home ?> -->
-<div ng-controller="homeController">
+<div ng-controller="homeController" ng-init="init()">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -42,12 +42,14 @@
     <div class="container">
       <div class="pt-5 pb-3">
           <div class="d-flex">
-            <div class="h2 medium text-green" ng-if="isUser">สวัสดี {{user.name}}</div>
-            <div class="h2 medium " ng-if="!isUser">Memberin</div>
+            <div class="h2 medium text-green" ng-if="isUserSession">
+              สวัสดี {{userSession.firstname + " " +  userSession.lastname}}
+            </div>
+            <div class="h2 medium " ng-if="!isUserSession">Memberin</div>
           </div>
           <div class="d-flex">
-              <div class="h4 light text-gray1" ng-if="isUser"> ยินดีต้อนรับเข้าสู่ memberin มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
-              <div class="h4 light text-gray1" ng-if="!isUser"> ยินดีต้อนรับ มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
+              <div class="h4 light text-gray1" ng-if="isUserSession"> ยินดีต้อนรับเข้าสู่ memberin มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
+              <div class="h4 light text-gray1" ng-if="!isUserSession"> ยินดีต้อนรับ มาช้อปปิ้งสินค้าโปรโมชัน และ รับสิทธิพิเศษกัน</div>
           </div>
       </div>
     </div>

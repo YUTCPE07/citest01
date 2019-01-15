@@ -78,21 +78,25 @@
 
           <li class="nav-item mx-0 mx-lg-1">
 
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer" data-toggle="modal" data-target="#login" ng-show="!isUser" >เข้าสู่ระบบ </a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer" data-toggle="modal" data-target="#login" ng-show="!isUserSession" >เข้าสู่ระบบ </a>
 
 
-            <!-- <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer"  ng-show="isUser" ng-click="logout()">ออกจากระบบ</a> -->
-            <div class="d-inline" ng-show="isUser">
+            <!-- <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger cursor-pointer"  ng-show="isUserSession" ng-click="logout()">ออกจากระบบ</a> -->
+            <div class="d-inline" ng-if="isUserSession">
                 <a href="<?php echo base_url(); ?>profile">
-                  <img style="width: 35px; height: 35px;" class="rounded-circle shadow bg-white rounded" ng-src="{{user.imgPath}}" >
+                  <img style="width: 35px; height: 35px;" class="rounded-circle shadow bg-white rounded" ng-src="upload/member_upload/{{userSession.member_image}}"
+                  ng-if="userSession.member_image !== undefined">
+                  <img style="width: 35px; height: 35px;" class="rounded-circle shadow bg-white rounded" ng-src="assets/images/login/user_image_undifind.png"
+                  ng-if="userSession.member_image == undefined">
                 </a>
             </div>
-            <li class="d-inline " uib-dropdown on-toggle="toggled(open)" ng-show="isUser" >
+
+            <li class="d-inline " uib-dropdown on-toggle="toggled(open)" ng-show="isUserSession" >
               <!-- <a class="navbar-brand" href="<?php echo base_url(); ?>">
                 <img src="assets/images/template/navbar/logo_mini.png" alt="">
               </a> -->
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger text-green" href id="dropdown-user" uib-dropdown-toggle>
-                {{user.name}}
+                {{userSession.firstname + " " +  userSession.lastname}}
               </a>
               <div class="dropdown-menu shadow" uib-dropdown-menu aria-labelledby="dropdown-user">
                   <a class="dropdown-item" href="<?php echo base_url(); ?>store/?tab=myRightPage">รายการสิทธิ์ของฉัน</a>

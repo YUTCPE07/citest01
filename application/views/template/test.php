@@ -24,7 +24,7 @@
       </div>
       <div class="form-group">
         <label for="Password">Password</label>
-        <input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Password" required>
+        <input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Password" required ng-change="isLoginPasswordFaill = false">
         <small ng-show="formLogin.password.$dirty && formLogin.password.$invalid"
           class="form-text text-red">กรุณากรอก Password
         </small>
@@ -46,8 +46,11 @@
         formLogin.password.$invalid
         ">Login</button>
     </form>
+    <!-- <button ng-click="testAction();">test action</button> -->
     <br>
-
+    <pre>
+    <!-- {{formLogin.password |json}} -->
+    </pre>
   </div>
 
   <div class="col-6 offset-3" ng-show="isUserSession">

@@ -1,6 +1,6 @@
 'use strict';
 app.controller('test_loginController', ['$scope', '$http','$cookies','indexService', function ($scope, $http,$cookies,indexService) {
-	console.log('test_loginController')
+	// console.log('test_loginController')
 
 	$scope.init = function() {
 		// $scope.testDis = true;
@@ -26,6 +26,10 @@ app.controller('test_loginController', ['$scope', '$http','$cookies','indexServi
 	  	// });
 
 	  	$scope.checkIsUserSession();
+	}
+
+	$scope.testAction = function() {
+		console.log("sadas")
 	}
 
 	$scope.logout = function() {
@@ -91,7 +95,7 @@ app.controller('test_loginController', ['$scope', '$http','$cookies','indexServi
 		indexService.getSearchresultPost(baseurl + "test/isMyUser",user)
 	    .then(function(respone){
 	        // $scope.productRecomment = respone.data;
-	        //console.log(respone) /*data real*/
+	        console.log(respone) /*data real*/
 	        if(respone.data.isUser){
 	        	// this is my user ture
 	        	// console.log(JSON.stringify(respone.data))

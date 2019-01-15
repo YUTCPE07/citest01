@@ -49,66 +49,190 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 
-app.controller('loginController', ['$scope', 'indexService' ,function($scope, indexService) {
+app.controller('loginController', ['$scope','$cookies', 'indexService','$location' ,
+  function($scope,$cookies, indexService,$location) {
   // console.log(sessionStorage,'sessionStorage')
-  var user = JSON.parse(sessionStorage.getItem("user"));
-  // console.log(user)
-  if(user===null){
-    isUserLogin(false)
-  }else{
-    isUserLogin(true)
+  $scope.init = function() {
+    $scope.user = {};
+    $scope.isLoginUsernameFaill = false;
+    $scope.isLoginPasswordFaill = false;
+    $scope.checkIsUserSession();
+  }
+
+  $scope.checkIsUserSession = function() {
+    const app_session = $cookies.get('app_session');
+    // console.log(app_session)
+    if(app_session != undefined){
+      $scope.isUserSession = true;
+      isUserLogin(true);
+      indexService.unlockData(app_session).then(function(respone){
+            // console.log(respone);
+            $scope.userSession = respone;
+        });
+    }else{
+      $scope.isUserSession = false;
+      isUserLogin(false);
+    }
+  }
+
+  // var user = JSON.parse(sessionStorage.getItem("user"));
+  // // console.log(user)
+  // if(user===null){
+  //   isUserLogin(false)
+  // }else{
+  //   isUserLogin(true)
+  // }
+
+  // FB.logout(function(response) {
+  //     $cookies.remove('app_session');
+  //         // location.reload();
+  // });
+
+  $scope.loginSubmit = function() {
+    // console.log($scope.user)
+    if ($scope.user.username == undefined || $scope.user.password == undefined) {
+      $scope.isLoginPasswordFaill = true;
+      return;
+    }
+
+    $scope.isMyUser($scope.user);
+  }
+
+  $scope.isMyUser = function(user) {
+    indexService.getSearchresultPost(baseurl + "Login/isMyUser",user)
+      .then(function(respone){
+          // $scope.productRecomment = respone.data;
+          console.log(respone) /*data real*/
+          if(respone.data.isUser){
+            indexService.lockData(respone.data).then(function(dataProtect){
+              $cookies.put('app_session',dataProtect);
+              $scope.isLoginPasswordFaill = false;
+              location.reload();
+              // window.location.href = baseurl + "test";
+            });
+          }else{
+            $scope.isLoginPasswordFaill = true;
+          }
+      }, function(error){
+          console.log("Some Error Occured", error);
+      });
+  }
+
+  $scope.isUsernameMyHave = function() { //action after keyup 1000s
+        // console.log($scope.user.username); 
+        let username = $scope.user.username;
+    indexService.getSearchresultPost(baseurl + "Login/isUsernameMyHave",username)
+      .then(function(respone){
+          // console.log(respone.data[0].value) /*data real*/
+          let isResponeTrue = respone.data[0].value;
+          if(isResponeTrue){
+            $scope.isLoginUsernameFaill = false;
+          }else{
+            $scope.isLoginUsernameFaill = true;
+          }
+      }, function(error){
+          console.log("Some Error Occured", error);
+      });
   }
 
 	$scope.loginFacebook = function(){
     FB.login(function(response) {
-      // console.log(response)
-      // console.log(response.authResponse.accessToken)
-      sessionStorage.user_token = response.authResponse.accessToken;
+      // console.log(response.authResponse)
       if (response.authResponse) {
-        FB.api('/me?fields=id,name,email,birthday', function(response) {
-          // $("#login").modal("hide");
-          response.imgPath = `https://graph.facebook.com/${response.id}/picture?type=square`;
-          response.loginBy = `facebook`;
-          console.log(response,'response')
-          isUserLogin(true);
-          sessionStorage.user = JSON.stringify(response);
-          location.reload();
+        var facebookId = response.authResponse.userID;
+        console.log(facebookId)
+        indexService.getSearchresultPost(baseurl + "Login/getUserByFacebookId",facebookId)
+        .then(function(respone){
+          var data = respone.data[0]; 
+          console.log(data)
+          if (data != undefined) {
+            data.loginBy = "facebook";
+            indexService.lockData(data).then(function(dataProtect){
+              $cookies.put('app_session',dataProtect);
+              location.reload();
+            });
+          }else{
+            let facebookGraphStr = '/me?fields=birthday,gender,first_name,id,last_name,name'; 
+            FB.api(facebookGraphStr, function(resNewUser) {
+              // console.log(resNewUser,'response')
+              addUserFormFacebook(resNewUser);
+            });
+          }
+          //   }else{
+          // $scope.isLoginPasswordFaill = true;
+          //   }
+        }, function(error){
+            console.log("Some Error Occured", error);
         });
+        // FB.api('/me?fields=id,name,email,birthday', function(response) {
+        //   // $("#login").modal("hide");
+        //   // response.imgPath = `https://graph.facebook.com/${response.id}/picture?type=square`;
+        //   // response.loginBy = `facebook`;
+        //   console.log(response,'response')
+        //   isUserLogin(true);
+        //   // location.reload();
+        // });
       } else {
-          isUserLogin(false);
-        // console.log('User cancelled login or did not fully authorize.');
-        sessionStorage.removeItem("user");
-        sessionStorage.removeItem("user_token");
+         console.log('$scope.loginFacebook else')//action when close _bank facebook login
       }
     });
-  }
 
-  $scope.loginInput = {};
-  $scope.loginSubmit = function(){
-    var input = $scope.loginInput;
-    console.log(input)
-    if (input.emailOrPhone == 'admin' && input.password=='admin') {
-      console.log('true')
-        isUserLogin(true);
-        sessionStorage.user = JSON.stringify({
-          "id":"0000048106700000",
-          "name":"admin","email":"admin@admin.com",
-          "birthday":"01/11/1994",
-          "imgPath":`${baseurl}assets/images/login/admin.jpg`,
-          "loginBy":`mainWebsite`
-        });
-        location.reload();
-    }else{
-      console.log('false')
-
+    function addUserFormFacebook(user) {
+      console.log(user)
+      indexService.getSearchresultPost(baseurl + "Login/insertUserFormFacebook",user)
+      .then(function(respone){
+          console.log(respone)
+      });
     }
+    // FB.login(function(response) {
+    //   // console.log(response)
+    //   // console.log(response.authResponse.accessToken)
+    //   sessionStorage.user_token = response.authResponse.accessToken;
+    //   if (response.authResponse) {
+    //     FB.api('/me?fields=id,name,email,birthday', function(response) {
+    //       // $("#login").modal("hide");
+    //       response.imgPath = `https://graph.facebook.com/${response.id}/picture?type=square`;
+    //       response.loginBy = `facebook`;
+    //       console.log(response,'response')
+    //       isUserLogin(true);
+    //       sessionStorage.user = JSON.stringify(response);
+    //       location.reload();
+    //     });
+    //   } else {
+    //       isUserLogin(false);
+    //     // console.log('User cancelled login or did not fully authorize.');
+    //     sessionStorage.removeItem("user");
+    //     sessionStorage.removeItem("user_token");
+    //   }
+    // });
   }
 
-  $scope.loginFrom_register = function () {
-    // console.log("loginFrom_register")
-    $('#login').modal('toggle');
-    $('#registerFrom').modal('toggle');
-  }
+  // $scope.loginInput = {};
+  // $scope.loginSubmit = function(){
+  //   var input = $scope.loginInput;
+  //   console.log(input)
+  //   if (input.emailOrPhone == 'admin' && input.password=='admin') {
+  //     console.log('true')
+  //       isUserLogin(true);
+  //       sessionStorage.user = JSON.stringify({
+  //         "id":"0000048106700000",
+  //         "name":"admin","email":"admin@admin.com",
+  //         "birthday":"01/11/1994",
+  //         "imgPath":`${baseurl}assets/images/login/admin.jpg`,
+  //         "loginBy":`mainWebsite`
+  //       });
+  //       location.reload();
+  //   }else{
+  //     console.log('false')
+
+  //   }
+  // }
+
+  // $scope.loginFrom_register = function () {
+  //   // console.log("loginFrom_register")
+  //   $('#login').modal('toggle');
+  //   $('#registerFrom').modal('toggle');
+  // }
 
   function isUserLogin(value) {
     // console.log(value,'value')
@@ -124,22 +248,22 @@ app.controller('loginController', ['$scope', 'indexService' ,function($scope, in
   }
 	
 
-  function checkLoginState() {
-    console.log('click fb login')
+  // function checkLoginState() {
+  //   console.log('click fb login')
 
 
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'connected') {
-        console.log('sucess');
-        // setElements(true);
-        // testAPI();
-      }else{
-        console.log('faill')
-        // setElements(false);
-      }
-    });
+  //   FB.getLoginStatus(function(response) {
+  //     if (response.status === 'connected') {
+  //       console.log('sucess');
+  //       // setElements(true);
+  //       // testAPI();
+  //     }else{
+  //       console.log('faill')
+  //       // setElements(false);
+  //     }
+  //   });
 
-  }
+  // }
 
 }]);
 

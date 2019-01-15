@@ -1,5 +1,6 @@
 'use strict';
-app.controller('navbarController',['$scope','$rootScope','$http','$location','$window','indexService', function ($scope,$rootScope,$http,$location,$window,indexService) {
+app.controller('navbarController',['$scope','$rootScope','$http','$location','$window','indexService','$cookies', 
+	function ($scope,$rootScope,$http,$location,$window,indexService,$cookies) {
 
 	$scope.isPageProduct = function () {
 		var url_string = window.location.href; 
@@ -108,18 +109,33 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
 	}    
 
 
-	var user = JSON.parse(sessionStorage.getItem("user"));
+	$scope.checkIsUserSession = function() {
+		const app_session = $cookies.get('app_session');
+		if(app_session != undefined){
+			$scope.isUserSession = true;
+			indexService.unlockData(app_session).then(function(respone){
+		  	    $scope.userSession = respone;
+		  	});
+		}else{
+			$scope.isUserSession = false;
+		}
+	}
+
+
+
+
+	// var user = JSON.parse(sessionStorage.getItem("user"));
 	$scope.init = function () {
 		
         $scope.isReady = false;
+        $scope.checkIsUserSession();
 
-
-      	if(user===null){
-		    $scope.isUser = false;
-		}else{
-		    $scope.isUser = true;
-		    $scope.user = user;
-		}
+  //     	if(user===null){
+		//     $scope.isUser = false;
+		// }else{
+		//     $scope.isUser = true;
+		//     $scope.user = user;
+		// }
 
 		indexService.getdata_Catrogy_barnd().then(function (data) {
 			// console.log(data)
@@ -138,8 +154,6 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
 
 	}
 
-
-
 	$scope.login = function () {
 		console.log('login')
 		$('#emailOrPhone').focus();
@@ -147,23 +161,29 @@ app.controller('navbarController',['$scope','$rootScope','$http','$location','$w
 
 	$scope.logout = function () {
 
-		console.log('logout',user)
-		if(user.loginBy==='facebook'){
-			FB.logout(function(response) {
-				sessionStorage.removeItem("user");
-    			sessionStorage.removeItem("user_token");
-    			location.reload();
-			});
-		}else{
-		    sessionStorage.removeItem("user");
-			sessionStorage.removeItem("user_token");
+		if($scope.userSession.facebook_id == ''){
+			$cookies.remove('app_session');
 			location.reload();
-		}
+		}else{
+			FB.logout(function(response) {
+				$cookies.remove('app_session');
+  			  	location.reload();
+			});
+		}		
+
+		// console.log('logout',user)
+		// if(user.loginBy==='facebook'){
+		// 	FB.logout(function(response) {
+		// 		sessionStorage.removeItem("user");
+  		//   			sessionStorage.removeItem("user_token");
+  		//   			location.reload();
+		// 	});
+		// }else{
+		//     sessionStorage.removeItem("user");
+		// 	sessionStorage.removeItem("user_token");
+		// 	location.reload();
+		// }
 	}
-
-	
-
-
 }]);
 
 app.directive('focusMe', ['$timeout', '$parse', function ($timeout, $parse) { /*autofocus focus-me="true" */
