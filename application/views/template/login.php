@@ -1,18 +1,20 @@
 <style type="text/css">
 
 </style>
-<div class="modal fade" id="login" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="loginController">
-<!-- <div class="pt-5 mt-5" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<div class="modal fade" id="login" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" ng-controller="loginController">
+<!-- <div class="pt-5 mt-5" id="login" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true"> -->
   <div class="modal-dialog" role="document" id="modal-login"
     ng-controller="loginController" ng-init="init();"
     >
 
     <div class="modal-content" ng-show="loginFrom">
       <div class="modal-header bg-green">
-        <div class="modal-title h4 medium text-white" id="exampleModalLabel">
+        <div class="modal-title h4 medium text-white" id="loginModalLabel">
           <i class="fas fa-user-alt pr-2"></i>เข้าสู่ระบบ
         </div>
-        <div class="close" data-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></i></div>
+        <div class="close" data-dismiss="modal" aria-label="Close">
+          <i class="far fa-times-circle"></i>
+        </div>
       </div>
       <div class="modal-body">
         <form class="px-4" name="formLogin" novalidate>
@@ -54,7 +56,9 @@
           </div>
           <div class="form-group row mr-2">
             <div class="col-12 text-right">
-              <a class="" href=""><u>ลืมรหัสผ่าน</u></a>
+              <div data-toggle="modal" data-target="#forgetPasswordModal"
+                class="text-green cursor-pointer"
+                ng-click="forgetPasswordModal()"><u>ลืมรหัสผ่าน</u></div>
             </div>
           </div>
           <br>

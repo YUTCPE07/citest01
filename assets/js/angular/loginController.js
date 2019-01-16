@@ -75,18 +75,9 @@ app.controller('loginController', ['$scope','$cookies', 'indexService','$locatio
     }
   }
 
-  // var user = JSON.parse(sessionStorage.getItem("user"));
-  // // console.log(user)
-  // if(user===null){
-  //   isUserLogin(false)
-  // }else{
-  //   isUserLogin(true)
-  // }
-
-  // FB.logout(function(response) {
-  //     $cookies.remove('app_session');
-  //         // location.reload();
-  // });
+  $scope.forgetPasswordModal = function() {
+    $("#login").modal("hide");
+  }
 
   $scope.loginSubmit = function() {
     // console.log($scope.user)
@@ -233,11 +224,11 @@ app.controller('loginController', ['$scope','$cookies', 'indexService','$locatio
   //   }
   // }
 
-  // $scope.loginFrom_register = function () {
-  //   // console.log("loginFrom_register")
-  //   $('#login').modal('toggle');
-  //   $('#registerFrom').modal('toggle');
-  // }
+  $scope.loginFrom_register = function () {
+    // console.log("loginFrom_register")
+    $('#login').modal('toggle');
+    $('#registerFrom').modal('toggle');
+  }
 
   function isUserLogin(value) {
     // console.log(value,'value')

@@ -21,6 +21,7 @@
 	<title>MemberIn</title>
 	<link rel="icon" href="<?php echo base_url() ?>favicon.ico" type="image/ico">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap/bootstrap.min.css'); ?>">
+
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css"> -->
 
 	<!-- template from bootstrap4(freelancer) -->
@@ -46,8 +47,8 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/reset.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/varible.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/custom-button.css'); ?>">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/app/custom_bootstrap.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/custom/custom-button.css'); ?>">
 
 	<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/css/custom/custom.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php //echo base_url('assets/css/custom/custom_media.css'); ?>"> -->
@@ -141,4 +142,5 @@
 
 	<?php $this->load->view('template/navbar')?>
 	<?php $this->load->view('template/login')?>
-	<?php $this->load->view('template/register')?>
+    <?php $this->load->view('template/register')?>
+	<?php $this->load->view('template/forgetPassword')?>
