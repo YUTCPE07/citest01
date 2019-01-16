@@ -25,21 +25,21 @@ class User_store extends CI_Controller {
 	}
 
 	public function getStoreMyRight() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		$user_id = json_decode($postdata);
 		$data = $this->Main_model->getStoreMyRight($user_id);
 		echo json_encode($data);
 	}
 
 	public function getStoreMyRightHistory() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		$user_id = json_decode($postdata);
 		$data = $this->Main_model->getStoreMyRightHistory($user_id);
 		echo json_encode($data);
 	}
 
 	public function getStoreMyRightExp() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		$user_id = json_decode($postdata);
 		$data = $this->Main_model->getStoreMyRightExp($user_id);
 		echo json_encode($data);

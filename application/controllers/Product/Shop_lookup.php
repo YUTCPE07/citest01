@@ -37,14 +37,14 @@ class Shop_lookup extends CI_Controller {
 	}
 
 	public function shop_lookup() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		$p_id = json_decode($postdata);
 		$data = $this->Main_model->shop_lookup($p_id);
 		echo json_encode($data);
 	}
 
 	public function getRecommentCouponOther() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		$b_id = json_decode($postdata);
 		$data = $this->Main_model->getRecommentCouponOther($b_id);
 		echo json_encode($data);

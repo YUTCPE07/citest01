@@ -20,7 +20,7 @@ class Login extends CI_Controller {
 	}
 
 	public function getUserByFacebookId() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		// $id = json_decode($postdata);
 		$id = $postdata;
 		$data = $this->Main_model->getUserByFacebookId($id);
@@ -28,17 +28,45 @@ class Login extends CI_Controller {
 	}
 
 	public function insertUserFormFacebook() {
-		$postdata = file_get_contents("php://input");
-		// $user = $postdata;
+		date_default_timezone_set("Asia/Bangkok");
+		$postdata = file_get_contents('php://input');
 		$user = json_decode($postdata);
-		// $id = $postdata;
-		$data = $this->Main_model->insertUserFormFacebook($user);
+		$fb_id = $user->{'id'};
+
+		//copy imageFacebook to myServer
+		$locationFileTarget = "http://graph.facebook.com/$fb_id/picture?type=large";
+		$serverUploadPath = "upload/member_upload/";
+		$imageNewName = "member_" . date("Ymd_His") . ".jpg";
+		$locationFilePathUpload = $serverUploadPath . $imageNewName;
+		if (!copy($locationFileTarget, $locationFilePathUpload)) {
+			//failed to copy file
+			$isInsertDB = false;
+		} else {
+			//copy success
+
+			//set formath
+			$dateTimeNow = date("Y-m-d H:i");
+			$user->{'email'} = $user->{'email'} ?? '';
+			$user->{'gender'} = $user->{'gender'} ?? 0; //check gender null = 0
+			($user->{'gender'} == 'male') ? $user->{'gender'} = 1 : $user->{'gender'} = 2;
+			$user->{'member_image'} = $imageNewName;
+			$user->{'date_create'} = $dateTimeNow;
+			$user->{'date_update'} = $dateTimeNow;
+			$user->{'date_login'} = $dateTimeNow;
+			$user->{'platform'} = 'website';
+			$isInsertDB = $this->Main_model->insertUserFormFacebook($user);
+		}
+		// echo $user;
+		// // $id = $postdata;
+		//
 		// echo json_encode($data, JSON_NUMERIC_CHECK);
-		echo $data;
+		echo $isInsertDB;
+		// echo $fileTarget;
+		// echo var_dump($data);
 	}
 
 	public function isMyUser() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		$user = json_decode($postdata);
 		$user->password = md5($user->password);
 		// echo $user->password;
@@ -61,7 +89,7 @@ class Login extends CI_Controller {
 	}
 
 	public function isUsernameMyHave() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		// $username = json_decode($postdata);
 		$username = $postdata; //becaus $postdata is string not obj
 		$data = $this->Main_model->isUsernameMyHave($username);

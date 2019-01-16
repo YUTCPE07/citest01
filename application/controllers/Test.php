@@ -18,7 +18,7 @@ class Test extends CI_Controller {
 	}
 
 	public function isMyUser() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		$user = json_decode($postdata);
 		$user->password = md5($user->password);
 		// echo $user->password;
@@ -41,7 +41,7 @@ class Test extends CI_Controller {
 	}
 
 	public function isUsernameMyHave() {
-		$postdata = file_get_contents("php://input");
+		$postdata = file_get_contents('php://input');
 		// $username = json_decode($postdata);
 		$username = $postdata; //becaus $postdata is string not obj
 		$data = $this->Main_model->isUsernameMyHave($username);

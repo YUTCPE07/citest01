@@ -102,7 +102,7 @@ app.controller('loginController', ['$scope','$cookies', 'indexService','$locatio
     indexService.getSearchresultPost(baseurl + "Login/isMyUser",user)
       .then(function(respone){
           // $scope.productRecomment = respone.data;
-          console.log(respone) /*data real*/
+          //console.log(respone) /*data real*/
           if(respone.data.isUser){
             indexService.lockData(respone.data).then(function(dataProtect){
               $cookies.put('app_session',dataProtect);
@@ -140,11 +140,11 @@ app.controller('loginController', ['$scope','$cookies', 'indexService','$locatio
       // console.log(response.authResponse)
       if (response.authResponse) {
         var facebookId = response.authResponse.userID;
-        console.log(facebookId)
+        //console.log(facebookId)
         indexService.getSearchresultPost(baseurl + "Login/getUserByFacebookId",facebookId)
         .then(function(respone){
           var data = respone.data[0]; 
-          console.log(data)
+          //console.log(data)
           if (data != undefined) {
             data.loginBy = "facebook";
             indexService.lockData(data).then(function(dataProtect){
@@ -152,7 +152,7 @@ app.controller('loginController', ['$scope','$cookies', 'indexService','$locatio
               location.reload();
             });
           }else{
-            let facebookGraphStr = '/me?fields=birthday,gender,first_name,id,last_name,name'; 
+            let facebookGraphStr = '/me?fields=birthday,gender,first_name,id,last_name,name,email'; 
             FB.api(facebookGraphStr, function(resNewUser) {
               // console.log(resNewUser,'response')
               addUserFormFacebook(resNewUser);
@@ -178,10 +178,15 @@ app.controller('loginController', ['$scope','$cookies', 'indexService','$locatio
     });
 
     function addUserFormFacebook(user) {
+      console.log('addUserFormFacebook')
       console.log(user)
       indexService.getSearchresultPost(baseurl + "Login/insertUserFormFacebook",user)
       .then(function(respone){
-          console.log(respone.data)
+          if(respone.data){
+            $scope.loginFacebook();
+          }else{
+            console.log('insertUserFormFacebook error');
+          }
       });
     }
     // FB.login(function(response) {

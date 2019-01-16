@@ -592,9 +592,6 @@ class Main_model extends CI_Model {
 	} /*end function getRecommentCouponOther*/
 
 	function insertUserFormFacebook($user) {
-		date_default_timezone_set("Asia/Bangkok");
-		$dateTimeNow = date("Y-m-d H:i");
-		$image = "member_" . date("Ymd_His") . ".jpg";
 		$sql = "INSERT INTO
 					mb_member
 					(
@@ -618,11 +615,11 @@ class Main_model extends CI_Model {
 					'fname',
 					'lname',
 					'15/11/1993',
-					'$image',
-					'$dateTimeNow',
-					'$dateTimeNow',
-					'$dateTimeNow',
-					'website'
+					'$user->member_image',
+					'$user->date_create',
+					'$user->date_update',
+					'$user->date_login',
+					'$user->platform'
 					)";
 		$q = $this->db->query($sql);
 		// $results = $q->result_array();
