@@ -45,16 +45,47 @@ class Login extends CI_Controller {
 			//copy success
 
 			//set formath
+			// ["birthday"]=>
+			// string(10) "06/15/1994"
+			// ["gender"]=>
+			// int(1)
+			// ["first_name"]=>
+			// string(3) "Yut"
+			// ["id"]=>
+			// string(16) "193303481063317"
+			// ["last_name"]=>
+			// string(8) "Teerapat"
+			// ["name"]=>
+			// string(12) "Teerapat Yut"
+			// ["email"]=>
+			// string(24) "taset@hotmail.com"
+			// ["member_image"]=>
+			// string(26) "member_203457_132846.jpg"
+			// ["date_create"]=>
+			// string(16) "2019-01-17 13:28"
+			// ["date_update"]=>
+			// string(16) "2019-01-17 13:28"
+			// ["date_login"]=>
+			// string(16) "2019-01-17 13:28"
+			// ["platform"]=>
+			// string(7) "website"
 			$dateTimeNow = date("Y-m-d H:i");
 			$user->{'email'} = $user->{'email'} ?? '';
+			$user->{'mobile'} = $user->{'mobile'} ?? '';
+			$user->{'password'} = '';
 			$user->{'gender'} = $user->{'gender'} ?? 0; //check gender null = 0
 			($user->{'gender'} == 'male') ? $user->{'gender'} = 1 : $user->{'gender'} = 2;
+			$user->{'facebook_id'} = $user->{'id'};
+			$user->{'facebook_name'} = $user->{'name'};
+			$user->{'firstname'} = $user->{'first_name'};
+			$user->{'lastname'} = $user->{'last_name'};
+			$user->{'date_birth'} = $user->{'birthday'};
 			$user->{'member_image'} = $imageNewName;
 			$user->{'date_create'} = $dateTimeNow;
 			$user->{'date_update'} = $dateTimeNow;
 			$user->{'date_login'} = $dateTimeNow;
 			$user->{'platform'} = 'website';
-			$isInsertDB = $this->Main_model->insertUserFormFacebook($user);
+			$isInsertDB = $this->Main_model->insertUserMember($user);
 		}
 		// echo $user;
 		// // $id = $postdata;
@@ -62,7 +93,37 @@ class Login extends CI_Controller {
 		// echo json_encode($data, JSON_NUMERIC_CHECK);
 		echo $isInsertDB;
 		// echo $fileTarget;
-		// echo var_dump($data);
+		// echo var_dump($user);
+	}
+
+	public function insertUserFormNormal() {
+		date_default_timezone_set("Asia/Bangkok");
+		$postdata = file_get_contents('php://input');
+		$user = json_decode($postdata);
+		$imageNewName = "user.png";
+		$dateTimeNow = date("Y-m-d H:i");
+		$user->{'facebook_id'} = '';
+		$user->{'facebook_name'} = '';
+		$user->{'password'} = md5($user->{'password'});
+		$user->{'date_birth'} = $user->{'birthday'};
+		$user->{'member_image'} = $imageNewName;
+		$user->{'date_create'} = $dateTimeNow;
+		$user->{'date_update'} = $dateTimeNow;
+		$user->{'date_login'} = $dateTimeNow;
+		$user->{'platform'} = 'website';
+		$isInsertDB = $this->Main_model->insertUserMember($user);
+		if ($isInsertDB) {
+			$newDataUser = new stdClass();
+			$newDataUser->username = $user->{'email'};
+			$newDataUser->password = $user->{'password'};
+			$data = $this->Main_model->isMyUser($newDataUser);
+			$data[0]['mesage'] = 'success';
+		} else {
+			$data = array();
+			$data[0]['mesage'] = 'error';
+		}
+		echo json_encode($data[0]);
+		// echo var_dump($data[0]);
 	}
 
 	public function isMyUser() {

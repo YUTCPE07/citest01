@@ -49,8 +49,8 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 
-app.controller('loginController', ['$scope','$cookies', 'indexService','$location' ,
-  function($scope,$cookies, indexService,$location) {
+app.controller('loginController', ['$scope','$cookies', 'indexService','$location','$filter' ,
+  function($scope,$cookies, indexService,$location,$filter) {
   // console.log(sessionStorage,'sessionStorage')
   $scope.init = function() {
     $scope.user = {};
@@ -169,11 +169,17 @@ app.controller('loginController', ['$scope','$cookies', 'indexService','$locatio
     });
 
     function addUserFormFacebook(user) {
-      console.log('addUserFormFacebook')
+      // console.log('addUserFormFacebook')
+      var birthday = user.birthday;
+      birthday = $filter('date')(new Date(birthday), "yyyy-MM-dd");
+      // console.log(birthday)
+      user.birthday = birthday;
       console.log(user)
       indexService.getSearchresultPost(baseurl + "Login/insertUserFormFacebook",user)
       .then(function(respone){
+          console.log(respone)
           if(respone.data){
+            console.log("sucess")
             $scope.loginFacebook();
           }else{
             console.log('insertUserFormFacebook error');

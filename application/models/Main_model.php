@@ -591,15 +591,18 @@ class Main_model extends CI_Model {
 		return $results;
 	} /*end function getRecommentCouponOther*/
 
-	function insertUserFormFacebook($user) {
+	function insertUserMember($user) {
+
 		$sql = "INSERT INTO
 					mb_member
 					(
 					mb_member.facebook_id,
 					mb_member.facebook_name,
 					mb_member.email,
+					mb_member.password,
 					mb_member.firstname,
 					mb_member.lastname,
+					mb_member.home_phone,
 					mb_member.date_birth,
 					mb_member.member_image,
 					mb_member.date_create,
@@ -609,12 +612,14 @@ class Main_model extends CI_Model {
 					)
 					VALUES
 					(
-					'$user->id',
-					'$user->name',
-					'email@email.com',
-					'fname',
-					'lname',
-					'15/11/1993',
+					'$user->facebook_id',
+					'$user->facebook_name',
+					'$user->email',
+					'$user->password',
+					'$user->firstname',
+					'$user->lastname',
+					'$user->mobile',
+					'$user->date_birth',
 					'$user->member_image',
 					'$user->date_create',
 					'$user->date_update',

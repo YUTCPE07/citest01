@@ -15,11 +15,11 @@
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">ชื่อ*</label>
               <div class="col-6 text-right">
-                <input type="text" class="form-control input-primary" ng-model="user.fname" autofocus
-                ng-required="true" autocomplete="cc-given-name" name="fname">
+                <input type="text" class="form-control input-primary" ng-model="user.firstname" autofocus
+                ng-required="true" autocomplete="cc-given-name" name="firstname">
                 <div class="text-left px-lg-4 mt-2 h6 text-red"
-                      ng-show="registration.fname.$dirty &&
-                                registration.fname.$error.required">
+                      ng-show="registration.firstname.$dirty &&
+                                registration.firstname.$error.required">
                                 กรุณากรอก ชื่อ
                 </div>
               </div>
@@ -27,11 +27,11 @@
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">สกุล*</label>
               <div class="col-6 text-right">
-                <input type="text" class="form-control input-primary" ng-model="user.lname"
-                ng-required="true" autocomplete="cc-family-name" name="lname">
+                <input type="text" class="form-control input-primary" ng-model="user.lastname"
+                ng-required="true" autocomplete="cc-family-name" name="lastname">
                 <div class="text-left px-lg-4 mt-2 h6 text-red"
-                      ng-show="registration.lname.$dirty &&
-                                registration.lname.$error.required">
+                      ng-show="registration.lastname.$dirty &&
+                                registration.lastname.$error.required">
                                 กรุณากรอก นามสกุล
                 </div>
               </div>
@@ -54,42 +54,47 @@
                       ng-show="(registration.email.$dirty && isInputEmailFaill) && !registration.email.$error.required">
                                 รูปแบบอีเมลไม่ถูกต้อง <br /> ตัวอย่าง: memberin@gmail.com
                 </div>
+                {{isEmailDuplicateFaill}}
+                <div class="text-left px-lg-4 mt-2 h6 text-red"
+                      ng-show="isEmailDuplicateFaill">
+                                อีเมล์นี้ถูกใช้งานไปเเล้ว <br /> กรุณาติดต่อเจ้าหน้าที่
+                </div>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">เบอร์โทร*</label>
               <div class="col-6 text-right">
-                <input type="number" class="form-control input-primary" name="phone"
-                ng-model="user.phone"
+                <input type="text" class="form-control input-primary" name="mobile"
+                ng-model="user.mobile"
                 ng-required="true"
-                ng-minlength="10"
-                ng-maxlength="10"
+                ng-change="checkInputphone();"
                 >
                 <div class="text-left px-lg-4 mt-2 h6 text-red"
-                      ng-show="registration.phone.$dirty &&
-                                registration.phone.$error.required">
+                      ng-show="registration.mobile.$dirty &&
+                                registration.mobile.$error.required">
                                 กรุณากรอก เบอร์โทร
                 </div>
                 <div class="text-left px-lg-4 mt-2 h6 text-red"
-                      ng-show="((registration.phone.$error.maxlength ||
-                                registration.phone.$error.maxlength  ) &&
-                                registration.phone.$dirty) ">
-                                กรอกเบอร์โทร 10 หลัก
-                 </div>
+                      ng-show="isInputPhoneFaill &&
+                                !registration.mobile.$invalid">
+                                กรอกเบอร์โทรด้วยตัวเลข 10 หลัก
+                </div>
               </div>
             </div>
+                  <!-- ng-model="user.birthday" -->
             <div class="form-group row">
               <label for="" class="col-2 offset-2 col-form-label text-right">วันเกิด*</label>
               <div class="col-6">
-                <input type="date" class="form-control input-primary" name="brithday"
-                  ng-model="user.birthday"
+                <input type="date" class="form-control input-primary" name="birthday"
                   ng-required="true"
-
+                  ng-model="user.birthday"
+                  id="inputRigisterUserBirthday"
+                  ng-change="checkInputBrithday()"
                 >
+
                 <div class="text-left px-lg-4 mt-2 h6 text-red"
-                      ng-show="(isInputBrithdayFaill &&
-                                !registration.phone.$dirty) ">
+                      ng-show="registration.birthday.$error && isInputBrithdayFaill">
                                 เลือกวันเกิด
                  </div>
               </div>
@@ -102,7 +107,7 @@
                   ng-click="
                     genderActive = !genderActive;
                     user.flag_gender = 1;
-                    checkInputBrithday(registration.brithday.$viewValue);
+                    checkInputBrithday();
                     "
                 >ชาย
                 </button>
@@ -111,7 +116,7 @@
                   ng-click="
                     genderActive = !genderActive;
                     user.flag_gender = 2;
-                    checkInputBrithday(registration.brithday.$viewValue);
+                    checkInputBrithday();
                     "
                 >หญิง
                 </button>
@@ -125,7 +130,7 @@
                   autocomplete="new-password"
                   ng-model="user.password"
                   ng-required="true"
-                  ng-click="checkInputBrithday(registration.brithday.$viewValue)"
+                  ng-click="checkInputBrithday()"
                   >
                   <div class="text-left px-lg-4 mt-2 h6 text-red"
                       ng-show="registration.password.$dirty &&
@@ -142,7 +147,7 @@
                   ng-model="user.passwordConfirm"
                   ng-required="true"
                   autocomplete="new-password"
-                  ng-click="checkInputBrithday(registration.brithday.$viewValue)"
+                  ng-click="checkInputBrithday()"
                   ng-model-options="{ debounce: 1000 }"
                   ng-change="checkPasswordConfirm();"
                   >
@@ -166,6 +171,7 @@
                   <!-- <p>{{user | json }}</p> -->
               </div>
             </div>
+
             <div class="form-group text-center">
               <div class="col-6 offset-4">
                   <img class="mr-auto ml-auto form-row img_login_facebook cursor-pointer" src=" <?php echo base_url('assets\images\login\login_facebook.png') ?>" ng-click="loginFacebook();" style="width: unset;">
