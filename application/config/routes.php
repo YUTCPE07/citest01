@@ -22,6 +22,7 @@ $route['brand/:num'] = 'Brand_lookup';
 $route['blog'] = 'Blog';
 
 // test
+$route['admin'] = 'admin';
 $route['test'] = 'Test';
 $route['db'] = 'Echo_db';
 

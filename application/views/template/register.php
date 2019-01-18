@@ -1,6 +1,6 @@
 
-<!-- <div class="modal fade" id="registerFrom" role="dialog" aria-labelledby="registerFromLabel" aria-hidden="true" ng-controller="registerController" ng-init="init();"> -->
-<div class="" id="registerFrom" role="dialog" aria-labelledby="registerFromLabel" aria-hidden="true" ng-controller="registerController" ng-init="init();">
+<div class="modal fade" id="registerFrom" role="dialog" aria-labelledby="registerFromLabel" aria-hidden="true" ng-controller="registerController" ng-init="init();">
+<!-- <div class="" id="registerFrom" role="dialog" aria-labelledby="registerFromLabel" aria-hidden="true" ng-controller="registerController" ng-init="init();"> -->
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header bg-green">
@@ -54,7 +54,7 @@
                       ng-show="(registration.email.$dirty && isInputEmailFaill) && !registration.email.$error.required">
                                 รูปแบบอีเมลไม่ถูกต้อง <br /> ตัวอย่าง: memberin@gmail.com
                 </div>
-                {{isEmailDuplicateFaill}}
+                <!-- {{isEmailDuplicateFaill}} -->
                 <div class="text-left px-lg-4 mt-2 h6 text-red"
                       ng-show="isEmailDuplicateFaill">
                                 อีเมล์นี้ถูกใช้งานไปเเล้ว <br /> กรุณาติดต่อเจ้าหน้าที่

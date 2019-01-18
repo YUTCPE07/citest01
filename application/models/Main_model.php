@@ -602,7 +602,7 @@ class Main_model extends CI_Model {
 					mb_member.password,
 					mb_member.firstname,
 					mb_member.lastname,
-					mb_member.home_phone,
+					mb_member.mobile,
 					mb_member.date_birth,
 					mb_member.member_image,
 					mb_member.date_create,

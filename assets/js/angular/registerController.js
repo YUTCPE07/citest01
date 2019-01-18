@@ -8,34 +8,55 @@ function($scope, indexService,$filter,$cookies,$location) {
 		$scope.genderActive = true; //men defalue active
 	}
 
+	var isUsernameMyHave = function(callback) { //copy code form loginControler
+        let username = $scope.user.email;
+	    indexService.getSearchresultPost(baseurl + "Login/isUsernameMyHave",username)
+	      .then(function(respone){
+	          	// console.log(respone.data[0].value) /*data real*/
+		        let isResponeTrue = respone.data[0].value;
+		        if(isResponeTrue > 0){
+		        	$scope.isEmailDuplicateFaill = true;
+		          	callback();
+		        }else{
+		        	$scope.isEmailDuplicateFaill = false;
+		          	callback();
+		        }
+	      }, function(error){
+	          // console.log("Some Error Occured", error);
+	      });
+	}
+
   	$scope.registerSubmit = function () {
   		$scope.checkInputphone();
   		$scope.checkPasswordConfirm();
-    	var user = $scope.user;
-    	// user.mobile = user.phone;
-    	// delete user.phone;
-    	console.log(user)
-    	// console.log($scope.user.birthday)
-    	if ($scope.isInputPhoneFaill == false && 
-    		$scope.isInputBrithdayFaill == false && 
-    		$scope.isUsernameMyHave() && 
-    		$scope.isPasswordConfirmFaill == false ){
-    		console.log("ok")
-			// indexService.getSearchresultPost(baseurl + "Login/insertUserFormNormal",user)
-	  		//     	.then(function(respone){
-		 //        // console.log(respone.data)
-		 //        if(respone.data.mesage === 'success'){
-		 //        	respone.data.loginBy = 'normal';
-		 //            indexService.lockData(respone.data).then(function(dataProtect){
-		 //              	$cookies.put('app_session',dataProtect);
-		 //              	location.reload();
-		 //              	// window.location.href = baseurl + "product";
-		 //            });
-		 //        }else{
-		 //            // console.log('$scope.registerSubmit error');
-		 //        }
-	 	 //     	});
-    	}
+  		isUsernameMyHave(function() {
+  			var user = $scope.user;
+	    	// user.mobile = user.phone;
+	    	// delete user.phone;
+	    	// console.log($scope.user.birthday)
+	    	if ($scope.isInputPhoneFaill === false && 
+	    		$scope.isInputBrithdayFaill === false && 
+	    		$scope.isEmailDuplicateFaill === false && 
+	    		$scope.isPasswordConfirmFaill === false )
+	    	{
+	    		// console.log("user data format cuurent")
+				indexService.getSearchresultPost(baseurl + "Login/insertUserFormNormal",user)
+  		    	.then(function(respone){
+			        // console.log(respone.data)
+			        if(respone.data.mesage === 'success'){
+			        	respone.data.loginBy = 'normal';
+			            indexService.lockData(respone.data).then(function(dataProtect){
+			              	$cookies.put('app_session',dataProtect);
+			              	location.reload();
+			              	// window.location.href = baseurl + "product";
+			            });
+			        }else{
+			            // console.log('$scope.registerSubmit error');
+			        }
+	 	     	});
+	    	}
+  		});
+    	
   	}
 
   	$scope.checkInputphone = function() {
@@ -73,25 +94,7 @@ function($scope, indexService,$filter,$cookies,$location) {
   		}	
   	}
 
-  	$scope.isUsernameMyHave = function() { //copy code form loginControler
-        let username = $scope.user.email;
-	    indexService.getSearchresultPost(baseurl + "Login/isUsernameMyHave",username)
-	      .then(function(respone){
-	          	// console.log(respone.data[0].value) /*data real*/
-		        let isResponeTrue = respone.data[0].value;
-		        // console.log(isResponeTrue)
-		        if(isResponeTrue > 0){
-		        	$scope.isEmailDuplicateFaill = true;
-		          	return true;
-		        }else{
-		        	$scope.isEmailDuplicateFaill = false;
-		          	return false;
-		        }
-	      }, function(error){
-	          // console.log("Some Error Occured", error);
-	      });
-  		
-	}
+  	
 
   	$scope.checkEmail = function() {
   		let email = ($scope.user.email).toLowerCase();
